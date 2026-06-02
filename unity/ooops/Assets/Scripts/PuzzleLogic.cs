@@ -76,14 +76,23 @@ public class PuzzleLogic : MonoBehaviour, IPointerClickHandler
 
         for (int i = 0; i < puzzlePieces.Length; i++)
         {
-            if (snappedPieces[i])
+            Transform piece = puzzlePieces[i];
+            if (piece == null)
             {
                 continue;
             }
 
-            Transform piece = puzzlePieces[i];
-            if (piece == null)
+            Draggable draggable = piece.GetComponentInChildren<Draggable>(true);
+            if (draggable == null || !draggable.enabled)
             {
+                snappedPieces[i] = true;
+                pieceVelocities[i] = Vector3.zero;
+                continue;
+            }
+
+            if (snappedPieces[i])
+            {
+                pieceVelocities[i] = Vector3.zero;
                 continue;
             }
 
@@ -255,6 +264,15 @@ public class PuzzleLogic : MonoBehaviour, IPointerClickHandler
         }
     }
 
+    public void RegisterPieceSnap(Transform snappedPiece)
+    {
+        int pieceIndex = GetPieceIndex(snappedPiece);
+        if (pieceIndex >= 0)
+        {
+            RegisterPieceSnap(pieceIndex);
+        }
+    }
+
     public void RegisterPieceSnap(int pieceIndex)
     {
         if (pieceIndex < 0 || pieceIndex >= puzzlePieces.Length || snappedPieces[pieceIndex])
@@ -272,6 +290,11 @@ public class PuzzleLogic : MonoBehaviour, IPointerClickHandler
         }
 
         pieceVelocities[pieceIndex] = Vector3.zero;
+
+        if (piece != null)
+        {
+            FreezeShard(piece);
+        }
 
         OnPieceSnapped?.Invoke();
 
@@ -323,6 +346,38 @@ public class PuzzleLogic : MonoBehaviour, IPointerClickHandler
         return originalLocalRotations[pieceIndex];
     }
 
+    private int GetPieceIndex(Transform piece)
+    {
+        if (piece == null)
+        {
+            return -1;
+        }
+
+        Transform current = piece;
+        while (current != null)
+        {
+            for (int i = 0; i < puzzlePieces.Length; i++)
+            {
+                if (puzzlePieces[i] == current)
+                {
+                    return i;
+                }
+            }
+
+            current = current.parent;
+        }
+
+        for (int i = 0; i < puzzlePieces.Length; i++)
+        {
+            if (puzzlePieces[i] == piece)
+            {
+                return i;
+            }
+        }
+
+        return -1;
+    }
+
     private void ApplyBodyMaterial()
     {
         if (puzzleBodyMaterial == null || bodyRenderers.Length == 0)
@@ -351,6 +406,38 @@ public class PuzzleLogic : MonoBehaviour, IPointerClickHandler
             if (bodyRenderers[i] != null && originalBodyMaterials[i] != null)
             {
                 bodyRenderers[i].material = originalBodyMaterials[i];
+            }
+        }
+    }
+
+    private void FreezeShard(Transform shardRoot)
+    {
+        Draggable[] draggables = shardRoot.GetComponentsInChildren<Draggable>(true);
+        for (int i = 0; i < draggables.Length; i++)
+        {
+            if (draggables[i] != null)
+            {
+                draggables[i].enabled = false;
+            }
+        }
+
+        Collider[] colliders = shardRoot.GetComponentsInChildren<Collider>(true);
+        for (int i = 0; i < colliders.Length; i++)
+        {
+            if (colliders[i] != null)
+            {
+                colliders[i].enabled = false;
+            }
+        }
+
+        Rigidbody[] rigidbodies = shardRoot.GetComponentsInChildren<Rigidbody>(true);
+        for (int i = 0; i < rigidbodies.Length; i++)
+        {
+            if (rigidbodies[i] != null)
+            {
+                rigidbodies[i].linearVelocity = Vector3.zero;
+                rigidbodies[i].angularVelocity = Vector3.zero;
+                rigidbodies[i].isKinematic = true;
             }
         }
     }
