@@ -1,73 +1,58 @@
+using System; // <-- Add this for Action
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class Draggable : MonoBehaviour, IDragHandler
 {
-    // take a camera in parameter
     public Camera cam;
-    [Tooltip("Distance from the original position at which the shard snaps into place.")]
     public float snapDistance = 0.2f;
-    [Tooltip("Optional reference to the puzzle logic script used to notify snap progress.")]
-    public PuzzleLogic puzzleLogic;
+    
+    // REMOVED: public PuzzleLogic puzzleLogic;
+    
+    // ADDED: An event that broadcasts when this specific piece snaps
+    public event Action<Transform> OnPieceSnapped;
 
-    private Vector3 originalWorldPosition;
+    private Vector3 originalLocalPosition;
     private bool isSnapped;
 
     private void Start()
     {
-        originalWorldPosition = transform.position;
-
-        if (puzzleLogic == null)
-        {
-            puzzleLogic = GetComponentInParent<PuzzleLogic>();
-        }
+        originalLocalPosition = transform.localPosition;
+        if (cam == null) cam = Camera.main;
     }
 
-    // on drag, move the object to the position of the mouse
     public void OnDrag(PointerEventData eventData)
     {
-        if (isSnapped)
+        if (isSnapped || cam == null) return;
+
+        Vector3 targetWorldPosition = transform.parent.TransformPoint(originalLocalPosition);
+
+        if (Vector3.Distance(transform.position, targetWorldPosition) <= snapDistance)
         {
+            SnapToOriginalPosition(targetWorldPosition);
             return;
         }
 
-        var cam = this.cam;
-        if (cam == null) return;
+        Vector3 screenPos = new Vector3(eventData.position.x, eventData.position.y, cam.WorldToScreenPoint(transform.position).z);
+        transform.position = cam.ScreenToWorldPoint(screenPos);
 
-        if (Vector3.Distance(transform.position, originalWorldPosition) <= snapDistance)
+        if (Vector3.Distance(transform.position, targetWorldPosition) <= snapDistance)
         {
-            SnapToOriginalPosition();
-            return;
-        }
-
-        // move object to mouse position while preserving its screen-space Z
-        transform.position = cam.ScreenToWorldPoint(new Vector3(eventData.position.x, eventData.position.y,
-            cam.WorldToScreenPoint(transform.position).z));
-
-        if (Vector3.Distance(transform.position, originalWorldPosition) <= snapDistance)
-        {
-            SnapToOriginalPosition();
+            SnapToOriginalPosition(targetWorldPosition);
         }
     }
 
-    private void SnapToOriginalPosition()
+    private void SnapToOriginalPosition(Vector3 targetWorldPos)
     {
         isSnapped = true;
-        transform.position = originalWorldPosition;
+        transform.position = targetWorldPos;
 
-        Collider collider = GetComponent<Collider>();
-        if (collider != null)
-        {
-            collider.enabled = false;
-        }
+        Collider col = GetComponent<Collider>();
+        if (col != null) col.enabled = false;
 
-        if (puzzleLogic != null)
-        {
-            puzzleLogic.RegisterPieceSnap(transform);
-        }
+        // ADDED: Shout into the void that we snapped!
+        OnPieceSnapped?.Invoke(transform);
 
         enabled = false;
     }
-
-
 }

@@ -1,6 +1,6 @@
 using System.Collections.Generic;
+using System;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
 public class PuzzleLogic : MonoBehaviour, IPointerClickHandler
@@ -21,11 +21,8 @@ public class PuzzleLogic : MonoBehaviour, IPointerClickHandler
     [Tooltip("Viewport padding used when bouncing shards off the camera borders.")]
     [Range(0.01f, 0.25f)]
     public float borderPadding = 0.08f;
-    [Tooltip("Stage manager that updates the room when a shard is restored.")]
-    public StageManager stageManager;
-
-    public UnityEvent OnPieceSnapped;
-    public UnityEvent OnObjectRestored;
+    public event Action<Transform, int, int> PieceSnapped;
+    public event Action ObjectRestored;
 
     private Camera mainCamera;
     private Renderer[] bodyRenderers = new Renderer[0];
@@ -165,9 +162,27 @@ public class PuzzleLogic : MonoBehaviour, IPointerClickHandler
         }
 
         List<Transform> pieceList = new List<Transform>();
-        foreach (Transform child in puzzlePiecesRoot)
+
+        Draggable[] draggables = puzzlePiecesRoot.GetComponentsInChildren<Draggable>(true);
+        foreach (Draggable draggable in draggables)
         {
-            pieceList.Add(child);
+            if (draggable != null)
+            {
+                // Subscribe to the event! 
+                // (We unsubscribe first just in case this method gets called twice, preventing double-firing)
+                draggable.OnPieceSnapped -= RegisterPieceSnap;
+                draggable.OnPieceSnapped += RegisterPieceSnap;
+                
+                pieceList.Add(draggable.transform);
+            }
+        }
+
+        if (pieceList.Count == 0)
+        {
+            foreach (Transform child in puzzlePiecesRoot)
+            {
+                pieceList.Add(child);
+            }
         }
 
         puzzlePieces = pieceList.ToArray();
@@ -225,13 +240,13 @@ public class PuzzleLogic : MonoBehaviour, IPointerClickHandler
             Vector3 cameraRight = mainCamera != null ? mainCamera.transform.right : Vector3.right;
             Vector3 cameraUp = mainCamera != null ? mainCamera.transform.up : Vector3.up;
 
-            Vector3 direction = (cameraRight * Random.Range(-1f, 1f)) + (cameraUp * Random.Range(0.35f, 1f));
+            Vector3 direction = (cameraRight * UnityEngine.Random.Range(-1f, 1f)) + (cameraUp * UnityEngine.Random.Range(0.35f, 1f));
             if (direction.sqrMagnitude < 0.0001f)
             {
                 direction = cameraRight;
             }
 
-            Vector3 drift = (cameraRight * Random.Range(-0.2f, 0.2f)) + (cameraUp * Random.Range(-0.2f, 0.2f));
+            Vector3 drift = (cameraRight * UnityEngine.Random.Range(-0.2f, 0.2f)) + (cameraUp * UnityEngine.Random.Range(-0.2f, 0.2f));
 
             pieceVelocities[i] = (direction + drift).normalized * explosionForce;
         }
@@ -305,18 +320,15 @@ public class PuzzleLogic : MonoBehaviour, IPointerClickHandler
             FreezeShard(piece);
         }
 
-        OnPieceSnapped?.Invoke();
+        int snappedCount = GetSnappedPieceCount();
+        int totalPieceCount = puzzlePieces.Length;
+        PieceSnapped?.Invoke(piece, snappedCount, totalPieceCount);
 
-        if (stageManager != null)
-        {
-            stageManager.AdvanceStoryStep(GetSnappedPieceCount() - 1);
-        }
-
-        if (GetSnappedPieceCount() == puzzlePieces.Length)
+        if (snappedCount == puzzlePieces.Length)
         {
             puzzleChaosActive = false;
             RestoreBodyMaterial();
-            OnObjectRestored?.Invoke();
+            ObjectRestored?.Invoke();
         }
     }
 
@@ -355,7 +367,7 @@ public class PuzzleLogic : MonoBehaviour, IPointerClickHandler
         return originalLocalRotations[pieceIndex];
     }
 
-    private int GetPieceIndex(Transform piece)
+    public int GetPieceIndex(Transform piece)
     {
         if (piece == null)
         {
