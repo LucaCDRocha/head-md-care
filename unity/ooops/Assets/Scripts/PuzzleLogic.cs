@@ -16,6 +16,8 @@ public class PuzzleLogic : MonoBehaviour, IPointerClickHandler
     public float floatingSpeed = 0.45f;
     [Tooltip("How quickly the shards spread away from the center when the puzzle starts.")]
     public float explosionForce = 1.5f;
+    [Tooltip("How long the initial explosion speed lasts before the shards settle into floating speed.")]
+    public float explosionDuration = 0.8f;
     [Tooltip("Viewport padding used when bouncing shards off the camera borders.")]
     [Range(0.01f, 0.25f)]
     public float borderPadding = 0.08f;
@@ -35,6 +37,7 @@ public class PuzzleLogic : MonoBehaviour, IPointerClickHandler
     private float[] pieceDepths = new float[0];
     private bool[] snappedPieces = new bool[0];
     private bool puzzleChaosActive;
+    private float puzzleChaosStartTime;
 
     private void Start()
     {
@@ -73,6 +76,7 @@ public class PuzzleLogic : MonoBehaviour, IPointerClickHandler
         }
 
         float deltaTime = Time.deltaTime;
+        float currentSpeed = Time.time - puzzleChaosStartTime < explosionDuration ? explosionForce : floatingSpeed;
 
         for (int i = 0; i < puzzlePieces.Length; i++)
         {
@@ -94,6 +98,11 @@ public class PuzzleLogic : MonoBehaviour, IPointerClickHandler
             {
                 pieceVelocities[i] = Vector3.zero;
                 continue;
+            }
+
+            if (pieceVelocities[i].sqrMagnitude > 0.00001f)
+            {
+                pieceVelocities[i] = pieceVelocities[i].normalized * currentSpeed;
             }
 
             piece.position += pieceVelocities[i] * deltaTime;
@@ -131,7 +140,7 @@ public class PuzzleLogic : MonoBehaviour, IPointerClickHandler
                 bounced = true;
             }
 
-            pieceVelocities[i] = cameraRight * velocityRight + cameraUp * velocityUp;
+            pieceVelocities[i] = (cameraRight * velocityRight + cameraUp * velocityUp).normalized * currentSpeed;
 
             if (bounced)
             {
@@ -224,10 +233,10 @@ public class PuzzleLogic : MonoBehaviour, IPointerClickHandler
 
             Vector3 drift = (cameraRight * Random.Range(-0.2f, 0.2f)) + (cameraUp * Random.Range(-0.2f, 0.2f));
 
-            pieceVelocities[i] = (direction + drift).normalized * floatingSpeed;
-            pieceVelocities[i] += direction.normalized * explosionForce;
+            pieceVelocities[i] = (direction + drift).normalized * explosionForce;
         }
 
+        puzzleChaosStartTime = Time.time;
         puzzleChaosActive = true;
     }
 
