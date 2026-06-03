@@ -144,64 +144,72 @@ public partial class PuzzleLogic : MonoBehaviour, IPointerClickHandler
     }
 
     [ContextMenu("Start Puzzle Chaos")]
-    [ContextMenu("Start Puzzle Chaos")]
     public void StartPuzzleChaos()
     {
         // Refresh the main camera reference right now to make sure it's current
         mainCamera = Camera.main;
 
-        if (puzzlePieces.Length == 0) CachePuzzlePieces();
-        if (bodyRenderers.Length == 0) CacheBodyRenderers();
+        if (puzzlePieces.Length == 0) CachePuzzlePieces(); //
+        if (bodyRenderers.Length == 0) CacheBodyRenderers(); //
 
-        // FIX: Build the stationary reference frame NOW, when the gameplay camera is perfectly in place!
+        // Build the stationary reference frame NOW, when the gameplay camera is perfectly in place!
         if (mainCamera != null)
         {
-            GameObject dummyObj = new GameObject("PuzzleBoundaryAnchor_Internal");
-            dummyObj.transform.position = mainCamera.transform.position;
-            dummyObj.transform.rotation = mainCamera.transform.rotation;
+            GameObject dummyObj = new GameObject("PuzzleBoundaryAnchor_Internal"); //
+            dummyObj.transform.position = mainCamera.transform.position; //
+            dummyObj.transform.rotation = mainCamera.transform.rotation; //
 
-            boundaryCamera = dummyObj.AddComponent<Camera>();
-            boundaryCamera.CopyFrom(mainCamera);
+            boundaryCamera = dummyObj.AddComponent<Camera>(); //
+            boundaryCamera.CopyFrom(mainCamera); //
             boundaryCamera.enabled = false; // Zero rendering overhead
 
-            // CRITICAL FIX: Recalculate accurate piece depths based on the true gameplay camera perspective
+            // Recalculate accurate piece depths based on the true gameplay camera perspective
             for (int i = 0; i < puzzlePieces.Length; i++)
             {
                 if (puzzlePieces[i] != null)
                 {
-                    pieceDepths[i] = boundaryCamera.WorldToViewportPoint(puzzlePieces[i].position).z;
+                    pieceDepths[i] = boundaryCamera.WorldToViewportPoint(puzzlePieces[i].position).z; //
                 }
             }
         }
 
-        ApplyBodyMaterial();
+        ApplyBodyMaterial(); //
 
-        if (puzzlePieces.Length == 0) return;
+        if (puzzlePieces.Length == 0) return; //
 
         // Turn off main box collider so clicks hit the floating fragments inside cleanly
-        ToggleBodyColliders(false);
+        ToggleBodyColliders(false); //
+
+        Vector3 cameraRight = boundaryCamera != null ? boundaryCamera.transform.right : Vector3.right;
+        Vector3 cameraUp = boundaryCamera != null ? boundaryCamera.transform.up : Vector3.up;
 
         for (int i = 0; i < puzzlePieces.Length; i++)
         {
             Transform piece = puzzlePieces[i];
-            if (piece == null) continue;
+            if (piece == null) continue; //
 
             // Make piece visible on user interaction
-            piece.gameObject.SetActive(true);
+            piece.gameObject.SetActive(true); //
 
-            Vector3 cameraRight = mainCamera != null ? mainCamera.transform.right : Vector3.right;
-            Vector3 cameraUp = mainCamera != null ? mainCamera.transform.up : Vector3.up;
+            // 1. PURE CHAOS DIRECTION: Pick completely independent random values per piece
+            // Horizontal allows full left-to-right spread (-1.2 to 1.2)
+            float randomX = UnityEngine.Random.Range(-1.2f, 1.2f);
 
-            Vector3 direction = (cameraRight * UnityEngine.Random.Range(-1f, 1f)) + (cameraUp * UnityEngine.Random.Range(0.35f, 1f));
-            if (direction.sqrMagnitude < 0.0001f) direction = cameraRight;
+            // Vertical is strictly clamped to a positive range (0.4 to 1.2) so it CANNOT explode down/under
+            float randomY = UnityEngine.Random.Range(0.4f, 1.2f);
 
-            Vector3 drift = (cameraRight * UnityEngine.Random.Range(-0.2f, 0.2f)) + (cameraUp * UnityEngine.Random.Range(-0.2f, 0.2f));
+            // Combine the random fields into our camera-relative vectors
+            Vector3 direction = (cameraRight * randomX) + (cameraUp * randomY);
 
-            pieceVelocities[i] = (direction + drift).normalized * explosionForce;
+            // 2. EXTRA CHAOTIC DRIFT: Give it an additional subtle layer of noise
+            Vector3 drift = (cameraRight * UnityEngine.Random.Range(-0.15f, 0.15f)) + (cameraUp * UnityEngine.Random.Range(-0.15f, 0.15f));
+
+            // Normalize and scale by your global inspector force slider
+            pieceVelocities[i] = (direction + drift).normalized * explosionForce; //
         }
 
-        puzzleChaosStartTime = Time.time;
-        puzzleChaosActive = true;
+        puzzleChaosStartTime = Time.time; //
+        puzzleChaosActive = true; //
     }
 
     [ContextMenu("Pause Puzzle")]
