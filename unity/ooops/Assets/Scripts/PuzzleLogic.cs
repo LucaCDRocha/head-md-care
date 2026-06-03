@@ -43,17 +43,33 @@ public partial class PuzzleLogic : MonoBehaviour, IPointerClickHandler
     private Vector3[] pieceVelocities = new Vector3[0];
     private float[] pieceDepths = new float[0];
     private bool[] snappedPieces = new bool[0];
-    
+
     private bool puzzleChaosActive;
     private float puzzleChaosStartTime;
-    private bool hasExploded = false; 
+    private bool hasExploded = false;
     private Coroutine parkCoroutine;
+
+    private Camera boundaryCamera; // Hidden reference to lock physics coordinates
+
 
     private void Start()
     {
         mainCamera = Camera.main;
+
+        // Create a stationary invisible mathematical reference frame
+        if (mainCamera != null)
+        {
+            GameObject dummyObj = new GameObject("PuzzleBoundaryAnchor_Internal");
+            dummyObj.transform.position = mainCamera.transform.position;
+            dummyObj.transform.rotation = mainCamera.transform.rotation;
+
+            boundaryCamera = dummyObj.AddComponent<Camera>();
+            boundaryCamera.CopyFrom(mainCamera); // <-- Fixed line here!
+            boundaryCamera.enabled = false; // Completely disables rendering overhead
+        }
+
         CacheBodyRenderers();
-        CachePuzzlePieces(); // Will cache and automatically hide pieces at the start
+        CachePuzzlePieces();
     }
 
     public void OnPointerClick(PointerEventData eventData)
@@ -68,7 +84,7 @@ public partial class PuzzleLogic : MonoBehaviour, IPointerClickHandler
 
     private void Update()
     {
-        if (!puzzleChaosActive || mainCamera == null || puzzlePieces.Length == 0)
+        if (!puzzleChaosActive || boundaryCamera == null || puzzlePieces.Length == 0)
         {
             return;
         }
@@ -96,9 +112,10 @@ public partial class PuzzleLogic : MonoBehaviour, IPointerClickHandler
 
             piece.position += pieceVelocities[i] * deltaTime;
 
-            Vector3 viewportPoint = mainCamera.WorldToViewportPoint(piece.position);
-            Vector3 cameraRight = mainCamera.transform.right;
-            Vector3 cameraUp = mainCamera.transform.up;
+            // Use BOUNDARY CAMERA math here so bounds never shift with user zoom targets
+            Vector3 viewportPoint = boundaryCamera.WorldToViewportPoint(piece.position);
+            Vector3 cameraRight = boundaryCamera.transform.right;
+            Vector3 cameraUp = boundaryCamera.transform.up;
             float velocityRight = Vector3.Dot(pieceVelocities[i], cameraRight);
             float velocityUp = Vector3.Dot(pieceVelocities[i], cameraUp);
             bool bounced = false;
@@ -134,7 +151,7 @@ public partial class PuzzleLogic : MonoBehaviour, IPointerClickHandler
             if (bounced)
             {
                 viewportPoint.z = pieceDepths[i];
-                piece.position = mainCamera.ViewportToWorldPoint(viewportPoint);
+                piece.position = boundaryCamera.ViewportToWorldPoint(viewportPoint);
             }
         }
     }
@@ -229,7 +246,7 @@ public partial class PuzzleLogic : MonoBehaviour, IPointerClickHandler
 
             Vector3 cameraRight = mainCamera.transform.right;
             Vector3 cameraUp = mainCamera.transform.up;
-            
+
             Vector3 direction = (cameraRight * UnityEngine.Random.Range(-1f, 1f)) + (cameraUp * UnityEngine.Random.Range(0.35f, 1f));
             Vector3 drift = (cameraRight * UnityEngine.Random.Range(-0.2f, 0.2f)) + (cameraUp * UnityEngine.Random.Range(-0.2f, 0.2f));
 
@@ -244,7 +261,7 @@ public partial class PuzzleLogic : MonoBehaviour, IPointerClickHandler
     public void RestorePuzzlePieces()
     {
         puzzleChaosActive = false;
-        hasExploded = false; 
+        hasExploded = false;
 
         ToggleBodyColliders(true);
 
@@ -303,8 +320,8 @@ public partial class PuzzleLogic : MonoBehaviour, IPointerClickHandler
         {
             puzzleChaosActive = false;
             hasExploded = false;
-            
-            ToggleBodyColliders(true); 
+
+            ToggleBodyColliders(true);
             RestoreBodyMaterial();
             ObjectRestored?.Invoke();
         }
