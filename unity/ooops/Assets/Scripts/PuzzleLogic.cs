@@ -55,21 +55,8 @@ public partial class PuzzleLogic : MonoBehaviour, IPointerClickHandler
     private void Start()
     {
         mainCamera = Camera.main;
-
-        // Create a stationary invisible mathematical reference frame
-        if (mainCamera != null)
-        {
-            GameObject dummyObj = new GameObject("PuzzleBoundaryAnchor_Internal");
-            dummyObj.transform.position = mainCamera.transform.position;
-            dummyObj.transform.rotation = mainCamera.transform.rotation;
-
-            boundaryCamera = dummyObj.AddComponent<Camera>();
-            boundaryCamera.CopyFrom(mainCamera); // <-- Fixed line here!
-            boundaryCamera.enabled = false; // Completely disables rendering overhead
-        }
-
         CacheBodyRenderers();
-        CachePuzzlePieces();
+        CachePuzzlePieces(); // Keeps pieces hidden on launch cleanly
     }
 
     public void OnPointerClick(PointerEventData eventData)
@@ -157,10 +144,35 @@ public partial class PuzzleLogic : MonoBehaviour, IPointerClickHandler
     }
 
     [ContextMenu("Start Puzzle Chaos")]
+    [ContextMenu("Start Puzzle Chaos")]
     public void StartPuzzleChaos()
     {
+        // Refresh the main camera reference right now to make sure it's current
+        mainCamera = Camera.main;
+
         if (puzzlePieces.Length == 0) CachePuzzlePieces();
         if (bodyRenderers.Length == 0) CacheBodyRenderers();
+
+        // FIX: Build the stationary reference frame NOW, when the gameplay camera is perfectly in place!
+        if (mainCamera != null)
+        {
+            GameObject dummyObj = new GameObject("PuzzleBoundaryAnchor_Internal");
+            dummyObj.transform.position = mainCamera.transform.position;
+            dummyObj.transform.rotation = mainCamera.transform.rotation;
+
+            boundaryCamera = dummyObj.AddComponent<Camera>();
+            boundaryCamera.CopyFrom(mainCamera);
+            boundaryCamera.enabled = false; // Zero rendering overhead
+
+            // CRITICAL FIX: Recalculate accurate piece depths based on the true gameplay camera perspective
+            for (int i = 0; i < puzzlePieces.Length; i++)
+            {
+                if (puzzlePieces[i] != null)
+                {
+                    pieceDepths[i] = boundaryCamera.WorldToViewportPoint(puzzlePieces[i].position).z;
+                }
+            }
+        }
 
         ApplyBodyMaterial();
 
