@@ -36,6 +36,20 @@ public class PuzzleLogic : MonoBehaviour, IPointerClickHandler
     private bool puzzleChaosActive;
     private float puzzleChaosStartTime;
 
+    private bool hasExploded = false;
+
+    public enum PuzzlePauseBehavior { HidePieces, ParkOnEdges }
+
+    [Header("Pause Settings")]
+    [Tooltip("Choose how unsnapped pieces behave when the puzzle is paused.")]
+    public PuzzlePauseBehavior pauseBehavior = PuzzlePauseBehavior.HidePieces;
+
+    [Header("Transition Settings")]
+    [Tooltip("How fast (in seconds) the pieces transition to the screen edges when parked.")]
+    public float parkTransitionDuration = 0.2f; // Short, snappy default
+
+    private Coroutine parkCoroutine;
+
     private void Start()
     {
         mainCamera = Camera.main;
@@ -62,7 +76,12 @@ public class PuzzleLogic : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        StartPuzzleChaos();
+        // Only explode if we haven't already
+        if (!hasExploded)
+        {
+            hasExploded = true;
+            StartPuzzleChaos();
+        }
     }
 
     private void Update()
@@ -172,7 +191,7 @@ public class PuzzleLogic : MonoBehaviour, IPointerClickHandler
                 // (We unsubscribe first just in case this method gets called twice, preventing double-firing)
                 draggable.OnPieceSnapped -= RegisterPieceSnap;
                 draggable.OnPieceSnapped += RegisterPieceSnap;
-                
+
                 pieceList.Add(draggable.transform);
             }
         }
@@ -204,6 +223,8 @@ public class PuzzleLogic : MonoBehaviour, IPointerClickHandler
             {
                 pieceDepths[i] = mainCamera.WorldToViewportPoint(piece.position).z;
             }
+
+            piece.gameObject.SetActive(false);
         }
     }
 
@@ -229,6 +250,8 @@ public class PuzzleLogic : MonoBehaviour, IPointerClickHandler
 
         Vector3 rootPosition = puzzlePiecesRoot != null ? puzzlePiecesRoot.position : transform.position;
 
+        ToggleBodyColliders(false);
+
         for (int i = 0; i < puzzlePieces.Length; i++)
         {
             Transform piece = puzzlePieces[i];
@@ -236,6 +259,8 @@ public class PuzzleLogic : MonoBehaviour, IPointerClickHandler
             {
                 continue;
             }
+
+            piece.gameObject.SetActive(true);
 
             Vector3 cameraRight = mainCamera != null ? mainCamera.transform.right : Vector3.right;
             Vector3 cameraUp = mainCamera != null ? mainCamera.transform.up : Vector3.up;
@@ -259,6 +284,8 @@ public class PuzzleLogic : MonoBehaviour, IPointerClickHandler
     public void RestorePuzzlePieces()
     {
         puzzleChaosActive = false;
+
+        ToggleBodyColliders(true);
 
         for (int i = 0; i < puzzlePieces.Length; i++)
         {
@@ -327,6 +354,9 @@ public class PuzzleLogic : MonoBehaviour, IPointerClickHandler
         if (snappedCount == puzzlePieces.Length)
         {
             puzzleChaosActive = false;
+
+            ToggleBodyColliders(true);
+
             RestoreBodyMaterial();
             ObjectRestored?.Invoke();
         }
@@ -459,6 +489,165 @@ public class PuzzleLogic : MonoBehaviour, IPointerClickHandler
                 rigidbodies[i].linearVelocity = Vector3.zero;
                 rigidbodies[i].angularVelocity = Vector3.zero;
                 rigidbodies[i].isKinematic = true;
+            }
+        }
+    }
+
+    [ContextMenu("Pause Puzzle")]
+    public void PausePuzzle()
+    {
+        puzzleChaosActive = false;
+
+        // Cancel any active parking animation if Pause is spammed
+        if (parkCoroutine != null)
+        {
+            StopCoroutine(parkCoroutine);
+        }
+
+        if (mainCamera == null) mainCamera = Camera.main;
+
+        // Instantly halt velocities and remove hitboxes so background elements can be clicked
+        for (int i = 0; i < puzzlePieces.Length; i++)
+        {
+            if (puzzlePieces[i] == null || snappedPieces[i]) continue;
+            pieceVelocities[i] = Vector3.zero;
+            TogglePieceColliders(puzzlePieces[i], false);
+        }
+
+        if (pauseBehavior == PuzzlePauseBehavior.HidePieces)
+        {
+            for (int i = 0; i < puzzlePieces.Length; i++)
+            {
+                if (puzzlePieces[i] == null || snappedPieces[i]) continue;
+                puzzlePieces[i].gameObject.SetActive(false);
+            }
+        }
+        else if (pauseBehavior == PuzzlePauseBehavior.ParkOnEdges)
+        {
+            // Start the smooth movement routine!
+            parkCoroutine = StartCoroutine(ParkPiecesOverTime());
+        }
+    }
+
+    [ContextMenu("Resume Puzzle")]
+    public void ResumePuzzle()
+    {
+        // Stop the parking animation if it's still running
+        if (parkCoroutine != null)
+        {
+            StopCoroutine(parkCoroutine);
+            parkCoroutine = null;
+        }
+
+        if (mainCamera == null) mainCamera = Camera.main;
+
+        for (int i = 0; i < puzzlePieces.Length; i++)
+        {
+            if (puzzlePieces[i] == null || snappedPieces[i]) continue;
+
+            puzzlePieces[i].gameObject.SetActive(true);
+            TogglePieceColliders(puzzlePieces[i], true);
+
+            // Give them a fresh physical kick to scatter away from the edges
+            Vector3 cameraRight = mainCamera.transform.right;
+            Vector3 cameraUp = mainCamera.transform.up;
+
+            Vector3 direction = (cameraRight * UnityEngine.Random.Range(-1f, 1f)) + (cameraUp * UnityEngine.Random.Range(0.35f, 1f));
+            Vector3 drift = (cameraRight * UnityEngine.Random.Range(-0.2f, 0.2f)) + (cameraUp * UnityEngine.Random.Range(-0.2f, 0.2f));
+
+            pieceVelocities[i] = (direction + drift).normalized * explosionForce;
+        }
+
+        puzzleChaosStartTime = Time.time;
+        puzzleChaosActive = true;
+    }
+
+    // Helper method to cleanly turn colliders on/off during pauses
+    private void TogglePieceColliders(Transform pieceRoot, bool enable)
+    {
+        Collider[] colliders = pieceRoot.GetComponentsInChildren<Collider>(true);
+        for (int i = 0; i < colliders.Length; i++)
+        {
+            if (colliders[i] != null) colliders[i].enabled = enable;
+        }
+    }
+
+    private System.Collections.IEnumerator ParkPiecesOverTime()
+    {
+        // 1. Lock down the exact piece count right now so mid-frame array changes can't break our loops
+        int pieceCount = puzzlePieces.Length;
+
+        Vector3[] startPositions = new Vector3[pieceCount];
+        Vector3[] targetPositions = new Vector3[pieceCount];
+
+        // Gather all current positions and precalculate their precise destination targets
+        for (int i = 0; i < pieceCount; i++)
+        {
+            // Safety check: ensure index is within current bounds of all tracking arrays
+            if (puzzlePieces[i] == null || i >= snappedPieces.Length || snappedPieces[i]) continue;
+
+            startPositions[i] = puzzlePieces[i].position;
+
+            Vector3 viewportPos = mainCamera.WorldToViewportPoint(startPositions[i]);
+            float distToLeft = Mathf.Abs(viewportPos.x - 0f);
+            float distToRight = Mathf.Abs(viewportPos.x - 1f);
+            float distToBottom = Mathf.Abs(viewportPos.y - 0f);
+            float distToTop = Mathf.Abs(viewportPos.y - 1f);
+
+            float minDistance = Mathf.Min(distToLeft, distToRight, distToBottom, distToTop);
+
+            if (minDistance == distToLeft) viewportPos.x = 0f;
+            else if (minDistance == distToRight) viewportPos.x = 1f;
+            else if (minDistance == distToBottom) viewportPos.y = 0f;
+            else viewportPos.y = 1f;
+
+            if (i < pieceDepths.Length)
+            {
+                viewportPos.z = pieceDepths[i];
+            }
+
+            targetPositions[i] = mainCamera.ViewportToWorldPoint(viewportPos);
+        }
+
+        // 2. Linearly interpolate positions over the duration using our locked pieceCount
+        float elapsed = 0f;
+        while (elapsed < parkTransitionDuration)
+        {
+            elapsed += Time.deltaTime;
+            float normalizedTime = Mathf.Clamp01(elapsed / parkTransitionDuration);
+            float smoothT = Mathf.SmoothStep(0f, 1f, normalizedTime);
+
+            for (int i = 0; i < pieceCount; i++)
+            {
+                if (puzzlePieces[i] == null || i >= snappedPieces.Length || snappedPieces[i]) continue;
+                puzzlePieces[i].position = Vector3.Lerp(startPositions[i], targetPositions[i], smoothT);
+            }
+
+            yield return null; // Wait for the next frame
+        }
+
+        // 3. Absolute final pass using our locked pieceCount to ensure precise math alignment
+        for (int i = 0; i < pieceCount; i++)
+        {
+            if (puzzlePieces[i] == null || i >= snappedPieces.Length || snappedPieces[i]) continue;
+            puzzlePieces[i].position = targetPositions[i];
+        }
+
+        parkCoroutine = null;
+    }
+
+    private void ToggleBodyColliders(bool enable)
+    {
+        // Use the assigned puzzle body object, or fallback to this gameObject
+        GameObject target = puzzleBodyObject != null ? puzzleBodyObject : gameObject;
+
+        // Get the colliders directly on the main body shell
+        Collider[] colliders = target.GetComponents<Collider>();
+        for (int i = 0; i < colliders.Length; i++)
+        {
+            if (colliders[i] != null)
+            {
+                colliders[i].enabled = enable;
             }
         }
     }
