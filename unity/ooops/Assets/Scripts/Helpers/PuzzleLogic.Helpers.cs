@@ -24,6 +24,7 @@ public partial class PuzzleLogic // Linked automatically to the primary file
         if (puzzlePiecesRoot == null)
         {
             puzzlePieces = new Transform[0];
+            pieceDraggables = new Draggable[0]; // Reset optimization array
             originalLocalPositions = new Vector3[0];
             originalLocalRotations = new Quaternion[0];
             pieceVelocities = new Vector3[0];
@@ -33,16 +34,17 @@ public partial class PuzzleLogic // Linked automatically to the primary file
         }
 
         List<Transform> pieceList = new List<Transform>();
+        List<Draggable> draggableList = new List<Draggable>();
         Draggable[] draggables = puzzlePiecesRoot.GetComponentsInChildren<Draggable>(true);
         
         foreach (Draggable draggable in draggables)
         {
             if (draggable != null)
             {
-                // De-couple script: Listen to Draggable via independent C# action loops
                 draggable.OnPieceSnapped -= RegisterPieceSnap;
                 draggable.OnPieceSnapped += RegisterPieceSnap;
                 pieceList.Add(draggable.transform);
+                draggableList.Add(draggable); // Store component reference safely
             }
         }
 
@@ -51,10 +53,13 @@ public partial class PuzzleLogic // Linked automatically to the primary file
             foreach (Transform child in puzzlePiecesRoot)
             {
                 pieceList.Add(child);
+                draggableList.Add(child.GetComponentInChildren<Draggable>(true));
             }
         }
 
         puzzlePieces = pieceList.ToArray();
+        pieceDraggables = draggableList.ToArray(); // Save optimization array to memory
+        
         originalLocalPositions = new Vector3[puzzlePieces.Length];
         originalLocalRotations = new Quaternion[puzzlePieces.Length];
         pieceVelocities = new Vector3[puzzlePieces.Length];
@@ -74,7 +79,6 @@ public partial class PuzzleLogic // Linked automatically to the primary file
                 pieceDepths[i] = mainCamera.WorldToViewportPoint(piece.position).z;
             }
 
-            // Hide fragments on boot to prevent cluttering the initial room state
             piece.gameObject.SetActive(false);
         }
     }

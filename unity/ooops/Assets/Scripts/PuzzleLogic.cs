@@ -43,6 +43,7 @@ public partial class PuzzleLogic : MonoBehaviour, IPointerClickHandler
     private Vector3[] pieceVelocities = new Vector3[0];
     private float[] pieceDepths = new float[0];
     private bool[] snappedPieces = new bool[0];
+    private Draggable[] pieceDraggables = new Draggable[0];
 
     private bool puzzleChaosActive;
     private float puzzleChaosStartTime;
@@ -84,11 +85,17 @@ public partial class PuzzleLogic : MonoBehaviour, IPointerClickHandler
             Transform piece = puzzlePieces[i];
             if (piece == null) continue;
 
-            Draggable draggable = piece.GetComponentInChildren<Draggable>(true);
+            Draggable draggable = (i < pieceDraggables.Length) ? pieceDraggables[i] : null;
+
             if (draggable == null || !draggable.enabled || snappedPieces[i])
             {
                 snappedPieces[i] = true;
                 pieceVelocities[i] = Vector3.zero;
+                continue;
+            }
+
+            if (draggable.IsBeingDragged)
+            {
                 continue;
             }
 

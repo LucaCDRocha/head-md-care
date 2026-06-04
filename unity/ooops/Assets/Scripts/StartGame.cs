@@ -15,6 +15,12 @@ public class StartGame : MonoBehaviour, IPointerClickHandler
     [Tooltip("If true, the script will automatically hide this starting object asset after it is clicked.")]
     public bool hideOnStart = true;
 
+    private void Start()
+    {
+        // Forces the tablet to maintain a smooth, steady, battery-safe frame cadence
+        Application.targetFrameRate = 30;
+    }
+
     // Works beautifully on both PC Mouse clicks and Tablet Touch screens!
     public void OnPointerClick(PointerEventData eventData)
     {
