@@ -327,7 +327,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Draggable
   cam: {fileID: 330585545}
-  snapDistance: 30
+  snapDistance: 35
 --- !u!65 &40713206
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -709,7 +709,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Draggable
   cam: {fileID: 330585545}
-  snapDistance: 30
+  snapDistance: 35
 --- !u!65 &189933148
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2264,7 +2264,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Draggable
   cam: {fileID: 330585545}
-  snapDistance: 30
+  snapDistance: 35
 --- !u!65 &560888444
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3917,7 +3917,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Draggable
   cam: {fileID: 330585545}
-  snapDistance: 30
+  snapDistance: 35
 --- !u!65 &1224599795
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4593,7 +4593,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Draggable
   cam: {fileID: 330585545}
-  snapDistance: 30
+  snapDistance: 35
 --- !u!65 &1611347588
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4822,7 +4822,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Draggable
   cam: {fileID: 330585545}
-  snapDistance: 30
+  snapDistance: 35
 --- !u!65 &1739708780
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6781,7 +6781,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Draggable
   cam: {fileID: 330585545}
-  snapDistance: 30
+  snapDistance: 35
 --- !u!65 &2142956705
 BoxCollider:
   m_ObjectHideFlags: 0
