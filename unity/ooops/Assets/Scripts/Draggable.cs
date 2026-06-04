@@ -6,8 +6,8 @@ public class Draggable : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDra
 {
     public Camera cam;
     
-    [Tooltip("Snapping radius measured in screen pixels (e.g., 40-50 pixels). Always feels perfectly uniform!")]
-    public float snapDistance = 40f;
+    [Tooltip("Base snapping radius. This value is now automatically scaled based on screen density so it feels identical on PC and mobile screens!")]
+    public float snapDistance = 45f;
     
     public event Action<Transform> OnPieceSnapped;
 
@@ -36,8 +36,7 @@ public class Draggable : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDra
         // 1. Find exactly where this piece belongs in world space
         Vector3 targetWorldPosition = transform.parent.TransformPoint(originalLocalPosition);
 
-        // 2. CRITICAL FIX: Lock the drag depth plane directly to the target slot's depth layer
-        // This stops pieces from warp-shifting closer or further from the camera lens while dragging
+        // 2. Lock the drag depth plane directly to the target slot's depth layer
         float targetDepth = cam.WorldToScreenPoint(targetWorldPosition).z;
 
         // 3. Move the object along that clean target depth plane matching touch input
@@ -48,7 +47,13 @@ public class Draggable : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDra
         Vector2 pieceScreenPos = cam.WorldToScreenPoint(transform.position);
         Vector2 targetScreenPos = cam.WorldToScreenPoint(targetWorldPosition);
 
-        if (Vector2.Distance(pieceScreenPos, targetScreenPos) <= snapDistance)
+        // 5. DYNAMIC DPI FIX: Scale the required snap distance based on device pixel density.
+        // We use 96 DPI as our baseline (standard PC screen). If an iPad has 264 DPI, 
+        // this multiplier automatically triples the pixel radius so it matches the physical finger size!
+        float screenDensityMultiplier = (Screen.dpi > 0) ? (Screen.dpi / 96f) : 1f;
+        float dynamicSnapRadius = snapDistance * screenDensityMultiplier;
+
+        if (Vector2.Distance(pieceScreenPos, targetScreenPos) <= dynamicSnapRadius)
         {
             SnapToOriginalPosition(targetWorldPosition);
         }
