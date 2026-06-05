@@ -8,26 +8,20 @@ public partial class PuzzleLogic : MonoBehaviour, IPointerClickHandler
     public enum PuzzlePauseBehavior { HidePieces, ParkOnEdges }
 
     [Header("Puzzle Setup")]
-    [Tooltip("Main body object whose material changes when the puzzle starts.")]
     public GameObject puzzleBodyObject;
-    [Tooltip("Material applied to the body object while the puzzle is active.")]
     public Material puzzleBodyMaterial;
-    [Tooltip("Empty object that contains all puzzle shards as children.")]
     public Transform puzzlePiecesRoot;
-    [Tooltip("How fast the shards drift across the screen.")]
     public float floatingSpeed = 0.45f;
-    [Tooltip("How quickly the shards spread away from the center when the puzzle starts.")]
     public float explosionForce = 1.5f;
-    [Tooltip("How long the initial explosion speed lasts before the shards settle into floating speed.")]
     public float explosionDuration = 0.8f;
-    [Tooltip("Viewport padding used when bouncing shards off the camera borders.")]
     [Range(0.01f, 0.25f)]
     public float borderPadding = 0.08f;
 
+    [Header("Expulsion Settings")]
+    public float expulsionRadius = 3.0f;
+
     [Header("Pause & Transition Settings")]
-    [Tooltip("Choose how unsnapped pieces behave when the puzzle is paused.")]
     public PuzzlePauseBehavior pauseBehavior = PuzzlePauseBehavior.HidePieces;
-    [Tooltip("How fast (in seconds) the pieces transition to the screen edges when parked.")]
     public float parkTransitionDuration = 0.2f;
 
     public event Action<Transform, int, int> PieceSnapped;
@@ -50,19 +44,15 @@ public partial class PuzzleLogic : MonoBehaviour, IPointerClickHandler
     private bool hasExploded = false;
     private Coroutine parkCoroutine;
 
-    private Camera boundaryCamera; // Hidden reference to lock physics coordinates
-
-
     private void Start()
     {
         mainCamera = Camera.main;
         CacheBodyRenderers();
-        CachePuzzlePieces(); // Keeps pieces hidden on launch cleanly
+        CachePuzzlePieces(); 
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        // Only allow explosion to fire once per execution loop
         if (!hasExploded)
         {
             hasExploded = true;
@@ -72,13 +62,14 @@ public partial class PuzzleLogic : MonoBehaviour, IPointerClickHandler
 
     private void Update()
     {
-        if (!puzzleChaosActive || boundaryCamera == null || puzzlePieces.Length == 0)
-        {
-            return;
-        }
+        if (!puzzleChaosActive || puzzlePieces.Length == 0 || mainCamera == null) return;
 
         float deltaTime = Time.deltaTime;
-        float currentSpeed = Time.time - puzzleChaosStartTime < explosionDuration ? explosionForce : floatingSpeed;
+        bool isGlobalExplosion = Time.time - puzzleChaosStartTime < explosionDuration;
+
+        // 💡 THE SCREEN-FLAT FIX: We use the Camera's explicit 2D screen axes!
+        Vector3 rightAxis = mainCamera.transform.right;
+        Vector3 upAxis = mainCamera.transform.up;
 
         for (int i = 0; i < puzzlePieces.Length; i++)
         {
@@ -96,56 +87,65 @@ public partial class PuzzleLogic : MonoBehaviour, IPointerClickHandler
 
             if (draggable.IsBeingDragged)
             {
+                pieceVelocities[i] = Vector3.zero; 
                 continue;
+            }
+
+            // JUST RELEASED DETECTOR:
+            if (pieceVelocities[i].sqrMagnitude < 0.00001f)
+            {
+                Vector3 puzzleCenter = puzzleBodyObject != null ? puzzleBodyObject.transform.position : puzzlePiecesRoot.position;
+                Vector3 expulsionDir = piece.position - puzzleCenter;
+                
+                // Project the 3D distance completely flat against the screen camera view!
+                float rightForce = Vector3.Dot(expulsionDir, rightAxis);
+                float upForce = Vector3.Dot(expulsionDir, upAxis);
+                Vector3 flatDir = (rightAxis * rightForce + upAxis * upForce);
+                
+                // Now the expulsion radius perfectly matches a visual 2D circle on your iPad screen
+                if (flatDir.magnitude < expulsionRadius)
+                {
+                    if (flatDir.sqrMagnitude < 0.001f) flatDir = upAxis;
+                    pieceVelocities[i] = flatDir.normalized * explosionForce;
+                }
+                else
+                {
+                    Vector3 randomDir = (rightAxis * UnityEngine.Random.Range(-1f, 1f) + upAxis * UnityEngine.Random.Range(-1f, 1f)).normalized;
+                    pieceVelocities[i] = randomDir * floatingSpeed;
+                }
+            }
+
+            float pieceSpeed = isGlobalExplosion ? explosionForce : floatingSpeed;
+            if (!isGlobalExplosion)
+            {
+                float currentMag = pieceVelocities[i].magnitude;
+                if (currentMag > floatingSpeed)
+                {
+                    pieceSpeed = Mathf.MoveTowards(currentMag, floatingSpeed, deltaTime * (explosionForce - floatingSpeed) / 0.5f);
+                }
             }
 
             if (pieceVelocities[i].sqrMagnitude > 0.00001f)
             {
-                pieceVelocities[i] = pieceVelocities[i].normalized * currentSpeed;
+                pieceVelocities[i] = pieceVelocities[i].normalized * pieceSpeed;
             }
 
             piece.position += pieceVelocities[i] * deltaTime;
 
-            // Use BOUNDARY CAMERA math here so bounds never shift with user zoom targets
-            Vector3 viewportPoint = boundaryCamera.WorldToViewportPoint(piece.position);
-            Vector3 cameraRight = boundaryCamera.transform.right;
-            Vector3 cameraUp = boundaryCamera.transform.up;
-            float velocityRight = Vector3.Dot(pieceVelocities[i], cameraRight);
-            float velocityUp = Vector3.Dot(pieceVelocities[i], cameraUp);
+            Vector3 viewportPoint = mainCamera.WorldToViewportPoint(piece.position);
+            float velocityRight = Vector3.Dot(pieceVelocities[i], rightAxis);
+            float velocityUp = Vector3.Dot(pieceVelocities[i], upAxis);
             bool bounced = false;
 
-            if (viewportPoint.x < borderPadding)
-            {
-                viewportPoint.x = borderPadding;
-                velocityRight = Mathf.Abs(velocityRight);
-                bounced = true;
-            }
-            else if (viewportPoint.x > 1f - borderPadding)
-            {
-                viewportPoint.x = 1f - borderPadding;
-                velocityRight = -Mathf.Abs(velocityRight);
-                bounced = true;
-            }
+            if (viewportPoint.x < borderPadding && velocityRight < 0) { velocityRight = Mathf.Abs(velocityRight); bounced = true; }
+            else if (viewportPoint.x > 1f - borderPadding && velocityRight > 0) { velocityRight = -Mathf.Abs(velocityRight); bounced = true; }
 
-            if (viewportPoint.y < borderPadding)
-            {
-                viewportPoint.y = borderPadding;
-                velocityUp = Mathf.Abs(velocityUp);
-                bounced = true;
-            }
-            else if (viewportPoint.y > 1f - borderPadding)
-            {
-                viewportPoint.y = 1f - borderPadding;
-                velocityUp = -Mathf.Abs(velocityUp);
-                bounced = true;
-            }
-
-            pieceVelocities[i] = (cameraRight * velocityRight + cameraUp * velocityUp).normalized * currentSpeed;
+            if (viewportPoint.y < borderPadding && velocityUp < 0) { velocityUp = Mathf.Abs(velocityUp); bounced = true; }
+            else if (viewportPoint.y > 1f - borderPadding && velocityUp > 0) { velocityUp = -Mathf.Abs(velocityUp); bounced = true; }
 
             if (bounced)
             {
-                viewportPoint.z = pieceDepths[i];
-                piece.position = boundaryCamera.ViewportToWorldPoint(viewportPoint);
+                pieceVelocities[i] = (rightAxis * velocityRight + upAxis * velocityUp).normalized * pieceSpeed;
             }
         }
     }
@@ -153,85 +153,46 @@ public partial class PuzzleLogic : MonoBehaviour, IPointerClickHandler
     [ContextMenu("Start Puzzle Chaos")]
     public void StartPuzzleChaos()
     {
-        // Refresh the main camera reference right now to make sure it's current
         mainCamera = Camera.main;
 
-        if (puzzlePieces.Length == 0) CachePuzzlePieces(); //
-        if (bodyRenderers.Length == 0) CacheBodyRenderers(); //
+        if (puzzlePieces.Length == 0) CachePuzzlePieces(); 
+        if (bodyRenderers.Length == 0) CacheBodyRenderers(); 
 
-        // Build the stationary reference frame NOW, when the gameplay camera is perfectly in place!
-        if (mainCamera != null)
-        {
-            GameObject dummyObj = new GameObject("PuzzleBoundaryAnchor_Internal"); //
-            dummyObj.transform.position = mainCamera.transform.position; //
-            dummyObj.transform.rotation = mainCamera.transform.rotation; //
+        ApplyBodyMaterial(); 
+        if (puzzlePieces.Length == 0) return; 
 
-            boundaryCamera = dummyObj.AddComponent<Camera>(); //
-            boundaryCamera.CopyFrom(mainCamera); //
-            boundaryCamera.enabled = false; // Zero rendering overhead
+        ToggleBodyColliders(false); 
 
-            // Recalculate accurate piece depths based on the true gameplay camera perspective
-            for (int i = 0; i < puzzlePieces.Length; i++)
-            {
-                if (puzzlePieces[i] != null)
-                {
-                    pieceDepths[i] = boundaryCamera.WorldToViewportPoint(puzzlePieces[i].position).z; //
-                }
-            }
-        }
-
-        ApplyBodyMaterial(); //
-
-        if (puzzlePieces.Length == 0) return; //
-
-        // Turn off main box collider so clicks hit the floating fragments inside cleanly
-        ToggleBodyColliders(false); //
-
-        Vector3 cameraRight = boundaryCamera != null ? boundaryCamera.transform.right : Vector3.right;
-        Vector3 cameraUp = boundaryCamera != null ? boundaryCamera.transform.up : Vector3.up;
+        Vector3 rightAxis = mainCamera.transform.right;
+        Vector3 upAxis = mainCamera.transform.up;
 
         for (int i = 0; i < puzzlePieces.Length; i++)
         {
             Transform piece = puzzlePieces[i];
-            if (piece == null) continue; //
+            if (piece == null) continue; 
 
-            // Make piece visible on user interaction
-            piece.gameObject.SetActive(true); //
+            piece.gameObject.SetActive(true); 
 
-            // 1. PURE CHAOS DIRECTION: Pick completely independent random values per piece
-            // Horizontal allows full left-to-right spread (-1.2 to 1.2)
             float randomX = UnityEngine.Random.Range(-1.2f, 1.2f);
-
-            // Vertical is strictly clamped to a positive range (0.4 to 1.2) so it CANNOT explode down/under
             float randomY = UnityEngine.Random.Range(0.4f, 1.2f);
 
-            // Combine the random fields into our camera-relative vectors
-            Vector3 direction = (cameraRight * randomX) + (cameraUp * randomY);
+            Vector3 direction = (rightAxis * randomX) + (upAxis * randomY);
+            Vector3 drift = (rightAxis * UnityEngine.Random.Range(-0.15f, 0.15f)) + (upAxis * UnityEngine.Random.Range(-0.15f, 0.15f));
 
-            // 2. EXTRA CHAOTIC DRIFT: Give it an additional subtle layer of noise
-            Vector3 drift = (cameraRight * UnityEngine.Random.Range(-0.15f, 0.15f)) + (cameraUp * UnityEngine.Random.Range(-0.15f, 0.15f));
-
-            // Normalize and scale by your global inspector force slider
-            pieceVelocities[i] = (direction + drift).normalized * explosionForce; //
+            pieceVelocities[i] = (direction + drift).normalized * explosionForce; 
         }
 
-        puzzleChaosStartTime = Time.time; //
-        puzzleChaosActive = true; //
+        puzzleChaosStartTime = Time.time; 
+        puzzleChaosActive = true; 
     }
 
     [ContextMenu("Pause Puzzle")]
     public void PausePuzzle()
     {
         puzzleChaosActive = false;
-
-        if (parkCoroutine != null)
-        {
-            StopCoroutine(parkCoroutine);
-        }
-
+        if (parkCoroutine != null) StopCoroutine(parkCoroutine);
         if (mainCamera == null) mainCamera = Camera.main;
 
-        // Freeze physical values and turn off fragment click colliders immediately
         for (int i = 0; i < puzzlePieces.Length; i++)
         {
             if (puzzlePieces[i] == null || snappedPieces[i]) continue;
@@ -263,6 +224,8 @@ public partial class PuzzleLogic : MonoBehaviour, IPointerClickHandler
         }
 
         if (mainCamera == null) mainCamera = Camera.main;
+        Vector3 rightAxis = mainCamera.transform.right;
+        Vector3 upAxis = mainCamera.transform.up;
 
         for (int i = 0; i < puzzlePieces.Length; i++)
         {
@@ -271,11 +234,8 @@ public partial class PuzzleLogic : MonoBehaviour, IPointerClickHandler
             puzzlePieces[i].gameObject.SetActive(true);
             TogglePieceColliders(puzzlePieces[i], true);
 
-            Vector3 cameraRight = mainCamera.transform.right;
-            Vector3 cameraUp = mainCamera.transform.up;
-
-            Vector3 direction = (cameraRight * UnityEngine.Random.Range(-1f, 1f)) + (cameraUp * UnityEngine.Random.Range(0.35f, 1f));
-            Vector3 drift = (cameraRight * UnityEngine.Random.Range(-0.2f, 0.2f)) + (cameraUp * UnityEngine.Random.Range(-0.2f, 0.2f));
+            Vector3 direction = (rightAxis * UnityEngine.Random.Range(-1f, 1f)) + (upAxis * UnityEngine.Random.Range(0.35f, 1f));
+            Vector3 drift = (rightAxis * UnityEngine.Random.Range(-0.2f, 0.2f)) + (upAxis * UnityEngine.Random.Range(-0.2f, 0.2f));
 
             pieceVelocities[i] = (direction + drift).normalized * explosionForce;
         }
@@ -299,7 +259,6 @@ public partial class PuzzleLogic : MonoBehaviour, IPointerClickHandler
             pieceVelocities[i] = Vector3.zero;
             snappedPieces[i] = false;
         }
-
         RestoreBodyMaterial();
     }
 
@@ -307,11 +266,7 @@ public partial class PuzzleLogic : MonoBehaviour, IPointerClickHandler
     {
         for (int i = 0; i < snappedPieces.Length; i++)
         {
-            if (!snappedPieces[i])
-            {
-                RegisterPieceSnap(i);
-                return;
-            }
+            if (!snappedPieces[i]) { RegisterPieceSnap(i); return; }
         }
     }
 
@@ -326,7 +281,6 @@ public partial class PuzzleLogic : MonoBehaviour, IPointerClickHandler
         if (pieceIndex < 0 || pieceIndex >= puzzlePieces.Length || snappedPieces[pieceIndex]) return;
 
         snappedPieces[pieceIndex] = true;
-
         Transform piece = puzzlePieces[pieceIndex];
         if (piece != null)
         {
@@ -345,7 +299,6 @@ public partial class PuzzleLogic : MonoBehaviour, IPointerClickHandler
         {
             puzzleChaosActive = false;
             hasExploded = false;
-
             RestoreBodyMaterial();
             ObjectRestored?.Invoke();
         }
