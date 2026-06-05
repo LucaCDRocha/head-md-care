@@ -290,8 +290,6 @@ public partial class PuzzleLogic : MonoBehaviour, IPointerClickHandler
         puzzleChaosActive = false;
         hasExploded = false;
 
-        ToggleBodyColliders(true);
-
         for (int i = 0; i < puzzlePieces.Length; i++)
         {
             if (puzzlePieces[i] == null) continue;
@@ -348,7 +346,6 @@ public partial class PuzzleLogic : MonoBehaviour, IPointerClickHandler
             puzzleChaosActive = false;
             hasExploded = false;
 
-            ToggleBodyColliders(true);
             RestoreBodyMaterial();
             ObjectRestored?.Invoke();
         }
