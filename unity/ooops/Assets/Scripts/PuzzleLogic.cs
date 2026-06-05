@@ -14,10 +14,13 @@ public partial class PuzzleLogic : MonoBehaviour, IPointerClickHandler
     public float floatingSpeed = 0.45f;
     public float explosionForce = 1.5f;
     public float explosionDuration = 0.8f;
-    [Range(0.01f, 0.25f)]
-    public float borderPadding = 0.08f;
+
+    [Header("Screen Boundaries (Brick Walls)")]
+    [Range(0.01f, 0.25f)] public float sidePadding = 0.08f;
+    [Range(0.01f, 0.5f)] public float bottomPadding = 0.25f;
 
     [Header("Expulsion Settings")]
+    [Tooltip("The transparent helper boundary. Pieces will bounce off this peacefully.")]
     public float expulsionRadius = 3.0f;
 
     [Header("Pause & Transition Settings")]
@@ -27,8 +30,8 @@ public partial class PuzzleLogic : MonoBehaviour, IPointerClickHandler
     public event Action<Transform, int, int> PieceSnapped;
     public event Action ObjectRestored;
 
-    // Private State Tracking Variables
     private Camera mainCamera;
+    private Camera boundaryCamera; 
     private Renderer[] bodyRenderers = new Renderer[0];
     private Material[] originalBodyMaterials = new Material[0];
     private Transform[] puzzlePieces = new Transform[0];
@@ -62,14 +65,13 @@ public partial class PuzzleLogic : MonoBehaviour, IPointerClickHandler
 
     private void Update()
     {
-        if (!puzzleChaosActive || puzzlePieces.Length == 0 || mainCamera == null) return;
+        if (!puzzleChaosActive || puzzlePieces.Length == 0 || boundaryCamera == null) return;
 
         float deltaTime = Time.deltaTime;
         bool isGlobalExplosion = Time.time - puzzleChaosStartTime < explosionDuration;
 
-        // 💡 THE SCREEN-FLAT FIX: We use the Camera's explicit 2D screen axes!
-        Vector3 rightAxis = mainCamera.transform.right;
-        Vector3 upAxis = mainCamera.transform.up;
+        Vector3 rightAxis = boundaryCamera.transform.right;
+        Vector3 upAxis = boundaryCamera.transform.up;
 
         for (int i = 0; i < puzzlePieces.Length; i++)
         {
@@ -91,22 +93,37 @@ public partial class PuzzleLogic : MonoBehaviour, IPointerClickHandler
                 continue;
             }
 
-            // JUST RELEASED DETECTOR:
+            Vector3 puzzleCenter = puzzleBodyObject != null ? puzzleBodyObject.transform.position : puzzlePiecesRoot.position;
+            Vector3 toPiece = piece.position - puzzleCenter;
+            
+            float flatRight = Vector3.Dot(toPiece, rightAxis);
+            float flatUp = Vector3.Dot(toPiece, upAxis);
+            Vector2 flatOffset = new Vector2(flatRight, flatUp);
+
+            bool isInsideVase = flatOffset.magnitude < expulsionRadius;
+
+            // 💡 BUG FIX 1: Ignore the vase completely during the initial explosion!
+            // This lets the shards fly perfectly naturally without forcing them all to the right side!
+            if (isGlobalExplosion)
+            {
+                isInsideVase = false;
+            }
+
+            // DETECT DROP
             if (pieceVelocities[i].sqrMagnitude < 0.00001f)
             {
-                Vector3 puzzleCenter = puzzleBodyObject != null ? puzzleBodyObject.transform.position : puzzlePiecesRoot.position;
-                Vector3 expulsionDir = piece.position - puzzleCenter;
-                
-                // Project the 3D distance completely flat against the screen camera view!
-                float rightForce = Vector3.Dot(expulsionDir, rightAxis);
-                float upForce = Vector3.Dot(expulsionDir, upAxis);
-                Vector3 flatDir = (rightAxis * rightForce + upAxis * upForce);
-                
-                // Now the expulsion radius perfectly matches a visual 2D circle on your iPad screen
-                if (flatDir.magnitude < expulsionRadius)
+                if (isInsideVase)
                 {
-                    if (flatDir.sqrMagnitude < 0.001f) flatDir = upAxis;
-                    pieceVelocities[i] = flatDir.normalized * explosionForce;
+                    // 💡 BUG FIX 2: Gentle float out if dropped inside the transparent zone
+                    Vector2 eject2D = flatOffset.normalized;
+                    if (eject2D.sqrMagnitude < 0.001f) eject2D = new Vector2(UnityEngine.Random.Range(-1f,1f), UnityEngine.Random.Range(-1f,1f)).normalized;
+                    Vector3 eject3D = (rightAxis * eject2D.x + upAxis * eject2D.y).normalized;
+
+                    float distanceToEscape = expulsionRadius - flatOffset.magnitude;
+                    piece.position += eject3D * distanceToEscape;
+                    
+                    // No more violent explosion force, just normal drifting!
+                    pieceVelocities[i] = eject3D * floatingSpeed; 
                 }
                 else
                 {
@@ -114,38 +131,46 @@ public partial class PuzzleLogic : MonoBehaviour, IPointerClickHandler
                     pieceVelocities[i] = randomDir * floatingSpeed;
                 }
             }
-
-            float pieceSpeed = isGlobalExplosion ? explosionForce : floatingSpeed;
-            if (!isGlobalExplosion)
+            else if (isInsideVase)
             {
-                float currentMag = pieceVelocities[i].magnitude;
-                if (currentMag > floatingSpeed)
-                {
-                    pieceSpeed = Mathf.MoveTowards(currentMag, floatingSpeed, deltaTime * (explosionForce - floatingSpeed) / 0.5f);
-                }
+                // 💡 BUG FIX 3: Peaceful Bouncing!
+                Vector2 normal2D = flatOffset.normalized;
+                if (normal2D.sqrMagnitude < 0.001f) normal2D = Vector2.right;
+                Vector3 normal3D = (rightAxis * normal2D.x + upAxis * normal2D.y).normalized;
+
+                // Reflect off the shape exactly like a billiard ball hitting the table edge
+                pieceVelocities[i] = Vector3.Reflect(pieceVelocities[i], normal3D).normalized * pieceVelocities[i].magnitude;
+                
+                float distanceToEscape = expulsionRadius - flatOffset.magnitude;
+                piece.position += normal3D * distanceToEscape;
             }
 
-            if (pieceVelocities[i].sqrMagnitude > 0.00001f)
+            if (!isGlobalExplosion && pieceVelocities[i].magnitude > floatingSpeed)
             {
-                pieceVelocities[i] = pieceVelocities[i].normalized * pieceSpeed;
+                pieceVelocities[i] = Vector3.MoveTowards(pieceVelocities[i], pieceVelocities[i].normalized * floatingSpeed, deltaTime * (explosionForce - floatingSpeed) / 0.5f);
             }
 
             piece.position += pieceVelocities[i] * deltaTime;
 
-            Vector3 viewportPoint = mainCamera.WorldToViewportPoint(piece.position);
-            float velocityRight = Vector3.Dot(pieceVelocities[i], rightAxis);
-            float velocityUp = Vector3.Dot(pieceVelocities[i], upAxis);
-            bool bounced = false;
+            // Screen Boundaries
+            Vector3 viewportPoint = boundaryCamera.WorldToViewportPoint(piece.position);
+            bool hitWall = false;
 
-            if (viewportPoint.x < borderPadding && velocityRight < 0) { velocityRight = Mathf.Abs(velocityRight); bounced = true; }
-            else if (viewportPoint.x > 1f - borderPadding && velocityRight > 0) { velocityRight = -Mathf.Abs(velocityRight); bounced = true; }
+            float velRight = Vector3.Dot(pieceVelocities[i], rightAxis);
+            float velUp = Vector3.Dot(pieceVelocities[i], upAxis);
 
-            if (viewportPoint.y < borderPadding && velocityUp < 0) { velocityUp = Mathf.Abs(velocityUp); bounced = true; }
-            else if (viewportPoint.y > 1f - borderPadding && velocityUp > 0) { velocityUp = -Mathf.Abs(velocityUp); bounced = true; }
+            if (viewportPoint.x <= sidePadding) { viewportPoint.x = sidePadding; hitWall = true; velRight = Mathf.Abs(velRight); }
+            else if (viewportPoint.x >= 1f - sidePadding) { viewportPoint.x = 1f - sidePadding; hitWall = true; velRight = -Mathf.Abs(velRight); }
 
-            if (bounced)
+            if (viewportPoint.y <= bottomPadding) { viewportPoint.y = bottomPadding; hitWall = true; velUp = Mathf.Abs(velUp); }
+            else if (viewportPoint.y >= 1f - sidePadding) { viewportPoint.y = 1f - sidePadding; hitWall = true; velUp = -Mathf.Abs(velUp); }
+
+            if (hitWall)
             {
-                pieceVelocities[i] = (rightAxis * velocityRight + upAxis * velocityUp).normalized * pieceSpeed;
+                float currentZ = boundaryCamera.WorldToViewportPoint(piece.position).z;
+                viewportPoint.z = currentZ;
+                piece.position = boundaryCamera.ViewportToWorldPoint(viewportPoint);
+                pieceVelocities[i] = (rightAxis * velRight + upAxis * velUp).normalized * pieceVelocities[i].magnitude;
             }
         }
     }
@@ -158,13 +183,33 @@ public partial class PuzzleLogic : MonoBehaviour, IPointerClickHandler
         if (puzzlePieces.Length == 0) CachePuzzlePieces(); 
         if (bodyRenderers.Length == 0) CacheBodyRenderers(); 
 
+        if (mainCamera != null)
+        {
+            GameObject dummyObj = GameObject.Find("PuzzleBoundaryAnchor_Internal");
+            if (dummyObj == null) dummyObj = new GameObject("PuzzleBoundaryAnchor_Internal");
+            
+            dummyObj.transform.position = mainCamera.transform.position; 
+            dummyObj.transform.rotation = mainCamera.transform.rotation; 
+
+            boundaryCamera = dummyObj.GetComponent<Camera>();
+            if (boundaryCamera == null) boundaryCamera = dummyObj.AddComponent<Camera>();
+            
+            boundaryCamera.CopyFrom(mainCamera); 
+            boundaryCamera.enabled = false; 
+
+            for (int i = 0; i < puzzlePieces.Length; i++)
+            {
+                if (puzzlePieces[i] != null) pieceDepths[i] = boundaryCamera.WorldToViewportPoint(puzzlePieces[i].position).z; 
+            }
+        }
+
         ApplyBodyMaterial(); 
         if (puzzlePieces.Length == 0) return; 
 
         ToggleBodyColliders(false); 
 
-        Vector3 rightAxis = mainCamera.transform.right;
-        Vector3 upAxis = mainCamera.transform.up;
+        Vector3 rightAxis = boundaryCamera != null ? boundaryCamera.transform.right : Vector3.right;
+        Vector3 upAxis = boundaryCamera != null ? boundaryCamera.transform.up : Vector3.up;
 
         for (int i = 0; i < puzzlePieces.Length; i++)
         {
@@ -174,7 +219,7 @@ public partial class PuzzleLogic : MonoBehaviour, IPointerClickHandler
             piece.gameObject.SetActive(true); 
 
             float randomX = UnityEngine.Random.Range(-1.2f, 1.2f);
-            float randomY = UnityEngine.Random.Range(0.4f, 1.2f);
+            float randomY = UnityEngine.Random.Range(0.2f, 1.2f);
 
             Vector3 direction = (rightAxis * randomX) + (upAxis * randomY);
             Vector3 drift = (rightAxis * UnityEngine.Random.Range(-0.15f, 0.15f)) + (upAxis * UnityEngine.Random.Range(-0.15f, 0.15f));
@@ -224,8 +269,8 @@ public partial class PuzzleLogic : MonoBehaviour, IPointerClickHandler
         }
 
         if (mainCamera == null) mainCamera = Camera.main;
-        Vector3 rightAxis = mainCamera.transform.right;
-        Vector3 upAxis = mainCamera.transform.up;
+        Vector3 rightAxis = boundaryCamera != null ? boundaryCamera.transform.right : Vector3.right;
+        Vector3 upAxis = boundaryCamera != null ? boundaryCamera.transform.up : Vector3.up;
 
         for (int i = 0; i < puzzlePieces.Length; i++)
         {

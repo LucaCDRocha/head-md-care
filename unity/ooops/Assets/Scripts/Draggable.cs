@@ -5,12 +5,16 @@ using UnityEngine.EventSystems;
 public class Draggable : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler
 {
     public Camera cam;
+    
+    [Tooltip("Base snapping radius in screen pixels. (Try 40 to 60)")]
     public float snapDistance = 45f;
+    
     public event Action<Transform> OnPieceSnapped;
 
     private Vector3 originalLocalPosition;
     private bool isSnapped;
     private Vector3 dragOffset;
+    private Camera boundaryCam; 
 
     public bool IsBeingDragged { get; private set; }
 
@@ -18,6 +22,13 @@ public class Draggable : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDra
     {
         originalLocalPosition = transform.localPosition;
         if (cam == null) cam = Camera.main;
+        FindBoundaryCamera();
+    }
+
+    private void FindBoundaryCamera()
+    {
+        GameObject dummyObj = GameObject.Find("PuzzleBoundaryAnchor_Internal");
+        if (dummyObj != null) boundaryCam = dummyObj.GetComponent<Camera>();
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -25,18 +36,16 @@ public class Draggable : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDra
         if (isSnapped) return;
         IsBeingDragged = true;
 
+        if (boundaryCam == null) FindBoundaryCamera();
+        Camera refCam = boundaryCam != null ? boundaryCam : cam;
+
         Vector3 targetWorldPosition = transform.parent.TransformPoint(originalLocalPosition);
-        
-        // 💡 THE SCREEN-FLAT FIX: 
-        // We force the dragging plane to perfectly face the camera (2D screen), 
-        // but we anchor its depth exactly at the target 3D puzzle slot!
-        Plane dragPlane = new Plane(-cam.transform.forward, targetWorldPosition);
+        Plane dragPlane = new Plane(-refCam.transform.forward, targetWorldPosition);
 
         Ray ray = cam.ScreenPointToRay(eventData.position);
         if (dragPlane.Raycast(ray, out float enterDistance))
         {
-            Vector3 hitPoint = ray.GetPoint(enterDistance);
-            dragOffset = transform.position - hitPoint;
+            dragOffset = transform.position - ray.GetPoint(enterDistance);
         }
     }
 
@@ -44,18 +53,19 @@ public class Draggable : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDra
     {
         if (isSnapped || cam == null) return;
 
+        if (boundaryCam == null) FindBoundaryCamera();
+        Camera refCam = boundaryCam != null ? boundaryCam : cam;
+
         Vector3 targetWorldPosition = transform.parent.TransformPoint(originalLocalPosition);
-        Plane dragPlane = new Plane(-cam.transform.forward, targetWorldPosition);
+        Plane dragPlane = new Plane(-refCam.transform.forward, targetWorldPosition);
 
         Ray ray = cam.ScreenPointToRay(eventData.position);
         if (dragPlane.Raycast(ray, out float enterDistance))
         {
-            Vector3 hitPoint = ray.GetPoint(enterDistance);
-            
-            // The piece now drags perfectly 1-to-1 with your finger across the iPad!
-            transform.position = hitPoint + dragOffset;
+            transform.position = ray.GetPoint(enterDistance) + dragOffset;
         }
 
+        // 💡 PERFECT CONSISTENCY: Back to pixel-perfect screen snapping!
         Vector2 pieceScreenPos = cam.WorldToScreenPoint(transform.position);
         Vector2 targetScreenPos = cam.WorldToScreenPoint(targetWorldPosition);
 

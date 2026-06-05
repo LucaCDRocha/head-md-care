@@ -327,7 +327,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Draggable
   cam: {fileID: 330585545}
-  snapDistance: 35
+  snapDistance: 30
 --- !u!65 &40713206
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -709,7 +709,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Draggable
   cam: {fileID: 330585545}
-  snapDistance: 35
+  snapDistance: 30
 --- !u!65 &189933148
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2088,7 +2088,8 @@ MonoBehaviour:
   floatingSpeed: 0.01
   explosionForce: 2
   explosionDuration: 0.2
-  borderPadding: 0.2
+  sidePadding: 0.08
+  bottomPadding: 0.25
   expulsionRadius: 3
   pauseBehavior: 1
   parkTransitionDuration: 0.2
@@ -2113,10 +2114,11 @@ MonoBehaviour:
   puzzleBodyMaterial: {fileID: 2100000, guid: a36be36eab5bebd4199ce828a8e43f0b, type: 2}
   puzzlePiecesRoot: {fileID: 991203476}
   floatingSpeed: 0.01
-  explosionForce: 2
+  explosionForce: 1
   explosionDuration: 0.3
-  borderPadding: 0.1
-  expulsionRadius: 0.5
+  sidePadding: 0.08
+  bottomPadding: 0.25
+  expulsionRadius: 0.4
   pauseBehavior: 0
   parkTransitionDuration: 0.3
 --- !u!4 &493759550 stripped
@@ -2290,7 +2292,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Draggable
   cam: {fileID: 330585545}
-  snapDistance: 35
+  snapDistance: 30
 --- !u!65 &560888444
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3945,7 +3947,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Draggable
   cam: {fileID: 330585545}
-  snapDistance: 35
+  snapDistance: 30
 --- !u!65 &1224599795
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4704,7 +4706,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Draggable
   cam: {fileID: 330585545}
-  snapDistance: 35
+  snapDistance: 30
 --- !u!65 &1611347588
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4933,7 +4935,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Draggable
   cam: {fileID: 330585545}
-  snapDistance: 35
+  snapDistance: 30
 --- !u!65 &1739708780
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7023,7 +7025,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Draggable
   cam: {fileID: 330585545}
-  snapDistance: 35
+  snapDistance: 30
 --- !u!65 &2142956705
 BoxCollider:
   m_ObjectHideFlags: 0
