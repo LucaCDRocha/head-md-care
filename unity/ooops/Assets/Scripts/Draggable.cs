@@ -14,6 +14,10 @@ public class Draggable : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDra
     private Vector3 originalLocalPosition;
     private bool isSnapped;
 
+    // --- AXIS LOCK TRACKING VARIABLES ---
+    private Vector3 dragOffset;
+    private Camera boundaryCam;
+
     // Flag so PuzzleLogic knows when to let go of physics updates
     public bool IsBeingDragged { get; private set; }
 
@@ -21,35 +25,67 @@ public class Draggable : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDra
     {
         originalLocalPosition = transform.localPosition;
         if (cam == null) cam = Camera.main;
+        FindBoundaryCamera();
+    }
+
+    private void FindBoundaryCamera()
+    {
+        // Finds the tracking anchor created dynamically by PuzzleLogic
+        GameObject dummyObj = GameObject.Find("PuzzleBoundaryAnchor_Internal");
+        if (dummyObj != null)
+        {
+            boundaryCam = dummyObj.GetComponent<Camera>();
+        }
     }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
         if (isSnapped) return;
         IsBeingDragged = true;
+
+        if (boundaryCam == null) FindBoundaryCamera();
+
+        Vector3 targetWorldPosition = transform.parent.TransformPoint(originalLocalPosition);
+        
+        // 💡 THE CRITICAL FIX: We add a minus (-) sign here! 
+        // This faces the plane TOWARDS the camera so the touch raycast never fails.
+        Vector3 planeNormal = (boundaryCam != null) ? -boundaryCam.transform.forward : -cam.transform.forward;
+        Plane dragPlane = new Plane(planeNormal, targetWorldPosition);
+
+        Ray ray = cam.ScreenPointToRay(eventData.position);
+        if (dragPlane.Raycast(ray, out float enterDistance))
+        {
+            Vector3 hitPoint = ray.GetPoint(enterDistance);
+            dragOffset = transform.position - hitPoint; // Smooth offset tracking
+        }
     }
 
     public void OnDrag(PointerEventData eventData)
     {
         if (isSnapped || cam == null) return;
 
-        // 1. Find exactly where this piece belongs in world space
+        if (boundaryCam == null) FindBoundaryCamera();
+
         Vector3 targetWorldPosition = transform.parent.TransformPoint(originalLocalPosition);
 
-        // 2. Lock the drag depth plane directly to the target slot's depth layer
-        float targetDepth = cam.WorldToScreenPoint(targetWorldPosition).z;
+        // 💡 THE CRITICAL FIX: Face the plane towards the camera here as well.
+        Vector3 planeNormal = (boundaryCam != null) ? -boundaryCam.transform.forward : -cam.transform.forward;
+        Plane dragPlane = new Plane(planeNormal, targetWorldPosition);
 
-        // 3. Move the object along that clean target depth plane matching touch input
-        Vector3 screenPos = new Vector3(eventData.position.x, eventData.position.y, targetDepth);
-        transform.position = cam.ScreenToWorldPoint(screenPos);
+        Ray ray = cam.ScreenPointToRay(eventData.position);
+        if (dragPlane.Raycast(ray, out float enterDistance))
+        {
+            Vector3 hitPoint = ray.GetPoint(enterDistance);
+            
+            // Move the piece perfectly along the physics floating grid plane
+            transform.position = hitPoint + dragOffset;
+        }
 
-        // 4. PIXEL DISTANCE CHECK: Measure how close they look on the 2D glass screen
+        // Measure how close they look on the 2D glass screen
         Vector2 pieceScreenPos = cam.WorldToScreenPoint(transform.position);
         Vector2 targetScreenPos = cam.WorldToScreenPoint(targetWorldPosition);
 
-        // 5. DYNAMIC DPI FIX: Scale the required snap distance based on device pixel density.
-        // We use 96 DPI as our baseline (standard PC screen). If an iPad has 264 DPI, 
-        // this multiplier automatically triples the pixel radius so it matches the physical finger size!
+        // Scale the required snap distance based on device pixel density.
         float screenDensityMultiplier = (Screen.dpi > 0) ? (Screen.dpi / 96f) : 1f;
         float dynamicSnapRadius = snapDistance * screenDensityMultiplier;
 
