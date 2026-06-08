@@ -2292,6 +2292,7 @@ MonoBehaviour:
   expulsionRadius: 3
   pauseBehavior: 1
   parkTransitionDuration: 0.2
+  hasExploded: 0
 --- !u!1 &493759546 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 244b481f490471c4f8ce0a762da97c97, type: 3}
@@ -2321,6 +2322,7 @@ MonoBehaviour:
   expulsionRadius: 0.4
   pauseBehavior: 0
   parkTransitionDuration: 0.3
+  hasExploded: 0
 --- !u!4 &493759550 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 244b481f490471c4f8ce0a762da97c97, type: 3}
@@ -3932,7 +3934,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ObjectFocus
   puzzleCamera: {fileID: 588665783}
   sharedFocusCamera: {fileID: 390290580}
-  cameraLocalOffset: {x: 0, y: 0.5, z: -1.5}
+  cameraLocalOffset: {x: 0, y: -0.6, z: 0.2}
 --- !u!114 &1057363180
 MonoBehaviour:
   m_ObjectHideFlags: 0

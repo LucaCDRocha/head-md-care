@@ -10,7 +10,8 @@ public class MandatoryClick : MonoBehaviour, IPointerClickHandler
     {
         if (puzzleLogic == null) puzzleLogic = FindAnyObjectByType<PuzzleLogic>();
 
-        if (puzzleLogic != null)
+        // 💡 BUG FIX: Only pause the puzzle if it has actually started!
+        if (puzzleLogic != null && puzzleLogic.hasExploded)
         {
             puzzleLogic.PausePuzzle();
         }
@@ -18,14 +19,14 @@ public class MandatoryClick : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
+        // 💡 BUG FIX: Ignore clicks if the coffee mug hasn't been clicked yet!
+        if (puzzleLogic != null && !puzzleLogic.hasExploded) return;
+
         Debug.Log($"Player tapped/clicked mandatory object: {gameObject.name}!");
 
         if (puzzleLogic != null)
         {
-            // 1. Resume whatever pieces were currently active on the table
             puzzleLogic.ResumePuzzle();
-            
-            // 💡 2. NEW: Automatically drop the NEXT piece onto the table!
             puzzleLogic.UnlockNextPiece(); 
         }
 

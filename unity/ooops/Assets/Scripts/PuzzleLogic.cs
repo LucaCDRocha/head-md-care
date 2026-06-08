@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public partial class PuzzleLogic : MonoBehaviour 
+public partial class PuzzleLogic : MonoBehaviour
 {
     public enum PuzzlePauseBehavior { HidePieces, ParkOnEdges }
 
@@ -17,8 +17,8 @@ public partial class PuzzleLogic : MonoBehaviour
 
     [Header("Cinematic Timings")]
     [Tooltip("How many seconds the sequence lasts. StageManager automatically reads this for the room fade!")]
-    public float fallDuration = 1.5f; 
-    
+    public float fallDuration = 1.5f;
+
     [Tooltip("Adjust this to match the fall duration! (Lower = slow-mo moon gravity, Higher = fast heavy falling)")]
     public float gravityStrength = 4.0f;
 
@@ -33,12 +33,12 @@ public partial class PuzzleLogic : MonoBehaviour
     public PuzzlePauseBehavior pauseBehavior = PuzzlePauseBehavior.HidePieces;
     public float parkTransitionDuration = 0.2f;
 
-    public event Action PuzzleExploded; 
+    public event Action PuzzleExploded;
     public event Action<Transform, int, int> PieceSnapped;
     public event Action ObjectRestored;
 
     private Camera mainCamera;
-    private Camera boundaryCamera; 
+    private Camera boundaryCamera;
     private Renderer[] bodyRenderers = new Renderer[0];
     private Material[] originalBodyMaterials = new Material[0];
     private Transform[] puzzlePieces = new Transform[0];
@@ -48,18 +48,18 @@ public partial class PuzzleLogic : MonoBehaviour
     private float[] pieceDepths = new float[0];
     private bool[] snappedPieces = new bool[0];
     private Draggable[] pieceDraggables = new Draggable[0];
-    private bool[] unlockedPieces = new bool[0]; 
+    private bool[] unlockedPieces = new bool[0];
 
     private bool puzzleChaosActive;
     private float puzzleChaosStartTime;
-    private bool hasExploded = false;
+    public bool hasExploded = false;
     private Coroutine parkCoroutine;
 
     private void Start()
     {
         mainCamera = Camera.main;
         CacheBodyRenderers();
-        CachePuzzlePieces(); 
+        CachePuzzlePieces();
     }
 
     private void Update()
@@ -67,7 +67,7 @@ public partial class PuzzleLogic : MonoBehaviour
         if (!puzzleChaosActive || puzzlePieces.Length == 0 || boundaryCamera == null) return;
 
         float deltaTime = Time.deltaTime;
-        
+
         // 💡 NOW USING THE NEW DURATION VARIABLE
         bool isGlobalExplosion = Time.time - puzzleChaosStartTime < fallDuration;
 
@@ -90,7 +90,7 @@ public partial class PuzzleLogic : MonoBehaviour
 
             if (draggable.IsBeingDragged)
             {
-                pieceVelocities[i] = Vector3.zero; 
+                pieceVelocities[i] = Vector3.zero;
                 continue;
             }
 
@@ -102,7 +102,7 @@ public partial class PuzzleLogic : MonoBehaviour
 
             Vector3 puzzleCenter = puzzleBodyObject != null ? puzzleBodyObject.transform.position : puzzlePiecesRoot.position;
             Vector3 toPiece = piece.position - puzzleCenter;
-            
+
             float flatRight = Vector3.Dot(toPiece, rightAxis);
             float flatUp = Vector3.Dot(toPiece, upAxis);
             Vector2 flatOffset = new Vector2(flatRight, flatUp);
@@ -115,13 +115,13 @@ public partial class PuzzleLogic : MonoBehaviour
                 if (isInsideVase)
                 {
                     Vector2 eject2D = flatOffset.normalized;
-                    if (eject2D.sqrMagnitude < 0.001f) eject2D = new Vector2(UnityEngine.Random.Range(-1f,1f), UnityEngine.Random.Range(-1f,1f)).normalized;
+                    if (eject2D.sqrMagnitude < 0.001f) eject2D = new Vector2(UnityEngine.Random.Range(-1f, 1f), UnityEngine.Random.Range(-1f, 1f)).normalized;
                     Vector3 eject3D = (rightAxis * eject2D.x + upAxis * eject2D.y).normalized;
 
                     float distanceToEscape = expulsionRadius - flatOffset.magnitude;
                     piece.position += eject3D * distanceToEscape;
-                    
-                    pieceVelocities[i] = eject3D * floatingSpeed; 
+
+                    pieceVelocities[i] = eject3D * floatingSpeed;
                 }
                 else
                 {
@@ -136,7 +136,7 @@ public partial class PuzzleLogic : MonoBehaviour
                 Vector3 normal3D = (rightAxis * normal2D.x + upAxis * normal2D.y).normalized;
 
                 pieceVelocities[i] = Vector3.Reflect(pieceVelocities[i], normal3D).normalized * pieceVelocities[i].magnitude;
-                
+
                 float distanceToEscape = expulsionRadius - flatOffset.magnitude;
                 piece.position += normal3D * distanceToEscape;
             }
@@ -165,7 +165,7 @@ public partial class PuzzleLogic : MonoBehaviour
                 float currentZ = boundaryCamera.WorldToViewportPoint(piece.position).z;
                 viewportPoint.z = currentZ;
                 piece.position = boundaryCamera.ViewportToWorldPoint(viewportPoint);
-                
+
                 float dampening = (viewportPoint.y <= bottomPadding) ? 0.6f : 1.0f;
                 pieceVelocities[i] = (rightAxis * velRight + upAxis * velUp).normalized * (pieceVelocities[i].magnitude * dampening);
             }
@@ -175,13 +175,13 @@ public partial class PuzzleLogic : MonoBehaviour
     [ContextMenu("Start Puzzle Chaos")]
     public void StartPuzzleChaos()
     {
-        if (hasExploded) return; 
+        if (hasExploded) return;
         hasExploded = true;
 
         mainCamera = Camera.main;
 
-        if (puzzlePieces.Length == 0) CachePuzzlePieces(); 
-        if (bodyRenderers.Length == 0) CacheBodyRenderers(); 
+        if (puzzlePieces.Length == 0) CachePuzzlePieces();
+        if (bodyRenderers.Length == 0) CacheBodyRenderers();
 
         unlockedPieces = new bool[puzzlePieces.Length];
 
@@ -189,26 +189,26 @@ public partial class PuzzleLogic : MonoBehaviour
         {
             GameObject dummyObj = GameObject.Find("PuzzleBoundaryAnchor_Internal");
             if (dummyObj == null) dummyObj = new GameObject("PuzzleBoundaryAnchor_Internal");
-            
-            dummyObj.transform.position = mainCamera.transform.position; 
-            dummyObj.transform.rotation = mainCamera.transform.rotation; 
+
+            dummyObj.transform.position = mainCamera.transform.position;
+            dummyObj.transform.rotation = mainCamera.transform.rotation;
 
             boundaryCamera = dummyObj.GetComponent<Camera>();
             if (boundaryCamera == null) boundaryCamera = dummyObj.AddComponent<Camera>();
-            
-            boundaryCamera.CopyFrom(mainCamera); 
-            boundaryCamera.enabled = false; 
+
+            boundaryCamera.CopyFrom(mainCamera);
+            boundaryCamera.enabled = false;
 
             for (int i = 0; i < puzzlePieces.Length; i++)
             {
-                if (puzzlePieces[i] != null) pieceDepths[i] = boundaryCamera.WorldToViewportPoint(puzzlePieces[i].position).z; 
+                if (puzzlePieces[i] != null) pieceDepths[i] = boundaryCamera.WorldToViewportPoint(puzzlePieces[i].position).z;
             }
         }
 
-        ApplyBodyMaterial(); 
-        if (puzzlePieces.Length == 0) return; 
+        ApplyBodyMaterial();
+        if (puzzlePieces.Length == 0) return;
 
-        ToggleBodyColliders(false); 
+        ToggleBodyColliders(false);
 
         Vector3 rightAxis = boundaryCamera != null ? boundaryCamera.transform.right : Vector3.right;
         Vector3 upAxis = boundaryCamera != null ? boundaryCamera.transform.up : Vector3.up;
@@ -216,10 +216,13 @@ public partial class PuzzleLogic : MonoBehaviour
         for (int i = 0; i < puzzlePieces.Length; i++)
         {
             Transform piece = puzzlePieces[i];
-            if (piece == null) continue; 
-            
-            unlockedPieces[i] = true; 
-            piece.gameObject.SetActive(true); 
+            if (piece == null) continue;
+
+            unlockedPieces[i] = true;
+            piece.gameObject.SetActive(true);
+
+            // 💡 THE FIX: Turn off the colliders so the iPad's raycast ignores them mid-air!
+            TogglePieceColliders(piece, false);
 
             float randomX = UnityEngine.Random.Range(-1.2f, 1.2f);
             float randomY = UnityEngine.Random.Range(-0.2f, 1.2f);
@@ -227,11 +230,11 @@ public partial class PuzzleLogic : MonoBehaviour
             Vector3 direction = (rightAxis * randomX) + (upAxis * randomY);
             Vector3 drift = (rightAxis * UnityEngine.Random.Range(-0.15f, 0.15f)) + (upAxis * UnityEngine.Random.Range(-0.15f, 0.15f));
 
-            pieceVelocities[i] = (direction + drift).normalized * (explosionForce * UnityEngine.Random.Range(0.8f, 1.5f)); 
+            pieceVelocities[i] = (direction + drift).normalized * (explosionForce * UnityEngine.Random.Range(0.8f, 1.5f));
         }
 
-        puzzleChaosStartTime = Time.time; 
-        puzzleChaosActive = true; 
+        puzzleChaosStartTime = Time.time;
+        puzzleChaosActive = true;
 
         PuzzleExploded?.Invoke();
         StartCoroutine(CinematicShatterSequence());
@@ -239,16 +242,25 @@ public partial class PuzzleLogic : MonoBehaviour
 
     private IEnumerator CinematicShatterSequence()
     {
-        // 💡 NOW USING THE NEW DURATION VARIABLE
+        // Wait for the slow-motion fall to finish
         yield return new WaitForSeconds(fallDuration);
 
-        for (int i = 1; i < puzzlePieces.Length; i++)
+        // Loop through all the pieces on the table
+        for (int i = 0; i < puzzlePieces.Length; i++)
         {
-            if (puzzlePieces[i] != null && !snappedPieces[i])
+            if (puzzlePieces[i] == null || snappedPieces[i]) continue;
+
+            if (i == 0)
             {
+                // 💡 THE FIX: Turn the collider back on for Piece #0 so you can start the puzzle!
+                TogglePieceColliders(puzzlePieces[i], true);
+            }
+            else
+            {
+                // Hide all the other pieces and lock them away
                 puzzlePieces[i].gameObject.SetActive(false);
-                pieceVelocities[i] = Vector3.zero; 
-                unlockedPieces[i] = false; 
+                pieceVelocities[i] = Vector3.zero;
+                unlockedPieces[i] = false;
             }
         }
     }
@@ -264,17 +276,17 @@ public partial class PuzzleLogic : MonoBehaviour
         {
             if (!snappedPieces[i] && !unlockedPieces[i])
             {
-                unlockedPieces[i] = true; 
+                unlockedPieces[i] = true;
                 puzzlePieces[i].gameObject.SetActive(true);
                 TogglePieceColliders(puzzlePieces[i], true);
-                
+
                 Vector3 direction = (rightAxis * UnityEngine.Random.Range(-0.5f, 0.5f)) + (upAxis * 1.0f);
                 pieceVelocities[i] = direction.normalized * explosionForce;
-                
-                puzzleChaosStartTime = Time.time; 
-                
+
+                puzzleChaosStartTime = Time.time;
+
                 Debug.Log($"Unlocked Piece: {puzzlePieces[i].name}");
-                break; 
+                break;
             }
         }
     }
