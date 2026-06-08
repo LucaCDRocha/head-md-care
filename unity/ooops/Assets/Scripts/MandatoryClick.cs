@@ -1,5 +1,5 @@
 using UnityEngine;
-using UnityEngine.EventSystems; // Required for IPointerClickHandler
+using UnityEngine.EventSystems;
 
 public class MandatoryClick : MonoBehaviour, IPointerClickHandler
 {
@@ -16,19 +16,19 @@ public class MandatoryClick : MonoBehaviour, IPointerClickHandler
         }
     }
 
-    // Works seamlessly via Unity EventSystem on both PC Mouse and Tablet Taps!
     public void OnPointerClick(PointerEventData eventData)
     {
         Debug.Log($"Player tapped/clicked mandatory object: {gameObject.name}!");
 
-        // 1. Resume the puzzle logic shards
         if (puzzleLogic != null)
         {
+            // 1. Resume whatever pieces were currently active on the table
             puzzleLogic.ResumePuzzle();
+            
+            // 💡 2. NEW: Automatically drop the NEXT piece onto the table!
+            puzzleLogic.UnlockNextPiece(); 
         }
 
-        // 2. Turn off ONLY this script component so it can never pause the puzzle again, 
-        // but leave the physical Collider enabled so ObjectFocus can still zoom in on it!
         enabled = false; 
     }
 }
