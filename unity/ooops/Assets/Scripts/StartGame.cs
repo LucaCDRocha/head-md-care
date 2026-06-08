@@ -1,6 +1,7 @@
+using System.Collections;
 using UnityEngine;
-using UnityEngine.EventSystems; // Required for cross-platform click/touch events
-using Unity.Cinemachine;       // Required for Cinemachine v3
+using UnityEngine.EventSystems;
+using Unity.Cinemachine;
 
 public class StartGame : MonoBehaviour, IPointerClickHandler
 {
@@ -11,20 +12,28 @@ public class StartGame : MonoBehaviour, IPointerClickHandler
     [Tooltip("The game camera looking at the puzzle vase that we want to switch to instantly.")]
     public CinemachineCamera puzzleCamera;
 
+    [Header("Door Animation")]
+    [Tooltip("How long it takes the door to swing open (in seconds).")]
+    public float openDuration = 1.2f;
+
+    [Tooltip("How many degrees the door should swing. Change to -90 if it swings the wrong way!")]
+    public float openAngle = 90f;
+
     [Header("Optional Settings")]
-    [Tooltip("If true, the script will automatically hide this starting object asset after it is clicked.")]
+    [Tooltip("If true, the script will automatically hide the clickable hitbox after it is clicked.")]
     public bool hideOnStart = true;
+
+    private bool isStarting = false;
 
     private void Start()
     {
-        // Forces the tablet to maintain a smooth, steady, battery-safe frame cadence
         Application.targetFrameRate = 30;
     }
 
-    // Works beautifully on both PC Mouse clicks and Tablet Touch screens!
     public void OnPointerClick(PointerEventData eventData)
     {
-        // Fallback: If you didn't assign the puzzle camera, look for it by its default name
+        if (isStarting) return;
+
         if (puzzleCamera == null)
         {
             puzzleCamera = GameObject.Find("CinemachineCamera")?.GetComponent<CinemachineCamera>();
@@ -36,24 +45,59 @@ public class StartGame : MonoBehaviour, IPointerClickHandler
             return;
         }
 
-        Debug.Log("Start Game triggered! Shifting camera perspective.");
+        isStarting = true;
+        StartCoroutine(StartSequence());
+    }
 
-        // 1. Swap priorities so Cinemachine targets the puzzle view
-        puzzleCamera.Priority = 30;
+    private IEnumerator StartSequence()
+    {
+        // 1. OPEN THE DOOR
+        Transform doorParent = transform.parent;
+        if (doorParent == null) doorParent = transform;
 
-        if (menuCamera != null)
+        // Memorize exactly where the door started so we can close it later!
+        Quaternion startRotation = doorParent.rotation;
+        Quaternion endRotation = startRotation * Quaternion.Euler(0, openAngle, 0);
+
+        float elapsed = 0f;
+
+        while (elapsed < openDuration)
         {
-            menuCamera.Priority = 10;
+            elapsed += Time.deltaTime;
+            float t = Mathf.Clamp01(elapsed / openDuration);
+            float smoothT = t * t * (3f - 2f * t);
+
+            doorParent.rotation = Quaternion.Lerp(startRotation, endRotation, smoothT);
+            yield return null;
         }
 
-        // 2. Clean up this object so players can't click it again
+        doorParent.rotation = endRotation;
+
+        // 2. DRAMATIC PAUSE
+        yield return new WaitForSeconds(0.2f);
+
+        // 3. SHIFT CAMERAS
+        Debug.Log("Door open! Shifting camera perspective.");
+        puzzleCamera.Priority = 30;
+        if (menuCamera != null) menuCamera.Priority = 10;
+
+        // 💡 4. THE AUTO-CLOSE FIX
+        // Wait exactly 1 frame to guarantee Cinemachine has switched the screen...
+        yield return null;
+
+        // ...and instantly snap the door back to its original closed position invisibly!
+        doorParent.rotation = startRotation;
+
+        // 5. CLEANUP
         if (hideOnStart)
         {
-            gameObject.SetActive(false); // Hides the button/object entirely
+            gameObject.SetActive(false);
         }
         else
         {
-            enabled = false; // Just turns off the click script component
+            Collider col = GetComponent<Collider>();
+            if (col != null) col.enabled = false;
+            enabled = false;
         }
     }
 }
