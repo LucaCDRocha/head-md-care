@@ -1,17 +1,13 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using Unity.Cinemachine; // 💡 NEW: Needed to talk to the Cinemachine Brain!
 
 public class MandatoryClick : MonoBehaviour, IPointerClickHandler
 {
     [Header("Puzzle Connection")]
     public PuzzleLogic puzzleLogic;
 
-    [Header("Cinematic Timings")]
-    [Tooltip("How many seconds does the camera take to zoom in? The piece will wait this long before dropping!")]
-    public float cameraTransitionTime = 2.0f; 
-
-    // 💡 NEW: Ensures the piece only drops ONCE, without breaking the camera!
     private bool hasDroppedPiece = false; 
 
     private void OnEnable()
@@ -26,23 +22,33 @@ public class MandatoryClick : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        // Ignore clicks if the coffee mug hasn't broken the vase yet
         if (puzzleLogic == null || !puzzleLogic.hasExploded) return;
-        
-        // 💡 THE FIX: If we already dropped the piece, just stop here. 
-        // We do NOT disable the script, so the ObjectFocus script can keep zooming the camera!
         if (hasDroppedPiece) return;
         
         hasDroppedPiece = true; 
-        Debug.Log($"Player tapped mandatory object: {gameObject.name}. Dropping piece in {cameraTransitionTime} seconds...");
+        Debug.Log($"Player tapped mandatory object: {gameObject.name}. Waiting for Cinemachine to finish...");
 
         StartCoroutine(DelayedUnlockSequence());
     }
 
     private IEnumerator DelayedUnlockSequence()
     {
-        // 1. Wait for the Cinemachine camera to finish moving
-        yield return new WaitForSeconds(cameraTransitionTime);
+        // 1. Find the Cinemachine Brain on the Main Camera
+        CinemachineBrain brain = Camera.main.GetComponent<CinemachineBrain>();
+
+        if (brain != null)
+        {
+            // Wait exactly 1 frame to give Cinemachine time to start the transition
+            yield return null; 
+
+            // 💡 THE FIX: Automatically wait until the camera physically stops moving!
+            yield return new WaitWhile(() => brain.IsBlending);
+        }
+        else
+        {
+            // Fallback just in case you accidentally delete the brain!
+            yield return new WaitForSeconds(2.0f);
+        }
 
         // 2. Resume the puzzle and drop the piece!
         if (puzzleLogic != null)
@@ -50,7 +56,5 @@ public class MandatoryClick : MonoBehaviour, IPointerClickHandler
             puzzleLogic.ResumePuzzle();
             puzzleLogic.UnlockNextPiece(); 
         }
-
-        // 💡 THE FIX: The code that destroyed the collider has been completely deleted!
     }
 }

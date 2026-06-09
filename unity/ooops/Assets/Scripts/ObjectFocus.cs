@@ -13,15 +13,10 @@ public class ObjectFocus : MonoBehaviour, IPointerClickHandler
     [Header("Framing Settings")]
     public Vector3 cameraLocalOffset = new Vector3(0f, 0.5f, -1.5f);
 
-    [Tooltip("How long the camera takes to move. Clicks are disabled during this time!")]
-    public float transitionDuration = 2.0f; // 💡 NEW: The camera lock timer!
-
     private static bool isAnyObjectFocused = false;
     private static ObjectFocus currentlyFocusedObject = null;
 
-    // 💡 NEW: A global lock so the player can't click anything while the camera moves
     private static bool isTransitioning = false;
-
     private PuzzleLogic puzzleLogic;
 
     private void Start()
@@ -31,10 +26,9 @@ public class ObjectFocus : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        // Ignore clicks if the game hasn't started yet
         if (puzzleLogic != null && !puzzleLogic.hasExploded) return;
 
-        // 💡 THE FIX: Ignore the click completely if the camera is currently flying!
+        // Ignore clicks if the camera is currently flying!
         if (isTransitioning) return;
 
         if (isAnyObjectFocused && currentlyFocusedObject == this)
@@ -84,15 +78,23 @@ public class ObjectFocus : MonoBehaviour, IPointerClickHandler
             if (sharedFocusCamera != null) sharedFocusCamera.Priority = 10;
         }
 
-        // ⏳ Wait for the camera to finish its journey
-        yield return new WaitForSeconds(transitionDuration);
+        // 💡 THE FIX: Automatically wait until the camera finishes moving!
+        CinemachineBrain brain = Camera.main.GetComponent<CinemachineBrain>();
+        if (brain != null)
+        {
+            yield return null; // Wait 1 frame for the transition to begin
+            yield return new WaitWhile(() => brain.IsBlending);
+        }
+        else
+        {
+            yield return new WaitForSeconds(2.0f); // Fallback
+        }
 
         isTransitioning = false; // 🔓 UNLOCK the camera
     }
 
     private void Update()
     {
-        // 💡 THE FIX: Ignore background clicks if the camera is flying!
         if (!isAnyObjectFocused || currentlyFocusedObject != this || isTransitioning) return;
 
         if (Pointer.current != null && Pointer.current.press.wasPressedThisFrame)
@@ -117,7 +119,6 @@ public class ObjectFocus : MonoBehaviour, IPointerClickHandler
         }
     }
 
-    // Safety fallback just in case the object is deleted mid-transition!
     private void OnDestroy()
     {
         if (currentlyFocusedObject == this)

@@ -369,7 +369,6 @@ MonoBehaviour:
   puzzleCamera: {fileID: 588665783}
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: 0.5, y: -0.4, z: 0}
-  transitionDuration: 2
 --- !u!114 &41027805
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -383,7 +382,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MandatoryClick
   puzzleLogic: {fileID: 493759547}
-  cameraTransitionTime: 2
 --- !u!65 &41027806
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4405,7 +4403,6 @@ MonoBehaviour:
   puzzleCamera: {fileID: 588665783}
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: 0, y: -0.6, z: 0.2}
-  transitionDuration: 2
 --- !u!114 &1057363180
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4419,7 +4416,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MandatoryClick
   puzzleLogic: {fileID: 493759547}
-  cameraTransitionTime: 2
 --- !u!4 &1057363183 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c0e6cb13c25d1c24baaa67b93b1da5fe, type: 3}
@@ -13298,7 +13294,6 @@ MonoBehaviour:
   puzzleCamera: {fileID: 588665783}
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: -1, y: 0.5, z: 0}
-  transitionDuration: 2
 --- !u!65 &1982638317
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13338,7 +13333,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MandatoryClick
   puzzleLogic: {fileID: 493759547}
-  cameraTransitionTime: 2
 --- !u!1001 &1991497768
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13766,7 +13760,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   puzzleLogic: {fileID: 493759547}
-  cameraTransitionTime: 2
 --- !u!114 &2053712827
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13782,7 +13775,6 @@ MonoBehaviour:
   puzzleCamera: {fileID: 588665783}
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: 0, y: -0.3, z: -1}
-  transitionDuration: 2
 --- !u!1 &2099965723
 GameObject:
   m_ObjectHideFlags: 0
