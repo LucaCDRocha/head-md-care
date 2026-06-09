@@ -5,8 +5,14 @@ using UnityEngine.EventSystems;
 public class CoffeeMugSlam : MonoBehaviour, IPointerClickHandler
 {
     [Header("Puzzle Connection")]
-    [Tooltip("Drag your PuzzleLogic object here so the mug knows what to explode!")]
     public PuzzleLogic puzzleLogic;
+
+    [Header("Audio Sources (Drag your empty Audio child objects here!)")]
+    [Tooltip("The sound that plays while the mug is magically floating up.")]
+    public AudioSource magicHoverAudio;
+    
+    [Tooltip("The heavy thud sound when it hits the table.")]
+    public AudioSource slamAudio;
 
     [Header("Animation Timings")]
     public float floatUpTime = 1.0f;
@@ -14,11 +20,7 @@ public class CoffeeMugSlam : MonoBehaviour, IPointerClickHandler
     public float slamDownTime = 0.15f; 
 
     [Header("Camera Hover Settings")]
-    [Tooltip("How far in front of the camera the mug should float.")]
     public float distanceFromCamera = 1.5f;
-    
-    // 💡 NEW: Let's you fix weird 3D model import angles directly in the Inspector!
-    [Tooltip("Tweak these X, Y, Z angles to spin and tilt the mug perfectly towards the camera.")]
     public Vector3 hoverRotationOffset = new Vector3(15f, 180f, 0f);
 
     private Camera mainCamera;
@@ -46,9 +48,10 @@ public class CoffeeMugSlam : MonoBehaviour, IPointerClickHandler
         Quaternion tableRotation = transform.rotation;
 
         Vector3 hoverPosition = mainCamera.transform.position + (mainCamera.transform.forward * distanceFromCamera);
-        
-        // 💡 NEW: Uses your custom Inspector angles so you can face the mug perfectly!
         Quaternion hoverRotation = mainCamera.transform.rotation * Quaternion.Euler(hoverRotationOffset);
+
+        // 🔊 TRIGGER HOVER SOUND
+        if (magicHoverAudio != null) magicHoverAudio.Play();
 
         // --- PHASE 1: FLOAT UP ---
         float elapsed = 0f;
@@ -81,12 +84,14 @@ public class CoffeeMugSlam : MonoBehaviour, IPointerClickHandler
         transform.position = tablePosition;
         transform.rotation = tableRotation;
 
+        // 🔊 TRIGGER SLAM SOUND (The exact millisecond it hits the table!)
+        if (magicHoverAudio != null) magicHoverAudio.Stop(); // Stop the magic hum
+        if (slamAudio != null) slamAudio.Play(); // Play the thud!
+
         // --- PHASE 4: TRIGGER THE SHATTER! ---
         if (puzzleLogic != null)
         {
             puzzleLogic.StartPuzzleChaos();
         }
-
-        // 💡 FIXED: The SetActive(false) line is gone! The mug will now stay on the table forever.
     }
 }

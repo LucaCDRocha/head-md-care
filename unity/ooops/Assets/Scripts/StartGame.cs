@@ -12,6 +12,10 @@ public class StartGame : MonoBehaviour, IPointerClickHandler
     [Tooltip("The game camera looking at the puzzle vase that we want to switch to instantly.")]
     public CinemachineCamera puzzleCamera;
 
+    [Header("Starting Room Audio")]
+    [Tooltip("Add as many Audio Sources here as you want! They will all instantly stop when the door opens.")]
+    public AudioSource[] ambientSounds; // 💡 NEW: The Array of sounds to silence!
+
     [Header("Door Animation")]
     [Tooltip("How long it takes the door to swing open (in seconds).")]
     public float openDuration = 1.2f;
@@ -41,21 +45,19 @@ public class StartGame : MonoBehaviour, IPointerClickHandler
 
         if (puzzleCamera == null)
         {
-            Debug.LogError($"StartGame on {gameObject.name} cannot find your primary Puzzle Camera!");
+            Debug.LogError("No CinemachineCamera found for the puzzle view!");
             return;
         }
 
         isStarting = true;
-        StartCoroutine(StartSequence());
+        StartCoroutine(StartGameSequence());
     }
 
-    private IEnumerator StartSequence()
+    private IEnumerator StartGameSequence()
     {
         // 1. OPEN THE DOOR
-        Transform doorParent = transform.parent;
-        if (doorParent == null) doorParent = transform;
+        Transform doorParent = transform.parent != null ? transform.parent : transform;
 
-        // Memorize exactly where the door started so we can close it later!
         Quaternion startRotation = doorParent.rotation;
         Quaternion endRotation = startRotation * Quaternion.Euler(0, openAngle, 0);
 
@@ -76,12 +78,20 @@ public class StartGame : MonoBehaviour, IPointerClickHandler
         // 2. DRAMATIC PAUSE
         yield return new WaitForSeconds(0.2f);
 
-        // 3. SHIFT CAMERAS
-        Debug.Log("Door open! Shifting camera perspective.");
+        // 3. SHIFT CAMERAS & SILENCE AUDIO
+        Debug.Log("Door open! Shifting camera perspective and stopping ambience.");
         puzzleCamera.Priority = 30;
         if (menuCamera != null) menuCamera.Priority = 10;
 
-        // 💡 4. THE AUTO-CLOSE FIX
+        // 🔊 THE FIX: Loop through your list and tell every single sound to stop!
+        foreach (AudioSource audio in ambientSounds)
+        {
+            if (audio != null) 
+            {
+                audio.Stop();
+            }
+        }
+
         // Wait exactly 1 frame to guarantee Cinemachine has switched the screen...
         yield return null;
 
@@ -95,9 +105,7 @@ public class StartGame : MonoBehaviour, IPointerClickHandler
         }
         else
         {
-            Collider col = GetComponent<Collider>();
-            if (col != null) col.enabled = false;
-            enabled = false;
+            isStarting = false; 
         }
     }
 }
