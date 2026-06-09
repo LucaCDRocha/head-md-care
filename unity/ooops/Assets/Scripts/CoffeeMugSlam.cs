@@ -7,21 +7,21 @@ public class CoffeeMugSlam : MonoBehaviour, IPointerClickHandler
     [Header("Puzzle Connection")]
     public PuzzleLogic puzzleLogic;
 
-    [Header("Audio Sources (Drag your empty Audio child objects here!)")]
-    [Tooltip("The sound that plays while the mug is magically floating up.")]
+    [Header("Audio Sources")]
     public AudioSource magicHoverAudio;
-    
-    [Tooltip("The heavy thud sound when it hits the table.")]
     public AudioSource slamAudio;
 
     [Header("Animation Timings")]
     public float floatUpTime = 1.0f;
     public float pauseTime = 0.5f;
-    public float slamDownTime = 0.15f; 
+    public float slamDownTime = 0.15f;
 
     [Header("Camera Hover Settings")]
     public float distanceFromCamera = 1.5f;
-    public Vector3 hoverRotationOffset = new Vector3(15f, 180f, 0f);
+    public Vector3 rotationOffset = new Vector3(15f, 180f, 0f);
+
+    [Tooltip("Fine-tune the mug's position relative to the camera (X=Side, Y=Up/Down, Z=Forward/Backward).")]
+    public Vector3 translationOffset = new Vector3(0f, 0f, 0f); // 💡 NEW: The fine-tuning offset!
 
     private Camera mainCamera;
     private bool hasTriggered = false;
@@ -36,7 +36,6 @@ public class CoffeeMugSlam : MonoBehaviour, IPointerClickHandler
     {
         if (hasTriggered) return;
         hasTriggered = true;
-
         StartCoroutine(SlamSequence());
     }
 
@@ -47,36 +46,39 @@ public class CoffeeMugSlam : MonoBehaviour, IPointerClickHandler
         Vector3 tablePosition = transform.position;
         Quaternion tableRotation = transform.rotation;
 
-        Vector3 hoverPosition = mainCamera.transform.position + (mainCamera.transform.forward * distanceFromCamera);
-        Quaternion hoverRotation = mainCamera.transform.rotation * Quaternion.Euler(hoverRotationOffset);
+        // Calculate the base hover position
+        Vector3 baseHoverPos = mainCamera.transform.position + (mainCamera.transform.forward * distanceFromCamera);
 
-        // 🔊 TRIGGER HOVER SOUND
+        // 💡 THE FIX: Apply the offset relative to the camera's rotation
+        Vector3 finalHoverPosition = baseHoverPos + (mainCamera.transform.right * translationOffset.x) +
+                                     (mainCamera.transform.up * translationOffset.y) +
+                                     (mainCamera.transform.forward * translationOffset.z);
+
+        Quaternion hoverRotation = mainCamera.transform.rotation * Quaternion.Euler(rotationOffset);
+
         if (magicHoverAudio != null) magicHoverAudio.Play();
 
-        // --- PHASE 1: FLOAT UP ---
         float elapsed = 0f;
         while (elapsed < floatUpTime)
         {
             elapsed += Time.deltaTime;
-            float t = Mathf.SmoothStep(0, 1, elapsed / floatUpTime); 
-            
-            transform.position = Vector3.Lerp(tablePosition, hoverPosition, t);
+            float t = Mathf.SmoothStep(0, 1, elapsed / floatUpTime);
+
+            transform.position = Vector3.Lerp(tablePosition, finalHoverPosition, t);
             transform.rotation = Quaternion.Slerp(tableRotation, hoverRotation, t);
             yield return null;
         }
 
-        // --- PHASE 2: DRAMATIC PAUSE ---
         yield return new WaitForSeconds(pauseTime);
 
-        // --- PHASE 3: THE VIOLENT SLAM ---
         elapsed = 0f;
         while (elapsed < slamDownTime)
         {
             elapsed += Time.deltaTime;
             float t = elapsed / slamDownTime;
-            float easeIn = t * t * t; 
+            float easeIn = t * t * t;
 
-            transform.position = Vector3.Lerp(hoverPosition, tablePosition, easeIn);
+            transform.position = Vector3.Lerp(finalHoverPosition, tablePosition, easeIn);
             transform.rotation = Quaternion.Slerp(hoverRotation, tableRotation, easeIn);
             yield return null;
         }
@@ -84,14 +86,9 @@ public class CoffeeMugSlam : MonoBehaviour, IPointerClickHandler
         transform.position = tablePosition;
         transform.rotation = tableRotation;
 
-        // 🔊 TRIGGER SLAM SOUND (The exact millisecond it hits the table!)
-        if (magicHoverAudio != null) magicHoverAudio.Stop(); // Stop the magic hum
-        if (slamAudio != null) slamAudio.Play(); // Play the thud!
+        if (magicHoverAudio != null) magicHoverAudio.Stop();
+        if (slamAudio != null) slamAudio.Play();
 
-        // --- PHASE 4: TRIGGER THE SHATTER! ---
-        if (puzzleLogic != null)
-        {
-            puzzleLogic.StartPuzzleChaos();
-        }
+        if (puzzleLogic != null) puzzleLogic.StartPuzzleChaos();
     }
 }

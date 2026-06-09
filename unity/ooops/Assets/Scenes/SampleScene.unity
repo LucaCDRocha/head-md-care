@@ -1620,7 +1620,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
+  near clip plane: 0.1
   far clip plane: 1000
   field of view: 70
   orthographic: 0
@@ -1648,8 +1648,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.749, y: 1.546, z: -7.005}
+  m_LocalRotation: {x: 0.07509562, y: 0.70968866, z: -0.07653873, w: 0.6963078}
+  m_LocalPosition: {x: -3.54, y: 1.64, z: 0.23}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3016,7 +3016,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineCamera
   Priority:
     Enabled: 1
-    m_Value: 5
+    m_Value: 40
   OutputChannel: 1
   StandbyUpdate: 2
   m_StreamingVersion: 20241001
@@ -3028,7 +3028,7 @@ MonoBehaviour:
   Lens:
     FieldOfView: 70
     OrthographicSize: 5
-    NearClipPlane: 0.3
+    NearClipPlane: 0.1
     FarClipPlane: 1000
     Dutch: 0
     ModeOverride: 0
@@ -3175,8 +3175,9 @@ MonoBehaviour:
   floatUpTime: 1
   pauseTime: 0.5
   slamDownTime: 0.15
-  distanceFromCamera: 0.45
-  hoverRotationOffset: {x: 200, y: 0, z: 0}
+  distanceFromCamera: 0.25
+  rotationOffset: {x: 200, y: 0, z: 0}
+  translationOffset: {x: 0, y: -0.07, z: 0}
 --- !u!1 &639943072
 GameObject:
   m_ObjectHideFlags: 0
