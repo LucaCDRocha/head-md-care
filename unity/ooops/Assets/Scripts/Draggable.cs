@@ -2,7 +2,8 @@ using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Draggable : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler
+// 💡 CHANGED: Swapped IPointerDown for IPointerClick!
+public class Draggable : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler, IPointerClickHandler 
 {
     public Camera cam;
     
@@ -15,6 +16,8 @@ public class Draggable : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDra
     private bool isSnapped;
     private Vector3 dragOffset;
     private Camera boundaryCam; 
+    
+    private PuzzleLogic puzzleLogic; 
 
     public bool IsBeingDragged { get; private set; }
 
@@ -23,12 +26,28 @@ public class Draggable : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDra
         originalLocalPosition = transform.localPosition;
         if (cam == null) cam = Camera.main;
         FindBoundaryCamera();
+        
+        puzzleLogic = FindAnyObjectByType<PuzzleLogic>(); 
     }
 
     private void FindBoundaryCamera()
     {
         GameObject dummyObj = GameObject.Find("PuzzleBoundaryAnchor_Internal");
         if (dummyObj != null) boundaryCam = dummyObj.GetComponent<Camera>();
+    }
+
+    // 💡 THE FIX: This only fires if the player TAPS the piece and releases without dragging!
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if (isSnapped) return; 
+
+        // Extra safety check: If Unity accidentally registered a micro-drag, ignore the click!
+        if (eventData.dragging) return; 
+
+        if (puzzleLogic != null)
+        {
+            puzzleLogic.PlayPieceTapSound();
+        }
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -45,13 +64,14 @@ public class Draggable : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDra
         Ray ray = cam.ScreenPointToRay(eventData.position);
         if (dragPlane.Raycast(ray, out float enterDistance))
         {
-            dragOffset = transform.position - ray.GetPoint(enterDistance);
+            Vector3 hitPoint = ray.GetPoint(enterDistance);
+            dragOffset = transform.position - hitPoint;
         }
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        if (isSnapped || cam == null) return;
+        if (isSnapped || !IsBeingDragged) return;
 
         if (boundaryCam == null) FindBoundaryCamera();
         Camera refCam = boundaryCam != null ? boundaryCam : cam;
@@ -65,7 +85,6 @@ public class Draggable : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDra
             transform.position = ray.GetPoint(enterDistance) + dragOffset;
         }
 
-        // 💡 PERFECT CONSISTENCY: Back to pixel-perfect screen snapping!
         Vector2 pieceScreenPos = cam.WorldToScreenPoint(transform.position);
         Vector2 targetScreenPos = cam.WorldToScreenPoint(targetWorldPosition);
 
@@ -90,9 +109,8 @@ public class Draggable : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDra
         transform.position = targetWorldPos;
 
         Collider col = GetComponent<Collider>();
-        if (col != null) col.enabled = false;
+        if (col != null) col.enabled = false; 
 
         OnPieceSnapped?.Invoke(transform);
-        enabled = false;
     }
 }

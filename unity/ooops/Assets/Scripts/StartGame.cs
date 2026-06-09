@@ -6,25 +6,23 @@ using Unity.Cinemachine;
 public class StartGame : MonoBehaviour, IPointerClickHandler
 {
     [Header("Cinemachine Cameras")]
-    [Tooltip("The camera looking at the main menu or starting shot.")]
     public CinemachineCamera menuCamera;
-
-    [Tooltip("The game camera looking at the puzzle vase that we want to switch to instantly.")]
     public CinemachineCamera puzzleCamera;
 
     [Header("Starting Room Audio")]
-    [Tooltip("Add as many Audio Sources here as you want! They will all instantly stop when the door opens.")]
-    public AudioSource[] ambientSounds; // 💡 NEW: The Array of sounds to silence!
+    public AudioSource doorOpenAudio; 
+    
+    [Tooltip("This sound will start at volume 0 and fade up to 1 as the door opens, and continue playing!")]
+    public AudioSource cafeAmbience;
+
+    [Tooltip("Add any other sounds here (like the rain) that should instantly stop when the door cuts.")]
+    public AudioSource[] ambientSounds; 
 
     [Header("Door Animation")]
-    [Tooltip("How long it takes the door to swing open (in seconds).")]
     public float openDuration = 1.2f;
-
-    [Tooltip("How many degrees the door should swing. Change to -90 if it swings the wrong way!")]
     public float openAngle = 90f;
 
     [Header("Optional Settings")]
-    [Tooltip("If true, the script will automatically hide the clickable hitbox after it is clicked.")]
     public bool hideOnStart = true;
 
     private bool isStarting = false;
@@ -32,6 +30,12 @@ public class StartGame : MonoBehaviour, IPointerClickHandler
     private void Start()
     {
         Application.targetFrameRate = 30;
+        
+        // Guarantee the cafe ambience is totally silent before the player clicks the door
+        if (cafeAmbience != null)
+        {
+            cafeAmbience.volume = 0f;
+        }
     }
 
     public void OnPointerClick(PointerEventData eventData)
@@ -43,11 +47,7 @@ public class StartGame : MonoBehaviour, IPointerClickHandler
             puzzleCamera = GameObject.Find("CinemachineCamera")?.GetComponent<CinemachineCamera>();
         }
 
-        if (puzzleCamera == null)
-        {
-            Debug.LogError("No CinemachineCamera found for the puzzle view!");
-            return;
-        }
+        if (puzzleCamera == null) return;
 
         isStarting = true;
         StartCoroutine(StartGameSequence());
@@ -55,9 +55,18 @@ public class StartGame : MonoBehaviour, IPointerClickHandler
 
     private IEnumerator StartGameSequence()
     {
-        // 1. OPEN THE DOOR
-        Transform doorParent = transform.parent != null ? transform.parent : transform;
+        // 1. PLAY INITIAL SOUNDS
+        if (doorOpenAudio != null) doorOpenAudio.Play();
 
+        // Start playing the cafe sound, but at 0 volume!
+        if (cafeAmbience != null)
+        {
+            cafeAmbience.volume = 0f;
+            cafeAmbience.Play();
+        }
+
+        // 2. OPEN THE DOOR AND FADE VOLUME
+        Transform doorParent = transform.parent != null ? transform.parent : transform;
         Quaternion startRotation = doorParent.rotation;
         Quaternion endRotation = startRotation * Quaternion.Euler(0, openAngle, 0);
 
@@ -69,43 +78,44 @@ public class StartGame : MonoBehaviour, IPointerClickHandler
             float t = Mathf.Clamp01(elapsed / openDuration);
             float smoothT = t * t * (3f - 2f * t);
 
+            // Swing the door
             doorParent.rotation = Quaternion.Lerp(startRotation, endRotation, smoothT);
+            
+            // Fade the volume up perfectly alongside the door animation!
+            if (cafeAmbience != null)
+            {
+                cafeAmbience.volume = Mathf.Lerp(0f, 1f, smoothT);
+            }
+
             yield return null;
         }
 
         doorParent.rotation = endRotation;
+        
+        // Ensure volume is exactly 1 when finished
+        if (cafeAmbience != null) cafeAmbience.volume = 1f;
 
-        // 2. DRAMATIC PAUSE
+        // 3. DRAMATIC PAUSE
         yield return new WaitForSeconds(0.2f);
 
-        // 3. SHIFT CAMERAS & SILENCE AUDIO
-        Debug.Log("Door open! Shifting camera perspective and stopping ambience.");
+        // 4. SHIFT CAMERAS (And let the Cafe Ambience keep playing!)
         puzzleCamera.Priority = 30;
         if (menuCamera != null) menuCamera.Priority = 10;
-
-        // 🔊 THE FIX: Loop through your list and tell every single sound to stop!
+        
+        // 💡 THE FIX: cafeAmbience.Stop() has been completely removed from here!
+        
+        // Stop the rain and anything else in the array
         foreach (AudioSource audio in ambientSounds)
         {
-            if (audio != null) 
-            {
-                audio.Stop();
-            }
+            if (audio != null) audio.Stop();
         }
 
-        // Wait exactly 1 frame to guarantee Cinemachine has switched the screen...
         yield return null;
 
-        // ...and instantly snap the door back to its original closed position invisibly!
         doorParent.rotation = startRotation;
 
         // 5. CLEANUP
-        if (hideOnStart)
-        {
-            gameObject.SetActive(false);
-        }
-        else
-        {
-            isStarting = false; 
-        }
+        if (hideOnStart) gameObject.SetActive(false);
+        else isStarting = false; 
     }
 }

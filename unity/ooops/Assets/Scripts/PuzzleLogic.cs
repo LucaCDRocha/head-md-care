@@ -9,8 +9,16 @@ public partial class PuzzleLogic : MonoBehaviour
     public enum PuzzlePauseBehavior { HidePieces, ParkOnEdges }
 
     [Header("Audio Settings")]
-    [Tooltip("Drag the AudioSource for the glass shattering here!")]
-    public AudioSource shatterAudio; // 💡 NEW: The dedicated shatter sound!
+    public AudioSource shatterAudio;
+    public AudioSource rewindAudio; 
+    public AudioSource snapAudio; 
+    public AudioSource tapAudio; 
+
+    // 💡 NEW: We need a reference to the Cafe Ambience so we can control its volume!
+    [Tooltip("The Cafe Ambience sound. It will fade out during the crash, and slowly fade back in as pieces snap!")]
+    public AudioSource cafeAmbience; 
+
+    public float rewindAudioDelay = 0.4f; 
 
     [Header("Puzzle Setup")]
     public GameObject puzzleBodyObject;
@@ -233,7 +241,6 @@ public partial class PuzzleLogic : MonoBehaviour
         puzzleChaosStartTime = Time.time; 
         puzzleChaosActive = true; 
 
-        // 🔊 TRIGGER THE SHATTER SOUND!
         if (shatterAudio != null) shatterAudio.Play();
 
         PuzzleExploded?.Invoke();
@@ -242,7 +249,35 @@ public partial class PuzzleLogic : MonoBehaviour
 
     private IEnumerator CinematicShatterSequence()
     {
-        yield return new WaitForSeconds(fallDuration);
+        float elapsed = 0f;
+        bool rewindStarted = false;
+        
+        // Memorize the volume the cafe was at before the crash
+        float startVolume = cafeAmbience != null ? cafeAmbience.volume : 1f;
+
+        while (elapsed < fallDuration)
+        {
+            elapsed += Time.deltaTime;
+            
+            // 💡 NEW: Smoothly fade out the Cafe Ambience alongside the falling glass!
+            if (cafeAmbience != null)
+            {
+                float t = Mathf.Clamp01(elapsed / fallDuration);
+                cafeAmbience.volume = Mathf.Lerp(startVolume, 0f, t);
+            }
+
+            if (elapsed >= rewindAudioDelay && !rewindStarted)
+            {
+                if (rewindAudio != null) rewindAudio.Play();
+                rewindStarted = true;
+            }
+
+            yield return null; 
+        }
+
+        // Make absolutely sure it is at 0 volume when the sequence ends
+        if (cafeAmbience != null) cafeAmbience.volume = 0f;
+        if (rewindAudio != null) rewindAudio.Stop();
 
         for (int i = 0; i < puzzlePieces.Length; i++)
         {
@@ -363,6 +398,15 @@ public partial class PuzzleLogic : MonoBehaviour
         RestoreBodyMaterial();
     }
 
+    public void PlayPieceTapSound()
+    {
+        if (tapAudio != null)
+        {
+            if (tapAudio.clip != null) tapAudio.PlayOneShot(tapAudio.clip);
+            else tapAudio.Play();
+        }
+    }
+
     public void RegisterPieceSnap()
     {
         for (int i = 0; i < snappedPieces.Length; i++)
@@ -392,8 +436,22 @@ public partial class PuzzleLogic : MonoBehaviour
 
         pieceVelocities[pieceIndex] = Vector3.zero;
 
+        if (snapAudio != null)
+        {
+            if (snapAudio.clip != null) snapAudio.PlayOneShot(snapAudio.clip);
+            else snapAudio.Play();
+        }
+
         int snappedCount = GetSnappedPieceCount();
         int totalPieceCount = puzzlePieces.Length;
+        
+        // 💡 NEW: Calculate the puzzle completion percentage and set the volume!
+        if (cafeAmbience != null && totalPieceCount > 0)
+        {
+            float completionPercentage = (float)snappedCount / (float)totalPieceCount;
+            cafeAmbience.volume = completionPercentage;
+        }
+
         PieceSnapped?.Invoke(piece, snappedCount, totalPieceCount);
 
         if (snappedCount == puzzlePieces.Length)
