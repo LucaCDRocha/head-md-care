@@ -9,9 +9,10 @@ public class MandatoryClick : MonoBehaviour, IPointerClickHandler
 
     [Header("Cinematic Timings")]
     [Tooltip("How many seconds does the camera take to zoom in? The piece will wait this long before dropping!")]
-    public float cameraTransitionTime = 2.0f; // 💡 NEW: The delay timer!
+    public float cameraTransitionTime = 2.0f; 
 
-    private bool hasTriggered = false;
+    // 💡 NEW: Ensures the piece only drops ONCE, without breaking the camera!
+    private bool hasDroppedPiece = false; 
 
     private void OnEnable()
     {
@@ -25,13 +26,16 @@ public class MandatoryClick : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        // Ignore clicks if the coffee mug hasn't broken the vase yet, or if already clicked
-        if (hasTriggered || puzzleLogic == null || !puzzleLogic.hasExploded) return;
+        // Ignore clicks if the coffee mug hasn't broken the vase yet
+        if (puzzleLogic == null || !puzzleLogic.hasExploded) return;
         
-        hasTriggered = true; // Lock it so they can't spam click it!
-        Debug.Log($"Player tapped mandatory object: {gameObject.name}. Waiting for camera...");
+        // 💡 THE FIX: If we already dropped the piece, just stop here. 
+        // We do NOT disable the script, so the ObjectFocus script can keep zooming the camera!
+        if (hasDroppedPiece) return;
+        
+        hasDroppedPiece = true; 
+        Debug.Log($"Player tapped mandatory object: {gameObject.name}. Dropping piece in {cameraTransitionTime} seconds...");
 
-        // 💡 NEW: Start the delayed sequence instead of unlocking instantly
         StartCoroutine(DelayedUnlockSequence());
     }
 
@@ -47,10 +51,6 @@ public class MandatoryClick : MonoBehaviour, IPointerClickHandler
             puzzleLogic.UnlockNextPiece(); 
         }
 
-        // 3. Turn off the collider so this object can never be clicked again
-        Collider col = GetComponent<Collider>();
-        if (col != null) col.enabled = false;
-        
-        enabled = false; 
+        // 💡 THE FIX: The code that destroyed the collider has been completely deleted!
     }
 }
