@@ -3580,7 +3580,7 @@ MonoBehaviour:
   magicHoverAudio: {fileID: 125142737}
   slamAudio: {fileID: 1315321104}
   floatUpTime: 1
-  pauseTime: 0.5
+  pauseTime: 1
   slamDownTime: 0.15
   distanceFromCamera: 0.25
   rotationOffset: {x: 200, y: 0, z: 0}
