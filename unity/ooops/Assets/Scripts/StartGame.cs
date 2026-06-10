@@ -22,6 +22,10 @@ public class StartGame : MonoBehaviour, IPointerClickHandler
     public float openDuration = 1.2f;
     public float openAngle = 90f;
 
+    [Header("Sign Settings")] // 💡 NEW: Added the sign variables
+    public GameObject openSign;
+    public GameObject closedSign;
+
     [Header("Optional Settings")]
     public bool hideOnStart = true;
 
@@ -36,6 +40,10 @@ public class StartGame : MonoBehaviour, IPointerClickHandler
         {
             cafeAmbience.volume = 0f;
         }
+
+        // 💡 NEW: Guarantee the shop is visually "Open" when the game starts or restarts
+        if (openSign != null) openSign.SetActive(true);
+        if (closedSign != null) closedSign.SetActive(false);
     }
 
     public void OnPointerClick(PointerEventData eventData)
@@ -102,7 +110,9 @@ public class StartGame : MonoBehaviour, IPointerClickHandler
         puzzleCamera.Priority = 30;
         if (menuCamera != null) menuCamera.Priority = 10;
         
-        // 💡 THE FIX: cafeAmbience.Stop() has been completely removed from here!
+        // 💡 NEW: Switch the signs exactly when the camera cuts down to the table!
+        if (openSign != null) openSign.SetActive(false);
+        if (closedSign != null) closedSign.SetActive(true);
         
         // Stop the rain and anything else in the array
         foreach (AudioSource audio in ambientSounds)
