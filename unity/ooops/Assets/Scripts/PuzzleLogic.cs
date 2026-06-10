@@ -4,21 +4,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public partial class PuzzleLogic : MonoBehaviour
+public partial class PuzzleLogic : MonoBehaviour 
 {
     public enum PuzzlePauseBehavior { HidePieces, ParkOnEdges }
 
     [Header("Audio Settings")]
     public AudioSource shatterAudio;
-    public AudioSource rewindAudio;
-    public AudioSource snapAudio;
-    public AudioSource tapAudio;
+    public AudioSource rewindAudio; 
+    public AudioSource snapAudio; 
+    public AudioSource tapAudio; 
 
-    // 💡 NEW: We need a reference to the Cafe Ambience so we can control its volume!
     [Tooltip("The Cafe Ambience sound. It will fade out during the crash, and slowly fade back in as pieces snap!")]
-    public AudioSource cafeAmbience;
+    public AudioSource cafeAmbience; 
 
-    public float rewindAudioDelay = 0.4f;
+    public float rewindAudioDelay = 0.4f; 
 
     [Header("Puzzle Setup")]
     public GameObject puzzleBodyObject;
@@ -28,7 +27,7 @@ public partial class PuzzleLogic : MonoBehaviour
     public float explosionForce = 1.5f;
 
     [Header("Cinematic Timings")]
-    public float fallDuration = 1.5f;
+    public float fallDuration = 1.5f; 
     public float gravityStrength = 4.0f;
 
     [Header("Screen Boundaries (Brick Walls)")]
@@ -42,16 +41,17 @@ public partial class PuzzleLogic : MonoBehaviour
     public PuzzlePauseBehavior pauseBehavior = PuzzlePauseBehavior.HidePieces;
     public float parkTransitionDuration = 0.2f;
 
-    public event Action PuzzleExploded;
+    public event Action PuzzleExploded; 
     public event Action<Transform, int, int> PieceSnapped;
     public event Action ObjectRestored;
 
+    // --- GAME STATE FLAGS ---
     public bool hasExploded = false;
-
-    public bool isRestored = false; // 💡 NEW: Tells the game the vase is fixed!
-
+    public bool isRestored = false;
+    public bool isShattering = false; 
+    
     private Camera mainCamera;
-    private Camera boundaryCamera;
+    private Camera boundaryCamera; 
     private Renderer[] bodyRenderers = new Renderer[0];
     private Material[] originalBodyMaterials = new Material[0];
     private Transform[] puzzlePieces = new Transform[0];
@@ -61,7 +61,7 @@ public partial class PuzzleLogic : MonoBehaviour
     private float[] pieceDepths = new float[0];
     private bool[] snappedPieces = new bool[0];
     private Draggable[] pieceDraggables = new Draggable[0];
-    private bool[] unlockedPieces = new bool[0];
+    private bool[] unlockedPieces = new bool[0]; 
 
     private bool puzzleChaosActive;
     private float puzzleChaosStartTime;
@@ -71,7 +71,7 @@ public partial class PuzzleLogic : MonoBehaviour
     {
         mainCamera = Camera.main;
         CacheBodyRenderers();
-        CachePuzzlePieces();
+        CachePuzzlePieces(); 
     }
 
     private void Update()
@@ -100,7 +100,7 @@ public partial class PuzzleLogic : MonoBehaviour
 
             if (draggable.IsBeingDragged)
             {
-                pieceVelocities[i] = Vector3.zero;
+                pieceVelocities[i] = Vector3.zero; 
                 continue;
             }
 
@@ -111,7 +111,7 @@ public partial class PuzzleLogic : MonoBehaviour
 
             Vector3 puzzleCenter = puzzleBodyObject != null ? puzzleBodyObject.transform.position : puzzlePiecesRoot.position;
             Vector3 toPiece = piece.position - puzzleCenter;
-
+            
             float flatRight = Vector3.Dot(toPiece, rightAxis);
             float flatUp = Vector3.Dot(toPiece, upAxis);
             Vector2 flatOffset = new Vector2(flatRight, flatUp);
@@ -124,13 +124,13 @@ public partial class PuzzleLogic : MonoBehaviour
                 if (isInsideVase)
                 {
                     Vector2 eject2D = flatOffset.normalized;
-                    if (eject2D.sqrMagnitude < 0.001f) eject2D = new Vector2(UnityEngine.Random.Range(-1f, 1f), UnityEngine.Random.Range(-1f, 1f)).normalized;
+                    if (eject2D.sqrMagnitude < 0.001f) eject2D = new Vector2(UnityEngine.Random.Range(-1f,1f), UnityEngine.Random.Range(-1f,1f)).normalized;
                     Vector3 eject3D = (rightAxis * eject2D.x + upAxis * eject2D.y).normalized;
 
                     float distanceToEscape = expulsionRadius - flatOffset.magnitude;
                     piece.position += eject3D * distanceToEscape;
-
-                    pieceVelocities[i] = eject3D * floatingSpeed;
+                    
+                    pieceVelocities[i] = eject3D * floatingSpeed; 
                 }
                 else
                 {
@@ -145,7 +145,7 @@ public partial class PuzzleLogic : MonoBehaviour
                 Vector3 normal3D = (rightAxis * normal2D.x + upAxis * normal2D.y).normalized;
 
                 pieceVelocities[i] = Vector3.Reflect(pieceVelocities[i], normal3D).normalized * pieceVelocities[i].magnitude;
-
+                
                 float distanceToEscape = expulsionRadius - flatOffset.magnitude;
                 piece.position += normal3D * distanceToEscape;
             }
@@ -174,7 +174,7 @@ public partial class PuzzleLogic : MonoBehaviour
                 float currentZ = boundaryCamera.WorldToViewportPoint(piece.position).z;
                 viewportPoint.z = currentZ;
                 piece.position = boundaryCamera.ViewportToWorldPoint(viewportPoint);
-
+                
                 float dampening = (viewportPoint.y <= bottomPadding) ? 0.6f : 1.0f;
                 pieceVelocities[i] = (rightAxis * velRight + upAxis * velUp).normalized * (pieceVelocities[i].magnitude * dampening);
             }
@@ -184,13 +184,14 @@ public partial class PuzzleLogic : MonoBehaviour
     [ContextMenu("Start Puzzle Chaos")]
     public void StartPuzzleChaos()
     {
-        if (hasExploded) return;
+        if (hasExploded) return; 
         hasExploded = true;
+        isShattering = true; // Lock interactions
 
         mainCamera = Camera.main;
 
-        if (puzzlePieces.Length == 0) CachePuzzlePieces();
-        if (bodyRenderers.Length == 0) CacheBodyRenderers();
+        if (puzzlePieces.Length == 0) CachePuzzlePieces(); 
+        if (bodyRenderers.Length == 0) CacheBodyRenderers(); 
 
         unlockedPieces = new bool[puzzlePieces.Length];
 
@@ -198,26 +199,26 @@ public partial class PuzzleLogic : MonoBehaviour
         {
             GameObject dummyObj = GameObject.Find("PuzzleBoundaryAnchor_Internal");
             if (dummyObj == null) dummyObj = new GameObject("PuzzleBoundaryAnchor_Internal");
-
-            dummyObj.transform.position = mainCamera.transform.position;
-            dummyObj.transform.rotation = mainCamera.transform.rotation;
+            
+            dummyObj.transform.position = mainCamera.transform.position; 
+            dummyObj.transform.rotation = mainCamera.transform.rotation; 
 
             boundaryCamera = dummyObj.GetComponent<Camera>();
             if (boundaryCamera == null) boundaryCamera = dummyObj.AddComponent<Camera>();
-
-            boundaryCamera.CopyFrom(mainCamera);
-            boundaryCamera.enabled = false;
+            
+            boundaryCamera.CopyFrom(mainCamera); 
+            boundaryCamera.enabled = false; 
 
             for (int i = 0; i < puzzlePieces.Length; i++)
             {
-                if (puzzlePieces[i] != null) pieceDepths[i] = boundaryCamera.WorldToViewportPoint(puzzlePieces[i].position).z;
+                if (puzzlePieces[i] != null) pieceDepths[i] = boundaryCamera.WorldToViewportPoint(puzzlePieces[i].position).z; 
             }
         }
 
-        ApplyBodyMaterial();
-        if (puzzlePieces.Length == 0) return;
+        ApplyBodyMaterial(); 
+        if (puzzlePieces.Length == 0) return; 
 
-        ToggleBodyColliders(false);
+        ToggleBodyColliders(false); 
 
         Vector3 rightAxis = boundaryCamera != null ? boundaryCamera.transform.right : Vector3.right;
         Vector3 upAxis = boundaryCamera != null ? boundaryCamera.transform.up : Vector3.up;
@@ -225,10 +226,10 @@ public partial class PuzzleLogic : MonoBehaviour
         for (int i = 0; i < puzzlePieces.Length; i++)
         {
             Transform piece = puzzlePieces[i];
-            if (piece == null) continue;
-
-            unlockedPieces[i] = true;
-            piece.gameObject.SetActive(true);
+            if (piece == null) continue; 
+            
+            unlockedPieces[i] = true; 
+            piece.gameObject.SetActive(true); 
             TogglePieceColliders(piece, false);
 
             float randomX = UnityEngine.Random.Range(-1.2f, 1.2f);
@@ -237,11 +238,11 @@ public partial class PuzzleLogic : MonoBehaviour
             Vector3 direction = (rightAxis * randomX) + (upAxis * randomY);
             Vector3 drift = (rightAxis * UnityEngine.Random.Range(-0.15f, 0.15f)) + (upAxis * UnityEngine.Random.Range(-0.15f, 0.15f));
 
-            pieceVelocities[i] = (direction + drift).normalized * (explosionForce * UnityEngine.Random.Range(0.8f, 1.5f));
+            pieceVelocities[i] = (direction + drift).normalized * (explosionForce * UnityEngine.Random.Range(0.8f, 1.5f)); 
         }
 
-        puzzleChaosStartTime = Time.time;
-        puzzleChaosActive = true;
+        puzzleChaosStartTime = Time.time; 
+        puzzleChaosActive = true; 
 
         if (shatterAudio != null) shatterAudio.Play();
 
@@ -253,15 +254,13 @@ public partial class PuzzleLogic : MonoBehaviour
     {
         float elapsed = 0f;
         bool rewindStarted = false;
-
-        // Memorize the volume the cafe was at before the crash
+        
         float startVolume = cafeAmbience != null ? cafeAmbience.volume : 1f;
 
         while (elapsed < fallDuration)
         {
             elapsed += Time.deltaTime;
-
-            // 💡 NEW: Smoothly fade out the Cafe Ambience alongside the falling glass!
+            
             if (cafeAmbience != null)
             {
                 float t = Mathf.Clamp01(elapsed / fallDuration);
@@ -274,10 +273,9 @@ public partial class PuzzleLogic : MonoBehaviour
                 rewindStarted = true;
             }
 
-            yield return null;
+            yield return null; 
         }
 
-        // Make absolutely sure it is at 0 volume when the sequence ends
         if (cafeAmbience != null) cafeAmbience.volume = 0f;
         if (rewindAudio != null) rewindAudio.Stop();
 
@@ -292,10 +290,12 @@ public partial class PuzzleLogic : MonoBehaviour
             else
             {
                 puzzlePieces[i].gameObject.SetActive(false);
-                pieceVelocities[i] = Vector3.zero;
-                unlockedPieces[i] = false;
+                pieceVelocities[i] = Vector3.zero; 
+                unlockedPieces[i] = false; 
             }
         }
+
+        isShattering = false; // Unlock interactions
     }
 
     [ContextMenu("Unlock Next Piece")]
@@ -309,19 +309,15 @@ public partial class PuzzleLogic : MonoBehaviour
         {
             if (!snappedPieces[i] && !unlockedPieces[i])
             {
-                unlockedPieces[i] = true;
+                unlockedPieces[i] = true; 
                 puzzlePieces[i].gameObject.SetActive(true);
                 TogglePieceColliders(puzzlePieces[i], true);
-
-                // 💡 THE FIX: Give it a gentle nudge using floatingSpeed instead of explosionForce!
+                
                 Vector3 randomDir = (rightAxis * UnityEngine.Random.Range(-1f, 1f) + upAxis * UnityEngine.Random.Range(-1f, 1f)).normalized;
                 pieceVelocities[i] = randomDir * floatingSpeed;
-
-                // 💡 THE FIX: We completely deleted the 'puzzleChaosStartTime' reset here!
-                // Now it won't trigger the heavy gravity drop for the rest of the pieces.
-
+                
                 Debug.Log($"Unlocked Piece: {puzzlePieces[i].name}");
-                break;
+                break; 
             }
         }
     }
@@ -374,7 +370,6 @@ public partial class PuzzleLogic : MonoBehaviour
             puzzlePieces[i].gameObject.SetActive(true);
             TogglePieceColliders(puzzlePieces[i], true);
 
-            // 💡 THE FIX: Only give them a gentle nudge using floatingSpeed!
             if (pieceVelocities[i].magnitude < floatingSpeed)
             {
                 Vector3 direction = (rightAxis * UnityEngine.Random.Range(-1f, 1f)) + (upAxis * UnityEngine.Random.Range(-1f, 1f));
@@ -382,8 +377,6 @@ public partial class PuzzleLogic : MonoBehaviour
             }
         }
 
-        // 💡 THE FIX: We completely deleted the 'puzzleChaosStartTime' clock reset here!
-        // Now resuming the puzzle will never trigger the heavy downward gravity.
         puzzleChaosActive = true;
     }
 
@@ -451,8 +444,7 @@ public partial class PuzzleLogic : MonoBehaviour
 
         int snappedCount = GetSnappedPieceCount();
         int totalPieceCount = puzzlePieces.Length;
-
-        // 💡 NEW: Calculate the puzzle completion percentage and set the volume!
+        
         if (cafeAmbience != null && totalPieceCount > 0)
         {
             float completionPercentage = (float)snappedCount / (float)totalPieceCount;
@@ -465,7 +457,7 @@ public partial class PuzzleLogic : MonoBehaviour
         {
             puzzleChaosActive = false;
             hasExploded = false;
-            isRestored = true;
+            isRestored = true; 
             RestoreBodyMaterial();
             ObjectRestored?.Invoke();
         }

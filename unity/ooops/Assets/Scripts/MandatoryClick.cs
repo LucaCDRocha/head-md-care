@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using Unity.Cinemachine; // 💡 NEW: Needed to talk to the Cinemachine Brain!
+using Unity.Cinemachine; 
 
 public class MandatoryClick : MonoBehaviour, IPointerClickHandler
 {
@@ -22,7 +22,10 @@ public class MandatoryClick : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (puzzleLogic == null || !puzzleLogic.hasExploded) return;
+        // Block clicks entirely if the vase is still busy exploding!
+        if (puzzleLogic == null || !puzzleLogic.hasExploded || puzzleLogic.isShattering) return;
+        
+        // Prevent double-dropping the puzzle piece
         if (hasDroppedPiece) return;
         
         hasDroppedPiece = true; 
@@ -33,24 +36,18 @@ public class MandatoryClick : MonoBehaviour, IPointerClickHandler
 
     private IEnumerator DelayedUnlockSequence()
     {
-        // 1. Find the Cinemachine Brain on the Main Camera
         CinemachineBrain brain = Camera.main.GetComponent<CinemachineBrain>();
 
         if (brain != null)
         {
-            // Wait exactly 1 frame to give Cinemachine time to start the transition
             yield return null; 
-
-            // 💡 THE FIX: Automatically wait until the camera physically stops moving!
             yield return new WaitWhile(() => brain.IsBlending);
         }
         else
         {
-            // Fallback just in case you accidentally delete the brain!
             yield return new WaitForSeconds(2.0f);
         }
 
-        // 2. Resume the puzzle and drop the piece!
         if (puzzleLogic != null)
         {
             puzzleLogic.ResumePuzzle();

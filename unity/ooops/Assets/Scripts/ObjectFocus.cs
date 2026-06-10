@@ -13,11 +13,15 @@ public class ObjectFocus : MonoBehaviour, IPointerClickHandler
     [Header("Framing Settings")]
     public Vector3 cameraLocalOffset = new Vector3(0f, 0.5f, -1.5f);
 
+    [Header("Inspection Audio")]
+    public AudioSource inspectionAudio;
+
     private static bool isAnyObjectFocused = false;
     private static ObjectFocus currentlyFocusedObject = null;
-
     private static bool isTransitioning = false;
+    
     private PuzzleLogic puzzleLogic;
+    private Coroutine audioMonitorCoroutine;
 
     private void Start()
     {
@@ -26,9 +30,13 @@ public class ObjectFocus : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        // 💡 THE FIX: Allow clicks if the puzzle exploded OR if it is fully restored!
-        if (puzzleLogic != null && !puzzleLogic.hasExploded && !puzzleLogic.isRestored) return;
+        // 1. Block clicks if the shatter sequence is currently playing
+        if (puzzleLogic != null && puzzleLogic.isShattering) return;
 
+        // 2. Allow clicks ONLY if the puzzle is exploded OR fully restored
+        if (puzzleLogic != null && !puzzleLogic.hasExploded && !puzzleLogic.isRestored) return;
+        
+        // 3. Block clicks if the camera is currently flying
         if (isTransitioning) return;
 
         if (isAnyObjectFocused && currentlyFocusedObject == this)
@@ -47,6 +55,16 @@ public class ObjectFocus : MonoBehaviour, IPointerClickHandler
 
         if (isFocusing)
         {
+            // Start the audio immediately before the camera moves (swells up)
+            if (inspectionAudio != null)
+            {
+                inspectionAudio.Stop(); 
+                inspectionAudio.Play();
+                
+                if (audioMonitorCoroutine != null) StopCoroutine(audioMonitorCoroutine);
+                audioMonitorCoroutine = StartCoroutine(MonitorAudioRoutine());
+            }
+
             if (puzzleCamera == null) puzzleCamera = GameObject.Find("CinemachineCamera")?.GetComponent<CinemachineCamera>();
             if (sharedFocusCamera == null) sharedFocusCamera = GameObject.Find("FocusCamera")?.GetComponent<CinemachineCamera>();
 
@@ -90,6 +108,29 @@ public class ObjectFocus : MonoBehaviour, IPointerClickHandler
         }
 
         isTransitioning = false; 
+
+        // Stop the audio ONLY after the camera has fully returned (fades out)
+        if (!isFocusing && inspectionAudio != null)
+        {
+            inspectionAudio.Stop();
+            if (audioMonitorCoroutine != null) StopCoroutine(audioMonitorCoroutine);
+        }
+    }
+
+    private IEnumerator MonitorAudioRoutine()
+    {
+        yield return new WaitForSeconds(0.1f);
+
+        while (inspectionAudio != null && inspectionAudio.isPlaying)
+        {
+            yield return null;
+        }
+
+        if (currentlyFocusedObject == this && !isTransitioning)
+        {
+            Debug.Log("Audio finished! Auto-exiting focus mode.");
+            StartCoroutine(TransitionRoutine(false));
+        }
     }
 
     private void Update()
