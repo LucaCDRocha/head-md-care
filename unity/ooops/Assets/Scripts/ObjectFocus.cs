@@ -26,9 +26,9 @@ public class ObjectFocus : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (puzzleLogic != null && !puzzleLogic.hasExploded) return;
+        // 💡 THE FIX: Allow clicks if the puzzle exploded OR if it is fully restored!
+        if (puzzleLogic != null && !puzzleLogic.hasExploded && !puzzleLogic.isRestored) return;
 
-        // Ignore clicks if the camera is currently flying!
         if (isTransitioning) return;
 
         if (isAnyObjectFocused && currentlyFocusedObject == this)
@@ -43,7 +43,7 @@ public class ObjectFocus : MonoBehaviour, IPointerClickHandler
 
     private IEnumerator TransitionRoutine(bool isFocusing)
     {
-        isTransitioning = true; // 🔒 LOCK the camera
+        isTransitioning = true; 
 
         if (isFocusing)
         {
@@ -78,19 +78,18 @@ public class ObjectFocus : MonoBehaviour, IPointerClickHandler
             if (sharedFocusCamera != null) sharedFocusCamera.Priority = 10;
         }
 
-        // 💡 THE FIX: Automatically wait until the camera finishes moving!
         CinemachineBrain brain = Camera.main.GetComponent<CinemachineBrain>();
         if (brain != null)
         {
-            yield return null; // Wait 1 frame for the transition to begin
+            yield return null; 
             yield return new WaitWhile(() => brain.IsBlending);
         }
         else
         {
-            yield return new WaitForSeconds(2.0f); // Fallback
+            yield return new WaitForSeconds(2.0f); 
         }
 
-        isTransitioning = false; // 🔓 UNLOCK the camera
+        isTransitioning = false; 
     }
 
     private void Update()

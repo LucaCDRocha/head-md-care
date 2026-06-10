@@ -48,6 +48,8 @@ public partial class PuzzleLogic : MonoBehaviour
 
     public bool hasExploded = false;
 
+    public bool isRestored = false; // 💡 NEW: Tells the game the vase is fixed!
+
     private Camera mainCamera;
     private Camera boundaryCamera;
     private Renderer[] bodyRenderers = new Renderer[0];
@@ -463,6 +465,7 @@ public partial class PuzzleLogic : MonoBehaviour
         {
             puzzleChaosActive = false;
             hasExploded = false;
+            isRestored = true;
             RestoreBodyMaterial();
             ObjectRestored?.Invoke();
         }
