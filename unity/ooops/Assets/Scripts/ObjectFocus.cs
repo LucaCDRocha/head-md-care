@@ -16,12 +16,22 @@ public class ObjectFocus : MonoBehaviour, IPointerClickHandler
     [Header("Inspection Audio")]
     public AudioSource inspectionAudio;
 
+    [Header("Ambience Ducking Settings")]
+    [Range(0f, 1f)]
+    [Tooltip("Percentage of current volume to drop down to (0.15 = drop to 15% volume).")]
+    public float duckedVolumeMultiplier = 0.15f;
+    [Tooltip("How many seconds the audio fade transition takes.")]
+    public float audioFadeDuration = 0.5f;
+
     private static bool isAnyObjectFocused = false;
     private static ObjectFocus currentlyFocusedObject = null;
     private static bool isTransitioning = false;
     
     private PuzzleLogic puzzleLogic;
     private Coroutine audioMonitorCoroutine;
+    private Coroutine ambienceFadeCoroutine; 
+    private float preDuckedVolume = 1f;       
+    private bool didDuckAmbience = false; // 💡 NEW: Remembers if THIS specific object altered the room volume
 
     private void Start()
     {
@@ -30,13 +40,8 @@ public class ObjectFocus : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        // 1. Block clicks if the shatter sequence is currently playing
         if (puzzleLogic != null && puzzleLogic.isShattering) return;
-
-        // 2. Allow clicks ONLY if the puzzle is exploded OR fully restored
         if (puzzleLogic != null && !puzzleLogic.hasExploded && !puzzleLogic.isRestored) return;
-        
-        // 3. Block clicks if the camera is currently flying
         if (isTransitioning) return;
 
         if (isAnyObjectFocused && currentlyFocusedObject == this)
@@ -55,7 +60,6 @@ public class ObjectFocus : MonoBehaviour, IPointerClickHandler
 
         if (isFocusing)
         {
-            // Start the audio immediately before the camera moves (swells up)
             if (inspectionAudio != null)
             {
                 inspectionAudio.Stop(); 
@@ -63,6 +67,21 @@ public class ObjectFocus : MonoBehaviour, IPointerClickHandler
                 
                 if (audioMonitorCoroutine != null) StopCoroutine(audioMonitorCoroutine);
                 audioMonitorCoroutine = StartCoroutine(MonitorAudioRoutine());
+                
+                // 💡 THE FIX: Only trigger the audio ducking sequence if an audio source is assigned!
+                if (puzzleLogic != null && puzzleLogic.cafeAmbience != null)
+                {
+                    didDuckAmbience = true;
+                    preDuckedVolume = puzzleLogic.cafeAmbience.volume;
+                    float targetDuckedVolume = preDuckedVolume * duckedVolumeMultiplier;
+
+                    if (ambienceFadeCoroutine != null) StopCoroutine(ambienceFadeCoroutine);
+                    ambienceFadeCoroutine = StartCoroutine(FadeAmbienceRoutine(puzzleLogic.cafeAmbience, targetDuckedVolume, audioFadeDuration));
+                }
+            }
+            else
+            {
+                didDuckAmbience = false; // Clear the flag if this object is silent
             }
 
             if (puzzleCamera == null) puzzleCamera = GameObject.Find("CinemachineCamera")?.GetComponent<CinemachineCamera>();
@@ -89,6 +108,15 @@ public class ObjectFocus : MonoBehaviour, IPointerClickHandler
             isAnyObjectFocused = false;
             currentlyFocusedObject = null;
 
+            // 💡 THE FIX: Only fade the audio back up if we actually ducked it during the zoom phase
+            if (didDuckAmbience && puzzleLogic != null && puzzleLogic.cafeAmbience != null)
+            {
+                if (ambienceFadeCoroutine != null) StopCoroutine(ambienceFadeCoroutine);
+                ambienceFadeCoroutine = StartCoroutine(FadeAmbienceRoutine(puzzleLogic.cafeAmbience, preDuckedVolume, audioFadeDuration));
+            }
+            
+            didDuckAmbience = false; // Reset tracking state layout flag configuration
+
             if (puzzleCamera == null) puzzleCamera = GameObject.Find("CinemachineCamera")?.GetComponent<CinemachineCamera>();
             if (sharedFocusCamera == null) sharedFocusCamera = GameObject.Find("FocusCamera")?.GetComponent<CinemachineCamera>();
 
@@ -109,7 +137,6 @@ public class ObjectFocus : MonoBehaviour, IPointerClickHandler
 
         isTransitioning = false; 
 
-        // Stop the audio ONLY after the camera has fully returned (fades out)
         if (!isFocusing && inspectionAudio != null)
         {
             inspectionAudio.Stop();
@@ -131,6 +158,23 @@ public class ObjectFocus : MonoBehaviour, IPointerClickHandler
             Debug.Log("Audio finished! Auto-exiting focus mode.");
             StartCoroutine(TransitionRoutine(false));
         }
+    }
+
+    private IEnumerator FadeAmbienceRoutine(AudioSource source, float targetVolume, float duration)
+    {
+        if (source == null) yield break;
+
+        float startVolume = source.volume;
+        float elapsed = 0f;
+
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            source.volume = Mathf.Lerp(startVolume, targetVolume, elapsed / duration);
+            yield return null;
+        }
+
+        source.volume = targetVolume;
     }
 
     private void Update()
