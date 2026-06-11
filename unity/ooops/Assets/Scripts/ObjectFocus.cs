@@ -2,7 +2,8 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using Unity.Cinemachine;       
-using UnityEngine.InputSystem;   
+using UnityEngine.InputSystem;
+using TMPro;
 
 public class ObjectFocus : MonoBehaviour, IPointerClickHandler
 {
@@ -16,11 +17,16 @@ public class ObjectFocus : MonoBehaviour, IPointerClickHandler
     [Header("Inspection Audio")]
     public AudioSource inspectionAudio;
 
+    [Header("ID Card System")]
+    [TextArea(3, 5)]
+    [Tooltip("Type the description here. If left completely blank, the ID card will NOT appear!")]
+    public string idCardDescription; 
+    public GameObject idCardPanel;   
+    public TextMeshProUGUI idCardTextUI; 
+
     [Header("Ambience Ducking Settings")]
     [Range(0f, 1f)]
-    [Tooltip("Percentage of current volume to drop down to (0.15 = drop to 15% volume).")]
     public float duckedVolumeMultiplier = 0.15f;
-    [Tooltip("How many seconds the audio fade transition takes.")]
     public float audioFadeDuration = 0.5f;
 
     private static bool isAnyObjectFocused = false;
@@ -31,11 +37,13 @@ public class ObjectFocus : MonoBehaviour, IPointerClickHandler
     private Coroutine audioMonitorCoroutine;
     private Coroutine ambienceFadeCoroutine; 
     private float preDuckedVolume = 1f;       
-    private bool didDuckAmbience = false; // 💡 NEW: Remembers if THIS specific object altered the room volume
+    private bool didDuckAmbience = false; 
 
     private void Start()
     {
         puzzleLogic = FindAnyObjectByType<PuzzleLogic>();
+
+        if (idCardPanel != null) idCardPanel.SetActive(false);
     }
 
     public void OnPointerClick(PointerEventData eventData)
@@ -60,6 +68,8 @@ public class ObjectFocus : MonoBehaviour, IPointerClickHandler
 
         if (isFocusing)
         {
+            // (Notice the UI activation code is completely gone from here!)
+
             if (inspectionAudio != null)
             {
                 inspectionAudio.Stop(); 
@@ -67,8 +77,7 @@ public class ObjectFocus : MonoBehaviour, IPointerClickHandler
                 
                 if (audioMonitorCoroutine != null) StopCoroutine(audioMonitorCoroutine);
                 audioMonitorCoroutine = StartCoroutine(MonitorAudioRoutine());
-                
-                // 💡 THE FIX: Only trigger the audio ducking sequence if an audio source is assigned!
+
                 if (puzzleLogic != null && puzzleLogic.cafeAmbience != null)
                 {
                     didDuckAmbience = true;
@@ -81,7 +90,7 @@ public class ObjectFocus : MonoBehaviour, IPointerClickHandler
             }
             else
             {
-                didDuckAmbience = false; // Clear the flag if this object is silent
+                didDuckAmbience = false; 
             }
 
             if (puzzleCamera == null) puzzleCamera = GameObject.Find("CinemachineCamera")?.GetComponent<CinemachineCamera>();
@@ -108,14 +117,16 @@ public class ObjectFocus : MonoBehaviour, IPointerClickHandler
             isAnyObjectFocused = false;
             currentlyFocusedObject = null;
 
-            // 💡 THE FIX: Only fade the audio back up if we actually ducked it during the zoom phase
+            // Instantly hide the ID Card the moment you click to zoom out
+            if (idCardPanel != null) idCardPanel.SetActive(false);
+
             if (didDuckAmbience && puzzleLogic != null && puzzleLogic.cafeAmbience != null)
             {
                 if (ambienceFadeCoroutine != null) StopCoroutine(ambienceFadeCoroutine);
                 ambienceFadeCoroutine = StartCoroutine(FadeAmbienceRoutine(puzzleLogic.cafeAmbience, preDuckedVolume, audioFadeDuration));
             }
             
-            didDuckAmbience = false; // Reset tracking state layout flag configuration
+            didDuckAmbience = false; 
 
             if (puzzleCamera == null) puzzleCamera = GameObject.Find("CinemachineCamera")?.GetComponent<CinemachineCamera>();
             if (sharedFocusCamera == null) sharedFocusCamera = GameObject.Find("FocusCamera")?.GetComponent<CinemachineCamera>();
@@ -128,11 +139,22 @@ public class ObjectFocus : MonoBehaviour, IPointerClickHandler
         if (brain != null)
         {
             yield return null; 
+            // This is what pauses the script while the camera flies!
             yield return new WaitWhile(() => brain.IsBlending);
         }
         else
         {
             yield return new WaitForSeconds(2.0f); 
+        }
+
+        // 💡 THE FIX: We wait until the camera is completely finished, THEN check if we need to show the card!
+        if (isFocusing)
+        {
+            if (!string.IsNullOrWhiteSpace(idCardDescription) && idCardPanel != null && idCardTextUI != null)
+            {
+                idCardTextUI.text = idCardDescription;
+                idCardPanel.SetActive(true);
+            }
         }
 
         isTransitioning = false; 
@@ -155,7 +177,6 @@ public class ObjectFocus : MonoBehaviour, IPointerClickHandler
 
         if (currentlyFocusedObject == this && !isTransitioning)
         {
-            Debug.Log("Audio finished! Auto-exiting focus mode.");
             StartCoroutine(TransitionRoutine(false));
         }
     }
