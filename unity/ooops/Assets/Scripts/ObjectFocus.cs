@@ -19,10 +19,15 @@ public class ObjectFocus : MonoBehaviour, IPointerClickHandler
 
     [Header("ID Card System")]
     [TextArea(3, 5)]
-    [Tooltip("Type the description here. If left completely blank, the ID card will NOT appear!")]
     public string idCardDescription; 
     public GameObject idCardPanel;   
     public TextMeshProUGUI idCardTextUI; 
+
+    [Header("Subtle Interaction Glow")]
+    public bool enableGlow = true;
+    [ColorUsage(false, true)] 
+    public Color glowColor = new Color(0.1f, 0.1f, 0.1f); 
+    public float pulseSpeed = 1.5f;
 
     [Header("Ambience Ducking Settings")]
     [Range(0f, 1f)]
@@ -39,11 +44,25 @@ public class ObjectFocus : MonoBehaviour, IPointerClickHandler
     private float preDuckedVolume = 1f;       
     private bool didDuckAmbience = false; 
 
+    // 💡 NEW: A memory flag to permanently shut off the glow after one click
+    private bool hasBeenInspected = false;
+
+    private Renderer[] childRenderers;
+    private Material[] instancedMaterials;
+
     private void Start()
     {
         puzzleLogic = FindAnyObjectByType<PuzzleLogic>();
-
         if (idCardPanel != null) idCardPanel.SetActive(false);
+
+        childRenderers = GetComponentsInChildren<Renderer>();
+        instancedMaterials = new Material[childRenderers.Length];
+
+        for (int i = 0; i < childRenderers.Length; i++)
+        {
+            instancedMaterials[i] = childRenderers[i].material;
+            instancedMaterials[i].EnableKeyword("_EMISSION");
+        }
     }
 
     public void OnPointerClick(PointerEventData eventData)
@@ -51,6 +70,9 @@ public class ObjectFocus : MonoBehaviour, IPointerClickHandler
         if (puzzleLogic != null && puzzleLogic.isShattering) return;
         if (puzzleLogic != null && !puzzleLogic.hasExploded && !puzzleLogic.isRestored) return;
         if (isTransitioning) return;
+
+        // 💡 THE FIX: The exact millisecond you click this object, permanently mark it as inspected!
+        hasBeenInspected = true;
 
         if (isAnyObjectFocused && currentlyFocusedObject == this)
         {
@@ -68,8 +90,6 @@ public class ObjectFocus : MonoBehaviour, IPointerClickHandler
 
         if (isFocusing)
         {
-            // (Notice the UI activation code is completely gone from here!)
-
             if (inspectionAudio != null)
             {
                 inspectionAudio.Stop(); 
@@ -117,7 +137,6 @@ public class ObjectFocus : MonoBehaviour, IPointerClickHandler
             isAnyObjectFocused = false;
             currentlyFocusedObject = null;
 
-            // Instantly hide the ID Card the moment you click to zoom out
             if (idCardPanel != null) idCardPanel.SetActive(false);
 
             if (didDuckAmbience && puzzleLogic != null && puzzleLogic.cafeAmbience != null)
@@ -139,7 +158,6 @@ public class ObjectFocus : MonoBehaviour, IPointerClickHandler
         if (brain != null)
         {
             yield return null; 
-            // This is what pauses the script while the camera flies!
             yield return new WaitWhile(() => brain.IsBlending);
         }
         else
@@ -147,7 +165,6 @@ public class ObjectFocus : MonoBehaviour, IPointerClickHandler
             yield return new WaitForSeconds(2.0f); 
         }
 
-        // 💡 THE FIX: We wait until the camera is completely finished, THEN check if we need to show the card!
         if (isFocusing)
         {
             if (!string.IsNullOrWhiteSpace(idCardDescription) && idCardPanel != null && idCardTextUI != null)
@@ -200,6 +217,25 @@ public class ObjectFocus : MonoBehaviour, IPointerClickHandler
 
     private void Update()
     {
+        if (enableGlow && instancedMaterials != null && instancedMaterials.Length > 0)
+        {
+            bool puzzleIsPlayable = puzzleLogic != null && puzzleLogic.hasExploded && !puzzleLogic.isShattering;
+            Color targetEmissionColor = Color.black; 
+
+            // 💡 THE FIX: The math will now ONLY run if the object has NOT been inspected!
+            if (puzzleIsPlayable && currentlyFocusedObject != this && !hasBeenInspected)
+            {
+                float intensity = Mathf.PingPong(Time.time * pulseSpeed, 1f);
+                intensity = intensity * intensity; 
+                targetEmissionColor = glowColor * intensity;
+            }
+
+            foreach (Material mat in instancedMaterials)
+            {
+                if (mat != null) mat.SetColor("_EmissionColor", targetEmissionColor);
+            }
+        }
+
         if (!isAnyObjectFocused || currentlyFocusedObject != this || isTransitioning) return;
 
         if (Pointer.current != null && Pointer.current.press.wasPressedThisFrame)
@@ -230,6 +266,14 @@ public class ObjectFocus : MonoBehaviour, IPointerClickHandler
         {
             isTransitioning = false;
             isAnyObjectFocused = false;
+        }
+        
+        if (instancedMaterials != null)
+        {
+            foreach (Material mat in instancedMaterials)
+            {
+                if (mat != null) Destroy(mat);
+            }
         }
     }
 }
