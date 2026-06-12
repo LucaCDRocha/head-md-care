@@ -10,6 +10,7 @@ public partial class PuzzleLogic : MonoBehaviour
 
     [Header("Audio Settings")]
     public AudioSource shatterAudio;
+    public AudioSource ohNoDialogue;
     public AudioSource rewindAudio; 
     public AudioSource snapAudio; 
     public AudioSource tapAudio; 
@@ -245,6 +246,7 @@ public partial class PuzzleLogic : MonoBehaviour
         puzzleChaosActive = true; 
 
         if (shatterAudio != null) shatterAudio.Play();
+        if (ohNoDialogue != null) ohNoDialogue.Play();
 
         PuzzleExploded?.Invoke();
         StartCoroutine(CinematicShatterSequence());

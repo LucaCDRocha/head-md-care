@@ -10,6 +10,7 @@ public class StartGame : MonoBehaviour, IPointerClickHandler
     public CinemachineCamera puzzleCamera;
 
     [Header("Starting Room Audio")]
+    public AudioSource introCutSound;
     public AudioSource doorOpenAudio; 
     
     [Tooltip("This sound will start at volume 0 and fade up to 1 as the door opens, and continue playing!")]
@@ -22,9 +23,13 @@ public class StartGame : MonoBehaviour, IPointerClickHandler
     public float openDuration = 1.2f;
     public float openAngle = 90f;
 
-    [Header("Sign Settings")] // 💡 NEW: Added the sign variables
+    [Header("Sign Settings")]
     public GameObject openSign;
     public GameObject closedSign;
+
+    [Header("Puzzle Elements")]
+    [Tooltip("Drag the Coffee Mug here. It will stay hidden until the intro audio finishes.")]
+    public GameObject coffeeMug; // 💡 NEW: The mug reference!
 
     [Header("Optional Settings")]
     public bool hideOnStart = true;
@@ -35,15 +40,16 @@ public class StartGame : MonoBehaviour, IPointerClickHandler
     {
         Application.targetFrameRate = 30;
         
-        // Guarantee the cafe ambience is totally silent before the player clicks the door
         if (cafeAmbience != null)
         {
             cafeAmbience.volume = 0f;
         }
 
-        // 💡 NEW: Guarantee the shop is visually "Open" when the game starts or restarts
         if (openSign != null) openSign.SetActive(true);
         if (closedSign != null) closedSign.SetActive(false);
+
+        // 💡 NEW: Instantly hide the coffee mug when the game loads!
+        if (coffeeMug != null) coffeeMug.SetActive(false);
     }
 
     public void OnPointerClick(PointerEventData eventData)
@@ -66,7 +72,6 @@ public class StartGame : MonoBehaviour, IPointerClickHandler
         // 1. PLAY INITIAL SOUNDS
         if (doorOpenAudio != null) doorOpenAudio.Play();
 
-        // Start playing the cafe sound, but at 0 volume!
         if (cafeAmbience != null)
         {
             cafeAmbience.volume = 0f;
@@ -86,10 +91,8 @@ public class StartGame : MonoBehaviour, IPointerClickHandler
             float t = Mathf.Clamp01(elapsed / openDuration);
             float smoothT = t * t * (3f - 2f * t);
 
-            // Swing the door
             doorParent.rotation = Quaternion.Lerp(startRotation, endRotation, smoothT);
             
-            // Fade the volume up perfectly alongside the door animation!
             if (cafeAmbience != null)
             {
                 cafeAmbience.volume = Mathf.Lerp(0f, 1f, smoothT);
@@ -100,25 +103,33 @@ public class StartGame : MonoBehaviour, IPointerClickHandler
 
         doorParent.rotation = endRotation;
         
-        // Ensure volume is exactly 1 when finished
         if (cafeAmbience != null) cafeAmbience.volume = 1f;
 
         // 3. DRAMATIC PAUSE
         yield return new WaitForSeconds(0.2f);
 
-        // 4. SHIFT CAMERAS (And let the Cafe Ambience keep playing!)
+        // 4. SHIFT CAMERAS
         puzzleCamera.Priority = 30;
         if (menuCamera != null) menuCamera.Priority = 10;
+
+        if (introCutSound != null) introCutSound.Play();
         
-        // 💡 NEW: Switch the signs exactly when the camera cuts down to the table!
         if (openSign != null) openSign.SetActive(false);
         if (closedSign != null) closedSign.SetActive(true);
         
-        // Stop the rain and anything else in the array
         foreach (AudioSource audio in ambientSounds)
         {
             if (audio != null) audio.Stop();
         }
+
+        // 💡 NEW: Pause the sequence and wait for the intro sound to finish speaking!
+        if (introCutSound != null)
+        {
+            yield return new WaitWhile(() => introCutSound.isPlaying);
+        }
+
+        // 💡 NEW: Now that they are done talking, reveal the coffee mug!
+        if (coffeeMug != null) coffeeMug.SetActive(true);
 
         yield return null;
 

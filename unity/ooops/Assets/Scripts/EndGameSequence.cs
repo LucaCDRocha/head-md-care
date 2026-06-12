@@ -11,12 +11,8 @@ public class EndGameSequence : MonoBehaviour, IPointerClickHandler
     public PuzzleLogic puzzleLogic;
 
     [Header("Cinematics")]
-    [Tooltip("The camera that looks at the door or window for the final shot.")]
     public CinemachineCamera outroCamera;
-    
-    [Tooltip("How long to wait staring at the closed door before fading to black.")]
     public float pauseBeforeFade = 2.0f;
-    
     public float fadeDuration = 2.0f;
     public float pauseBeforeReset = 2.0f;
     public Color fadeColor = Color.black;
@@ -30,6 +26,9 @@ public class EndGameSequence : MonoBehaviour, IPointerClickHandler
     public AudioSource coinSound;
     public AudioSource rainSound; 
     public AudioSource doorCloseAudio; 
+    
+    [Tooltip("The final dialogue that plays before the door shuts.")]
+    public AudioSource goodbyeSound; // 💡 NEW: The final voiceover sound!
 
     private bool isEnding = false;
     private Quaternion initialDoorRotation;
@@ -56,7 +55,6 @@ public class EndGameSequence : MonoBehaviour, IPointerClickHandler
 
     private IEnumerator FinaleRoutine()
     {
-        // 💡 THE FIX 1: Instantly kill the inside cafe sounds the millisecond the receipt is clicked!
         if (puzzleLogic != null && puzzleLogic.cafeAmbience != null)
         {
             puzzleLogic.cafeAmbience.Stop();
@@ -96,8 +94,17 @@ public class EndGameSequence : MonoBehaviour, IPointerClickHandler
             }
         }
 
-        // 4. Give the player half a second to register the open door and the rain
-        yield return new WaitForSeconds(0.4f);
+        // 4. 💡 THE FIX: Play the goodbye dialogue and WAIT for it to finish!
+        if (goodbyeSound != null)
+        {
+            goodbyeSound.Play();
+            yield return new WaitWhile(() => goodbyeSound.isPlaying);
+        }
+        else
+        {
+            // Safety fallback if no sound is assigned
+            yield return new WaitForSeconds(0.4f); 
+        }
 
         // 5. ANIMATE THE DOOR SWINGING SHUT
         if (doorTransform != null)
@@ -132,20 +139,17 @@ public class EndGameSequence : MonoBehaviour, IPointerClickHandler
         Image fadeImage = fadeObj.AddComponent<Image>();
         fadeImage.color = new Color(fadeColor.r, fadeColor.g, fadeColor.b, 0f); 
 
-        // Memorize the exact rain volume before we start fading
         float startRainVolume = rainSound != null ? rainSound.volume : 0f;
 
-        // 8. 💡 THE FIX 2: Fade the screen to black AND fade the rain out together!
+        // 8. Fade the screen to black AND fade the rain out together!
         float elapsed = 0f;
         while (elapsed < fadeDuration)
         {
             elapsed += Time.deltaTime;
             float alpha = Mathf.Clamp01(elapsed / fadeDuration);
             
-            // Fade the visual screen
             fadeImage.color = new Color(fadeColor.r, fadeColor.g, fadeColor.b, alpha);
             
-            // Fade the rain audio
             if (rainSound != null)
             {
                 rainSound.volume = Mathf.Lerp(startRainVolume, 0f, alpha);
@@ -154,7 +158,6 @@ public class EndGameSequence : MonoBehaviour, IPointerClickHandler
             yield return null;
         }
 
-        // Guarantee final states
         fadeImage.color = new Color(fadeColor.r, fadeColor.g, fadeColor.b, 1f); 
         if (rainSound != null) rainSound.volume = 0f;
 
