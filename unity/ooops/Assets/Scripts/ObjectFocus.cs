@@ -50,7 +50,6 @@ public class ObjectFocus : MonoBehaviour, IPointerClickHandler
         if (puzzleLogic != null && !puzzleLogic.hasExploded && !puzzleLogic.isRestored) return;
         if (isTransitioning) return;
 
-        // 💡 THE FIX: Tell the separated pulse script to shut down if it exists on this object!
         InteractablePulse pulseScript = GetComponent<InteractablePulse>();
         if (pulseScript != null)
         {
@@ -75,12 +74,7 @@ public class ObjectFocus : MonoBehaviour, IPointerClickHandler
         {
             if (inspectionAudio != null)
             {
-                inspectionAudio.Stop();
-                inspectionAudio.Play();
-
-                if (audioMonitorCoroutine != null) StopCoroutine(audioMonitorCoroutine);
-                audioMonitorCoroutine = StartCoroutine(MonitorAudioRoutine());
-
+                // We keep the ambience ducking here so the room gets quiet DURING the camera flight
                 if (puzzleLogic != null && puzzleLogic.cafeAmbience != null)
                 {
                     didDuckAmbience = true;
@@ -148,17 +142,33 @@ public class ObjectFocus : MonoBehaviour, IPointerClickHandler
             yield return new WaitForSeconds(2.0f);
         }
 
+        // --- CAMERA HAS ARRIVED ---
+
         if (isFocusing)
         {
+            // Show the UI Card
             if (!string.IsNullOrWhiteSpace(idCardDescription) && idCardPanel != null && idCardTextUI != null)
             {
                 idCardTextUI.text = idCardDescription;
                 idCardPanel.SetActive(true);
             }
+
+            // 💡 THE FIX: Play the audio NOW, after the camera has completely finished moving!
+            if (inspectionAudio != null)
+            {
+                inspectionAudio.Stop();
+                inspectionAudio.Play();
+
+                // Start monitoring the audio so we know when to auto-exit
+                if (audioMonitorCoroutine != null) StopCoroutine(audioMonitorCoroutine);
+                audioMonitorCoroutine = StartCoroutine(MonitorAudioRoutine());
+            }
         }
 
         isTransitioning = false;
 
+        // --- CAMERA HAS RETURNED ---
+        
         if (!isFocusing && inspectionAudio != null)
         {
             inspectionAudio.Stop();
