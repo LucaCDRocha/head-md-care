@@ -1,7 +1,6 @@
 using UnityEngine;
-using UnityEngine.EventSystems; // 💡 NEW: Needed to detect clicks!
+using UnityEngine.EventSystems; 
 
-// 💡 THE FIX: Added IPointerClickHandler right to the pulse script
 public class InteractablePulse : MonoBehaviour, IPointerClickHandler
 {
     [Header("Subtle Interaction Glow")]
@@ -12,10 +11,7 @@ public class InteractablePulse : MonoBehaviour, IPointerClickHandler
     public float pulseSpeed = 1.5f;
 
     [Header("Puzzle Logic Timing")]
-    [Tooltip("Check this box for puzzle shards (they wait for the explosion). UNCHECK this for the Coffee Mug (glows immediately)!")]
-    public bool onlyPulseDuringPuzzle = false; // 💡 NEW: Let's you override the timing!
-    
-    [Tooltip("Only needed if the box above is checked.")]
+    public bool onlyPulseDuringPuzzle = false; 
     public PuzzleLogic puzzleLogic;
 
     private Renderer[] childRenderers;
@@ -24,7 +20,6 @@ public class InteractablePulse : MonoBehaviour, IPointerClickHandler
 
     private void Start()
     {
-        // Only bother looking for the puzzle logic if this specific object needs it
         if (onlyPulseDuringPuzzle && puzzleLogic == null) 
         {
             puzzleLogic = FindAnyObjectByType<PuzzleLogic>();
@@ -46,7 +41,6 @@ public class InteractablePulse : MonoBehaviour, IPointerClickHandler
 
         bool canPulse = true;
         
-        // If this is a puzzle piece, check to make sure the game is actually playable right now
         if (onlyPulseDuringPuzzle && puzzleLogic != null)
         {
             canPulse = puzzleLogic.hasExploded && !puzzleLogic.isShattering;
@@ -67,9 +61,17 @@ public class InteractablePulse : MonoBehaviour, IPointerClickHandler
         }
     }
 
-    // 💡 NEW: The script now listens for clicks all by itself!
     public void OnPointerClick(PointerEventData eventData)
     {
+        // 💡 THE FIX 1: If the camera is currently flying through the air, ignore this click entirely!
+        if (ObjectFocus.isTransitioning) return;
+
+        // 💡 THE FIX 2: If this object is waiting for the puzzle to explode, ignore clicks until it does!
+        if (onlyPulseDuringPuzzle && puzzleLogic != null)
+        {
+            if (!puzzleLogic.hasExploded || puzzleLogic.isShattering) return;
+        }
+
         StopPulsingPermanently();
     }
 
@@ -77,7 +79,6 @@ public class InteractablePulse : MonoBehaviour, IPointerClickHandler
     {
         stopPulsing = true;
         
-        // Force the color to black immediately so it doesn't freeze mid-glow
         if (instancedMaterials != null)
         {
             foreach (Material mat in instancedMaterials)

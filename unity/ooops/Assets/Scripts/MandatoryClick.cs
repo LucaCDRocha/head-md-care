@@ -1,14 +1,14 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using Unity.Cinemachine; 
+using Unity.Cinemachine;
 
 public class MandatoryClick : MonoBehaviour, IPointerClickHandler
 {
     [Header("Puzzle Connection")]
     public PuzzleLogic puzzleLogic;
 
-    private bool hasDroppedPiece = false; 
+    private bool hasDroppedPiece = false;
 
     private void OnEnable()
     {
@@ -24,11 +24,14 @@ public class MandatoryClick : MonoBehaviour, IPointerClickHandler
     {
         // Block clicks entirely if the vase is still busy exploding!
         if (puzzleLogic == null || !puzzleLogic.hasExploded || puzzleLogic.isShattering) return;
-        
+
+        // Block clicks if the camera is currently transitioning to prevent any weird timing issues with Cinemachine blends and puzzle state changes.
+        if (ObjectFocus.isTransitioning) return;
+
         // Prevent double-dropping the puzzle piece
         if (hasDroppedPiece) return;
-        
-        hasDroppedPiece = true; 
+
+        hasDroppedPiece = true;
         Debug.Log($"Player tapped mandatory object: {gameObject.name}. Waiting for Cinemachine to finish...");
 
         StartCoroutine(DelayedUnlockSequence());
@@ -40,7 +43,7 @@ public class MandatoryClick : MonoBehaviour, IPointerClickHandler
 
         if (brain != null)
         {
-            yield return null; 
+            yield return null;
             yield return new WaitWhile(() => brain.IsBlending);
         }
         else
@@ -51,7 +54,7 @@ public class MandatoryClick : MonoBehaviour, IPointerClickHandler
         if (puzzleLogic != null)
         {
             puzzleLogic.ResumePuzzle();
-            puzzleLogic.UnlockNextPiece(); 
+            puzzleLogic.UnlockNextPiece();
         }
     }
 }

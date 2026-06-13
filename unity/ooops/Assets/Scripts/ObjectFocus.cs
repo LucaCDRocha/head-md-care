@@ -30,7 +30,9 @@ public class ObjectFocus : MonoBehaviour, IPointerClickHandler
 
     private static bool isAnyObjectFocused = false;
     private static ObjectFocus currentlyFocusedObject = null;
-    private static bool isTransitioning = false;
+    
+    // 💡 THE FIX: This is now PUBLIC so all other scripts know when the camera is moving!
+    public static bool isTransitioning = false;
 
     private PuzzleLogic puzzleLogic;
     private Coroutine audioMonitorCoroutine;
@@ -74,7 +76,6 @@ public class ObjectFocus : MonoBehaviour, IPointerClickHandler
         {
             if (inspectionAudio != null)
             {
-                // We keep the ambience ducking here so the room gets quiet DURING the camera flight
                 if (puzzleLogic != null && puzzleLogic.cafeAmbience != null)
                 {
                     didDuckAmbience = true;
@@ -142,32 +143,25 @@ public class ObjectFocus : MonoBehaviour, IPointerClickHandler
             yield return new WaitForSeconds(2.0f);
         }
 
-        // --- CAMERA HAS ARRIVED ---
-
         if (isFocusing)
         {
-            // Show the UI Card
             if (!string.IsNullOrWhiteSpace(idCardDescription) && idCardPanel != null && idCardTextUI != null)
             {
                 idCardTextUI.text = idCardDescription;
                 idCardPanel.SetActive(true);
             }
 
-            // 💡 THE FIX: Play the audio NOW, after the camera has completely finished moving!
             if (inspectionAudio != null)
             {
                 inspectionAudio.Stop();
                 inspectionAudio.Play();
 
-                // Start monitoring the audio so we know when to auto-exit
                 if (audioMonitorCoroutine != null) StopCoroutine(audioMonitorCoroutine);
                 audioMonitorCoroutine = StartCoroutine(MonitorAudioRoutine());
             }
         }
 
         isTransitioning = false;
-
-        // --- CAMERA HAS RETURNED ---
         
         if (!isFocusing && inspectionAudio != null)
         {
