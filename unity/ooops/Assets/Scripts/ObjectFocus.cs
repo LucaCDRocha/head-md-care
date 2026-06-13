@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using Unity.Cinemachine;
 using UnityEngine.InputSystem;
-using TMPro;
+using TMPro; // Crucial for 3D Text!
 
 public class ObjectFocus : MonoBehaviour, IPointerClickHandler
 {
@@ -17,11 +17,35 @@ public class ObjectFocus : MonoBehaviour, IPointerClickHandler
     [Header("Inspection Audio")]
     public AudioSource inspectionAudio;
 
-    [Header("ID Card System")]
-    [TextArea(3, 5)]
-    public string idCardDescription;
+    [Header("ID Card Lore (Script)")]
+    [Tooltip("The main header, like a title or person's name.")]
+    public string cardName;
+
+    [Tooltip("The sender or origin point.")]
+    public string cardFromWhom;
+
+    [TextArea(5, 10)]
+    [Tooltip("The main body of text for the ID Card.")]
+    public string cardMainDescription;
+
+    [Header("ID Card Visuals (TextMeshPro)")]
+    [Tooltip("Drag the PARENT container of your 3D text objects here (the background/holder).")]
     public GameObject idCardPanel;
-    public TextMeshProUGUI idCardTextUI;
+
+    [Tooltip("Drag the TMPro object for the Name field here.")]
+    public TextMeshPro nameTextUI;
+
+    [Tooltip("Drag the TMPro object for the From Whom field here.")]
+    public TextMeshPro fromWhomTextUI;
+
+    [Tooltip("Drag the TMPro object for the Description field here.")]
+    public TextMeshPro descriptionTextUI;
+
+    [Header("3D ID Card Placement")]
+    // 💡 THE FIX: Setting new defaults based on image_2.png
+    public float cardDistance = 0.5f;
+    public Vector2 cardOffset = new Vector2(0.22f, -0.18f);
+    public Vector3 cardRotationOffset = new Vector3(-90f, -90f, 0f);
 
     [Header("Ambience Ducking Settings")]
     [Range(0f, 1f)]
@@ -30,8 +54,6 @@ public class ObjectFocus : MonoBehaviour, IPointerClickHandler
 
     private static bool isAnyObjectFocused = false;
     private static ObjectFocus currentlyFocusedObject = null;
-    
-    // 💡 THE FIX: This is now PUBLIC so all other scripts know when the camera is moving!
     public static bool isTransitioning = false;
 
     private PuzzleLogic puzzleLogic;
@@ -143,11 +165,21 @@ public class ObjectFocus : MonoBehaviour, IPointerClickHandler
             yield return new WaitForSeconds(2.0f);
         }
 
+        // --- CAMERA HAS ARRIVED ---
+
         if (isFocusing)
         {
-            if (!string.IsNullOrWhiteSpace(idCardDescription) && idCardPanel != null && idCardTextUI != null)
+            // 💡 THE FIX: We now check if the *NAME* is filled out. If so, populate the fields individually.
+            if (!string.IsNullOrWhiteSpace(cardName) && idCardPanel != null)
             {
-                idCardTextUI.text = idCardDescription;
+                // Populate the new fields with individual null-checks for safety
+                if (nameTextUI != null) nameTextUI.text = cardName;
+
+                if (fromWhomTextUI != null) fromWhomTextUI.text = "FROM: " + cardFromWhom; // Prefix for visual clarity
+
+                if (descriptionTextUI != null) descriptionTextUI.text = cardMainDescription;
+
+                UpdateIDCardPlacement();
                 idCardPanel.SetActive(true);
             }
 
@@ -162,7 +194,7 @@ public class ObjectFocus : MonoBehaviour, IPointerClickHandler
         }
 
         isTransitioning = false;
-        
+
         if (!isFocusing && inspectionAudio != null)
         {
             inspectionAudio.Stop();
@@ -202,8 +234,33 @@ public class ObjectFocus : MonoBehaviour, IPointerClickHandler
         source.volume = targetVolume;
     }
 
+    private void UpdateIDCardPlacement()
+    {
+        if (sharedFocusCamera != null && idCardPanel != null)
+        {
+            Transform camTransform = sharedFocusCamera.transform;
+
+            Vector3 targetPosition = camTransform.position
+                                   + (camTransform.forward * cardDistance)
+                                   + (camTransform.right * cardOffset.x)
+                                   + (camTransform.up * cardOffset.y);
+
+            idCardPanel.transform.position = targetPosition;
+
+            idCardPanel.transform.rotation = camTransform.rotation * Quaternion.Euler(cardRotationOffset);
+        }
+    }
+
     private void Update()
     {
+        if (isAnyObjectFocused && currentlyFocusedObject == this && !isTransitioning)
+        {
+            if (idCardPanel != null && idCardPanel.activeSelf)
+            {
+                UpdateIDCardPlacement();
+            }
+        }
+
         if (!isAnyObjectFocused || currentlyFocusedObject != this || isTransitioning) return;
 
         if (Pointer.current != null && Pointer.current.press.wasPressedThisFrame)
