@@ -180,6 +180,7 @@ MonoBehaviour:
   cardDistance: 1
   cardOffset: {x: 0.5, y: -0.4}
   cardRotationOffset: {x: 0, y: 180, z: 0}
+  cardScale: 1
   duckedVolumeMultiplier: 0.15
   audioFadeDuration: 0.5
 --- !u!64 &21692826
@@ -522,6 +523,7 @@ MonoBehaviour:
   cardDistance: 1
   cardOffset: {x: 0.5, y: -0.4}
   cardRotationOffset: {x: 0, y: 180, z: 0}
+  cardScale: 1
   duckedVolumeMultiplier: 0.15
   audioFadeDuration: 0.5
 --- !u!114 &41027805
@@ -879,6 +881,7 @@ MonoBehaviour:
   cardDistance: 1
   cardOffset: {x: 0.5, y: -0.4}
   cardRotationOffset: {x: 0, y: 180, z: 0}
+  cardScale: 1
   duckedVolumeMultiplier: 0.15
   audioFadeDuration: 0.5
 --- !u!1 &95913553
@@ -1069,6 +1072,7 @@ MonoBehaviour:
   cardDistance: 1
   cardOffset: {x: 0.5, y: -0.4}
   cardRotationOffset: {x: 0, y: 180, z: 0}
+  cardScale: 1
   duckedVolumeMultiplier: 0.15
   audioFadeDuration: 0.5
 --- !u!64 &102459507
@@ -1532,6 +1536,7 @@ MonoBehaviour:
   cardDistance: 1
   cardOffset: {x: 0.5, y: -0.4}
   cardRotationOffset: {x: 0, y: 180, z: 0}
+  cardScale: 1
   duckedVolumeMultiplier: 0.15
   audioFadeDuration: 0.5
 --- !u!114 &131531642
@@ -1988,6 +1993,7 @@ MonoBehaviour:
   cardDistance: 1
   cardOffset: {x: 0.5, y: -0.4}
   cardRotationOffset: {x: 0, y: 180, z: 0}
+  cardScale: 1
   duckedVolumeMultiplier: 0.15
   audioFadeDuration: 0.5
 --- !u!64 &232523672
@@ -2536,6 +2542,7 @@ MonoBehaviour:
   cardDistance: 1
   cardOffset: {x: 0.5, y: -0.4}
   cardRotationOffset: {x: 0, y: 180, z: 0}
+  cardScale: 1
   duckedVolumeMultiplier: 0.15
   audioFadeDuration: 0.5
 --- !u!64 &277644852
@@ -3608,6 +3615,7 @@ MonoBehaviour:
   cardDistance: 1
   cardOffset: {x: 0.5, y: -0.4}
   cardRotationOffset: {x: 0, y: 180, z: 0}
+  cardScale: 1
   duckedVolumeMultiplier: 0.15
   audioFadeDuration: 0.5
 --- !u!64 &391096362
@@ -4887,6 +4895,7 @@ MonoBehaviour:
   cardDistance: 1
   cardOffset: {x: 0.5, y: -0.4}
   cardRotationOffset: {x: 0, y: 180, z: 0}
+  cardScale: 1
   duckedVolumeMultiplier: 0.15
   audioFadeDuration: 0.5
 --- !u!1 &534800522
@@ -5804,6 +5813,7 @@ MonoBehaviour:
   cardDistance: 1
   cardOffset: {x: 0.5, y: -0.4}
   cardRotationOffset: {x: 0, y: 180, z: 0}
+  cardScale: 1
   duckedVolumeMultiplier: 0.15
   audioFadeDuration: 0.5
 --- !u!64 &589390640
@@ -6075,6 +6085,7 @@ MonoBehaviour:
   cardDistance: 1
   cardOffset: {x: 0.5, y: -0.4}
   cardRotationOffset: {x: 0, y: 180, z: 0}
+  cardScale: 1
   duckedVolumeMultiplier: 0.15
   audioFadeDuration: 0.5
 --- !u!64 &602901142
@@ -7768,6 +7779,7 @@ MonoBehaviour:
   cardDistance: 1
   cardOffset: {x: 0.5, y: -0.4}
   cardRotationOffset: {x: 0, y: 180, z: 0}
+  cardScale: 1
   duckedVolumeMultiplier: 0.15
   audioFadeDuration: 0.5
 --- !u!64 &780880792
@@ -8225,6 +8237,7 @@ MonoBehaviour:
   cardDistance: 1
   cardOffset: {x: 0.5, y: -0.4}
   cardRotationOffset: {x: 0, y: 180, z: 0}
+  cardScale: 1
   duckedVolumeMultiplier: 0.15
   audioFadeDuration: 0.5
 --- !u!64 &854294334
@@ -8895,6 +8908,7 @@ MonoBehaviour:
   cardDistance: 1
   cardOffset: {x: 0.5, y: -0.4}
   cardRotationOffset: {x: 0, y: 180, z: 0}
+  cardScale: 1
   duckedVolumeMultiplier: 0.15
   audioFadeDuration: 0.5
 --- !u!64 &931780574
@@ -9721,6 +9735,7 @@ MonoBehaviour:
   cardDistance: 1
   cardOffset: {x: 0.5, y: -0.4}
   cardRotationOffset: {x: 0, y: 180, z: 0}
+  cardScale: 1
   duckedVolumeMultiplier: 0.15
   audioFadeDuration: 0.5
 --- !u!114 &1057363180
@@ -9902,6 +9917,7 @@ MonoBehaviour:
   cardDistance: 1
   cardOffset: {x: 0.5, y: -0.4}
   cardRotationOffset: {x: 0, y: 180, z: 0}
+  cardScale: 1
   duckedVolumeMultiplier: 0.15
   audioFadeDuration: 0.5
 --- !u!1 &1111080820
@@ -10546,6 +10562,7 @@ MonoBehaviour:
   cardDistance: 1
   cardOffset: {x: 0.5, y: -0.4}
   cardRotationOffset: {x: 0, y: 180, z: 0}
+  cardScale: 1
   duckedVolumeMultiplier: 0.15
   audioFadeDuration: 0.5
 --- !u!64 &1189074688
@@ -16943,6 +16960,7 @@ MonoBehaviour:
   cardDistance: 1
   cardOffset: {x: 0.5, y: -0.4}
   cardRotationOffset: {x: 0, y: 180, z: 0}
+  cardScale: 1
   duckedVolumeMultiplier: 0.15
   audioFadeDuration: 0.5
 --- !u!64 &1311520886
@@ -17293,6 +17311,7 @@ MonoBehaviour:
   cardDistance: 1
   cardOffset: {x: 0.5, y: -0.4}
   cardRotationOffset: {x: 0, y: 180, z: 0}
+  cardScale: 1
   duckedVolumeMultiplier: 0.15
   audioFadeDuration: 0.5
 --- !u!1 &1350580495
@@ -17860,6 +17879,7 @@ MonoBehaviour:
   cardDistance: 1
   cardOffset: {x: 0.5, y: -0.4}
   cardRotationOffset: {x: 0, y: 180, z: 0}
+  cardScale: 1
   duckedVolumeMultiplier: 0.15
   audioFadeDuration: 0.5
 --- !u!114 &1467065689
@@ -19750,6 +19770,7 @@ MonoBehaviour:
   cardDistance: 1
   cardOffset: {x: 0.5, y: -0.4}
   cardRotationOffset: {x: 0, y: 180, z: 0}
+  cardScale: 1
   duckedVolumeMultiplier: 0.15
   audioFadeDuration: 0.5
 --- !u!64 &1680323509
@@ -20606,6 +20627,7 @@ MonoBehaviour:
   cardDistance: 1
   cardOffset: {x: 0.5, y: -0.4}
   cardRotationOffset: {x: 0, y: 180, z: 0}
+  cardScale: 1
   duckedVolumeMultiplier: 0.15
   audioFadeDuration: 0.5
 --- !u!64 &1783617577
@@ -21280,6 +21302,7 @@ MonoBehaviour:
   cardDistance: 1
   cardOffset: {x: 0.5, y: -0.4}
   cardRotationOffset: {x: 0, y: 180, z: 0}
+  cardScale: 1
   duckedVolumeMultiplier: 0.15
   audioFadeDuration: 0.5
 --- !u!64 &1838137578
@@ -22091,6 +22114,7 @@ MonoBehaviour:
   cardDistance: 1
   cardOffset: {x: 0.5, y: -0.4}
   cardRotationOffset: {x: 0, y: 180, z: 0}
+  cardScale: 1
   duckedVolumeMultiplier: 0.15
   audioFadeDuration: 0.5
 --- !u!114 &1904016143
@@ -22679,6 +22703,7 @@ MonoBehaviour:
   cardDistance: 1
   cardOffset: {x: 0.5, y: -0.4}
   cardRotationOffset: {x: 0, y: 180, z: 0}
+  cardScale: 1
   duckedVolumeMultiplier: 0.15
   audioFadeDuration: 0.5
 --- !u!114 &1962686813
@@ -22797,6 +22822,7 @@ MonoBehaviour:
   cardDistance: 1
   cardOffset: {x: 0.5, y: -0.4}
   cardRotationOffset: {x: 0, y: 180, z: 0}
+  cardScale: 1
   duckedVolumeMultiplier: 0.15
   audioFadeDuration: 0.5
 --- !u!64 &1978917676
@@ -22981,6 +23007,7 @@ MonoBehaviour:
   cardDistance: 1
   cardOffset: {x: 0.5, y: -0.4}
   cardRotationOffset: {x: 0, y: 180, z: 0}
+  cardScale: 1
   duckedVolumeMultiplier: 0.15
   audioFadeDuration: 0.5
 --- !u!65 &1982638317
@@ -23172,6 +23199,7 @@ MonoBehaviour:
   cardDistance: 1
   cardOffset: {x: 0.5, y: -0.4}
   cardRotationOffset: {x: 0, y: 180, z: 0}
+  cardScale: 1
   duckedVolumeMultiplier: 0.15
   audioFadeDuration: 0.5
 --- !u!64 &2008866604
@@ -23427,6 +23455,7 @@ MonoBehaviour:
   cardDistance: 1
   cardOffset: {x: 0.5, y: -0.4}
   cardRotationOffset: {x: 0, y: 180, z: 0}
+  cardScale: 1
   duckedVolumeMultiplier: 0.15
   audioFadeDuration: 0.5
 --- !u!64 &2039851931
@@ -23874,6 +23903,7 @@ MonoBehaviour:
   cardDistance: 1
   cardOffset: {x: 0.5, y: -0.4}
   cardRotationOffset: {x: 0, y: 180, z: 0}
+  cardScale: 1
   duckedVolumeMultiplier: 0.15
   audioFadeDuration: 0.5
 --- !u!1 &2054180908
@@ -45744,6 +45774,7 @@ MonoBehaviour:
   cardDistance: 0.5
   cardOffset: {x: 0.22, y: -0.18}
   cardRotationOffset: {x: -90, y: -90, z: 0}
+  cardScale: 4.6
   duckedVolumeMultiplier: 0.15
   audioFadeDuration: 0.5
 --- !u!65 &3995081161489060986
@@ -46405,6 +46436,7 @@ MonoBehaviour:
   cardDistance: 1
   cardOffset: {x: 0.5, y: -0.4}
   cardRotationOffset: {x: 0, y: 180, z: 0}
+  cardScale: 1
   duckedVolumeMultiplier: 0.15
   audioFadeDuration: 0.5
 --- !u!114 &4132786127042159321
@@ -58856,6 +58888,7 @@ MonoBehaviour:
   cardDistance: 1
   cardOffset: {x: 0.5, y: -0.4}
   cardRotationOffset: {x: 0, y: 180, z: 0}
+  cardScale: 1
   duckedVolumeMultiplier: 0.15
   audioFadeDuration: 0.5
 --- !u!114 &6280016128179320740
@@ -65045,6 +65078,7 @@ MonoBehaviour:
   cardDistance: 0.5
   cardOffset: {x: 0.22, y: -0.18}
   cardRotationOffset: {x: -90, y: -90, z: 0}
+  cardScale: 4.6
   duckedVolumeMultiplier: 0.15
   audioFadeDuration: 0.5
 --- !u!65 &7429818574756853433
@@ -65652,7 +65686,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ObjectFocus
   puzzleCamera: {fileID: 588665783}
   sharedFocusCamera: {fileID: 390290580}
-  cameraLocalOffset: {x: 0, y: 0, z: -0.5}
+  cameraLocalOffset: {x: 0, y: 0, z: -0.7}
   inspectionAudio: {fileID: 0}
   cardName: Dumbo the Elephant
   cardFromWhom: 'From: Sara'
@@ -65663,8 +65697,9 @@ MonoBehaviour:
   fromWhomTextUI: {fileID: 124690322}
   descriptionTextUI: {fileID: 888095703}
   cardDistance: 0.5
-  cardOffset: {x: 0.22, y: -0.18}
+  cardOffset: {x: 0.26, y: -0.22}
   cardRotationOffset: {x: -90, y: -90, z: 0}
+  cardScale: 4.1
   duckedVolumeMultiplier: 0.15
   audioFadeDuration: 0.5
 --- !u!65 &7562340401484789107
@@ -69068,6 +69103,7 @@ MonoBehaviour:
   cardDistance: 1
   cardOffset: {x: 0.5, y: -0.4}
   cardRotationOffset: {x: 0, y: 180, z: 0}
+  cardScale: 1
   duckedVolumeMultiplier: 0.15
   audioFadeDuration: 0.5
 --- !u!114 &8131476191868110340
@@ -70410,6 +70446,7 @@ MonoBehaviour:
   cardDistance: 1
   cardOffset: {x: 0.5, y: -0.4}
   cardRotationOffset: {x: 0, y: 180, z: 0}
+  cardScale: 1
   duckedVolumeMultiplier: 0.15
   audioFadeDuration: 0.5
 --- !u!114 &8300930089783397352

@@ -47,6 +47,9 @@ public class ObjectFocus : MonoBehaviour, IPointerClickHandler
     public Vector2 cardOffset = new Vector2(0.22f, -0.18f);
     public Vector3 cardRotationOffset = new Vector3(-90f, -90f, 0f);
 
+    [Tooltip("1 is normal size. 0.5 is half size. 2 is double size.")]
+    public float cardScale = 1.0f;
+
     [Header("Ambience Ducking Settings")]
     [Range(0f, 1f)]
     public float duckedVolumeMultiplier = 0.15f;
@@ -248,6 +251,8 @@ public class ObjectFocus : MonoBehaviour, IPointerClickHandler
             idCardPanel.transform.position = targetPosition;
 
             idCardPanel.transform.rotation = camTransform.rotation * Quaternion.Euler(cardRotationOffset);
+
+            idCardPanel.transform.localScale = Vector3.one * cardScale;
         }
     }
 
