@@ -602,6 +602,7 @@ GameObject:
   - component: {fileID: 92097930}
   - component: {fileID: 92097929}
   - component: {fileID: 92097928}
+  - component: {fileID: 92097931}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
@@ -703,6 +704,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 92097926}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &92097931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 92097926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d5b4eea2125e1049b7fea91d8ae1664, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ObjectFocus
+  puzzleCamera: {fileID: 588665783}
+  sharedFocusCamera: {fileID: 390290580}
+  cameraLocalOffset: {x: 0, y: 0.31, z: 0.01}
+  inspectionAudio: {fileID: 0}
+  idCardDescription: 
+  idCardPanel: {fileID: 0}
+  idCardTextUI: {fileID: 0}
+  duckedVolumeMultiplier: 0.15
+  audioFadeDuration: 0.5
 --- !u!1 &95913553
 GameObject:
   m_ObjectHideFlags: 0
@@ -3693,6 +3715,7 @@ GameObject:
   - component: {fileID: 530295015}
   - component: {fileID: 530295014}
   - component: {fileID: 530295013}
+  - component: {fileID: 530295016}
   m_Layer: 0
   m_Name: Frame
   m_TagString: Untagged
@@ -3794,6 +3817,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 530295011}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &530295016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 530295011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d5b4eea2125e1049b7fea91d8ae1664, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ObjectFocus
+  puzzleCamera: {fileID: 588665783}
+  sharedFocusCamera: {fileID: 390290580}
+  cameraLocalOffset: {x: 0, y: 0.7, z: 0}
+  inspectionAudio: {fileID: 0}
+  idCardDescription: 
+  idCardPanel: {fileID: 0}
+  idCardTextUI: {fileID: 0}
+  duckedVolumeMultiplier: 0.15
+  audioFadeDuration: 0.5
 --- !u!1 &534800522
 GameObject:
   m_ObjectHideFlags: 0
@@ -7382,6 +7426,7 @@ GameObject:
   - component: {fileID: 1058223749}
   - component: {fileID: 1058223748}
   - component: {fileID: 1058223747}
+  - component: {fileID: 1058223750}
   m_Layer: 0
   m_Name: Frame
   m_TagString: Untagged
@@ -7483,6 +7528,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1058223745}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1058223750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1058223745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d5b4eea2125e1049b7fea91d8ae1664, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ObjectFocus
+  puzzleCamera: {fileID: 588665783}
+  sharedFocusCamera: {fileID: 390290580}
+  cameraLocalOffset: {x: 0, y: 0.7, z: 0}
+  inspectionAudio: {fileID: 0}
+  idCardDescription: 
+  idCardPanel: {fileID: 0}
+  idCardTextUI: {fileID: 0}
+  duckedVolumeMultiplier: 0.15
+  audioFadeDuration: 0.5
 --- !u!1 &1111080820
 GameObject:
   m_ObjectHideFlags: 0
@@ -14358,6 +14424,7 @@ GameObject:
   - component: {fileID: 1334178757}
   - component: {fileID: 1334178756}
   - component: {fileID: 1334178755}
+  - component: {fileID: 1334178758}
   m_Layer: 0
   m_Name: Frame
   m_TagString: Untagged
@@ -14459,6 +14526,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1334178753}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1334178758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1334178753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d5b4eea2125e1049b7fea91d8ae1664, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ObjectFocus
+  puzzleCamera: {fileID: 588665783}
+  sharedFocusCamera: {fileID: 390290580}
+  cameraLocalOffset: {x: 0, y: 0.7, z: 0}
+  inspectionAudio: {fileID: 0}
+  idCardDescription: 
+  idCardPanel: {fileID: 0}
+  idCardTextUI: {fileID: 0}
+  duckedVolumeMultiplier: 0.15
+  audioFadeDuration: 0.5
 --- !u!1 &1350580495
 GameObject:
   m_ObjectHideFlags: 0

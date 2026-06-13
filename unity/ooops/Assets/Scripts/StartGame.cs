@@ -28,18 +28,25 @@ public class StartGame : MonoBehaviour, IPointerClickHandler
     public GameObject closedSign;
 
     [Header("Puzzle Elements")]
-    [Tooltip("Drag the Coffee Mug here. It will stay hidden until the intro audio finishes.")]
-    public GameObject coffeeMug; // 💡 NEW: The mug reference!
+    public GameObject coffeeMug; 
 
     [Header("Optional Settings")]
     public bool hideOnStart = true;
 
     private bool isStarting = false;
+    private Collider doorCollider; // 💡 NEW: We need to reference the collider!
 
     private void Start()
     {
         Application.targetFrameRate = 30;
         
+        // 💡 NEW: Automatically find the collider on this object and make sure it is ON!
+        doorCollider = GetComponent<Collider>();
+        if (doorCollider != null)
+        {
+            doorCollider.enabled = true;
+        }
+
         if (cafeAmbience != null)
         {
             cafeAmbience.volume = 0f;
@@ -48,13 +55,18 @@ public class StartGame : MonoBehaviour, IPointerClickHandler
         if (openSign != null) openSign.SetActive(true);
         if (closedSign != null) closedSign.SetActive(false);
 
-        // 💡 NEW: Instantly hide the coffee mug when the game loads!
         if (coffeeMug != null) coffeeMug.SetActive(false);
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
         if (isStarting) return;
+
+        // 💡 THE FIX: Instantly disable the collider the exact millisecond the player clicks!
+        if (doorCollider != null)
+        {
+            doorCollider.enabled = false;
+        }
 
         if (puzzleCamera == null)
         {
@@ -122,13 +134,11 @@ public class StartGame : MonoBehaviour, IPointerClickHandler
             if (audio != null) audio.Stop();
         }
 
-        // 💡 NEW: Pause the sequence and wait for the intro sound to finish speaking!
         if (introCutSound != null)
         {
             yield return new WaitWhile(() => introCutSound.isPlaying);
         }
 
-        // 💡 NEW: Now that they are done talking, reveal the coffee mug!
         if (coffeeMug != null) coffeeMug.SetActive(true);
 
         yield return null;
