@@ -2627,7 +2627,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.1
+  near clip plane: 0.3
   far clip plane: 1000
   field of view: 70
   orthographic: 0
@@ -2655,8 +2655,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.05895453, y: 0.7337078, z: -0.0641913, w: 0.67385215}
-  m_LocalPosition: {x: -3.87, y: 1.42, z: 0.39}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.749, y: 1.546, z: -7.005}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5433,7 +5433,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineCamera
   Priority:
     Enabled: 1
-    m_Value: 15
+    m_Value: 5
   OutputChannel: 1
   StandbyUpdate: 2
   m_StreamingVersion: 20241001
@@ -44877,7 +44877,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ObjectFocus
   puzzleCamera: {fileID: 588665783}
   sharedFocusCamera: {fileID: 390290580}
-  cameraLocalOffset: {x: 0, y: 0.5, z: -1.5}
+  cameraLocalOffset: {x: 0, y: -0.2, z: -0.7}
   inspectionAudio: {fileID: 0}
   idCardDescription: "Robo the Robot\LFrom: Mark | Since: last summer\nBuilt from
     leftover parts by himself. Doesn't do much. Just stands there, looking insecure."
@@ -64156,7 +64156,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ObjectFocus
   puzzleCamera: {fileID: 588665783}
   sharedFocusCamera: {fileID: 390290580}
-  cameraLocalOffset: {x: 0, y: 0.5, z: -1.5}
+  cameraLocalOffset: {x: 0, y: 0.2, z: 0.65}
   inspectionAudio: {fileID: 0}
   idCardDescription: 
   idCardPanel: {fileID: 0}
@@ -64766,9 +64766,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d5b4eea2125e1049b7fea91d8ae1664, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjectFocus
-  puzzleCamera: {fileID: 0}
-  sharedFocusCamera: {fileID: 0}
-  cameraLocalOffset: {x: 0, y: 0.5, z: -1.5}
+  puzzleCamera: {fileID: 588665783}
+  sharedFocusCamera: {fileID: 390290580}
+  cameraLocalOffset: {x: 0, y: 0, z: -0.5}
   inspectionAudio: {fileID: 0}
   idCardDescription: 
   idCardPanel: {fileID: 0}
