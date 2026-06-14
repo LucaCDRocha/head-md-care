@@ -2889,7 +2889,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
+  near clip plane: 0.1
   far clip plane: 1000
   field of view: 70
   orthographic: 0
@@ -2917,8 +2917,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.749, y: 1.546, z: -7.005}
+  m_LocalRotation: {x: 0.05895453, y: 0.7337078, z: -0.0641913, w: 0.67385215}
+  m_LocalPosition: {x: -3.87, y: 1.42, z: 0.39}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -39980,7 +39980,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!23 &2770013676283680439
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -49888,6 +49888,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5140948191406331807}
+  - component: {fileID: 5140948191406331809}
+  - component: {fileID: 5140948191406331808}
   m_Layer: 0
   m_Name: Books_2.002
   m_TagString: Untagged
@@ -52249,6 +52251,58 @@ Transform:
   - {fileID: 1731883770078913471}
   m_Father: {fileID: 826534367}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5140948191406331808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4808391498963401630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d5b4eea2125e1049b7fea91d8ae1664, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ObjectFocus
+  puzzleCamera: {fileID: 588665783}
+  sharedFocusCamera: {fileID: 390290580}
+  cameraLocalOffset: {x: 0, y: 0.7, z: 0.2}
+  inspectionAudio: {fileID: 0}
+  cardName: MARIAS LIBRARY
+  cardFromWhom: Various
+  cardMainDescription: Take one, leave one! People keep forgetting to remove their
+    bookmarks turning it into a goldmine of forgotten grocery list, scribbles and
+    unpaid parking tickets.
+  idCardPanel: {fileID: 1759364545}
+  nameTextUI: {fileID: 1853782753}
+  fromWhomTextUI: {fileID: 124690322}
+  descriptionTextUI: {fileID: 888095703}
+  cardDistance: 0.5
+  cardOffset: {x: 0.22, y: -0.18}
+  cardRotationOffset: {x: -90, y: -90, z: 0}
+  cardScale: 4.6
+  duckedVolumeMultiplier: 0.15
+  audioFadeDuration: 0.5
+--- !u!65 &5140948191406331809
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4808391498963401630}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.8, y: 0.72, z: 0.74}
+  m_Center: {x: 0, y: 0, z: 0.33}
 --- !u!4 &5145401867225447838
 Transform:
   m_ObjectHideFlags: 0
@@ -58420,9 +58474,9 @@ Transform:
   m_GameObject: {fileID: 2769241078133516927}
   serializedVersion: 2
   m_LocalRotation: {x: -0.504305, y: -0.49565768, z: -0.504305, w: 0.49565768}
-  m_LocalPosition: {x: -2.8325005, y: 1.4475, z: -0.7620003}
-  m_LocalScale: {x: 0.059505757, y: 0.059505764, z: 0.059505757}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: -3.02, y: 1.442, z: -0.7620003}
+  m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 292620823}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -69414,6 +69468,8 @@ GameObject:
   - component: {fileID: 5743342224442333063}
   - component: {fileID: 3519939161526374034}
   - component: {fileID: 5157990396963485150}
+  - component: {fileID: 8141247963154950574}
+  - component: {fileID: 8141247963154950573}
   m_Layer: 0
   m_Name: Vase_7
   m_TagString: Untagged
@@ -69421,6 +69477,58 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &8141247963154950573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8141247963154950572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d5b4eea2125e1049b7fea91d8ae1664, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ObjectFocus
+  puzzleCamera: {fileID: 588665783}
+  sharedFocusCamera: {fileID: 390290580}
+  cameraLocalOffset: {x: 0, y: 0.3, z: 0.7}
+  inspectionAudio: {fileID: 0}
+  cardName: ECHO CHAMBER
+  cardFromWhom: Charlotte (57)
+  cardMainDescription: Charlotte swore this empty vase traps the high C note from
+    her final theatre performance. If you whisper a secret into it, it supposedly
+    whispers back.
+  idCardPanel: {fileID: 1759364545}
+  nameTextUI: {fileID: 1853782753}
+  fromWhomTextUI: {fileID: 124690322}
+  descriptionTextUI: {fileID: 888095703}
+  cardDistance: 0.5
+  cardOffset: {x: 0.22, y: -0.18}
+  cardRotationOffset: {x: -90, y: -90, z: 0}
+  cardScale: 4.6
+  duckedVolumeMultiplier: 0.15
+  audioFadeDuration: 0.5
+--- !u!65 &8141247963154950574
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8141247963154950572}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.96195245, y: 1.259825, z: 0.9619533}
+  m_Center: {x: 0.0011196139, y: 0.62339354, z: -0.000254497}
 --- !u!23 &8141548473700284080
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -69931,6 +70039,8 @@ GameObject:
   - component: {fileID: 2978874471976996728}
   - component: {fileID: 7294079260551103949}
   - component: {fileID: 4108656735410663928}
+  - component: {fileID: 8208607738205643894}
+  - component: {fileID: 8208607738205643893}
   m_Layer: 0
   m_Name: Trains
   m_TagString: Untagged
@@ -69938,6 +70048,59 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &8208607738205643893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8208607738205643892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d5b4eea2125e1049b7fea91d8ae1664, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ObjectFocus
+  puzzleCamera: {fileID: 588665783}
+  sharedFocusCamera: {fileID: 390290580}
+  cameraLocalOffset: {x: 0.7, y: -0.4, z: -0.1}
+  inspectionAudio: {fileID: 0}
+  cardName: MIDNIGHT EXPRESS
+  cardFromWhom: Bert (42)
+  cardMainDescription: "When the sun goes down and no one looks, it makes its rounds
+    through the caf\xE9, powered by caffeine vapors. Bert insists it only runs on
+    schedule if you leave a crumb of blueberry muffin on the tracks as sacrifice
+    to the transit gods."
+  idCardPanel: {fileID: 1759364545}
+  nameTextUI: {fileID: 1853782753}
+  fromWhomTextUI: {fileID: 124690322}
+  descriptionTextUI: {fileID: 888095703}
+  cardDistance: 0.5
+  cardOffset: {x: 0.22, y: -0.18}
+  cardRotationOffset: {x: -90, y: -90, z: 0}
+  cardScale: 4.6
+  duckedVolumeMultiplier: 0.15
+  audioFadeDuration: 0.5
+--- !u!65 &8208607738205643894
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8208607738205643892}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 12.482531, y: 13.317634, z: 35.627785}
+  m_Center: {x: -6.2412653, y: -6.658817, z: 17.813892}
 --- !u!4 &8209392640613034514
 Transform:
   m_ObjectHideFlags: 0
