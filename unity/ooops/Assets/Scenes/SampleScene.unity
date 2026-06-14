@@ -8416,7 +8416,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!65 &877713536
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8463,7 +8463,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: dc23600a97ddb92489a5173a46e22952, type: 2}
+  - {fileID: 2100000, guid: 0b74ec0987dc8374f938a6ee893afd95, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -8548,7 +8548,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InteractablePulse
   enableGlow: 1
-  glowColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  glowColor: {r: 0.5769481, g: 0.5214259, b: 0.45141962, a: 1}
   pulseSpeed: 1.5
   onlyPulseDuringPuzzle: 0
   puzzleLogic: {fileID: 0}
@@ -19281,8 +19281,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 2018
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e050d8b60b145984393913fbed248542, type: 2}
+  m_sharedMaterial: {fileID: -2814357454511795924, guid: e050d8b60b145984393913fbed248542, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -19379,7 +19379,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  - {fileID: -2814357454511795924, guid: e050d8b60b145984393913fbed248542, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -21700,10 +21700,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Robo the Robot
+  m_text: DUMBO THE ELEPHANT
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e050d8b60b145984393913fbed248542, type: 2}
+  m_sharedMaterial: {fileID: -2814357454511795924, guid: e050d8b60b145984393913fbed248542, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -21727,11 +21727,11 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 16
+  m_fontSize: 13
   m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 1
-  m_fontSizeMin: 16
+  m_fontSizeMin: 13
   m_fontSizeMax: 20
   m_fontStyle: 1
   m_HorizontalAlignment: 2
@@ -21766,7 +21766,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 16.340837, y: 20.115343, z: 16.468822, w: 28.490765}
+  m_margin: {x: 16.397993, y: 20.115343, z: 15.963632, w: 28.490765}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   _SortingLayer: 0
@@ -21800,7 +21800,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  - {fileID: -2814357454511795924, guid: e050d8b60b145984393913fbed248542, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -45763,7 +45763,7 @@ MonoBehaviour:
   cameraLocalOffset: {x: 0, y: -0.2, z: -0.7}
   inspectionAudio: {fileID: 0}
   cardName: Robo the Robot
-  cardFromWhom: 'From: Mark (42)'
+  cardFromWhom: Mark (42)
   cardMainDescription: Built from spare toaster and bicycle parts. Mark claimed Robo
     was programmed for world domination. His battery only holds enough charge to
     judder when someone mispronounces "croissant".
@@ -65066,8 +65066,8 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: 0, y: 0.2, z: 0.65}
   inspectionAudio: {fileID: 0}
-  cardName: Mr. Gnome
-  cardFromWhom: 'From: Walter'
+  cardName: MR. GNOME
+  cardFromWhom: Walter
   cardMainDescription: "He ran away from Walter\u2019s front yard to stake out the
     caf\xE9 counter. Now he spends every morning scanning the espresso line, desperately
     hoping his Ms. Right will order a Vanilla Late."
@@ -65688,8 +65688,8 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: 0, y: 0, z: -0.7}
   inspectionAudio: {fileID: 0}
-  cardName: Dumbo the Elephant
-  cardFromWhom: 'From: Sara'
+  cardName: DUMBO THE ELEPHANT
+  cardFromWhom: Sara
   cardMainDescription: Sarah gave it as a a gift. Big Ears of Dumbo captures different 
     conversations
   idCardPanel: {fileID: 1759364545}
