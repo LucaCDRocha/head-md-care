@@ -19281,8 +19281,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 2018
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e050d8b60b145984393913fbed248542, type: 2}
-  m_sharedMaterial: {fileID: -2814357454511795924, guid: e050d8b60b145984393913fbed248542, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 47d21de024441914e8e73530777d31da, type: 2}
+  m_sharedMaterial: {fileID: 6358390942598827956, guid: 47d21de024441914e8e73530777d31da, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -19379,7 +19379,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -2814357454511795924, guid: e050d8b60b145984393913fbed248542, type: 2}
+  - {fileID: 6358390942598827956, guid: 47d21de024441914e8e73530777d31da, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -21702,8 +21702,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: DUMBO THE ELEPHANT
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e050d8b60b145984393913fbed248542, type: 2}
-  m_sharedMaterial: {fileID: -2814357454511795924, guid: e050d8b60b145984393913fbed248542, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 47d21de024441914e8e73530777d31da, type: 2}
+  m_sharedMaterial: {fileID: 6358390942598827956, guid: 47d21de024441914e8e73530777d31da, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -21800,7 +21800,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -2814357454511795924, guid: e050d8b60b145984393913fbed248542, type: 2}
+  - {fileID: 6358390942598827956, guid: 47d21de024441914e8e73530777d31da, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
