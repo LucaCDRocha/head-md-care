@@ -753,6 +753,7 @@ GameObject:
   - component: {fileID: 92097930}
   - component: {fileID: 92097929}
   - component: {fileID: 92097928}
+  - component: {fileID: 92097932}
   - component: {fileID: 92097931}
   m_Layer: 0
   m_Name: Plane
@@ -793,7 +794,7 @@ MeshCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30
@@ -884,6 +885,27 @@ MonoBehaviour:
   cardScale: 1
   duckedVolumeMultiplier: 0.15
   audioFadeDuration: 0.5
+--- !u!65 &92097932
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 92097926}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 15.08, y: 1.64, z: 14.57}
+  m_Center: {x: -2.2, y: 0.59, z: 1.7}
 --- !u!1 &95913553
 GameObject:
   m_ObjectHideFlags: 0
@@ -1215,8 +1237,8 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: db6362caafac645419c73e723e3884c1, type: 2}
+  m_sharedMaterial: {fileID: -5601085577153797541, guid: db6362caafac645419c73e723e3884c1, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1313,7 +1335,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  - {fileID: -5601085577153797541, guid: db6362caafac645419c73e723e3884c1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1681,6 +1703,7 @@ Transform:
   - {fileID: 400452356}
   - {fileID: 656275521}
   - {fileID: 1816707943}
+  - {fileID: 1414475441}
   m_Father: {fileID: 1978031327}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &150107340
@@ -3522,7 +3545,7 @@ MonoBehaviour:
   Lens:
     FieldOfView: 75
     OrthographicSize: 5
-    NearClipPlane: 0.3
+    NearClipPlane: 0.26
     FarClipPlane: 1000
     Dutch: 0
     ModeOverride: 0
@@ -8504,7 +8527,7 @@ Transform:
   m_GameObject: {fileID: 877713535}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.2016658, z: -0, w: 0.9794544}
-  m_LocalPosition: {x: -3.0519998, y: 0.85494995, z: 0.61949944}
+  m_LocalPosition: {x: -3.03, y: 0.85494995, z: 0.612}
   m_LocalScale: {x: 0.34, y: 0.0001, z: 0.20000003}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8613,8 +8636,8 @@ MonoBehaviour:
     for world domination. His battery only holds enough charge to judder when someone
     mispronounces "croissant".
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: db6362caafac645419c73e723e3884c1, type: 2}
+  m_sharedMaterial: {fileID: -5601085577153797541, guid: db6362caafac645419c73e723e3884c1, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -8638,11 +8661,11 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 10
+  m_fontSize: 9
   m_fontSizeBase: 10
   m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 12
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 8
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 1
@@ -8711,7 +8734,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  - {fileID: -5601085577153797541, guid: db6362caafac645419c73e723e3884c1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -17714,6 +17737,94 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1411827006}
   m_Mesh: {fileID: -6360558719573625917, guid: b78522574c9d5b549b970a6cffe8263d, type: 3}
+--- !u!1001 &1414475440
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 145164179}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: efe1a58623c6b6940a3316ffafdfc300, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.861
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efe1a58623c6b6940a3316ffafdfc300, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efe1a58623c6b6940a3316ffafdfc300, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.02
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efe1a58623c6b6940a3316ffafdfc300, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.47176284
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efe1a58623c6b6940a3316ffafdfc300, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efe1a58623c6b6940a3316ffafdfc300, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.8817255
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efe1a58623c6b6940a3316ffafdfc300, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efe1a58623c6b6940a3316ffafdfc300, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efe1a58623c6b6940a3316ffafdfc300, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -236.298
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efe1a58623c6b6940a3316ffafdfc300, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4352264137168793470, guid: efe1a58623c6b6940a3316ffafdfc300, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.23
+      objectReference: {fileID: 0}
+    - target: {fileID: -4352264137168793470, guid: efe1a58623c6b6940a3316ffafdfc300, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.112
+      objectReference: {fileID: 0}
+    - target: {fileID: 442048258333900237, guid: efe1a58623c6b6940a3316ffafdfc300, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 46d991a8c9e4fb0448f1f26b01ff197f, type: 2}
+    - target: {fileID: 882766922290483993, guid: efe1a58623c6b6940a3316ffafdfc300, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.17664291
+      objectReference: {fileID: 0}
+    - target: {fileID: 882766922290483993, guid: efe1a58623c6b6940a3316ffafdfc300, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.19161415
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: efe1a58623c6b6940a3316ffafdfc300, type: 3}
+      propertyPath: m_Name
+      value: shoe-marks (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5260803932651655012, guid: efe1a58623c6b6940a3316ffafdfc300, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 46d991a8c9e4fb0448f1f26b01ff197f, type: 2}
+    m_RemovedComponents: []
+    m_RemovedGameObjects:
+    - {fileID: -2874503766195234971, guid: efe1a58623c6b6940a3316ffafdfc300, type: 3}
+    - {fileID: -3748374085898648883, guid: efe1a58623c6b6940a3316ffafdfc300, type: 3}
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: efe1a58623c6b6940a3316ffafdfc300, type: 3}
+--- !u!4 &1414475441 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: efe1a58623c6b6940a3316ffafdfc300, type: 3}
+  m_PrefabInstance: {fileID: 1414475440}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1454859466
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -49295,6 +49406,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5724706570914361109}
+  - component: {fileID: 5724706570914361111}
+  - component: {fileID: 5724706570914361110}
   m_Layer: 0
   m_Name: Candle.001
   m_TagString: Untagged
@@ -55804,6 +55917,58 @@ Transform:
   - {fileID: 983670521012182375}
   m_Father: {fileID: 826534367}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5724706570914361110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4684111276393023489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d5b4eea2125e1049b7fea91d8ae1664, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ObjectFocus
+  puzzleCamera: {fileID: 588665783}
+  sharedFocusCamera: {fileID: 390290580}
+  cameraLocalOffset: {x: 0, y: -0.7, z: 0.2}
+  inspectionAudio: {fileID: 0}
+  cardName: TRUTH-TELLER CANDLE
+  cardFromWhom: Maria
+  cardMainDescription: Maria added the candle herself to ensure no birthday goes
+    uncelebrated, though she swears the wick sparks on its own whenever someone tries
+    to lie about their age for a free pastry.
+  idCardPanel: {fileID: 1759364545}
+  nameTextUI: {fileID: 1853782753}
+  fromWhomTextUI: {fileID: 124690322}
+  descriptionTextUI: {fileID: 888095703}
+  cardDistance: 0.5
+  cardOffset: {x: 0.22, y: -0.18}
+  cardRotationOffset: {x: -90, y: -90, z: 0}
+  cardScale: 4.6
+  duckedVolumeMultiplier: 0.15
+  audioFadeDuration: 0.5
+--- !u!65 &5724706570914361111
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4684111276393023489}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0.48}
 --- !u!4 &5727480870110874231
 Transform:
   m_ObjectHideFlags: 0
@@ -58923,8 +59088,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.01997229, y: 0.02, z: 0.002193894}
-  m_Center: {x: 0.000013854355, y: 0, z: 0.001096947}
+  m_Size: {x: 0.025, y: 0.025, z: 0.005}
+  m_Center: {x: -0.002, y: 0, z: 0.002}
 --- !u!114 &6280016128179320742
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61369,6 +61534,8 @@ GameObject:
   - component: {fileID: 7452707027343815751}
   - component: {fileID: 8282533633338706485}
   - component: {fileID: 3021114372254799970}
+  - component: {fileID: 8282533633338706487}
+  - component: {fileID: 8282533633338706486}
   m_Layer: 0
   m_Name: Snail
   m_TagString: Untagged
@@ -68477,6 +68644,8 @@ GameObject:
   - component: {fileID: 2657640983298023738}
   - component: {fileID: 3317819936669538945}
   - component: {fileID: 5706055993677200586}
+  - component: {fileID: 8052295001378987657}
+  - component: {fileID: 8052295001378987656}
   m_Layer: 0
   m_Name: Gnome_2.001
   m_TagString: Untagged
@@ -68484,6 +68653,57 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &8052295001378987656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8052295001378987655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d5b4eea2125e1049b7fea91d8ae1664, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ObjectFocus
+  puzzleCamera: {fileID: 588665783}
+  sharedFocusCamera: {fileID: 390290580}
+  cameraLocalOffset: {x: -0.1, y: -0.7, z: 0}
+  inspectionAudio: {fileID: 0}
+  cardName: MR. GNOME
+  cardFromWhom: Walter (57)
+  cardMainDescription: Walter brought her here after claiming she was banned from
+    his garden for aggressively judging his lawnmowing technique.
+  idCardPanel: {fileID: 1759364545}
+  nameTextUI: {fileID: 1853782753}
+  fromWhomTextUI: {fileID: 124690322}
+  descriptionTextUI: {fileID: 888095703}
+  cardDistance: 0.5
+  cardOffset: {x: 0.22, y: -0.18}
+  cardRotationOffset: {x: -90, y: -90, z: 0}
+  cardScale: 4.6
+  duckedVolumeMultiplier: 0.15
+  audioFadeDuration: 0.5
+--- !u!65 &8052295001378987657
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8052295001378987655}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.06319558, y: 0.09627265, z: 0.17755605}
+  m_Center: {x: -0.0043204227, y: -0.0054214057, z: 0.039613288}
 --- !u!33 &8066104225313097216
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -70167,6 +70387,57 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6780358220181659991}
   m_Mesh: {fileID: 2833990666634714160, guid: b78522574c9d5b549b970a6cffe8263d, type: 3}
+--- !u!114 &8282533633338706486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6780358220181659991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d5b4eea2125e1049b7fea91d8ae1664, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ObjectFocus
+  puzzleCamera: {fileID: 588665783}
+  sharedFocusCamera: {fileID: 390290580}
+  cameraLocalOffset: {x: 0.7, y: -0.2, z: -0.3}
+  inspectionAudio: {fileID: 0}
+  cardName: GARRY THE SNAIL
+  cardFromWhom: Lea (22)
+  cardMainDescription: Slow and steady! Still hasn't moved an inch. Maira suspects
+    he is just glued to the shelf.
+  idCardPanel: {fileID: 1759364545}
+  nameTextUI: {fileID: 1853782753}
+  fromWhomTextUI: {fileID: 124690322}
+  descriptionTextUI: {fileID: 888095703}
+  cardDistance: 0.5
+  cardOffset: {x: 0.22, y: -0.18}
+  cardRotationOffset: {x: -90, y: -90, z: 0}
+  cardScale: 4.6
+  duckedVolumeMultiplier: 0.15
+  audioFadeDuration: 0.5
+--- !u!65 &8282533633338706487
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6780358220181659991}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.30957043, y: 0.81, z: 0.7973631}
+  m_Center: {x: -0.08, y: -0.54, z: -0.039731823}
 --- !u!1 &8283847745356912844
 GameObject:
   m_ObjectHideFlags: 0
