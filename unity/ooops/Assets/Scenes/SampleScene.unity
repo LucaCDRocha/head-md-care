@@ -23974,13 +23974,102 @@ MonoBehaviour:
       duration: 3.5
   - subtitleName: Story3
     clipToListenFor: {fileID: 8300000, guid: 6127752d38ab96244bc5900b747ee5bf, type: 3}
-    subtitleChunks: []
+    subtitleChunks:
+    - text: "This plate\u2026"
+      startTime: 0
+      duration: 1.5
+    - text: "that\u2019s ours. Mine and Lotte\u2019s."
+      startTime: 1.5
+      duration: 3
+    - text: "We come here every morning, like\u2026 eight o\u2019clock."
+      startTime: 4.5
+      duration: 4
+    - text: Same table. Two coffees, two croissants.
+      startTime: 8.5
+      duration: 4
+    - text: "We always end up ordering the second coffee before we\u2019ve finished
+        the first."
+      startTime: 12
+      duration: 6
+    - text: Maria still laughs at us.
+      startTime: 18
+      duration: 2
+    - text: "One morning, Lotte didn\u2019t show up. Maria didn\u2019t ask."
+      startTime: 20
+      duration: 4
+    - text: "She just put another croissant on the plate and said, \u201CIn case
+        she\u2019s late.\u201D"
+      startTime: 24.5
+      duration: 6
+    - text: Next day, Maria brought the same plate.
+      startTime: 30
+      duration: 3
+    - text: She's used it for us ever since.
+      startTime: 33
+      duration: 2.5
   - subtitleName: Story4
     clipToListenFor: {fileID: 8300000, guid: f70dc5aa17cef454482303f124cc2075, type: 3}
-    subtitleChunks: []
+    subtitleChunks:
+    - text: "Every year on Saint Patrick\u2019s Day, Maria does this thing\u2026"
+      startTime: 0
+      duration: 4
+    - text: 'she turns all the drinks green: Coffee, hot chocolate, lemonade.'
+      startTime: 4.5
+      duration: 5
+    - text: One year, she even did green milk.
+      startTime: 9.5
+      duration: 3
+    - text: The first time I saw it, it looked like a science experiment.
+      startTime: 12
+      duration: 4
+    - text: We argued about which shade of green was best, as if that actually mattered.
+      startTime: 16.5
+      duration: 5
+    - text: "I still don\u2019t know if makes it taste better."
+      startTime: 22
+      duration: 3
+    - text: "But Maria does it anyway\u2026"
+      startTime: 25
+      duration: 2
+    - text: Somehow, it became a tradition.
+      startTime: 27
+      duration: 2.5
   - subtitleName: Story5
     clipToListenFor: {fileID: 8300000, guid: d1dd0c751c78d934e9f65327cffeb88f, type: 3}
-    subtitleChunks: []
+    subtitleChunks:
+    - text: "That\u2019s mine or\u2026"
+      startTime: 0
+      duration: 2
+    - text: was, I guess, haha.
+      startTime: 2
+      duration: 3
+    - text: It started three or four months ago.
+      startTime: 5
+      duration: 3
+    - text: I took the wrong bus and got off in the rain.
+      startTime: 8
+      duration: 3
+    - text: Came in the cafe to escape.
+      startTime: 12
+      duration: 2
+    - text: There was a newspaper on the table.
+      startTime: 14.5
+      duration: 2.5
+    - text: Half of a crossword was already done.
+      startTime: 17
+      duration: 3
+    - text: "I told myself I\u2019d just do one clue."
+      startTime: 19
+      duration: 4
+    - text: "Maria walked past, and said, \u201CYou missed one.\u201D"
+      startTime: 24
+      duration: 4
+    - text: After that, I started coming back.
+      startTime: 29
+      duration: 2
+    - text: When she sees me, she leaves a newspaper out.
+      startTime: 31.5
+      duration: 3
   - subtitleName: PostIt
     clipToListenFor: {fileID: 8300000, guid: 222fca3698d2bcd498bcb453ea0b6ad8, type: 3}
     subtitleChunks:
