@@ -4,4 +4,4 @@ First brainstorming session to collect our personal memories, emotions, and stor
 
 Why do we go to cafés? How do we feel in cafés? What do we notice and pay attention to? What is special for each of us in these experiences?
 
-<img src="images/personal-connection.jpg" alt="" width="600" />
+<img src="images/personal-connection.jpg" alt="" width="800" />
