@@ -4,10 +4,5 @@ Paper prototyping allowed us to bring our first conceptual ideas to life. We ske
 <br>
 Simple squares represent different time frames. Repairing the broken object by assembling each shard moves the story forward through time. How exactly this time advancement will be displayed is not clear at this stage.
 
-<table>
-  <tr>
-    <td><img src="images/paper-protoype-02.jpg" width="100%"></td>
-    <td><img src="images/paper-protoype-03.jpg" width="100%"></td>
-  </tr>
-</table>
+<img src="images/paper-prototype-02.jpg" alt="" width="400" /> <img src="images/paper-prototype-03.jpg" alt="" width="400" />
 
