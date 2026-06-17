@@ -3,7 +3,7 @@
 ## 01 World Exercise
 Based on provided findings about our context “Bakery & Tearoom”, another team had 20 minutes to create a Zelda-style map.
 
-<img src="images/world-exercise.jpg" alt="" width="600" />
+<img src="images/props-01.jpg" alt="" width="600" />
 Users takes on the role of a little coffee bean and can interact with the world through a new perspective. By choosing different colors they influence and shape the taste and flavor profile of the coffee. 
 
 ## 02 Props
