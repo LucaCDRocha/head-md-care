@@ -7,6 +7,7 @@ Based on provided findings about our context “Bakery & Tearoom”, another tea
 
 
 RESULT:
+
 Users takes on the role of a little coffee bean and can interact with the world through a new perspective. By choosing different colors they influence and shape the taste and flavor profile of the coffee. 
 
 
@@ -21,6 +22,7 @@ Ideate and draw one prop that represents a dilemma that could be present in the 
 RESULT:
 
 Overview of the proposed props:
+
 <img src="images/props-01.jpg" alt="" width="600" />
 
 
