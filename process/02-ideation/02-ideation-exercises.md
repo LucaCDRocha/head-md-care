@@ -8,7 +8,6 @@ Based on provided findings about our context “Bakery & Tearoom”, another tea
 
 RESULT:
 
-Users takes on the role of a little coffee bean and can interact with the world through a new perspective. By choosing different colors they influence and shape the taste and flavor profile of the coffee. 
 
 <img src="images/world-exercise.jpg" alt="" width="600" />
 
