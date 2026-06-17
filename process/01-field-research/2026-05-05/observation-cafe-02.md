@@ -1,4 +1,4 @@
-# Observation 01: Café le jardin de Sonia (05.05.26)
+# Observation 02: Café le jardin de Sonia (05.05.26)
 
 ## Atmosphere
 - Strong sense of familiarity; many interactions suggest regulars and staff/owner know each other well

@@ -1,4 +1,4 @@
-# Observation 02: Boulangerie du Grand-Saconnex (07.05.26)
+# Observation 03: Boulangerie du Grand-Saconnex (07.05.26)
 
 # Atmosphere & Spatial Impression
 - Pastries and breads are prominently displayed near the entrance, immediately framing the space around baked goods and consumption
