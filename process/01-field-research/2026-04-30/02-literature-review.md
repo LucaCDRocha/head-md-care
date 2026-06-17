@@ -35,7 +35,7 @@ Quotes & Image from ‘How Does It Make You Feel? The Coffee Emotions Flavor Whe
 - “the elder generation seems to prefer more ‘traditional’ coffee, something that reminds them of the days of yore”
 - “The Brazilian consumers who participated in the study mainly used terms related to energy and wellness to describe their feelings regarding drinking coffee, such as warmed up, awake, stimulated, satisfied, fine, and full of beans.”
 
-<img src="images/coffee-emotions-flavor-wheel.jpg" alt="" width="400" />
+<img src="images/coffee-emotions-flavor-wheel.jpg" alt="" width="300" />
 
 
 ---
