@@ -9,7 +9,7 @@ The Social Importance of the Tearoom (https://crimereads.com/the-social-importan
 Tearoom Revolution: The Weapon of Women’s Rights and Entrepreneurship (https://teajourney.pub/tearoom-revolution-weapon-womens-rights-entrepreneurship/)
 
 ---
----
+
 ## Café as a Community Space
 Quotes from ‘The Café as an Affective Community Space‘ (https://doi.org/10.1177/0261018312449): 
 - “Cafe is ‘a place to just be’ as well as a place of consumption.” ; “Sometimes you like company but you like your own space”
@@ -18,7 +18,7 @@ Quotes from ‘The Café as an Affective Community Space‘ (https://doi.org/10.
 - “Sheila goes to the cafe every day, sitting in the same seat by the serving counter. [...] If the cafe were not there, she says that she would stay at home, but ‘I get lonely on me own if I stay home’” 
 
 ---
----
+
 ## Numbers
 Quotes from ‘What are the busiest days for coffee shops?’ (https://foodly.tn/tips/what-are-the-busiest-days-for-coffee-shops/):
 - “about 250 cups of coffee daily”
@@ -29,7 +29,7 @@ Quotes from ‘Here's Exactly How Long You Can Sit In A Coffee Shop Before You A
 - “An average $6 drink buys you about 90  minutes in the café, according to Heather Perry, a two-time U.S. Barista Champion and the CEO of California-based Klatch Coffee.“
 
 ---
----
+
 ## Coffee and Emotions 
 Quotes & Image from ‘How Does It Make You Feel? The Coffee Emotions Flavor Wheel’ (https://sprudge.com/coffee-emotions-flavor-wheel-114766.html):
 - “the elder generation seems to prefer more ‘traditional’ coffee, something that reminds them of the days of yore”
@@ -38,5 +38,4 @@ Quotes & Image from ‘How Does It Make You Feel? The Coffee Emotions Flavor Whe
 <img src="images/coffee-emotions-flavor-wheel.jpg" alt="" width="400" />
 
 
----
 ---
