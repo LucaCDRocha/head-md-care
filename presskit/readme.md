@@ -8,4 +8,4 @@ All the final assets are organized in the subfolder named `2026-06-17-Final/`. I
 
 - **Images** on the `images/` subdirectory.
 - **PDF presentation** files at the root of the `2026-06-17-Final/` folder.
-- **Video** is available at this link: [Ooops! Video](https://youtu.be/X-JSqJblhcQ).
+- **Video** is available at this link: [Ooops! Video](https://youtu.be/mGMisrteinw).
