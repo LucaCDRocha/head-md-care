@@ -1,4 +1,4 @@
-# Personal Experiences & Emotional Connection with Cafés & Tearooms
+# Personal Experiences & Emotional Connection with Cafés & Tearooms (28.04.26)
 
 First brainstorming session to collect our personal memories, emotions, and stories about cafés, and to explore what we have in common as well as where differences appear.
 
