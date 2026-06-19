@@ -123,3 +123,8 @@ Ooops! - CREDITS & ATTRIBUTION
 [Drink](https://thenounproject.com/icon/drink-2530894/) by Tatyana via [The Noun Project](https://thenounproject.com) (Icon Creator Attribution Required)
 
 [Pencil](https://thenounproject.com/icon/pencil-8380267/) by Ladang Visual via [The Noun Project](https://thenounproject.com) (Icon Creator Attribution Required)
+
+---
+## Sound Effects
+
+All sound effects used in this game were sourced from [Pixabay](https://pixabay.com) and are used under the Pixabay Content License.
