@@ -33,13 +33,13 @@
     - Sign saying: Come in!
 
 - How does the user feel when they accomplished their first action?  
-    - → great! (; you feel like entering like entering you home
-    - → transition from cold, sad to warm, comfortable
+    - great! (; → you feel like entering your home
+    - transition from cold, sad to warm, comfortable
 
-- What happens next? → list the interactions that you will have to implement ( for eg. drag for X/to X)
+- What happens next? → interactions that have to be implemented 
     - Door (Click → on release)
     - Drink Coffee (Click  → on release)
-    - Puzzle Scattered Object (Drag & Drop → if in the right position piece will snap in)
+    - Puzzle Scattered Object (Drag & Drop → if in the right position, piece will snap in)
     - Zoom in on appearing objects (Click on object → on release)
     - Zoom out on appearing objects (Click around object → on release)
-    - Finding hidden pieces (Click → on release) → zoom out
+    - Finding hidden pieces (Click → on release) 
