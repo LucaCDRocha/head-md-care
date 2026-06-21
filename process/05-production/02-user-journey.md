@@ -119,11 +119,9 @@ SCENE 8 — Puzzle Piece 6 | Object: Post-Its
 <br>
 <br>
 
-The figurine is whole. The cracks are still faintly visible. Time element advances to Autumn 2026, today. The shelves are full, exactly as it was
-
 SCENE 09 — Puzzle Piece 7 | Object: Bill
 *Autumn 2026 (present day)*
-- **Player action 1:** Drag seventh shard to transparent amphora; the amphora is whole; rhe cracks are still faintly visible
+- **Player action 1:** Drag seventh shard to transparent amphora; the amphora is whole; the cracks are still faintly visible
 - **What happens 1:** Shard clicks into place; bill appears on the table
 - **Player action 2:** Tap the bill
 - **What happens 2:**: Zoom in 
