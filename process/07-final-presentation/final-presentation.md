@@ -9,3 +9,4 @@
 
 ## Notes
 - All experience content will be translated into French.
+- Ideally stories would be recorded with the real Sonia and customers.

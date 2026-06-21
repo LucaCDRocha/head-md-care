@@ -1,3 +1,8 @@
-# Moodboard (01.06.2026)
+# Art Direction – Moodboard (01.06.2026)
 
-![Moodboard V01](Moodboard-V01.jpeg)
+Our art direction is inspired by warm aesthetics. It focuses on key concepts such as coziness and tranquility to create a café atmosphere that feels inviting and encourages people to stay and linger.<br>
+To strengthen this feeling, a visual contrast is created outside the café through duller, colder colors and rain animations. This contrast emphasizes the warmth and emotional comfort of the interior space.
+
+<br>
+
+<img src="images/moodboard.jpeg" alt="" width="600" />
