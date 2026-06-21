@@ -11,23 +11,22 @@ The furniture and objects were created using a combination of approaches: <br>
 <br>
 
 Outside: first version<br>
-<img src="images/blender-outdoor.jpg" alt="" height="250" /> 
+<img src="images/blender-outdoor.jpg" alt="" height="300" /> 
 
 <br>
 
 Inside: process of building<br>
-<img src="images/blender-indoor-1.jpg" alt="" height="250" /> <img src="images/blender-indoor-2.jpg" alt="" height="250" /> <img src="images/blender-indoor-3.jpg" alt="" height="250" />
+<img src="images/blender-indoor-1.jpg" alt="" height="300" /> <img src="images/blender-indoor-2.jpg" alt="" height="300" /> <img src="images/blender-indoor-3.jpg" alt="" height="300" />
 
 <br>
 
 2 Makerlab<br>
-<img src="images/drawing-for-makerlab.jpg" alt="" height="250" /> <img src="images/makerlab-result.jpg" alt="" height="250" />
+<img src="images/drawing-for-makerlab.jpg" alt="" height="300" /> <img src="images/makerlab-result.jpg" alt="" height="300" />
 
 <br>
 
 3 Scans with RealityScan<br>
-<img src="images/realityscan-1.jpg" alt="" height="250" /> <img src="images/realityscan-2.jpg" alt="" height="250" />
-
+<img src="images/realityscan-1.jpg" alt="" height="250" /> <img src="images/realityscan-2.jpg" alt="" height="300" />
 
 
 
