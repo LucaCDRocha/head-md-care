@@ -28,6 +28,17 @@ public class ObjectFocus : MonoBehaviour, IPointerClickHandler
     [Tooltip("The main body of text for the ID Card.")]
     public string cardMainDescription;
 
+    [Header("ID Card Lore (French Overrides)")]
+    [Tooltip("The French title/name.")]
+    public string cardNameFrench;
+
+    [Tooltip("The French sender or origin point.")]
+    public string cardFromWhomFrench;
+
+    [TextArea(5, 10)]
+    [Tooltip("The French main body of text for the ID Card.")]
+    public string cardMainDescriptionFrench;
+
     [Header("ID Card Visuals (TextMeshPro)")]
     [Tooltip("Drag the PARENT container of your 3D text objects here (the background/holder).")]
     public GameObject idCardPanel;
@@ -175,12 +186,19 @@ public class ObjectFocus : MonoBehaviour, IPointerClickHandler
             // 💡 THE FIX: We now check if the *NAME* is filled out. If so, populate the fields individually.
             if (!string.IsNullOrWhiteSpace(cardName) && idCardPanel != null)
             {
+                bool isFrench = SubtitleManager.CurrentLanguage == Language.French;
+
+                string displayName = (isFrench && !string.IsNullOrWhiteSpace(cardNameFrench)) ? cardNameFrench : cardName;
+                string displayFrom = (isFrench && !string.IsNullOrWhiteSpace(cardFromWhomFrench)) ? cardFromWhomFrench : cardFromWhom;
+                string displayDesc = (isFrench && !string.IsNullOrWhiteSpace(cardMainDescriptionFrench)) ? cardMainDescriptionFrench : cardMainDescription;
+                string fromPrefix = isFrench ? "DE : " : "FROM: ";
+
                 // Populate the new fields with individual null-checks for safety
-                if (nameTextUI != null) nameTextUI.text = cardName;
+                if (nameTextUI != null) nameTextUI.text = displayName;
 
-                if (fromWhomTextUI != null) fromWhomTextUI.text = "FROM: " + cardFromWhom; // Prefix for visual clarity
+                if (fromWhomTextUI != null) fromWhomTextUI.text = fromPrefix + displayFrom; // Prefix for visual clarity
 
-                if (descriptionTextUI != null) descriptionTextUI.text = cardMainDescription;
+                if (descriptionTextUI != null) descriptionTextUI.text = displayDesc;
 
                 UpdateIDCardPlacement();
                 idCardPanel.SetActive(true);

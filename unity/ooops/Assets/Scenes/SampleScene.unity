@@ -173,6 +173,9 @@ MonoBehaviour:
   cardName: 
   cardFromWhom: 
   cardMainDescription: 
+  cardNameFrench: 
+  cardFromWhomFrench: 
+  cardMainDescriptionFrench: 
   idCardPanel: {fileID: 0}
   nameTextUI: {fileID: 0}
   fromWhomTextUI: {fileID: 0}
@@ -452,18 +455,13 @@ Transform:
   m_Children: []
   m_Father: {fileID: 793206401}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!1 &40713201 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5424285562743851115, guid: fa15b4f4c10ca4b4ba67590067b160b2, type: 3}
-  m_PrefabInstance: {fileID: 2105541965}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &40713205
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 40713201}
+  m_GameObject: {fileID: 5424285561175182630}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f0f428dc78f099f428919df67a25e7e9, type: 3}
@@ -477,7 +475,7 @@ BoxCollider:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 40713201}
+  m_GameObject: {fileID: 5424285561175182630}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -516,6 +514,9 @@ MonoBehaviour:
   cardName: 
   cardFromWhom: 
   cardMainDescription: 
+  cardNameFrench: 
+  cardFromWhomFrench: 
+  cardMainDescriptionFrench: 
   idCardPanel: {fileID: 0}
   nameTextUI: {fileID: 0}
   fromWhomTextUI: {fileID: 0}
@@ -875,6 +876,9 @@ MonoBehaviour:
   cardName: 
   cardFromWhom: 
   cardMainDescription: 
+  cardNameFrench: 
+  cardFromWhomFrench: 
+  cardMainDescriptionFrench: 
   idCardPanel: {fileID: 0}
   nameTextUI: {fileID: 0}
   fromWhomTextUI: {fileID: 0}
@@ -1087,6 +1091,9 @@ MonoBehaviour:
   cardName: 
   cardFromWhom: 
   cardMainDescription: 
+  cardNameFrench: 
+  cardFromWhomFrench: 
+  cardMainDescriptionFrench: 
   idCardPanel: {fileID: 0}
   nameTextUI: {fileID: 0}
   fromWhomTextUI: {fileID: 0}
@@ -1551,6 +1558,9 @@ MonoBehaviour:
   cardName: 
   cardFromWhom: 
   cardMainDescription: 
+  cardNameFrench: 
+  cardFromWhomFrench: 
+  cardMainDescriptionFrench: 
   idCardPanel: {fileID: 0}
   nameTextUI: {fileID: 0}
   fromWhomTextUI: {fileID: 0}
@@ -1753,18 +1763,13 @@ Transform:
   - {fileID: 796369468}
   m_Father: {fileID: 689105126}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &189933143 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4532323861679342227, guid: fa15b4f4c10ca4b4ba67590067b160b2, type: 3}
-  m_PrefabInstance: {fileID: 2105541965}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &189933147
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 189933143}
+  m_GameObject: {fileID: 4532323859892570078}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f0f428dc78f099f428919df67a25e7e9, type: 3}
@@ -1778,7 +1783,7 @@ BoxCollider:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 189933143}
+  m_GameObject: {fileID: 4532323859892570078}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -2010,6 +2015,9 @@ MonoBehaviour:
   cardName: 
   cardFromWhom: 
   cardMainDescription: 
+  cardNameFrench: 
+  cardFromWhomFrench: 
+  cardMainDescriptionFrench: 
   idCardPanel: {fileID: 0}
   nameTextUI: {fileID: 0}
   fromWhomTextUI: {fileID: 0}
@@ -2559,6 +2567,9 @@ MonoBehaviour:
   cardName: 
   cardFromWhom: 
   cardMainDescription: 
+  cardNameFrench: 
+  cardFromWhomFrench: 
+  cardMainDescriptionFrench: 
   idCardPanel: {fileID: 0}
   nameTextUI: {fileID: 0}
   fromWhomTextUI: {fileID: 0}
@@ -3632,6 +3643,9 @@ MonoBehaviour:
   cardName: 
   cardFromWhom: 
   cardMainDescription: 
+  cardNameFrench: 
+  cardFromWhomFrench: 
+  cardMainDescriptionFrench: 
   idCardPanel: {fileID: 0}
   nameTextUI: {fileID: 0}
   fromWhomTextUI: {fileID: 0}
@@ -4689,6 +4703,9 @@ MonoBehaviour:
   cardName: 
   cardFromWhom: 
   cardMainDescription: 
+  cardNameFrench: 
+  cardFromWhomFrench: 
+  cardMainDescriptionFrench: 
   idCardPanel: {fileID: 0}
   nameTextUI: {fileID: 0}
   fromWhomTextUI: {fileID: 0}
@@ -4861,7 +4878,7 @@ MonoBehaviour:
   rewindAudioDelay: 0.4
   puzzleBodyObject: {fileID: 493759546}
   puzzleBodyMaterial: {fileID: 2100000, guid: a36be36eab5bebd4199ce828a8e43f0b, type: 2}
-  puzzlePiecesRoot: {fileID: 991203476}
+  puzzlePiecesRoot: {fileID: 543450651627971238}
   floatingSpeed: 0.01
   explosionForce: 0.5
   fallDuration: 4
@@ -5342,6 +5359,9 @@ MonoBehaviour:
   cardName: 
   cardFromWhom: 
   cardMainDescription: 
+  cardNameFrench: 
+  cardFromWhomFrench: 
+  cardMainDescriptionFrench: 
   idCardPanel: {fileID: 0}
   nameTextUI: {fileID: 0}
   fromWhomTextUI: {fileID: 0}
@@ -5587,18 +5607,13 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 555773514}
   m_Mesh: {fileID: 4579454407841743219, guid: b56c8a18d615fab44bc6285a4fb9e8d0, type: 3}
---- !u!1 &560888439 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -3127269471765454413, guid: fa15b4f4c10ca4b4ba67590067b160b2, type: 3}
-  m_PrefabInstance: {fileID: 2105541965}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &560888443
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 560888439}
+  m_GameObject: {fileID: 6096102567194862846}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f0f428dc78f099f428919df67a25e7e9, type: 3}
@@ -5612,7 +5627,7 @@ BoxCollider:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 560888439}
+  m_GameObject: {fileID: 6096102567194862846}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -6260,6 +6275,9 @@ MonoBehaviour:
   cardName: 
   cardFromWhom: 
   cardMainDescription: 
+  cardNameFrench: 
+  cardFromWhomFrench: 
+  cardMainDescriptionFrench: 
   idCardPanel: {fileID: 0}
   nameTextUI: {fileID: 0}
   fromWhomTextUI: {fileID: 0}
@@ -6532,6 +6550,9 @@ MonoBehaviour:
   cardName: 
   cardFromWhom: 
   cardMainDescription: 
+  cardNameFrench: 
+  cardFromWhomFrench: 
+  cardMainDescriptionFrench: 
   idCardPanel: {fileID: 0}
   nameTextUI: {fileID: 0}
   fromWhomTextUI: {fileID: 0}
@@ -8339,6 +8360,9 @@ MonoBehaviour:
   cardName: 
   cardFromWhom: 
   cardMainDescription: 
+  cardNameFrench: 
+  cardFromWhomFrench: 
+  cardMainDescriptionFrench: 
   idCardPanel: {fileID: 0}
   nameTextUI: {fileID: 0}
   fromWhomTextUI: {fileID: 0}
@@ -8797,6 +8821,9 @@ MonoBehaviour:
   cardName: 
   cardFromWhom: 
   cardMainDescription: 
+  cardNameFrench: 
+  cardFromWhomFrench: 
+  cardMainDescriptionFrench: 
   idCardPanel: {fileID: 0}
   nameTextUI: {fileID: 0}
   fromWhomTextUI: {fileID: 0}
@@ -9468,6 +9495,9 @@ MonoBehaviour:
   cardName: 
   cardFromWhom: 
   cardMainDescription: 
+  cardNameFrench: 
+  cardFromWhomFrench: 
+  cardMainDescriptionFrench: 
   idCardPanel: {fileID: 0}
   nameTextUI: {fileID: 0}
   fromWhomTextUI: {fileID: 0}
@@ -9851,11 +9881,6 @@ Transform:
   - {fileID: 225740899}
   m_Father: {fileID: 543450652408570792}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &991203476 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: fa15b4f4c10ca4b4ba67590067b160b2, type: 3}
-  m_PrefabInstance: {fileID: 2105541965}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1005462466
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10295,6 +10320,9 @@ MonoBehaviour:
   cardName: 
   cardFromWhom: 
   cardMainDescription: 
+  cardNameFrench: 
+  cardFromWhomFrench: 
+  cardMainDescriptionFrench: 
   idCardPanel: {fileID: 0}
   nameTextUI: {fileID: 0}
   fromWhomTextUI: {fileID: 0}
@@ -10477,6 +10505,9 @@ MonoBehaviour:
   cardName: 
   cardFromWhom: 
   cardMainDescription: 
+  cardNameFrench: 
+  cardFromWhomFrench: 
+  cardMainDescriptionFrench: 
   idCardPanel: {fileID: 0}
   nameTextUI: {fileID: 0}
   fromWhomTextUI: {fileID: 0}
@@ -11235,6 +11266,9 @@ MonoBehaviour:
   cardName: 
   cardFromWhom: 
   cardMainDescription: 
+  cardNameFrench: 
+  cardFromWhomFrench: 
+  cardMainDescriptionFrench: 
   idCardPanel: {fileID: 0}
   nameTextUI: {fileID: 0}
   fromWhomTextUI: {fileID: 0}
@@ -11773,18 +11807,13 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 604867981}
   m_SourcePrefab: {fileID: 100100000, guid: 3631046d7cbf7f54fb7e2f936f627c0a, type: 3}
---- !u!1 &1224599790 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3388035435744298810, guid: fa15b4f4c10ca4b4ba67590067b160b2, type: 3}
-  m_PrefabInstance: {fileID: 2105541965}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1224599794
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1224599790}
+  m_GameObject: {fileID: 3388035435920458359}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f0f428dc78f099f428919df67a25e7e9, type: 3}
@@ -11798,7 +11827,7 @@ BoxCollider:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1224599790}
+  m_GameObject: {fileID: 3388035435920458359}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -17634,6 +17663,9 @@ MonoBehaviour:
   cardName: 
   cardFromWhom: 
   cardMainDescription: 
+  cardNameFrench: 
+  cardFromWhomFrench: 
+  cardMainDescriptionFrench: 
   idCardPanel: {fileID: 0}
   nameTextUI: {fileID: 0}
   fromWhomTextUI: {fileID: 0}
@@ -18166,6 +18198,9 @@ MonoBehaviour:
   cardName: 
   cardFromWhom: 
   cardMainDescription: 
+  cardNameFrench: 
+  cardFromWhomFrench: 
+  cardMainDescriptionFrench: 
   idCardPanel: {fileID: 0}
   nameTextUI: {fileID: 0}
   fromWhomTextUI: {fileID: 0}
@@ -19837,18 +19872,13 @@ Transform:
   - {fileID: 1568544550}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: -180}
---- !u!1 &1611347583 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4816491660945953576, guid: fa15b4f4c10ca4b4ba67590067b160b2, type: 3}
-  m_PrefabInstance: {fileID: 2105541965}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1611347587
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1611347583}
+  m_GameObject: {fileID: 4816491662514624101}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f0f428dc78f099f428919df67a25e7e9, type: 3}
@@ -19862,7 +19892,7 @@ BoxCollider:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1611347583}
+  m_GameObject: {fileID: 4816491662514624101}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -20596,6 +20626,9 @@ MonoBehaviour:
   cardName: 
   cardFromWhom: 
   cardMainDescription: 
+  cardNameFrench: 
+  cardFromWhomFrench: 
+  cardMainDescriptionFrench: 
   idCardPanel: {fileID: 0}
   nameTextUI: {fileID: 0}
   fromWhomTextUI: {fileID: 0}
@@ -20811,18 +20844,13 @@ Transform:
   - {fileID: 7018338996248522670}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1739708775 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7295739035672357527, guid: fa15b4f4c10ca4b4ba67590067b160b2, type: 3}
-  m_PrefabInstance: {fileID: 2105541965}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1739708779
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1739708775}
+  m_GameObject: {fileID: 7295739036939038682}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f0f428dc78f099f428919df67a25e7e9, type: 3}
@@ -20836,7 +20864,7 @@ BoxCollider:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1739708775}
+  m_GameObject: {fileID: 7295739036939038682}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -21571,6 +21599,9 @@ MonoBehaviour:
   cardName: 
   cardFromWhom: 
   cardMainDescription: 
+  cardNameFrench: 
+  cardFromWhomFrench: 
+  cardMainDescriptionFrench: 
   idCardPanel: {fileID: 0}
   nameTextUI: {fileID: 0}
   fromWhomTextUI: {fileID: 0}
@@ -22427,6 +22458,9 @@ MonoBehaviour:
   cardName: 
   cardFromWhom: 
   cardMainDescription: 
+  cardNameFrench: 
+  cardFromWhomFrench: 
+  cardMainDescriptionFrench: 
   idCardPanel: {fileID: 0}
   nameTextUI: {fileID: 0}
   fromWhomTextUI: {fileID: 0}
@@ -23239,6 +23273,9 @@ MonoBehaviour:
   cardName: 
   cardFromWhom: 
   cardMainDescription: 
+  cardNameFrench: 
+  cardFromWhomFrench: 
+  cardMainDescriptionFrench: 
   idCardPanel: {fileID: 0}
   nameTextUI: {fileID: 0}
   fromWhomTextUI: {fileID: 0}
@@ -24009,6 +24046,9 @@ MonoBehaviour:
   cardName: 
   cardFromWhom: 
   cardMainDescription: 
+  cardNameFrench: 
+  cardFromWhomFrench: 
+  cardMainDescriptionFrench: 
   idCardPanel: {fileID: 0}
   nameTextUI: {fileID: 0}
   fromWhomTextUI: {fileID: 0}
@@ -24128,6 +24168,9 @@ MonoBehaviour:
   cardName: 
   cardFromWhom: 
   cardMainDescription: 
+  cardNameFrench: 
+  cardFromWhomFrench: 
+  cardMainDescriptionFrench: 
   idCardPanel: {fileID: 0}
   nameTextUI: {fileID: 0}
   fromWhomTextUI: {fileID: 0}
@@ -24324,12 +24367,25 @@ MonoBehaviour:
     - text: Enjoy your cafe.
       startTime: 5.5
       duration: 2.5
+    frenchClipToListenFor: {fileID: 8300000, guid: f20b563c75f6309408578ef4a5fedd94, type: 3}
+    frenchSubtitleChunks:
+    - text: "Hey ! Vous \xEAtes nouveau ici, non ? Moi, c'est Sonia."
+      startTime: 0
+      duration: 6
+    - text: "Profitez bien de votre caf\xE9."
+      startTime: 6.5
+      duration: 2.5
   - subtitleName: OhNo
     clipToListenFor: {fileID: 8300000, guid: e90be1e5224441741a56a65e64beb9bf, type: 3}
     subtitleChunks:
     - text: Oh, no worries ... we'll fix it.
       startTime: 0
       duration: 2.5
+    frenchClipToListenFor: {fileID: 8300000, guid: 40ccac16c5e01f24a87fe9377b415d49, type: 3}
+    frenchSubtitleChunks:
+    - text: "Oh, mais \xE7a c'est pas gr\xE2ve, pas de soucis... on va le r\xE9parer."
+      startTime: 0
+      duration: 4
   - subtitleName: Story1
     clipToListenFor: {fileID: 8300000, guid: ed3e2c91d937f434e823bbc778e5288f, type: 3}
     subtitleChunks:
@@ -24356,6 +24412,33 @@ MonoBehaviour:
       duration: 4
     - text: "She said something like, \u201CHe stayed for lunch.\u201D"
       startTime: 26
+      duration: 3
+    frenchClipToListenFor: {fileID: 8300000, guid: 0951fc134ad1f0342b24d0716c0d922e, type: 3}
+    frenchSubtitleChunks:
+    - text: "J'ai oubli\xE9 Barny la grenouille ici par accident."
+      startTime: 0
+      duration: 3
+    - text: J'avais ... six ou sept ans,
+      startTime: 4
+      duration: 2
+    - text: "et je n'avais vraiment pas envie d'aller \xE0 l'\xE9cole."
+      startTime: 6
+      duration: 3
+    - text: Chaque matin, ma Maman m'emmenait ici pour un chocolat chaud.
+      startTime: 9
+      duration: 4
+    - text: "C'\xE9tait un peu notre rituel."
+      startTime: 13
+      duration: 2
+    - text: "J'amenais Barny partout avec moi. Un jour, j'ai d\xFB tout simplement...
+        l'oublier."
+      startTime: 15.5
+      duration: 5
+    - text: "Sonia l'a pos\xE9 sur l'\xE9tag\xE8re"
+      startTime: 20.5
+      duration: 2
+    - text: "et a dit : \xAB Il est rest\xE9 pour le d\xE9jeuner. \xBB"
+      startTime: 22
       duration: 3
   - subtitleName: Story2
     clipToListenFor: {fileID: 8300000, guid: 76a881b73a68cfd4ab8d02895b0f0e5a, type: 3}
@@ -24391,6 +24474,44 @@ MonoBehaviour:
     - text: "It\u2019s still the same."
       startTime: 29
       duration: 3.5
+    frenchClipToListenFor: {fileID: 8300000, guid: b8dc1c687072ef046bc6e87703d56e01, type: 3}
+    frenchSubtitleChunks:
+    - text: "Je ne suis pas vraiment une personne \xE0 aimer le caf\xE9. Je ne l'ai
+        jamais \xE9t\xE9."
+      startTime: 0
+      duration: 6
+    - text: "Mes coll\xE8gues et moi, on a commenc\xE9 \xE0 venir"
+      startTime: 6
+      duration: 2
+    - text: parce qu'on avait un chantier juste en bas de la rue.
+      startTime: 7
+      duration: 4
+    - text: On m'a dit que cet endroit n'avait rien contre les chaussures de travail.
+      startTime: 12
+      duration: 3
+    - text: "J'ai juste command\xE9 un Coca."
+      startTime: 16
+      duration: 2
+    - text: "Sonia a pos\xE9 la bouteille sur la table et elle m'a dit : \xAB Vous
+        voulez un verre ? \xBB"
+      startTime: 18
+      duration: 5
+    - text: "On a continu\xE9 \xE0 revenir. Surtout pour les pauses d\xE9jeuner."
+      startTime: 25
+      duration: 6
+    - text: Elle a fini par ne plus nous demander ce qu'on voulait.
+      startTime: 32
+      duration: 4
+    - text: "Un apr\xE8s-midi, j'ai laiss\xE9 la bouteille vide."
+      startTime: 35
+      duration: 3
+    - text: "Sonia l'a pos\xE9e sur l'\xE9tag\xE8re et a dit : \xAB Pour que je me
+        souvienne de ta premi\xE8re commande. \xBB"
+      startTime: 38
+      duration: 5
+    - text: "D\xE9sormais, c'est toujours pareil"
+      startTime: 44
+      duration: 2
   - subtitleName: Story3
     clipToListenFor: {fileID: 8300000, guid: 6127752d38ab96244bc5900b747ee5bf, type: 3}
     subtitleChunks:
@@ -24426,6 +24547,40 @@ MonoBehaviour:
     - text: She's used it for us ever since.
       startTime: 33
       duration: 2.5
+    frenchClipToListenFor: {fileID: 8300000, guid: dc90cf9725302204a9c9fd14e8947686, type: 3}
+    frenchSubtitleChunks:
+    - text: Cette assiette...
+      startTime: 0
+      duration: 1
+    - text: "c'est la n\xF4tre. La mienne et celle de Lotte."
+      startTime: 1
+      duration: 3
+    - text: On vient ici tous les matins, vers... huit heures.
+      startTime: 5
+      duration: 3
+    - text: "M\xEAme table. Deux caf\xE9s et deux croissants."
+      startTime: 8
+      duration: 4
+    - text: "On finit toujours par commander le deuxi\xE8me caf\xE9 avant d'avoir
+        termin\xE9 le premier."
+      startTime: 12
+      duration: 6
+    - text: Sonia rigole encore de nous.
+      startTime: 18
+      duration: 3
+    - text: "Un matin, Lotte n'est pas venue. Sonia n'a pas pos\xE9 de questions."
+      startTime: 21
+      duration: 6
+    - text: "Elle a juste mis un autre croissant dans l'assiette et a dit : \xAB
+        Au cas o\xF9 elle serait en retard. \xBB"
+      startTime: 27
+      duration: 7
+    - text: "Le lendemain, Sonia a apport\xE9 la m\xEAme assiette."
+      startTime: 34
+      duration: 4
+    - text: "Elle l'utilise pour nous depuis ce jour-l\xE0."
+      startTime: 38
+      duration: 3.5
   - subtitleName: Story4
     clipToListenFor: {fileID: 8300000, guid: f70dc5aa17cef454482303f124cc2075, type: 3}
     subtitleChunks:
@@ -24453,6 +24608,40 @@ MonoBehaviour:
     - text: Somehow, it became a tradition.
       startTime: 27
       duration: 2.5
+    frenchClipToListenFor: {fileID: 8300000, guid: 442cf8580934fcc49bcb6e86abd02f9a, type: 3}
+    frenchSubtitleChunks:
+    - text: "\xC9tant irlandais d'origine, j'appr\xE9cie que"
+      startTime: 0
+      duration: 3
+    - text: "chaque ann\xE9e pour la Saint-Patrick, Sonia fait cette chose..."
+      startTime: 3
+      duration: 4
+    - text: "elle colore toutes les boissons en vert : le caf\xE9, le chocolat chaud,
+        la limonade."
+      startTime: 7
+      duration: 5
+    - text: "Une ann\xE9e, elle a m\xEAme fait du lait vert."
+      startTime: 12.5
+      duration: 2
+    - text: "La premi\xE8re fois que j'ai vu \xE7a, on aurait cru \xE0 une exp\xE9rience
+        scientifique."
+      startTime: 17
+      duration: 5
+    - text: "On s'est disput\xE9s pour savoir quelle nuance de vert \xE9tait la meilleure,"
+      startTime: 24
+      duration: 3
+    - text: " comme si \xE7a avait vraiment de l'importance."
+      startTime: 27
+      duration: 3
+    - text: "Je ne sais toujours pas si \xE7a lui donne un meilleur go\xFBt."
+      startTime: 30
+      duration: 4
+    - text: "Mais Sonia le fait quand m\xEAme..."
+      startTime: 34
+      duration: 2
+    - text: "D'une fa\xE7on ou d'une autre, c'est devenu une tradition."
+      startTime: 37
+      duration: 3.5
   - subtitleName: Story5
     clipToListenFor: {fileID: 8300000, guid: d1dd0c751c78d934e9f65327cffeb88f, type: 3}
     subtitleChunks:
@@ -24489,6 +24678,51 @@ MonoBehaviour:
     - text: When she sees me, she leaves a newspaper out.
       startTime: 31.5
       duration: 3
+    frenchClipToListenFor: {fileID: 8300000, guid: 15f7f712013c7f94e955424fd9b66080, type: 3}
+    frenchSubtitleChunks:
+    - text: "\xC7a, c'est \xE0 moi ou..."
+      startTime: 0
+      duration: 2
+    - text: "ce l'\xE9tait, j'imagine, haha."
+      startTime: 2
+      duration: 3
+    - text: "\xC7a a commenc\xE9 il y a trois ou quatre mois."
+      startTime: 5
+      duration: 3
+    - text: "Je me suis tromp\xE9 de bus et je suis descendu sous la pluie."
+      startTime: 8
+      duration: 4
+    - text: "Je suis entr\xE9 dans le caf\xE9 pour m'abriter."
+      startTime: 12
+      duration: 2
+    - text: Il y avait un journal sur la table.
+      startTime: 16
+      duration: 2.5
+    - text: "Des mots crois\xE9s d\xE9j\xE0 \xE0 moiti\xE9 faits."
+      startTime: 17
+      duration: 3
+    - text: "Je me suis dit que j'allais juste trouver une seule r\xE9ponse."
+      startTime: 21
+      duration: 4
+    - text: "Sonia est pass\xE9e \xE0 c\xF4t\xE9 de moi et a dit : \xAB Vous en avez
+        rat\xE9 une. \xBB"
+      startTime: 25
+      duration: 4
+    - text: "Apr\xE8s \xE7a, j'ai commenc\xE9 \xE0 revenir."
+      startTime: 30
+      duration: 3
+    - text: "D\xE8s qu'elle me voit, elle me laisse un journal de c\xF4t\xE9."
+      startTime: 33
+      duration: 3
+    - text: Au fil du temps le crayon a raccourci.
+      startTime: 37
+      duration: 2.5
+    - text: "Et puis un jour, je suis entr\xE9, et il \xE9tait pos\xE9 sur l'\xE9tag\xE8re."
+      startTime: 39.5
+      duration: 4.5
+    - text: Je n'ai pas eu besoin de demander pourquoi.
+      startTime: 44
+      duration: 4
   - subtitleName: PostIt
     clipToListenFor: {fileID: 8300000, guid: 222fca3698d2bcd498bcb453ea0b6ad8, type: 3}
     subtitleChunks:
@@ -24501,6 +24735,18 @@ MonoBehaviour:
     - text: so I'm giving them to everyone.
       startTime: 7.5
       duration: 3
+    frenchClipToListenFor: {fileID: 8300000, guid: c165f14422f1cb241a893309549d5769, type: 3}
+    frenchSubtitleChunks:
+    - text: Oh, je ne vends pas ces objets.
+      startTime: 0
+      duration: 3
+    - text: "Je ferme d\xE9finitivement la semaine prochaine et je ne peux pas tout
+        emporter avec moi..."
+      startTime: 3
+      duration: 5.5
+    - text: "alors je les offre \xE0 tout le monde."
+      startTime: 8.5
+      duration: 3
   - subtitleName: Goodbye
     clipToListenFor: {fileID: 8300000, guid: b24b3e84e76c37b469733833c3debcad, type: 3}
     subtitleChunks:
@@ -24510,6 +24756,15 @@ MonoBehaviour:
     - text: Will I see you on Friday? We're doing one last celebration!
       startTime: 2
       duration: 5
+    frenchClipToListenFor: {fileID: 8300000, guid: e1873316f8952e74fbe4be2064d3d8ff, type: 3}
+    frenchSubtitleChunks:
+    - text: "C'\xE9tait un plaisir de vous rencontrer."
+      startTime: 0
+      duration: 2
+    - text: "On se voit vendredi ? On fait une toute derni\xE8re f\xEAte !"
+      startTime: 2
+      duration: 5.5
+  initialLanguage: 1
 --- !u!1 &1982638315 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 3712e5ec0b4806c44b93390f477aeedd, type: 3}
@@ -24534,6 +24789,9 @@ MonoBehaviour:
   cardName: 
   cardFromWhom: 
   cardMainDescription: 
+  cardNameFrench: 
+  cardFromWhomFrench: 
+  cardMainDescriptionFrench: 
   idCardPanel: {fileID: 627527818}
   nameTextUI: {fileID: 0}
   fromWhomTextUI: {fileID: 0}
@@ -24726,6 +24984,9 @@ MonoBehaviour:
   cardName: 
   cardFromWhom: 
   cardMainDescription: 
+  cardNameFrench: 
+  cardFromWhomFrench: 
+  cardMainDescriptionFrench: 
   idCardPanel: {fileID: 0}
   nameTextUI: {fileID: 0}
   fromWhomTextUI: {fileID: 0}
@@ -24982,6 +25243,9 @@ MonoBehaviour:
   cardName: 
   cardFromWhom: 
   cardMainDescription: 
+  cardNameFrench: 
+  cardFromWhomFrench: 
+  cardMainDescriptionFrench: 
   idCardPanel: {fileID: 0}
   nameTextUI: {fileID: 0}
   fromWhomTextUI: {fileID: 0}
@@ -25430,6 +25694,9 @@ MonoBehaviour:
   cardName: 
   cardFromWhom: 
   cardMainDescription: 
+  cardNameFrench: 
+  cardFromWhomFrench: 
+  cardMainDescriptionFrench: 
   idCardPanel: {fileID: 0}
   nameTextUI: {fileID: 0}
   fromWhomTextUI: {fileID: 0}
@@ -25867,181 +26134,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 793206401}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &2105541965
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: fa15b4f4c10ca4b4ba67590067b160b2, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.7700001
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: fa15b4f4c10ca4b4ba67590067b160b2, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.7700001
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: fa15b4f4c10ca4b4ba67590067b160b2, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.7700001
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: fa15b4f4c10ca4b4ba67590067b160b2, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -2.368
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: fa15b4f4c10ca4b4ba67590067b160b2, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.055
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: fa15b4f4c10ca4b4ba67590067b160b2, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.306
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: fa15b4f4c10ca4b4ba67590067b160b2, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.9905031
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: fa15b4f4c10ca4b4ba67590067b160b2, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: fa15b4f4c10ca4b4ba67590067b160b2, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.13749062
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: fa15b4f4c10ca4b4ba67590067b160b2, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: fa15b4f4c10ca4b4ba67590067b160b2, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: fa15b4f4c10ca4b4ba67590067b160b2, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -15.805
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: fa15b4f4c10ca4b4ba67590067b160b2, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: fa15b4f4c10ca4b4ba67590067b160b2, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -7208970624913195141, guid: fa15b4f4c10ca4b4ba67590067b160b2, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 057955130919be145aad0326585ba0a6, type: 2}
-    - target: {fileID: -6791959421411970413, guid: fa15b4f4c10ca4b4ba67590067b160b2, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 057955130919be145aad0326585ba0a6, type: 2}
-    - target: {fileID: -5937014654097867310, guid: fa15b4f4c10ca4b4ba67590067b160b2, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -4778477983730096326, guid: fa15b4f4c10ca4b4ba67590067b160b2, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 057955130919be145aad0326585ba0a6, type: 2}
-    - target: {fileID: -3127269471765454413, guid: fa15b4f4c10ca4b4ba67590067b160b2, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: fa15b4f4c10ca4b4ba67590067b160b2, type: 3}
-      propertyPath: m_Name
-      value: amfora broken parts right position
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: fa15b4f4c10ca4b4ba67590067b160b2, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3388035435744298810, guid: fa15b4f4c10ca4b4ba67590067b160b2, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3862480981101557303, guid: fa15b4f4c10ca4b4ba67590067b160b2, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 057955130919be145aad0326585ba0a6, type: 2}
-    - target: {fileID: 4131166923318280036, guid: fa15b4f4c10ca4b4ba67590067b160b2, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 057955130919be145aad0326585ba0a6, type: 2}
-    - target: {fileID: 4142471160980508138, guid: fa15b4f4c10ca4b4ba67590067b160b2, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 057955130919be145aad0326585ba0a6, type: 2}
-    - target: {fileID: 4236350414176370410, guid: fa15b4f4c10ca4b4ba67590067b160b2, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 057955130919be145aad0326585ba0a6, type: 2}
-    - target: {fileID: 4532323861679342227, guid: fa15b4f4c10ca4b4ba67590067b160b2, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4816491660945953576, guid: fa15b4f4c10ca4b4ba67590067b160b2, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5424285562743851115, guid: fa15b4f4c10ca4b4ba67590067b160b2, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7295739035672357527, guid: fa15b4f4c10ca4b4ba67590067b160b2, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: -3127269471765454413, guid: fa15b4f4c10ca4b4ba67590067b160b2, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 560888444}
-    - targetCorrespondingSourceObject: {fileID: -3127269471765454413, guid: fa15b4f4c10ca4b4ba67590067b160b2, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 560888443}
-    - targetCorrespondingSourceObject: {fileID: 3388035435744298810, guid: fa15b4f4c10ca4b4ba67590067b160b2, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1224599795}
-    - targetCorrespondingSourceObject: {fileID: 3388035435744298810, guid: fa15b4f4c10ca4b4ba67590067b160b2, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1224599794}
-    - targetCorrespondingSourceObject: {fileID: 4816491660945953576, guid: fa15b4f4c10ca4b4ba67590067b160b2, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1611347588}
-    - targetCorrespondingSourceObject: {fileID: 4816491660945953576, guid: fa15b4f4c10ca4b4ba67590067b160b2, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1611347587}
-    - targetCorrespondingSourceObject: {fileID: 4532323861679342227, guid: fa15b4f4c10ca4b4ba67590067b160b2, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 189933148}
-    - targetCorrespondingSourceObject: {fileID: 4532323861679342227, guid: fa15b4f4c10ca4b4ba67590067b160b2, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 189933147}
-    - targetCorrespondingSourceObject: {fileID: 7295739035672357527, guid: fa15b4f4c10ca4b4ba67590067b160b2, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1739708780}
-    - targetCorrespondingSourceObject: {fileID: 7295739035672357527, guid: fa15b4f4c10ca4b4ba67590067b160b2, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1739708779}
-    - targetCorrespondingSourceObject: {fileID: -5937014654097867310, guid: fa15b4f4c10ca4b4ba67590067b160b2, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2142956705}
-    - targetCorrespondingSourceObject: {fileID: -5937014654097867310, guid: fa15b4f4c10ca4b4ba67590067b160b2, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2142956704}
-    - targetCorrespondingSourceObject: {fileID: 5424285562743851115, guid: fa15b4f4c10ca4b4ba67590067b160b2, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 40713206}
-    - targetCorrespondingSourceObject: {fileID: 5424285562743851115, guid: fa15b4f4c10ca4b4ba67590067b160b2, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 40713205}
-  m_SourcePrefab: {fileID: 100100000, guid: fa15b4f4c10ca4b4ba67590067b160b2, type: 3}
 --- !u!1001 &2117710451
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26384,18 +26476,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   cam: {fileID: 330585545}
   snapDistance: 0.2
---- !u!1 &2142956700 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -5937014654097867310, guid: fa15b4f4c10ca4b4ba67590067b160b2, type: 3}
-  m_PrefabInstance: {fileID: 2105541965}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &2142956704
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2142956700}
+  m_GameObject: {fileID: 3286357383117617311}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f0f428dc78f099f428919df67a25e7e9, type: 3}
@@ -26409,7 +26496,7 @@ BoxCollider:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2142956700}
+  m_GameObject: {fileID: 3286357383117617311}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -28998,6 +29085,28 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &543450651627971238
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132147905542172}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.13749062, z: -0, w: 0.9905031}
+  m_LocalPosition: {x: -2.368, y: 1.055, z: 0.306}
+  m_LocalScale: {x: 1.7700001, y: 1.7700001, z: 1.7700001}
+  m_ConstrainProportionsScale: 1
+  m_Children:
+  - {fileID: 6157229814593618129}
+  - {fileID: 1324014874217557516}
+  - {fileID: 5553071034314968556}
+  - {fileID: 2367785688630783013}
+  - {fileID: 4750238828126240144}
+  - {fileID: 1680090224024238264}
+  - {fileID: 6258847664720988559}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -15.805, z: 0}
 --- !u!4 &543450652408570792
 Transform:
   m_ObjectHideFlags: 0
@@ -30729,6 +30838,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 518241672336914455}
   m_Mesh: {fileID: -935868103917627656, guid: b78522574c9d5b549b970a6cffe8263d, type: 3}
+--- !u!1 &919132147905542172
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 543450651627971238}
+  m_Layer: 0
+  m_Name: amfora broken parts right position
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &919132148205893906
 GameObject:
   m_ObjectHideFlags: 0
@@ -30900,6 +31025,14 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3476934943498334849}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &956849271530287868
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4532323859892570078}
+  m_Mesh: {fileID: 2245944811781298207, guid: fa15b4f4c10ca4b4ba67590067b160b2, type: 3}
 --- !u!4 &956861751459168667
 Transform:
   m_ObjectHideFlags: 0
@@ -33164,6 +33297,21 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3476934943498334849}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1324014874217557516
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6096102567194862846}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+  m_LocalPosition: {x: -0.26805633, y: 0.05146473, z: 0.00787007}
+  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 543450651627971238}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1329213272454531210
 Transform:
@@ -35474,6 +35622,21 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!4 &1680090224024238264
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5424285561175182630}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+  m_LocalPosition: {x: -0.27604872, y: 0.06817321, z: -0.0014120805}
+  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 543450651627971238}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &1681494538617497572
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -37266,6 +37429,55 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!23 &2014401411312433718
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7295739036939038682}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 057955130919be145aad0326585ba0a6, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_MaskInteraction: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &2016679182992103319
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -39206,6 +39418,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3466583818708904805}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &2367785688630783013
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4532323859892570078}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+  m_LocalPosition: {x: -0.21038467, y: 0.10174637, z: 0.052163027}
+  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 543450651627971238}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2374728398779674415
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -39460,6 +39687,55 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!23 &2431412615484749790
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4532323859892570078}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 057955130919be145aad0326585ba0a6, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_MaskInteraction: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!4 &2433244244836981689
 Transform:
   m_ObjectHideFlags: 0
@@ -41918,6 +42194,14 @@ Transform:
   - {fileID: 6918072853288676517}
   m_Father: {fileID: 1749722699}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &2854996027692704271
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6096102567194862846}
+  m_Mesh: {fileID: 5852708179397138779, guid: fa15b4f4c10ca4b4ba67590067b160b2, type: 3}
 --- !u!4 &2860163994987486507
 Transform:
   m_ObjectHideFlags: 0
@@ -42065,6 +42349,14 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1623482274}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &2882815952190320795
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3286357383117617311}
+  m_Mesh: {fileID: -3933649408763124178, guid: fa15b4f4c10ca4b4ba67590067b160b2, type: 3}
 --- !u!4 &2884485526885760102
 Transform:
   m_ObjectHideFlags: 0
@@ -44159,6 +44451,26 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &3286357383117617311
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6258847664720988559}
+  - component: {fileID: 2882815952190320795}
+  - component: {fileID: 3862480979583218554}
+  - component: {fileID: 2142956705}
+  - component: {fileID: 2142956704}
+  m_Layer: 0
+  m_Name: Retopo_Object_01_cell.012
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!4 &3288924908036663804
 Transform:
   m_ObjectHideFlags: 0
@@ -44464,6 +44776,26 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1962686809}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3388035435920458359
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6157229814593618129}
+  - component: {fileID: 6323400945581714138}
+  - component: {fileID: 4444894052126433911}
+  - component: {fileID: 1224599795}
+  - component: {fileID: 1224599794}
+  m_Layer: 0
+  m_Name: Retopo_Object_01_cell.008
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!23 &3393648475867284607
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -46668,6 +47000,55 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!23 &3862480979583218554
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3286357383117617311}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 057955130919be145aad0326585ba0a6, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_MaskInteraction: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &3866001175120756241
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -47302,6 +47683,9 @@ MonoBehaviour:
   cardMainDescription: Built from spare toaster and bicycle parts. Mark claimed Robo
     was programmed for world domination. His battery only holds enough charge to
     judder when someone mispronounces "croissant".
+  cardNameFrench: 
+  cardFromWhomFrench: 
+  cardMainDescriptionFrench: 
   idCardPanel: {fileID: 1759364545}
   nameTextUI: {fileID: 1853782753}
   fromWhomTextUI: {fileID: 124690322}
@@ -47923,6 +48307,55 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1234237941}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!23 &4131166922873682473
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4816491662514624101}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 057955130919be145aad0326585ba0a6, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_MaskInteraction: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &4132786127042159319
 GameObject:
   m_ObjectHideFlags: 0
@@ -47964,6 +48397,9 @@ MonoBehaviour:
   cardName: 
   cardFromWhom: 
   cardMainDescription: 
+  cardNameFrench: 
+  cardFromWhomFrench: 
+  cardMainDescriptionFrench: 
   idCardPanel: {fileID: 0}
   nameTextUI: {fileID: 0}
   fromWhomTextUI: {fileID: 0}
@@ -48119,6 +48555,55 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!23 &4142471161190221991
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6096102567194862846}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 057955130919be145aad0326585ba0a6, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_MaskInteraction: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &4153578320696257662
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -48225,6 +48710,14 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &4162663253581068196
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5424285561175182630}
+  m_Mesh: {fileID: -5291525727608202191, guid: fa15b4f4c10ca4b4ba67590067b160b2, type: 3}
 --- !u!4 &4162831086648015090
 Transform:
   m_ObjectHideFlags: 0
@@ -48458,6 +48951,55 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!23 &4236350414771960743
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5424285561175182630}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 057955130919be145aad0326585ba0a6, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_MaskInteraction: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!4 &4245721494059243820
 Transform:
   m_ObjectHideFlags: 0
@@ -49695,6 +50237,55 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!23 &4444894052126433911
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3388035435920458359}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 057955130919be145aad0326585ba0a6, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_MaskInteraction: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!4 &4448016721226163829
 Transform:
   m_ObjectHideFlags: 0
@@ -50007,6 +50598,26 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4684448184017992915}
   m_Mesh: {fileID: 4899367676056539642, guid: b78522574c9d5b549b970a6cffe8263d, type: 3}
+--- !u!1 &4532323859892570078
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2367785688630783013}
+  - component: {fileID: 956849271530287868}
+  - component: {fileID: 2431412615484749790}
+  - component: {fileID: 189933148}
+  - component: {fileID: 189933147}
+  m_Layer: 0
+  m_Name: Retopo_Object_01_cell.010
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &4544139423332295741
 GameObject:
   m_ObjectHideFlags: 0
@@ -51041,6 +51652,21 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!4 &4750238828126240144
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7295739036939038682}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+  m_LocalPosition: {x: -0.20902805, y: -0.10315958, z: 0.047294248}
+  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 543450651627971238}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4751072759792021807
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -51332,6 +51958,26 @@ GameObject:
   - component: {fileID: 4608767961776648584}
   m_Layer: 0
   m_Name: PlaneBody
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &4816491662514624101
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5553071034314968556}
+  - component: {fileID: 4929949175351238524}
+  - component: {fileID: 4131166922873682473}
+  - component: {fileID: 1611347588}
+  - component: {fileID: 1611347587}
+  m_Layer: 0
+  m_Name: Retopo_Object_01_cell.009
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -52267,6 +52913,14 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &4929949175351238524
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4816491662514624101}
+  m_Mesh: {fileID: -7791695394699884158, guid: fa15b4f4c10ca4b4ba67590067b160b2, type: 3}
 --- !u!4 &4929996025950560708
 Transform:
   m_ObjectHideFlags: 0
@@ -53696,6 +54350,9 @@ MonoBehaviour:
   cardMainDescription: Take one, leave one! People keep forgetting to remove their
     bookmarks turning it into a goldmine of forgotten grocery list, scribbles and
     unpaid parking tickets.
+  cardNameFrench: 
+  cardFromWhomFrench: 
+  cardMainDescriptionFrench: 
   idCardPanel: {fileID: 1759364545}
   nameTextUI: {fileID: 1853782753}
   fromWhomTextUI: {fileID: 124690322}
@@ -55096,6 +55753,26 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &5424285561175182630
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1680090224024238264}
+  - component: {fileID: 4162663253581068196}
+  - component: {fileID: 4236350414771960743}
+  - component: {fileID: 40713206}
+  - component: {fileID: 40713205}
+  m_Layer: 0
+  m_Name: Retopo_Object_01_cell.013
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &5425120663436439963
 GameObject:
   m_ObjectHideFlags: 0
@@ -56177,6 +56854,14 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!33 &5532954525900956612
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7295739036939038682}
+  m_Mesh: {fileID: -9107531002455439418, guid: fa15b4f4c10ca4b4ba67590067b160b2, type: 3}
 --- !u!33 &5533049176454423094
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -56311,6 +56996,21 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!4 &5553071034314968556
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4816491662514624101}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+  m_LocalPosition: {x: -0.2602272, y: 0.12949173, z: 0.017707247}
+  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 543450651627971238}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5553904455416084494
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -57416,6 +58116,9 @@ MonoBehaviour:
   cardMainDescription: Maria added the candle herself to ensure no birthday goes
     uncelebrated, though she swears the wick sparks on its own whenever someone tries
     to lie about their age for a free pastry.
+  cardNameFrench: 
+  cardFromWhomFrench: 
+  cardMainDescriptionFrench: 
   idCardPanel: {fileID: 1759364545}
   nameTextUI: {fileID: 1853782753}
   fromWhomTextUI: {fileID: 124690322}
@@ -59574,6 +60277,26 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1217379635324618167}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6096102567194862846
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1324014874217557516}
+  - component: {fileID: 2854996027692704271}
+  - component: {fileID: 4142471161190221991}
+  - component: {fileID: 560888444}
+  - component: {fileID: 560888443}
+  m_Layer: 0
+  m_Name: Retopo_Object_01_cell.007
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!4 &6097336826456633487
 Transform:
   m_ObjectHideFlags: 0
@@ -59831,6 +60554,21 @@ Transform:
   m_Children:
   - {fileID: 6039862110780824513}
   m_Father: {fileID: 5324241315111263955}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &6157229814593618129
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3388035435920458359}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+  m_LocalPosition: {x: -0.24294332, y: -0.020670706, z: 0.026712636}
+  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 543450651627971238}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6166982013450727079
 MeshFilter:
@@ -60330,6 +61068,21 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!4 &6258847664720988559
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3286357383117617311}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+  m_LocalPosition: {x: -0.2002057, y: 0.013937358, z: 0.058901627}
+  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 543450651627971238}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &6272888218768641964
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -60524,6 +61277,9 @@ MonoBehaviour:
   cardName: 
   cardFromWhom: 
   cardMainDescription: 
+  cardNameFrench: 
+  cardFromWhomFrench: 
+  cardMainDescriptionFrench: 
   idCardPanel: {fileID: 0}
   nameTextUI: {fileID: 0}
   fromWhomTextUI: {fileID: 0}
@@ -60831,6 +61587,14 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &6323400945581714138
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3388035435920458359}
+  m_Mesh: {fileID: -4598275891256197898, guid: fa15b4f4c10ca4b4ba67590067b160b2, type: 3}
 --- !u!23 &6324144227485784817
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -66158,6 +66922,26 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8208607738205643892}
   m_Mesh: {fileID: 5674476393230904301, guid: b78522574c9d5b549b970a6cffe8263d, type: 3}
+--- !u!1 &7295739036939038682
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4750238828126240144}
+  - component: {fileID: 5532954525900956612}
+  - component: {fileID: 2014401411312433718}
+  - component: {fileID: 1739708780}
+  - component: {fileID: 1739708779}
+  m_Layer: 0
+  m_Name: Retopo_Object_01_cell.011
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!4 &7297111889911884030
 Transform:
   m_ObjectHideFlags: 0
@@ -66716,6 +67500,9 @@ MonoBehaviour:
   cardMainDescription: "He ran away from Walter\u2019s front yard to stake out the
     caf\xE9 counter. Now he spends every morning scanning the espresso line, desperately
     hoping his Ms. Right will order a Vanilla Late."
+  cardNameFrench: 
+  cardFromWhomFrench: 
+  cardMainDescriptionFrench: 
   idCardPanel: {fileID: 1759364545}
   nameTextUI: {fileID: 1853782753}
   fromWhomTextUI: {fileID: 124690322}
@@ -67337,6 +68124,9 @@ MonoBehaviour:
   cardFromWhom: Sara
   cardMainDescription: Sarah gave it as a a gift. Big Ears of Dumbo captures different 
     conversations
+  cardNameFrench: 
+  cardFromWhomFrench: 
+  cardMainDescriptionFrench: 
   idCardPanel: {fileID: 1759364545}
   nameTextUI: {fileID: 1853782753}
   fromWhomTextUI: {fileID: 124690322}
@@ -70151,6 +70941,9 @@ MonoBehaviour:
   cardFromWhom: Walter (57)
   cardMainDescription: Walter brought her here after claiming she was banned from
     his garden for aggressively judging his lawnmowing technique.
+  cardNameFrench: 
+  cardFromWhomFrench: 
+  cardMainDescriptionFrench: 
   idCardPanel: {fileID: 1759364545}
   nameTextUI: {fileID: 1853782753}
   fromWhomTextUI: {fileID: 124690322}
@@ -70794,6 +71587,9 @@ MonoBehaviour:
   cardName: 
   cardFromWhom: 
   cardMainDescription: 
+  cardNameFrench: 
+  cardFromWhomFrench: 
+  cardMainDescriptionFrench: 
   idCardPanel: {fileID: 0}
   nameTextUI: {fileID: 0}
   fromWhomTextUI: {fileID: 0}
@@ -70922,6 +71718,9 @@ MonoBehaviour:
   cardMainDescription: Charlotte swore this empty vase traps the high C note from
     her final theatre performance. If you whisper a secret into it, it supposedly
     whispers back.
+  cardNameFrench: 
+  cardFromWhomFrench: 
+  cardMainDescriptionFrench: 
   idCardPanel: {fileID: 1759364545}
   nameTextUI: {fileID: 1853782753}
   fromWhomTextUI: {fileID: 124690322}
@@ -71494,6 +72293,9 @@ MonoBehaviour:
     through the caf\xE9, powered by caffeine vapors. Bert insists it only runs on
     schedule if you leave a crumb of blueberry muffin on the tracks as sacrifice
     to the transit gods."
+  cardNameFrench: 
+  cardFromWhomFrench: 
+  cardMainDescriptionFrench: 
   idCardPanel: {fileID: 1759364545}
   nameTextUI: {fileID: 1853782753}
   fromWhomTextUI: {fileID: 124690322}
@@ -71994,6 +72796,9 @@ MonoBehaviour:
   cardFromWhom: Lea (22)
   cardMainDescription: Slow and steady! Still hasn't moved an inch. Maria suspects
     he is just glued to the shelf.
+  cardNameFrench: 
+  cardFromWhomFrench: 
+  cardMainDescriptionFrench: 
   idCardPanel: {fileID: 1759364545}
   nameTextUI: {fileID: 1853782753}
   fromWhomTextUI: {fileID: 124690322}
@@ -72297,6 +73102,9 @@ MonoBehaviour:
   cardName: 
   cardFromWhom: 
   cardMainDescription: 
+  cardNameFrench: 
+  cardFromWhomFrench: 
+  cardMainDescriptionFrench: 
   idCardPanel: {fileID: 0}
   nameTextUI: {fileID: 0}
   fromWhomTextUI: {fileID: 0}
@@ -77618,7 +78426,7 @@ SceneRoots:
   - {fileID: 832575519}
   - {fileID: 1256282161}
   - {fileID: 689105126}
-  - {fileID: 2105541965}
+  - {fileID: 543450651627971238}
   - {fileID: 1746801077}
   - {fileID: 1212048701}
   - {fileID: 543450652408570792}
