@@ -48,6 +48,7 @@ public class SubtitleManager : MonoBehaviour
     public Language initialLanguage = Language.English;
 
     public static Language CurrentLanguage { get; private set; } = Language.English;
+    public static event System.Action OnLanguageChanged;
 
     private AudioClip currentlyPlayingClip = null;
     private AudioSource activeAudioSource = null;
@@ -71,6 +72,7 @@ public class SubtitleManager : MonoBehaviour
     {
         ApplyLanguageSettings();
         ClearSubtitle();
+        OnLanguageChanged?.Invoke();
     }
 
     private void Update()
@@ -155,6 +157,8 @@ public class SubtitleManager : MonoBehaviour
         ApplyLanguageSettings();
         shownChunks.Clear();
         ClearSubtitle();
+
+        OnLanguageChanged?.Invoke();
 
         Debug.Log("Language switched to: " + newLanguage);
     }

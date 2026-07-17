@@ -17895,6 +17895,7 @@ GameObject:
   - component: {fileID: 1319690420}
   - component: {fileID: 1319690422}
   - component: {fileID: 1319690421}
+  - component: {fileID: 1319690423}
   m_Layer: 0
   m_Name: ClosedText
   m_TagString: Untagged
@@ -18065,6 +18066,20 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1319690423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1319690419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fae4a8a2361d32418ff2a6c101bf61f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LocalizedText
+  englishText: Closed
+  frenchText: "Ferm\xE9"
 --- !u!1 &1334178753
 GameObject:
   m_ObjectHideFlags: 0
@@ -22234,6 +22249,7 @@ GameObject:
   - component: {fileID: 1834594786}
   - component: {fileID: 1834594788}
   - component: {fileID: 1834594787}
+  - component: {fileID: 1834594789}
   m_Layer: 0
   m_Name: CafeName
   m_TagString: Untagged
@@ -22346,7 +22362,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -6.307744, y: 0, z: 6.0405536, w: 1.6542673}
+  m_margin: {x: -6.307744, y: 0, z: -0.67698956, w: 1.6542673}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   _SortingLayer: 0
@@ -22404,6 +22420,20 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1834594789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1834594785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fae4a8a2361d32418ff2a6c101bf61f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LocalizedText
+  englishText: MARIA'S GARDEN
+  frenchText: LE JARDIN DE SONIA
 --- !u!1 &1838137575
 GameObject:
   m_ObjectHideFlags: 0
@@ -23388,6 +23418,7 @@ GameObject:
   - component: {fileID: 1927010092}
   - component: {fileID: 1927010094}
   - component: {fileID: 1927010093}
+  - component: {fileID: 1927010095}
   m_Layer: 0
   m_Name: ComeInText
   m_TagString: Untagged
@@ -23558,6 +23589,20 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1927010095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1927010091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fae4a8a2361d32418ff2a6c101bf61f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LocalizedText
+  englishText: Come in
+  frenchText: Ouvert
 --- !u!1 &1930338483
 GameObject:
   m_ObjectHideFlags: 0
