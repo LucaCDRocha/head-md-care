@@ -54,9 +54,28 @@ public class SubtitleManager : MonoBehaviour
     private AudioSource activeAudioSource = null;
     private HashSet<SubtitleChunk> shownChunks = new HashSet<SubtitleChunk>(); 
 
-    private void Awake()
+        private void Awake()
     {
-        // Load language preference if saved, default to initialLanguage
+        // 1. Check the URL parameters first (great for direct portfolio links)
+        #if UNITY_WEBGL && !UNITY_EDITOR
+        string url = Application.absoluteURL;
+        if (url.Contains("lang=fr"))
+        {
+            CurrentLanguage = Language.French;
+            PlayerPrefs.SetString("SelectedLanguage", Language.French.ToString());
+            PlayerPrefs.Save();
+            return;
+        }
+        else if (url.Contains("lang=en"))
+        {
+            CurrentLanguage = Language.English;
+            PlayerPrefs.SetString("SelectedLanguage", Language.English.ToString());
+            PlayerPrefs.Save();
+            return;
+        }
+        #endif
+
+        // 2. Otherwise, check PlayerPrefs (or fall back to initialLanguage)
         string savedLanguage = PlayerPrefs.GetString("SelectedLanguage", initialLanguage.ToString());
         if (System.Enum.TryParse(savedLanguage, out Language loadedLanguage))
         {
