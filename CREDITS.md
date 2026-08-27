@@ -1,8 +1,6 @@
-========================================
-
-<br>Ooops! - CREDITS & ATTRIBUTION<br>
-
-========================================
+========= 
+Ooops! - CREDITS & ATTRIBUTION
+=========
 
 ## 3D Models
 
