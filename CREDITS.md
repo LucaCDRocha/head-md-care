@@ -1,8 +1,14 @@
 ========================================
-Ooops! - CREDITS & ATTRIBUTION
+
+<br>Ooops! - CREDITS & ATTRIBUTION<br>
+
 ========================================
 
 ## 3D Models
+
+Some of the objects were created with **MakerLab**’s “Image to 3D Model” AI tool (https://makerworld.com/de/makerlab), including the chairs, bar stools, menu clipboard, and the goblin for St. Patrick’s Day.
+
+Other 3d models were mainly sourced form **Sketchfab** as follows:
 
 [Coffee Cup](https://sketchfab.com/3d-models/coffee-cup-992750b0df674378989fa915b0688ce1) by AK STUDIO under [CC BY 4.0](http://creativecommons.org/licenses/by/4.0/) via [Sketchfab](https://sketchfab.com/feed)
 
