@@ -26,7 +26,7 @@ Inside: process of building<br>
 <br>
 
 3 Scans with RealityScan<br>
-<img src="images/realityscan-1.jpg" alt="" height="250" /> <img src="images/realityscan-2.jpg" alt="" height="300" />
+<img src="images/realityscan-1.jpg" alt="" height="300" /> <img src="images/realityscan-2.jpg" alt="" height="300" />
 
 
 
