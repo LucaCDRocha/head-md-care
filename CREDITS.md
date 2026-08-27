@@ -1,5 +1,4 @@
-========= 
-Ooops! - CREDITS & ATTRIBUTION =========
+# Ooops! - CREDITS & ATTRIBUTION 
 
 ## 3D Models
 
