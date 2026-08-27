@@ -4,7 +4,7 @@
 
 The furniture and objects were created using a combination of approaches: <br>
 1 Individual modeling/building in Blender<br>
-2 Generating 3D models with MakerLab's “Image to 3D Model” AI tool, based on sketches or 2D<br>
+2 Generating 3D models with MakerLab's “Image to 3D Model” AI tool, based on sketches or 2D images (https://makerworld.com/de/makerlab)<br>
 3 Scans of real-life objects from Café le Jardin de Sonia using the RealityScan app<br>
 4 Free 3D assets, mainly from Sketchfab (see [CREDITS](../CREDITS.md))<br>
 
