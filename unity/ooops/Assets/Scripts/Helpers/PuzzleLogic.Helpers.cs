@@ -243,4 +243,111 @@ public partial class PuzzleLogic // Linked automatically to the primary file
 
         return -1;
     }
+
+    public bool IsTouchingBaseCollider(Collider pieceCollider, Vector2 pieceScreenPos = default, Camera cam = null)
+    {
+        if (pieceCollider == null) return false;
+
+        GameObject target = puzzleBodyObject != null ? puzzleBodyObject : gameObject;
+        Bounds baseBounds = GetBaseObjectWorldBounds(target);
+
+        // 1. Check 3D Bounds Intersection or Containment
+        if (pieceCollider.bounds.Intersects(baseBounds) || baseBounds.Contains(pieceCollider.transform.position))
+        {
+            return true;
+        }
+
+        // 2. Check 2D Screen-Space Footprint Overlap
+        if (cam != null && baseBounds.size != Vector3.zero)
+        {
+            Vector3 center = baseBounds.center;
+            Vector3 extents = baseBounds.extents;
+
+            Vector3[] corners = new Vector3[8]
+            {
+                center + new Vector3(-extents.x, -extents.y, -extents.z),
+                center + new Vector3(-extents.x, -extents.y,  extents.z),
+                center + new Vector3(-extents.x,  extents.y, -extents.z),
+                center + new Vector3(-extents.x,  extents.y,  extents.z),
+                center + new Vector3( extents.x, -extents.y, -extents.z),
+                center + new Vector3( extents.x, -extents.y,  extents.z),
+                center + new Vector3( extents.x,  extents.y, -extents.z),
+                center + new Vector3( extents.x,  extents.y,  extents.z)
+            };
+
+            float minX = float.MaxValue, maxX = float.MinValue;
+            float minY = float.MaxValue, maxY = float.MinValue;
+
+            for (int i = 0; i < 8; i++)
+            {
+                Vector3 sp = cam.WorldToScreenPoint(corners[i]);
+                if (sp.x < minX) minX = sp.x;
+                if (sp.x > maxX) maxX = sp.x;
+                if (sp.y < minY) minY = sp.y;
+                if (sp.y > maxY) maxY = sp.y;
+            }
+
+            Rect screenRect = Rect.MinMaxRect(minX, minY, maxX, maxY);
+            if (screenRect.Contains(pieceScreenPos))
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public Bounds GetBaseObjectWorldBounds(GameObject target)
+    {
+        if (target == null) return new Bounds();
+
+        bool hasBounds = false;
+        Bounds bounds = new Bounds();
+
+        // Calculate world bounds from BoxColliders directly (works even when collider.enabled == false)
+        BoxCollider[] boxColliders = target.GetComponentsInChildren<BoxCollider>(true);
+        foreach (BoxCollider box in boxColliders)
+        {
+            if (box == null) continue;
+            Vector3 worldCenter = box.transform.TransformPoint(box.center);
+            Vector3 worldSize = Vector3.Scale(box.size, box.transform.lossyScale);
+            worldSize = new Vector3(Mathf.Abs(worldSize.x), Mathf.Abs(worldSize.y), Mathf.Abs(worldSize.z));
+            
+            Bounds currentBoxBounds = new Bounds(worldCenter, worldSize);
+            if (!hasBounds)
+            {
+                bounds = currentBoxBounds;
+                hasBounds = true;
+            }
+            else
+            {
+                bounds.Encapsulate(currentBoxBounds);
+            }
+        }
+
+        // Also encapsulate Renderers if available
+        if (bodyRenderers != null && bodyRenderers.Length > 0)
+        {
+            foreach (Renderer ren in bodyRenderers)
+            {
+                if (ren == null) continue;
+                if (!hasBounds)
+                {
+                    bounds = ren.bounds;
+                    hasBounds = true;
+                }
+                else
+                {
+                    bounds.Encapsulate(ren.bounds);
+                }
+            }
+        }
+
+        if (!hasBounds)
+        {
+            bounds = new Bounds(target.transform.position, Vector3.one * 0.5f);
+        }
+
+        return bounds;
+    }
 }

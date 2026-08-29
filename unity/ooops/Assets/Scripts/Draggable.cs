@@ -10,6 +10,9 @@ public class Draggable : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDra
     [Tooltip("Base snapping radius in screen pixels. (Try 40 to 60)")]
     public float snapDistance = 45f;
     
+    [Tooltip("If true, snaps as soon as the piece touches the base object. If false, snaps when near target position.")]
+    public bool useBaseObjectSnap = true;
+    
     public event Action<Transform> OnPieceSnapped;
 
     private Vector3 originalLocalPosition;
@@ -85,13 +88,33 @@ public class Draggable : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDra
             transform.position = ray.GetPoint(enterDistance) + dragOffset;
         }
 
-        Vector2 pieceScreenPos = cam.WorldToScreenPoint(transform.position);
-        Vector2 targetScreenPos = cam.WorldToScreenPoint(targetWorldPosition);
+        bool shouldSnap = false;
 
-        float screenDensityMultiplier = (Screen.dpi > 0) ? (Screen.dpi / 96f) : 1f;
-        float dynamicSnapRadius = snapDistance * screenDensityMultiplier;
+        if (useBaseObjectSnap && puzzleLogic != null)
+        {
+            Collider pieceCollider = GetComponent<Collider>();
+            Vector2 pieceScreenPos = cam.WorldToScreenPoint(transform.position);
+            if (pieceCollider != null && puzzleLogic.IsTouchingBaseCollider(pieceCollider, pieceScreenPos, cam))
+            {
+                shouldSnap = true;
+            }
+        }
 
-        if (Vector2.Distance(pieceScreenPos, targetScreenPos) <= dynamicSnapRadius)
+        if (!shouldSnap)
+        {
+            Vector2 pieceScreenPos = cam.WorldToScreenPoint(transform.position);
+            Vector2 targetScreenPos = cam.WorldToScreenPoint(targetWorldPosition);
+
+            float screenDensityMultiplier = (Screen.dpi > 0) ? (Screen.dpi / 96f) : 1f;
+            float dynamicSnapRadius = snapDistance * screenDensityMultiplier;
+
+            if (Vector2.Distance(pieceScreenPos, targetScreenPos) <= dynamicSnapRadius)
+            {
+                shouldSnap = true;
+            }
+        }
+
+        if (shouldSnap)
         {
             SnapToOriginalPosition(targetWorldPosition);
         }
