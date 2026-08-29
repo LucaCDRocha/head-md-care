@@ -27071,7 +27071,7 @@ Transform:
   m_GameObject: {fileID: 8234430980289680421}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7097837, y: 0.00045647376, z: 0.7044195, w: 0.00045988776}
-  m_LocalPosition: {x: 2.1729553, y: 2.0035973, z: 2.4583075}
+  m_LocalPosition: {x: 2.1732621, y: 2.0035973, z: 2.3566496}
   m_LocalScale: {x: 0.051253747, y: 0.051253732, z: 0.051253714}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -28302,6 +28302,8 @@ GameObject:
   - component: {fileID: 1027414531112383147}
   - component: {fileID: 424832757470551244}
   - component: {fileID: 8875731491807858040}
+  - component: {fileID: 8875731491807858041}
+  - component: {fileID: 8875731491807858042}
   m_Layer: 0
   m_Name: Vase_4.001
   m_TagString: Untagged
@@ -30154,8 +30156,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1975651596250110424}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.58160764, y: 0.36488715, z: 0.4120837, w: 0.59897995}
-  m_LocalPosition: {x: -3.145173, y: 2.4288244, z: -0.6923883}
+  m_LocalRotation: {x: -0.6805581, y: -0.1957486, z: -0.19643305, w: 0.6781867}
+  m_LocalPosition: {x: 2.162, y: 0.818, z: 2.708}
   m_LocalScale: {x: 0.0011855435, y: 0.0011855437, z: 0.0011855431}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -30176,7 +30178,7 @@ Transform:
   - {fileID: 8320863901271186176}
   - {fileID: 7865143862442009892}
   m_Father: {fileID: 826534367}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90.2, y: -32.2, z: 0}
 --- !u!33 &671596039313963328
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -33569,6 +33571,8 @@ GameObject:
   - component: {fileID: 8209392640613034514}
   - component: {fileID: 3071157921029899823}
   - component: {fileID: 286171238475640160}
+  - component: {fileID: 8209392640613034515}
+  - component: {fileID: 8209392640613034516}
   m_Layer: 0
   m_Name: Mushroom.003
   m_TagString: Untagged
@@ -35213,6 +35217,8 @@ GameObject:
   - component: {fileID: 5365845637227362906}
   - component: {fileID: 7992068780000691550}
   - component: {fileID: 6918682742462558185}
+  - component: {fileID: 7992068780000691551}
+  - component: {fileID: 7992068780000691552}
   m_Layer: 0
   m_Name: Mushroom.002
   m_TagString: Untagged
@@ -35730,6 +35736,8 @@ GameObject:
   - component: {fileID: 2632738453832248402}
   - component: {fileID: 129871140208071221}
   - component: {fileID: 3332731261843539447}
+  - component: {fileID: 3332731261843539448}
+  - component: {fileID: 3332731261843539449}
   m_Layer: 0
   m_Name: defaultMaterial.018
   m_TagString: Untagged
@@ -42163,6 +42171,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9189088370723729117}
+  - component: {fileID: 9189088370723729118}
+  - component: {fileID: 9189088370723729119}
   m_Layer: 0
   m_Name: Plant.001
   m_TagString: Untagged
@@ -42245,8 +42255,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7840361582117146208}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.12985481, y: -0.6950812, z: -0.69508106, w: 0.12985486}
-  m_LocalPosition: {x: -1.0569158, y: 1.8547009, z: 3.8902533}
+  m_LocalRotation: {x: 0.46977112, y: -0.5285027, z: -0.5285027, w: -0.46977112}
+  m_LocalPosition: {x: 2.12, y: 0.783, z: 1.38}
   m_LocalScale: {x: 0.23331322, y: 0.23331323, z: 0.23331313}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -42254,7 +42264,7 @@ Transform:
   - {fileID: 6783393365933836295}
   - {fileID: 8169422211691719593}
   m_Father: {fileID: 1177125820}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: -104.43, z: -158.836}
 --- !u!1 &2772684106951899756
 GameObject:
   m_ObjectHideFlags: 0
@@ -43207,6 +43217,8 @@ GameObject:
   - component: {fileID: 8450342460846539074}
   - component: {fileID: 4396228811414368120}
   - component: {fileID: 86070988490751385}
+  - component: {fileID: 8450342460846539075}
+  - component: {fileID: 8450342460846539076}
   m_Layer: 0
   m_Name: Shoe_2
   m_TagString: Untagged
@@ -45241,6 +45253,64 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &3332731261843539448
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1626151702435746175}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 281, y: 208.4, z: 404.7}
+  m_Center: {x: -0.000000489048, y: -0.0000045482693, z: 16.409847}
+--- !u!114 &3332731261843539449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1626151702435746175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d5b4eea2125e1049b7fea91d8ae1664, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ObjectFocus
+  puzzleCamera: {fileID: 588665783}
+  sharedFocusCamera: {fileID: 390290580}
+  cameraLocalOffset: {x: -0.5, y: 0, z: 0.8}
+  inspectionAudio: {fileID: 0}
+  cardName: The Little Pilot
+  cardFromWhom: Oliver (5)
+  cardMainDescription: "Oliver would \u201Cfly\u201D this plane across tables while
+    waiting for his hot chocolate to cool down. One afternoon he placed it on the
+    shelf above the espresso machine and forgot it there."
+  cardNameFrench: Le Petit Pilote
+  cardFromWhomFrench: Oliver (5)
+  cardMainDescriptionFrench: "Oliver faisait \xAB voler \xBB cet avion au-dessus
+    des tables en attendant que son chocolat chaud refroidisse. Un apr\xE8s-midi,
+    il l\u2019a pos\xE9 sur l\u2019\xE9tag\xE8re au-dessus de la machine \xE0 expresso\u2026
+    et l\u2019a tout simplement oubli\xE9."
+  idCardPanel: {fileID: 1759364545}
+  nameTextUI: {fileID: 1853782753}
+  fromWhomTextUI: {fileID: 124690322}
+  descriptionTextUI: {fileID: 888095703}
+  cardDistance: 0.5
+  cardOffset: {x: 0.22, y: -0.18}
+  cardRotationOffset: {x: -90, y: -90, z: 0}
+  cardScale: 4.6
+  duckedVolumeMultiplier: 0.15
+  audioFadeDuration: 0.5
 --- !u!33 &3333440130822205564
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -45445,7 +45515,7 @@ Transform:
   m_GameObject: {fileID: 4397469612019493538}
   serializedVersion: 2
   m_LocalRotation: {x: 0.76857084, y: -0.08958633, z: 0.63339245, w: -0.009333135}
-  m_LocalPosition: {x: 2.1366286, y: 2.009528, z: 3.7038186}
+  m_LocalPosition: {x: 2.118, y: 1.999, z: 3.615}
   m_LocalScale: {x: 0.004172038, y: 0.0041720383, z: 0.0041720425}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -48328,12 +48398,15 @@ MonoBehaviour:
   inspectionAudio: {fileID: 0}
   cardName: Robo the Robot
   cardFromWhom: Mark (42)
-  cardMainDescription: Built from spare toaster and bicycle parts. Mark claimed Robo
-    was programmed for world domination. His battery only holds enough charge to
-    judder when someone mispronounces "croissant".
-  cardNameFrench: 
-  cardFromWhomFrench: 
-  cardMainDescriptionFrench: 
+  cardMainDescription: Built from spare toaster and bicycle parts. Mark claims Robo
+    was programmed for world domination. Although his battery only holds enough charge
+    to judder when someone mispronounces "croissant".
+  cardNameFrench: Robo le robot
+  cardFromWhomFrench: Mark (42)
+  cardMainDescriptionFrench: "Fabriqu\xE9 \xE0 partir de pi\xE8ces d\xE9tach\xE9es
+    de grille-pain et de v\xE9lo. Mark affirme que Robo a \xE9t\xE9 programm\xE9
+    pour dominer le monde. M\xEAme si sa batterie tient tout juste assez la charge
+    pour trambler quand quelqu'un prononce mal \xAB croissant \xBB"
   idCardPanel: {fileID: 1759364545}
   nameTextUI: {fileID: 1853782753}
   fromWhomTextUI: {fileID: 124690322}
@@ -49909,7 +49982,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!23 &4269897542712187797
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -50114,6 +50187,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2499431044250453018}
+  - component: {fileID: 4303719345568298367}
+  - component: {fileID: 4303719345568298368}
   m_Layer: 0
   m_Name: Books_2.003
   m_TagString: Untagged
@@ -50121,6 +50196,64 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!65 &4303719345568298367
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4303719345568298366}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.62, y: 1, z: 0.6}
+  m_Center: {x: -0.14, y: 0, z: 0.33}
+--- !u!114 &4303719345568298368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4303719345568298366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d5b4eea2125e1049b7fea91d8ae1664, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ObjectFocus
+  puzzleCamera: {fileID: 588665783}
+  sharedFocusCamera: {fileID: 390290580}
+  cameraLocalOffset: {x: 0, y: 0.7, z: 0.2}
+  inspectionAudio: {fileID: 0}
+  cardName: "Sonia\u2019s Library"
+  cardFromWhom: Various
+  cardMainDescription: Take one, leave one! People keep forgetting to remove their
+    bookmarks turning it into a goldmine of forgotten grocery list, scribbles and
+    unpaid parking tickets.
+  cardNameFrench: "La biblioth\xE8que"
+  cardFromWhomFrench: Divers
+  cardMainDescriptionFrench: "Prenez-en un, laissez-en un ! Les gens oublient sans
+    cesse leur marque-page dans les livres, transformant la biblioth\xE8que en v\xE9ritable
+    mine d\u2019or de listes de courses oubli\xE9es, de gribouillages et de PV de
+    stationnement impay\xE9s."
+  idCardPanel: {fileID: 1759364545}
+  nameTextUI: {fileID: 1853782753}
+  fromWhomTextUI: {fileID: 124690322}
+  descriptionTextUI: {fileID: 888095703}
+  cardDistance: 0.5
+  cardOffset: {x: 0.22, y: -0.18}
+  cardRotationOffset: {x: -90, y: -90, z: 0}
+  cardScale: 4.6
+  duckedVolumeMultiplier: 0.15
+  audioFadeDuration: 0.5
 --- !u!1 &4304640582562094705
 GameObject:
   m_ObjectHideFlags: 0
@@ -50648,6 +50781,8 @@ GameObject:
   - component: {fileID: 3394228734078420672}
   - component: {fileID: 2205736174645779717}
   - component: {fileID: 2496231910719051704}
+  - component: {fileID: 4397469612019493539}
+  - component: {fileID: 4397469612019493540}
   m_Layer: 0
   m_Name: Knot.001
   m_TagString: Untagged
@@ -50655,6 +50790,62 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!65 &4397469612019493539
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4397469612019493538}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 76.25178, y: 60.40774, z: 80.82174}
+  m_Center: {x: 5.2074323, y: -0.00025359975, z: -0.00022849384}
+--- !u!114 &4397469612019493540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4397469612019493538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d5b4eea2125e1049b7fea91d8ae1664, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ObjectFocus
+  puzzleCamera: {fileID: 588665783}
+  sharedFocusCamera: {fileID: 390290580}
+  cameraLocalOffset: {x: -0.5, y: -0.2, z: -0.8}
+  inspectionAudio: {fileID: 0}
+  cardName: The Endless Knot
+  cardFromWhom: Unknown
+  cardMainDescription: No beginning. No end. Several brave souls have attempted to
+    solve it over the years. Some gave up. Others are still trying. The mystery remains.
+  cardNameFrench: "Le N\u0153ud sans fin"
+  cardFromWhomFrench: Inconnue
+  cardMainDescriptionFrench: "Ni d\xE9but, ni fin. Au fil des ans, plusieurs \xE2mes
+    courageuses ont tent\xE9 de le d\xE9nouer. Certaines ont abandonn\xE9. D\u2019autres
+    continuent d\u2019essayer. Le myst\xE8re demeure."
+  idCardPanel: {fileID: 1759364545}
+  nameTextUI: {fileID: 1853782753}
+  fromWhomTextUI: {fileID: 124690322}
+  descriptionTextUI: {fileID: 888095703}
+  cardDistance: 0.5
+  cardOffset: {x: 0.22, y: -0.18}
+  cardRotationOffset: {x: -90, y: -90, z: 0}
+  cardScale: 4.6
+  duckedVolumeMultiplier: 0.15
+  audioFadeDuration: 0.5
 --- !u!33 &4407577102070749982
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -55121,14 +55312,17 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: 0, y: 0.7, z: 0.2}
   inspectionAudio: {fileID: 0}
-  cardName: MARIAS LIBRARY
+  cardName: "Sonia\u2019s Library"
   cardFromWhom: Various
   cardMainDescription: Take one, leave one! People keep forgetting to remove their
     bookmarks turning it into a goldmine of forgotten grocery list, scribbles and
     unpaid parking tickets.
-  cardNameFrench: 
-  cardFromWhomFrench: 
-  cardMainDescriptionFrench: 
+  cardNameFrench: "La biblioth\xE8que"
+  cardFromWhomFrench: Divers
+  cardMainDescriptionFrench: "Prenez-en un, laissez-en un ! Les gens oublient sans
+    cesse leur marque-page dans les livres, transformant la biblioth\xE8que en v\xE9ritable
+    mine d\u2019or de listes de courses oubli\xE9es, de gribouillages et de PV de
+    stationnement impay\xE9s."
   idCardPanel: {fileID: 1759364545}
   nameTextUI: {fileID: 1853782753}
   fromWhomTextUI: {fileID: 124690322}
@@ -56494,6 +56688,8 @@ GameObject:
   - component: {fileID: 9190309512543054450}
   - component: {fileID: 6870434058937225696}
   - component: {fileID: 1619920396469886702}
+  - component: {fileID: 9190309512543054452}
+  - component: {fileID: 9190309512543054451}
   m_Layer: 0
   m_Name: chess_3
   m_TagString: Untagged
@@ -58297,6 +58493,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8329187216373907501}
+  - component: {fileID: 8329187216373907502}
+  - component: {fileID: 8329187216373907503}
   m_Layer: 0
   m_Name: Books_3.002
   m_TagString: Untagged
@@ -58907,14 +59105,17 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: 0, y: -0.7, z: 0.2}
   inspectionAudio: {fileID: 0}
-  cardName: TRUTH-TELLER CANDLE
-  cardFromWhom: Maria
-  cardMainDescription: Maria added the candle herself to ensure no birthday goes
+  cardName: Candle of Truth
+  cardFromWhom: Sonia
+  cardMainDescription: Sonia added the candle herself to ensure no birthday goes
     uncelebrated, though she swears the wick sparks on its own whenever someone tries
     to lie about their age for a free pastry.
-  cardNameFrench: 
-  cardFromWhomFrench: 
-  cardMainDescriptionFrench: 
+  cardNameFrench: "La bougie de v\xE9rit\xE9"
+  cardFromWhomFrench: Sonia
+  cardMainDescriptionFrench: "Sonia a ajout\xE9 la bougie elle-m\xEAme pour s'assurer
+    qu'aucun anniversaire ne soit oubli\xE9, m\xEAme si elle jure que la m\xE8che
+    fait des \xE9tincelles toute seule d\xE8s que quelqu'un tente de mentir sur son
+    \xE2ge pour avoir une p\xE2tisserie gratuite."
   idCardPanel: {fileID: 1759364545}
   nameTextUI: {fileID: 1853782753}
   fromWhomTextUI: {fileID: 124690322}
@@ -59042,7 +59243,7 @@ Transform:
   m_GameObject: {fileID: 8141247963154950572}
   serializedVersion: 2
   m_LocalRotation: {x: -0.000000026692542, y: -0.7071068, z: -0.000000026692542, w: 0.7071068}
-  m_LocalPosition: {x: 2.1927967, y: 1.8905394, z: 3.0304344}
+  m_LocalPosition: {x: 2.1927967, y: 1.8905394, z: 2.962}
   m_LocalScale: {x: 0.30990827, y: 0.30990827, z: 0.30990827}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -61737,7 +61938,7 @@ Transform:
   m_GameObject: {fileID: 8766072895679318845}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0, z: 0.99886316, w: -0.04766989}
-  m_LocalPosition: {x: -0.023918152, y: -0.0011816025, z: 0.30345607}
+  m_LocalPosition: {x: -0.02, y: -0.05, z: 0.3}
   m_LocalScale: {x: 0.5386764, y: 0.5386764, z: 0.53867626}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -62936,6 +63137,8 @@ GameObject:
   - component: {fileID: 2387752957602998860}
   - component: {fileID: 4937547441345330064}
   - component: {fileID: 8114693384578514999}
+  - component: {fileID: 8114693384578515001}
+  - component: {fileID: 8114693384578515000}
   m_Layer: 0
   m_Name: Object_4.001
   m_TagString: Untagged
@@ -64421,6 +64624,8 @@ GameObject:
   - component: {fileID: 3948271465657350333}
   - component: {fileID: 3787970651336143518}
   - component: {fileID: 6790637165676609664}
+  - component: {fileID: 6790637165676609665}
+  - component: {fileID: 6790637165676609666}
   m_Layer: 0
   m_Name: defaultMaterial.019
   m_TagString: Untagged
@@ -64777,6 +64982,62 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &6790637165676609665
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6731281124594104647}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 562.3805, y: 184.56412, z: 570.7997}
+  m_Center: {x: 202.04395, y: 0.000488521, z: 223.76294}
+--- !u!114 &6790637165676609666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6731281124594104647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d5b4eea2125e1049b7fea91d8ae1664, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ObjectFocus
+  puzzleCamera: {fileID: 588665783}
+  sharedFocusCamera: {fileID: 390290580}
+  cameraLocalOffset: {x: 0, y: 1, z: 0}
+  inspectionAudio: {fileID: 0}
+  cardName: Ducky on Duty
+  cardFromWhom: Sam (31)
+  cardMainDescription: Ducky sits on the shelf as an early warning system. If he
+    starts rolling, you know the party has gone too far.
+  cardNameFrench: Ducky en service
+  cardFromWhomFrench: Sam (31)
+  cardMainDescriptionFrench: "Ducky tr\xF4ne sur l\u2019\xE9tag\xE8re comme syst\xE8me
+    d\u2019alerte. S\u2019il se met \xE0 rouler, c\u2019est que la f\xEAte est vraiment
+    all\xE9e trop loin."
+  idCardPanel: {fileID: 1759364545}
+  nameTextUI: {fileID: 1853782753}
+  fromWhomTextUI: {fileID: 124690322}
+  descriptionTextUI: {fileID: 888095703}
+  cardDistance: 0.5
+  cardOffset: {x: 0.22, y: -0.18}
+  cardRotationOffset: {x: -90, y: -90, z: 0}
+  cardScale: 4.6
+  duckedVolumeMultiplier: 0.15
+  audioFadeDuration: 0.5
 --- !u!4 &6791786932564416498
 Transform:
   m_ObjectHideFlags: 0
@@ -64838,6 +65099,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6553715636015130274}
+  - component: {fileID: 6796799449025219776}
+  - component: {fileID: 6796799449025219777}
   m_Layer: 0
   m_Name: Plant_4.003
   m_TagString: Untagged
@@ -64845,6 +65108,63 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!65 &6796799449025219776
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6796799449025219775}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 0.64}
+  m_Center: {x: 0, y: 0, z: 0.21}
+--- !u!114 &6796799449025219777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6796799449025219775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d5b4eea2125e1049b7fea91d8ae1664, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ObjectFocus
+  puzzleCamera: {fileID: 588665783}
+  sharedFocusCamera: {fileID: 390290580}
+  cameraLocalOffset: {x: -0.5, y: -0.5, z: 0.5}
+  inspectionAudio: {fileID: 0}
+  cardName: Mimi the Monstera
+  cardFromWhom: Sonia
+  cardMainDescription: "Sonia started bringing plants into the caf\xE9 from the very
+    beginning. One became two, two became 22, and soon there was something green
+    in every corner."
+  cardNameFrench: Mimi la Monstera
+  cardFromWhomFrench: Sonia
+  cardMainDescriptionFrench: "Sonia a commenc\xE9 \xE0 apporter des plantes au caf\xE9
+    d\xE8s le d\xE9but. Une est devenue deux, deux sont devenues 22, et bient\xF4t,
+    il y avait une touche de verdure dans chaque recoin."
+  idCardPanel: {fileID: 1759364545}
+  nameTextUI: {fileID: 1853782753}
+  fromWhomTextUI: {fileID: 124690322}
+  descriptionTextUI: {fileID: 888095703}
+  cardDistance: 0.5
+  cardOffset: {x: 0.22, y: -0.18}
+  cardRotationOffset: {x: -90, y: -90, z: 0}
+  cardScale: 4.6
+  duckedVolumeMultiplier: 0.15
+  audioFadeDuration: 0.5
 --- !u!4 &6797347458721028526
 Transform:
   m_ObjectHideFlags: 0
@@ -67343,7 +67663,7 @@ Transform:
   m_GameObject: {fileID: 4304640582562094705}
   serializedVersion: 2
   m_LocalRotation: {x: -0.047593057, y: -0.7055032, z: -0.7055034, w: 0.047593027}
-  m_LocalPosition: {x: 2.1210175, y: 0.820618, z: 2.689996}
+  m_LocalPosition: {x: -3.194, y: 2.418, z: -0.726}
   m_LocalScale: {x: 0.5391042, y: 0.5391043, z: 0.53910416}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -68392,13 +68712,16 @@ MonoBehaviour:
   cameraLocalOffset: {x: 0, y: 0.2, z: 0.65}
   inspectionAudio: {fileID: 0}
   cardName: MR. GNOME
-  cardFromWhom: Walter
+  cardFromWhom: Walter (61)
   cardMainDescription: "He ran away from Walter\u2019s front yard to stake out the
     caf\xE9 counter. Now he spends every morning scanning the espresso line, desperately
     hoping his Ms. Right will order a Vanilla Late."
-  cardNameFrench: 
-  cardFromWhomFrench: 
-  cardMainDescriptionFrench: 
+  cardNameFrench: Monsieur Gnome
+  cardFromWhomFrench: Walter (61)
+  cardMainDescriptionFrench: "Il s\u2019est \xE9chapp\xE9 du jardin de Walter. Depuis,
+    il passe chaque matin \xE0 scruter la file d\u2019attente pour l\u2019espresso,
+    esp\xE9rant d\xE9sesp\xE9r\xE9ment que la femme de ses r\xEAves vienne commander
+    un latte \xE0 la vanille."
   idCardPanel: {fileID: 1759364545}
   nameTextUI: {fileID: 1853782753}
   fromWhomTextUI: {fileID: 124690322}
@@ -69031,13 +69354,19 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: 0, y: 0, z: -0.7}
   inspectionAudio: {fileID: 0}
-  cardName: DUMBO THE ELEPHANT
-  cardFromWhom: Sara
-  cardMainDescription: Sarah gave it as a a gift. Big Ears of Dumbo captures different 
-    conversations
-  cardNameFrench: 
-  cardFromWhomFrench: 
-  cardMainDescriptionFrench: 
+  cardName: Dumbo the Elephant
+  cardFromWhom: Sara (9)
+  cardMainDescription: "Sara gave him as a gift. His enormous ears have picked up
+    countless conversations over the years \u2014 from first dates to break-ups and
+    even questionable business ideas. He might know more neighbourhood secrets than
+    Sonia does."
+  cardNameFrench: "Dumbo l\u2019\xE9l\xE9phant"
+  cardFromWhomFrench: Sara (9)
+  cardMainDescriptionFrench: "Sara l\u2019a offert en cadeau. Avec ses \xE9normes
+    oreilles, il a surpris d\u2019innombrables conversations au fil des ann\xE9es
+    \u2014 des premiers rendez-vous aux ruptures, en passant par quelques id\xE9es
+    commerciales douteuses. Il conna\xEEt peut-\xEAtre m\xEAme plus de secrets du
+    quartier que Sonia."
   idCardPanel: {fileID: 1759364545}
   nameTextUI: {fileID: 1853782753}
   fromWhomTextUI: {fileID: 124690322}
@@ -70056,7 +70385,7 @@ Transform:
   m_GameObject: {fileID: 8349544262148756136}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7070559, y: 0.008482998, z: 0.7070559, w: -0.008482998}
-  m_LocalPosition: {x: 2.2102976, y: 0.9908615, z: 1.3694034}
+  m_LocalPosition: {x: -1.118, y: 2.07, z: 3.92}
   m_LocalScale: {x: 0.29581058, y: 0.29581058, z: 0.2958106}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -70359,6 +70688,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2772532363899175726}
+  - component: {fileID: 7840361582117146209}
+  - component: {fileID: 7840361582117146210}
   m_Layer: 0
   m_Name: Bird.001
   m_TagString: Untagged
@@ -70366,6 +70697,62 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!65 &7840361582117146209
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7840361582117146208}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.38, y: 1.17, z: 1.6}
+  m_Center: {x: 0.07, y: 0, z: 1.1}
+--- !u!114 &7840361582117146210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7840361582117146208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d5b4eea2125e1049b7fea91d8ae1664, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ObjectFocus
+  puzzleCamera: {fileID: 588665783}
+  sharedFocusCamera: {fileID: 390290580}
+  cameraLocalOffset: {x: 0.5, y: 1, z: 0.8}
+  inspectionAudio: {fileID: 0}
+  cardName: Wooden Bird
+  cardFromWhom: Werner (68)
+  cardMainDescription: "\LWerner carved this right outside on the bench while defending
+    his strawberry-glazed donut from two very determined sparrows."
+  cardNameFrench: "L\u2019oiseau en bois"
+  cardFromWhomFrench: Werner (68)
+  cardMainDescriptionFrench: "Werner a sculpt\xE9 cet oiseau juste devant le caf\xE9,
+    sur le banc, tout en d\xE9fendant son donut glac\xE9 \xE0 la fraise contre deux
+    moineaux particuli\xE8rement d\xE9termin\xE9s."
+  idCardPanel: {fileID: 1759364545}
+  nameTextUI: {fileID: 1853782753}
+  fromWhomTextUI: {fileID: 124690322}
+  descriptionTextUI: {fileID: 888095703}
+  cardDistance: 0.5
+  cardOffset: {x: 0.22, y: -0.18}
+  cardRotationOffset: {x: -90, y: -90, z: 0}
+  cardScale: 4.6
+  duckedVolumeMultiplier: 0.15
+  audioFadeDuration: 0.5
 --- !u!23 &7843141925024908047
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -71197,6 +71584,63 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1533510362513753073}
   m_Mesh: {fileID: -7021998549225121838, guid: b78522574c9d5b549b970a6cffe8263d, type: 3}
+--- !u!65 &7992068780000691551
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1533510362513753073}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.4246671, y: 1.8405933, z: 1.4480413}
+  m_Center: {x: 0.011296362, y: -0.013713868, z: -0.0034759645}
+--- !u!114 &7992068780000691552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1533510362513753073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d5b4eea2125e1049b7fea91d8ae1664, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ObjectFocus
+  puzzleCamera: {fileID: 588665783}
+  sharedFocusCamera: {fileID: 390290580}
+  cameraLocalOffset: {x: 1, y: -0.5, z: 0}
+  inspectionAudio: {fileID: 0}
+  cardName: The Guardians
+  cardFromWhom: Mirella (27)
+  cardMainDescription: "Mirella brought these two along to keep Sonia\u2019s indoor
+    garden company. They\u2019ve been quietly keeping watch ever since, making sure
+    everything stays green, peaceful, and slightly mysterious."
+  cardNameFrench: Les gardiens
+  cardFromWhomFrench: Tilda (27)
+  cardMainDescriptionFrench: "Tilda les a apport\xE9s pour tenir compagnie au jardin
+    d\u2019int\xE9rieur de Sonia. Depuis, ils montent tranquillement la garde, veillant
+    \xE0 ce que tout reste bien vert, paisible et l\xE9g\xE8rement myst\xE9rieux."
+  idCardPanel: {fileID: 1759364545}
+  nameTextUI: {fileID: 1853782753}
+  fromWhomTextUI: {fileID: 124690322}
+  descriptionTextUI: {fileID: 888095703}
+  cardDistance: 0.5
+  cardOffset: {x: 0.22, y: -0.18}
+  cardRotationOffset: {x: -90, y: -90, z: 0}
+  cardScale: 4.6
+  duckedVolumeMultiplier: 0.15
+  audioFadeDuration: 0.5
 --- !u!33 &7994424594556488451
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -71851,10 +72295,12 @@ MonoBehaviour:
   cardName: MS. GNOME
   cardFromWhom: Walter (57)
   cardMainDescription: Walter brought her here after claiming she was banned from
-    his garden for aggressively judging his lawnmowing technique.
-  cardNameFrench: 
-  cardFromWhomFrench: 
-  cardMainDescriptionFrench: 
+    his garden for judging his lawnmowing technique.
+  cardNameFrench: Madame Gnome
+  cardFromWhomFrench: Walter (57)
+  cardMainDescriptionFrench: "Walter l\u2019a amen\xE9e ici apr\xE8s avoir affirm\xE9
+    qu\u2019elle avait \xE9t\xE9 bannie de son jardin pour avoir critiqu\xE9 sa fa\xE7on
+    de tondre la pelouse."
   idCardPanel: {fileID: 1759364545}
   nameTextUI: {fileID: 1853782753}
   fromWhomTextUI: {fileID: 124690322}
@@ -72307,6 +72753,63 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &8114693384578515000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6413611645437508195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d5b4eea2125e1049b7fea91d8ae1664, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ObjectFocus
+  puzzleCamera: {fileID: 588665783}
+  sharedFocusCamera: {fileID: 390290580}
+  cameraLocalOffset: {x: 0.3, y: -1, z: 0.2}
+  inspectionAudio: {fileID: 0}
+  cardName: Chubby the Pomeranian
+  cardFromWhom: Liam (11)
+  cardMainDescription: Liam traded his fluffy pomeranian to Sonia in exchange for
+    a giant chocolate chip cookie, declaring it a "fair and legally binding business
+    transaction".
+  cardNameFrench: Chubby le spitz nain
+  cardFromWhomFrench: Liam (11)
+  cardMainDescriptionFrench: "Liam a \xE9chang\xE9 son spitz nain tout doux avec
+    Sonia contre un cookie g\xE9ant aux p\xE9pites de chocolat, qualifiant cela de
+    \xAB transaction commerciale \xE9quitable et juridiquement contraignante \xBB."
+  idCardPanel: {fileID: 1759364545}
+  nameTextUI: {fileID: 1853782753}
+  fromWhomTextUI: {fileID: 124690322}
+  descriptionTextUI: {fileID: 888095703}
+  cardDistance: 0.5
+  cardOffset: {x: 0.22, y: -0.18}
+  cardRotationOffset: {x: -90, y: -90, z: 0}
+  cardScale: 4.6
+  duckedVolumeMultiplier: 0.15
+  audioFadeDuration: 0.5
+--- !u!65 &8114693384578515001
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6413611645437508195}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.2748034, y: 2.2323887, z: 2.1945343}
+  m_Center: {x: 0.00000047683716, y: 0.0000019073486, z: -0.16166136}
 --- !u!4 &8115006801347840967
 Transform:
   m_ObjectHideFlags: 0
@@ -72625,13 +73128,16 @@ MonoBehaviour:
   cameraLocalOffset: {x: 0, y: 0.3, z: 0.7}
   inspectionAudio: {fileID: 0}
   cardName: ECHO CHAMBER
-  cardFromWhom: Charlotte (57)
-  cardMainDescription: Charlotte swore this empty vase traps the high C note from
-    her final theatre performance. If you whisper a secret into it, it supposedly
-    whispers back.
-  cardNameFrench: 
-  cardFromWhomFrench: 
-  cardMainDescriptionFrench: 
+  cardFromWhom: Charlotte (55)
+  cardMainDescription: Charlotte swears this is one of the few vases that traps the
+    high C note from her final theatre performance. If you whisper a secret into
+    it, it supposedly whispers back.
+  cardNameFrench: "La Chambre d\u2019\xE9cho"
+  cardFromWhomFrench: Charlotte (55)
+  cardMainDescriptionFrench: "Charlotte jure que c'est l'un des rares vases \xE0
+    capturer sa note la plus aigu\xEB de sa toute derni\xE8re repr\xE9sentation au
+    th\xE9\xE2tre. Si vous lui chuchotez un secret, il est cens\xE9 vous le murmurer
+    en retour."
   idCardPanel: {fileID: 1759364545}
   nameTextUI: {fileID: 1853782753}
   fromWhomTextUI: {fileID: 124690322}
@@ -73204,9 +73710,12 @@ MonoBehaviour:
     through the caf\xE9, powered by caffeine vapors. Bert insists it only runs on
     schedule if you leave a crumb of blueberry muffin on the tracks as sacrifice
     to the transit gods."
-  cardNameFrench: 
-  cardFromWhomFrench: 
-  cardMainDescriptionFrench: 
+  cardNameFrench: Midnight Express
+  cardFromWhomFrench: Bert (42)
+  cardMainDescriptionFrench: "Quand le soleil se couche et que personne ne regarde,
+    il fait sa tourn\xE9e dans le caf\xE9, propuls\xE9 par les vapeurs de caf\xE9ine.
+    Bert insiste sur le fait qu'il n'est \xE0 l'heure que si l'on d\xE9pose une miette
+    de muffin aux myrtilles sur les rails, en sacrifice aux dieux du transport."
   idCardPanel: {fileID: 1759364545}
   nameTextUI: {fileID: 1853782753}
   fromWhomTextUI: {fileID: 124690322}
@@ -73253,6 +73762,63 @@ Transform:
   m_Children: []
   m_Father: {fileID: 377837043}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &8209392640613034515
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1302705031957245885}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.4246671, y: 1.8405931, z: 1.4480411}
+  m_Center: {x: 0.011297314, y: -0.0137138665, z: -0.0034754863}
+--- !u!114 &8209392640613034516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1302705031957245885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d5b4eea2125e1049b7fea91d8ae1664, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ObjectFocus
+  puzzleCamera: {fileID: 588665783}
+  sharedFocusCamera: {fileID: 390290580}
+  cameraLocalOffset: {x: 0, y: -0.5, z: -1}
+  inspectionAudio: {fileID: 0}
+  cardName: The Guardians
+  cardFromWhom: Mirella (27)
+  cardMainDescription: "Mirella brought these two along to keep Sonia\u2019s indoor
+    garden company. They\u2019ve been quietly keeping watch ever since, making sure
+    everything stays green, peaceful, and slightly mysterious."
+  cardNameFrench: Les gardiens
+  cardFromWhomFrench: Tilda (27)
+  cardMainDescriptionFrench: "Tilda les a apport\xE9s pour tenir compagnie au jardin
+    d\u2019int\xE9rieur de Sonia. Depuis, ils montent tranquillement la garde, veillant
+    \xE0 ce que tout reste bien vert, paisible et l\xE9g\xE8rement myst\xE9rieux."
+  idCardPanel: {fileID: 1759364545}
+  nameTextUI: {fileID: 1853782753}
+  fromWhomTextUI: {fileID: 124690322}
+  descriptionTextUI: {fileID: 888095703}
+  cardDistance: 0.5
+  cardOffset: {x: 0.22, y: -0.18}
+  cardRotationOffset: {x: -90, y: -90, z: 0}
+  cardScale: 4.6
+  duckedVolumeMultiplier: 0.15
+  audioFadeDuration: 0.5
 --- !u!1 &8210651250723616482
 GameObject:
   m_ObjectHideFlags: 0
@@ -73395,6 +73961,8 @@ GameObject:
   - component: {fileID: 41118554781661254}
   - component: {fileID: 2844871464849683686}
   - component: {fileID: 6453903261208257455}
+  - component: {fileID: 8234430980289680423}
+  - component: {fileID: 8234430980289680422}
   m_Layer: 0
   m_Name: chess_4
   m_TagString: Untagged
@@ -73402,6 +73970,64 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &8234430980289680422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8234430980289680421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d5b4eea2125e1049b7fea91d8ae1664, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ObjectFocus
+  puzzleCamera: {fileID: 588665783}
+  sharedFocusCamera: {fileID: 390290580}
+  cameraLocalOffset: {x: -0.1, y: -0.3, z: 0.5}
+  inspectionAudio: {fileID: 0}
+  cardName: The Eternal Match
+  cardFromWhom: Mystery
+  cardMainDescription: "The game began years ago. Nobody remembers the first move
+    or whose turn it is. The other pieces have long since walked away. These two
+    remain \u2014 locked in an endless battle of patience."
+  cardNameFrench: "Le Match \xC9ternel"
+  cardFromWhomFrench: "Myst\xE8re"
+  cardMainDescriptionFrench: "La partie a commenc\xE9 il y a des ann\xE9es. Personne
+    ne se souvient du premier coup ni de qui doit jouer. Les autres pi\xE8ces ont
+    disparu depuis longtemps. Ces deux-l\xE0 sont toujours l\xE0, enferm\xE9es dans
+    une interminable bataille de patience."
+  idCardPanel: {fileID: 1759364545}
+  nameTextUI: {fileID: 1853782753}
+  fromWhomTextUI: {fileID: 124690322}
+  descriptionTextUI: {fileID: 888095703}
+  cardDistance: 0.5
+  cardOffset: {x: 0.22, y: -0.18}
+  cardRotationOffset: {x: -90, y: -90, z: 0}
+  cardScale: 4.6
+  duckedVolumeMultiplier: 0.15
+  audioFadeDuration: 0.5
+--- !u!65 &8234430980289680423
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8234430980289680421}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.163466, y: 5.677509, z: 3.5002198}
+  m_Center: {x: -0.0000000048963718, y: -0.33554253, z: -0.02604318}
 --- !u!23 &8237583827175309516
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -73707,9 +74333,11 @@ MonoBehaviour:
   cardFromWhom: Lea (22)
   cardMainDescription: Slow and steady! Still hasn't moved an inch. Maria suspects
     he is just glued to the shelf.
-  cardNameFrench: 
-  cardFromWhomFrench: 
-  cardMainDescriptionFrench: 
+  cardNameFrench: GARRY L'ESCARGOT
+  cardFromWhomFrench: Lea (22)
+  cardMainDescriptionFrench: "Lentement mais s\xFBrement ! Il n\u2019a toujours pas
+    boug\xE9 d\u2019un centim\xE8tre. Sonia soup\xE7onne qu\u2019il est simplement
+    coll\xE9 \xE0 l\u2019\xE9tag\xE8re."
   idCardPanel: {fileID: 1759364545}
   nameTextUI: {fileID: 1853782753}
   fromWhomTextUI: {fileID: 124690322}
@@ -73848,6 +74476,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4509425012590946351}
+  - component: {fileID: 8291284759467453677}
+  - component: {fileID: 8291284759467453676}
   m_Layer: 0
   m_Name: Plant_2.001
   m_TagString: Untagged
@@ -73855,6 +74485,63 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &8291284759467453676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8291284759467453675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d5b4eea2125e1049b7fea91d8ae1664, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ObjectFocus
+  puzzleCamera: {fileID: 588665783}
+  sharedFocusCamera: {fileID: 390290580}
+  cameraLocalOffset: {x: -0.5, y: -0.5, z: 0.3}
+  inspectionAudio: {fileID: 0}
+  cardName: Mona the Monstera
+  cardFromWhom: Sonia
+  cardMainDescription: "Sonia started bringing plants into the caf\xE9 from the very
+    beginning. One became two, two became 22, and soon there was something green
+    in every corner."
+  cardNameFrench: Mona la Monstera
+  cardFromWhomFrench: Sonia
+  cardMainDescriptionFrench: "Sonia a commenc\xE9 \xE0 apporter des plantes au caf\xE9
+    d\xE8s le d\xE9but. Une est devenue deux, deux sont devenues 22, et bient\xF4t,
+    il y avait une touche de verdure dans chaque recoin."
+  idCardPanel: {fileID: 1759364545}
+  nameTextUI: {fileID: 1853782753}
+  fromWhomTextUI: {fileID: 124690322}
+  descriptionTextUI: {fileID: 888095703}
+  cardDistance: 0.5
+  cardOffset: {x: 0.22, y: -0.18}
+  cardRotationOffset: {x: -90, y: -90, z: 0}
+  cardScale: 4.6
+  duckedVolumeMultiplier: 0.15
+  audioFadeDuration: 0.5
+--- !u!65 &8291284759467453677
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8291284759467453675}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.49, y: 1, z: 0.73}
+  m_Center: {x: 0.17, y: 0, z: 0.42}
 --- !u!23 &8292962212982086972
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -74197,6 +74884,64 @@ Transform:
   - {fileID: 3645098484898022356}
   m_Father: {fileID: 826534367}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &8329187216373907502
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5645958040144602724}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 0.58, z: 0.76}
+  m_Center: {x: -0.16, y: 0, z: 0.33}
+--- !u!114 &8329187216373907503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5645958040144602724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d5b4eea2125e1049b7fea91d8ae1664, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ObjectFocus
+  puzzleCamera: {fileID: 588665783}
+  sharedFocusCamera: {fileID: 390290580}
+  cameraLocalOffset: {x: 0, y: 0.7, z: 0.2}
+  inspectionAudio: {fileID: 0}
+  cardName: "Sonia\u2019s Library"
+  cardFromWhom: Various
+  cardMainDescription: Take one, leave one! People keep forgetting to remove their
+    bookmarks turning it into a goldmine of forgotten grocery list, scribbles and
+    unpaid parking tickets.
+  cardNameFrench: "La biblioth\xE8que de Sonia"
+  cardFromWhomFrench: Divers
+  cardMainDescriptionFrench: "Prenez-en un, laissez-en un ! Les gens oublient sans
+    cesse leur marque-page dans les livres, transformant la biblioth\xE8que en v\xE9ritable
+    mine d\u2019or de listes de courses oubli\xE9es, de gribouillages et de PV de
+    stationnement impay\xE9s."
+  idCardPanel: {fileID: 1759364545}
+  nameTextUI: {fileID: 1853782753}
+  fromWhomTextUI: {fileID: 124690322}
+  descriptionTextUI: {fileID: 888095703}
+  cardDistance: 0.5
+  cardOffset: {x: 0.22, y: -0.18}
+  cardRotationOffset: {x: -90, y: -90, z: 0}
+  cardScale: 4.6
+  duckedVolumeMultiplier: 0.15
+  audioFadeDuration: 0.5
 --- !u!1 &8329705571367652666
 GameObject:
   m_ObjectHideFlags: 0
@@ -74725,6 +75470,66 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1177125820}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &8450342460846539075
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2974414121866645386}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.4999762, y: 1.090305, z: 0.86725247}
+  m_Center: {x: -0.040971998, y: 0.07109249, z: -0.22193085}
+--- !u!114 &8450342460846539076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2974414121866645386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d5b4eea2125e1049b7fea91d8ae1664, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ObjectFocus
+  puzzleCamera: {fileID: 588665783}
+  sharedFocusCamera: {fileID: 390290580}
+  cameraLocalOffset: {x: 0.1, y: 0, z: 0.8}
+  inspectionAudio: {fileID: 0}
+  cardName: Perot in a Shoe
+  cardFromWhom: Thomas
+  cardMainDescription: Thomas, who gifted Perot to Sonia, is a firm believer that
+    Crocs are the ultimate form of comfort. So when he found a spare Croc, he decided
+    Perot deserved to experience the same luxury. Perot has been sitting there ever
+    since, looking weirdly pleased with his new home.
+  cardNameFrench: Perot dans croc
+  cardFromWhomFrench: Thomas
+  cardMainDescriptionFrench: "Thomas, qui a offert Perot \xE0 Sonia, est convaincu
+    que les Crocs sont le summum du confort. Alors, quand il a trouv\xE9 un Croc
+    de rechange, il a d\xE9cid\xE9 que Perot m\xE9ritait de profiter du m\xEAme luxe.
+    Depuis, Perot est assis l\xE0, l'air \xE9trangement satisfait de sa nouvelle
+    maison."
+  idCardPanel: {fileID: 1759364545}
+  nameTextUI: {fileID: 1853782753}
+  fromWhomTextUI: {fileID: 124690322}
+  descriptionTextUI: {fileID: 888095703}
+  cardDistance: 0.5
+  cardOffset: {x: 0.22, y: -0.18}
+  cardRotationOffset: {x: -90, y: -90, z: 0}
+  cardScale: 4.6
+  duckedVolumeMultiplier: 0.15
+  audioFadeDuration: 0.5
 --- !u!1 &8451894964311820671
 GameObject:
   m_ObjectHideFlags: 0
@@ -75907,6 +76712,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 458221707568518603}
+  - component: {fileID: 8626085845819452273}
   m_Layer: 0
   m_Name: Dog
   m_TagString: Untagged
@@ -75914,6 +76720,27 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!65 &8626085845819452273
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8626085845819452272}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &8627563207114529257
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -76934,6 +77761,64 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &8875731491807858041
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 320971736497366303}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.86136496, y: 1.1709987, z: 0.8613641}
+  m_Center: {x: 0.008791805, y: 0.56783396, z: 0.014536204}
+--- !u!114 &8875731491807858042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 320971736497366303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d5b4eea2125e1049b7fea91d8ae1664, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ObjectFocus
+  puzzleCamera: {fileID: 588665783}
+  sharedFocusCamera: {fileID: 390290580}
+  cameraLocalOffset: {x: -0.7, y: 0.3, z: 0.2}
+  inspectionAudio: {fileID: 0}
+  cardName: ECHO CHAMBER
+  cardFromWhom: Charlotte (55)
+  cardMainDescription: Charlotte swears this is one of the few vases that traps the
+    high C note from her final theatre performance. If you whisper a secret into
+    it, it supposedly whispers back.
+  cardNameFrench: "La Chambre d\u2019\xE9cho"
+  cardFromWhomFrench: Charlotte (55)
+  cardMainDescriptionFrench: "Charlotte jure que c'est l'un des rares vases \xE0
+    capturer sa note la plus aigu\xEB de sa toute derni\xE8re repr\xE9sentation au
+    th\xE9\xE2tre. Si vous lui chuchotez un secret, il est cens\xE9 vous le murmurer
+    en retour."
+  idCardPanel: {fileID: 1759364545}
+  nameTextUI: {fileID: 1853782753}
+  fromWhomTextUI: {fileID: 124690322}
+  descriptionTextUI: {fileID: 888095703}
+  cardDistance: 0.5
+  cardOffset: {x: 0.22, y: -0.18}
+  cardRotationOffset: {x: -90, y: -90, z: 0}
+  cardScale: 4.6
+  duckedVolumeMultiplier: 0.15
+  audioFadeDuration: 0.5
 --- !u!4 &8877566473329609892
 Transform:
   m_ObjectHideFlags: 0
@@ -79170,6 +80055,63 @@ Transform:
   - {fileID: 1136520893546507642}
   m_Father: {fileID: 377837043}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &9189088370723729118
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2767648728396105815}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.68, y: 0.78, z: 0.52}
+  m_Center: {x: 0, y: 0, z: 0.32}
+--- !u!114 &9189088370723729119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2767648728396105815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d5b4eea2125e1049b7fea91d8ae1664, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ObjectFocus
+  puzzleCamera: {fileID: 588665783}
+  sharedFocusCamera: {fileID: 390290580}
+  cameraLocalOffset: {x: -0.5, y: -0.5, z: 0}
+  inspectionAudio: {fileID: 0}
+  cardName: Mara the Monstera
+  cardFromWhom: Sonia
+  cardMainDescription: "Sonia started bringing plants into the caf\xE9 from the very
+    beginning. One became two, two became 22, and soon there was something green
+    in every corner."
+  cardNameFrench: Mara la Monstera
+  cardFromWhomFrench: Sonia
+  cardMainDescriptionFrench: "Sonia a commenc\xE9 \xE0 apporter des plantes au caf\xE9
+    d\xE8s le d\xE9but. Une est devenue deux, deux sont devenues 22, et bient\xF4t,
+    il y avait une touche de verdure dans chaque recoin."
+  idCardPanel: {fileID: 1759364545}
+  nameTextUI: {fileID: 1853782753}
+  fromWhomTextUI: {fileID: 124690322}
+  descriptionTextUI: {fileID: 888095703}
+  cardDistance: 0.5
+  cardOffset: {x: 0.22, y: -0.18}
+  cardRotationOffset: {x: -90, y: -90, z: 0}
+  cardScale: 4.6
+  duckedVolumeMultiplier: 0.15
+  audioFadeDuration: 0.5
 --- !u!4 &9190309512543054450
 Transform:
   m_ObjectHideFlags: 0
@@ -79179,12 +80121,70 @@ Transform:
   m_GameObject: {fileID: 5396230557928515187}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071066, y: 0.0005435791, z: 0.7071066, w: -0.0005435791}
-  m_LocalPosition: {x: 1.9946933, y: 1.9708956, z: 2.2036579}
+  m_LocalPosition: {x: 1.995, y: 1.9708956, z: 2.102}
   m_LocalScale: {x: 0.09172301, y: 0.091722995, z: 0.09172301}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1177125820}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9190309512543054451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5396230557928515187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d5b4eea2125e1049b7fea91d8ae1664, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ObjectFocus
+  puzzleCamera: {fileID: 588665783}
+  sharedFocusCamera: {fileID: 390290580}
+  cameraLocalOffset: {x: -0.3, y: -0.5, z: -0.8}
+  inspectionAudio: {fileID: 0}
+  cardName: The Eternal Match
+  cardFromWhom: Mystery
+  cardMainDescription: "The game began years ago. Nobody remembers the first move
+    or whose turn it is. The other pieces have long since walked away. These two
+    remain \u2014 locked in an endless battle of patience."
+  cardNameFrench: "Le Match \xC9ternel"
+  cardFromWhomFrench: "Myst\xE8re"
+  cardMainDescriptionFrench: "La partie a commenc\xE9 il y a des ann\xE9es. Personne
+    ne se souvient du premier coup ni de qui doit jouer. Les autres pi\xE8ces ont
+    disparu depuis longtemps. Ces deux-l\xE0 sont toujours l\xE0, enferm\xE9es dans
+    une interminable bataille de patience."
+  idCardPanel: {fileID: 1759364545}
+  nameTextUI: {fileID: 1853782753}
+  fromWhomTextUI: {fileID: 124690322}
+  descriptionTextUI: {fileID: 888095703}
+  cardDistance: 0.5
+  cardOffset: {x: 0.22, y: -0.18}
+  cardRotationOffset: {x: -90, y: -90, z: 0}
+  cardScale: 4.6
+  duckedVolumeMultiplier: 0.15
+  audioFadeDuration: 0.5
+--- !u!65 &9190309512543054452
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5396230557928515187}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.8037537, y: 2.7722228, z: 1.8037539}
+  m_Center: {x: 0, y: -0.37583652, z: 1.9365615}
 --- !u!4 &9195507272036505472
 Transform:
   m_ObjectHideFlags: 0
