@@ -69,6 +69,10 @@ public class ObjectFocus : MonoBehaviour, IPointerClickHandler
     private static bool isAnyObjectFocused = false;
     private static ObjectFocus currentlyFocusedObject = null;
     public static bool isTransitioning = false;
+    public static float ignoreFocusClicksUntil = 0f;
+
+    public static bool IsAnyObjectFocused => isAnyObjectFocused;
+    public static ObjectFocus CurrentlyFocusedObject => currentlyFocusedObject;
 
     private PuzzleLogic puzzleLogic;
     private Coroutine audioMonitorCoroutine;
@@ -82,11 +86,35 @@ public class ObjectFocus : MonoBehaviour, IPointerClickHandler
         if (idCardPanel != null) idCardPanel.SetActive(false);
     }
 
+    public void Unfocus()
+    {
+        if (!isTransitioning && isAnyObjectFocused && currentlyFocusedObject == this)
+        {
+            ignoreFocusClicksUntil = Time.time + 0.5f;
+            StartCoroutine(TransitionRoutine(false));
+        }
+    }
+
     public void OnPointerClick(PointerEventData eventData)
     {
         if (puzzleLogic != null && puzzleLogic.isShattering) return;
         if (puzzleLogic != null && !puzzleLogic.hasExploded && !puzzleLogic.isRestored) return;
         if (isTransitioning) return;
+        if (Time.time < ignoreFocusClicksUntil) return;
+
+        // If another object is currently in focus, trigger unfocus on that focused object and DO NOT focus this object
+        if (isAnyObjectFocused && currentlyFocusedObject != this)
+        {
+            if (currentlyFocusedObject != null)
+            {
+                currentlyFocusedObject.Unfocus();
+            }
+            else
+            {
+                ignoreFocusClicksUntil = Time.time + 0.5f;
+            }
+            return;
+        }
 
         InteractablePulse pulseScript = GetComponent<InteractablePulse>();
         if (pulseScript != null)
@@ -96,7 +124,7 @@ public class ObjectFocus : MonoBehaviour, IPointerClickHandler
 
         if (isAnyObjectFocused && currentlyFocusedObject == this)
         {
-            StartCoroutine(TransitionRoutine(false));
+            Unfocus();
         }
         else if (!isAnyObjectFocused)
         {
@@ -110,6 +138,9 @@ public class ObjectFocus : MonoBehaviour, IPointerClickHandler
 
         if (isFocusing)
         {
+            isAnyObjectFocused = true;
+            currentlyFocusedObject = this;
+
             if (inspectionAudio != null)
             {
                 if (puzzleLogic != null && puzzleLogic.cafeAmbience != null)
@@ -127,14 +158,18 @@ public class ObjectFocus : MonoBehaviour, IPointerClickHandler
                 didDuckAmbience = false;
             }
 
-            if (puzzleCamera == null) puzzleCamera = GameObject.Find("CinemachineCamera")?.GetComponent<CinemachineCamera>();
-            if (sharedFocusCamera == null) sharedFocusCamera = GameObject.Find("FocusCamera")?.GetComponent<CinemachineCamera>();
-
-            if (sharedFocusCamera != null && puzzleCamera != null)
+            if (puzzleCamera == null)
             {
-                isAnyObjectFocused = true;
-                currentlyFocusedObject = this;
+                puzzleCamera = GameObject.Find("PuzzleCamera")?.GetComponent<CinemachineCamera>() 
+                            ?? GameObject.Find("CinemachineCamera")?.GetComponent<CinemachineCamera>();
+            }
+            if (sharedFocusCamera == null)
+            {
+                sharedFocusCamera = GameObject.Find("FocusCamera")?.GetComponent<CinemachineCamera>();
+            }
 
+            if (sharedFocusCamera != null)
+            {
                 Vector3 rotatedOffset = transform.rotation * cameraLocalOffset;
                 Vector3 targetPos = transform.position + rotatedOffset;
                 Quaternion targetRot = Quaternion.LookRotation(transform.position - targetPos);
@@ -143,14 +178,14 @@ public class ObjectFocus : MonoBehaviour, IPointerClickHandler
                 sharedFocusCamera.transform.rotation = targetRot;
 
                 sharedFocusCamera.Priority = 20;
+            }
+            if (puzzleCamera != null)
+            {
                 puzzleCamera.Priority = 10;
             }
         }
         else
         {
-            isAnyObjectFocused = false;
-            currentlyFocusedObject = null;
-
             if (idCardPanel != null) idCardPanel.SetActive(false);
 
             if (didDuckAmbience && puzzleLogic != null && puzzleLogic.cafeAmbience != null)
@@ -161,8 +196,15 @@ public class ObjectFocus : MonoBehaviour, IPointerClickHandler
 
             didDuckAmbience = false;
 
-            if (puzzleCamera == null) puzzleCamera = GameObject.Find("CinemachineCamera")?.GetComponent<CinemachineCamera>();
-            if (sharedFocusCamera == null) sharedFocusCamera = GameObject.Find("FocusCamera")?.GetComponent<CinemachineCamera>();
+            if (puzzleCamera == null)
+            {
+                puzzleCamera = GameObject.Find("PuzzleCamera")?.GetComponent<CinemachineCamera>() 
+                            ?? GameObject.Find("CinemachineCamera")?.GetComponent<CinemachineCamera>();
+            }
+            if (sharedFocusCamera == null)
+            {
+                sharedFocusCamera = GameObject.Find("FocusCamera")?.GetComponent<CinemachineCamera>();
+            }
 
             if (puzzleCamera != null) puzzleCamera.Priority = 20;
             if (sharedFocusCamera != null) sharedFocusCamera.Priority = 10;
@@ -216,10 +258,16 @@ public class ObjectFocus : MonoBehaviour, IPointerClickHandler
 
         isTransitioning = false;
 
-        if (!isFocusing && inspectionAudio != null)
+        if (!isFocusing)
         {
-            inspectionAudio.Stop();
-            if (audioMonitorCoroutine != null) StopCoroutine(audioMonitorCoroutine);
+            isAnyObjectFocused = false;
+            currentlyFocusedObject = null;
+
+            if (inspectionAudio != null)
+            {
+                inspectionAudio.Stop();
+                if (audioMonitorCoroutine != null) StopCoroutine(audioMonitorCoroutine);
+            }
         }
     }
 
@@ -286,24 +334,26 @@ public class ObjectFocus : MonoBehaviour, IPointerClickHandler
 
         if (!isAnyObjectFocused || currentlyFocusedObject != this || isTransitioning) return;
 
-        if (Pointer.current != null && Pointer.current.press.wasPressedThisFrame)
+        if (Pointer.current != null && Pointer.current.press.wasReleasedThisFrame)
         {
             Vector2 screenPosition = Pointer.current.position.ReadValue();
             Ray ray = Camera.main.ScreenPointToRay(screenPosition);
 
             if (Physics.Raycast(ray, out RaycastHit hit))
             {
-                if (hit.transform != this.transform && !hit.transform.IsChildOf(this.transform))
+                bool isSelfOrChild = hit.transform == this.transform || hit.transform.IsChildOf(this.transform);
+                bool isIDCard = idCardPanel != null && (hit.transform == idCardPanel.transform || hit.transform.IsChildOf(idCardPanel.transform));
+
+                // If hit object has ObjectFocus or MandatoryClick, its OnPointerClick handles unfocusing.
+                // Otherwise, handle unfocusing background environment clicks on pointer release.
+                if (!isSelfOrChild && !isIDCard && hit.transform.GetComponent<ObjectFocus>() == null && hit.transform.GetComponent<MandatoryClick>() == null)
                 {
-                    if (hit.transform.GetComponent<ObjectFocus>() == null)
-                    {
-                        StartCoroutine(TransitionRoutine(false));
-                    }
+                    Unfocus();
                 }
             }
             else
             {
-                StartCoroutine(TransitionRoutine(false));
+                Unfocus();
             }
         }
     }
