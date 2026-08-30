@@ -757,6 +757,7 @@ GameObject:
   - component: {fileID: 92097928}
   - component: {fileID: 92097932}
   - component: {fileID: 92097931}
+  - component: {fileID: 92097933}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
@@ -911,6 +912,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 15.08, y: 1.64, z: 14.57}
   m_Center: {x: -2.2, y: 0.59, z: 1.7}
+--- !u!114 &92097933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 92097926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6558044a0e6d82949831c6b835376602, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LocalizedMaterial
+  englishMaterial: {fileID: 2100000, guid: 4b268fa020a76a5499168ff8bc658ccc, type: 2}
+  frenchMaterial: {fileID: 2100000, guid: 5c4ed350dc7c11842a4aa869ac4ff5cb, type: 2}
+  materialIndex: 0
 --- !u!1 &95913553
 GameObject:
   m_ObjectHideFlags: 0
@@ -1977,6 +1993,7 @@ GameObject:
   - component: {fileID: 232523673}
   - component: {fileID: 232523672}
   - component: {fileID: 232523671}
+  - component: {fileID: 232523675}
   m_Layer: 0
   m_Name: PosterR_Image (4)
   m_TagString: Untagged
@@ -2110,6 +2127,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 232523669}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &232523675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 232523669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6558044a0e6d82949831c6b835376602, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LocalizedMaterial
+  englishMaterial: {fileID: 2100000, guid: 66d2f0a9b32a05f438404a9f35ee4841, type: 2}
+  frenchMaterial: {fileID: 2100000, guid: 944b5791854a29044bc19dbd5093c01f, type: 2}
+  materialIndex: 0
 --- !u!1001 &238546440
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2566,6 +2598,7 @@ GameObject:
   - component: {fileID: 277644853}
   - component: {fileID: 277644852}
   - component: {fileID: 277644851}
+  - component: {fileID: 277644855}
   m_Layer: 0
   m_Name: PosterF_Image (6)
   m_TagString: Untagged
@@ -2699,6 +2732,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 277644849}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &277644855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 277644849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6558044a0e6d82949831c6b835376602, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LocalizedMaterial
+  englishMaterial: {fileID: 2100000, guid: d737fd43d45c5334e916e08cd6ff309f, type: 2}
+  frenchMaterial: {fileID: 2100000, guid: 72a27e587c6bed34db41e10b8f82c8df, type: 2}
+  materialIndex: 0
 --- !u!1 &287008182
 GameObject:
   m_ObjectHideFlags: 0
@@ -5316,6 +5364,7 @@ GameObject:
   - component: {fileID: 530295014}
   - component: {fileID: 530295013}
   - component: {fileID: 530295016}
+  - component: {fileID: 530295017}
   m_Layer: 0
   m_Name: PosterF_Image
   m_TagString: Untagged
@@ -5449,6 +5498,21 @@ MonoBehaviour:
   cardScale: 1
   duckedVolumeMultiplier: 0.15
   audioFadeDuration: 0.5
+--- !u!114 &530295017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 530295011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6558044a0e6d82949831c6b835376602, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LocalizedMaterial
+  englishMaterial: {fileID: 2100000, guid: 510340c2b6410674db63a683471da33c, type: 2}
+  frenchMaterial: {fileID: 2100000, guid: b6a772af88b17e74580fe3b0a899bec6, type: 2}
+  materialIndex: 0
 --- !u!1 &534800522
 GameObject:
   m_ObjectHideFlags: 0
@@ -5584,6 +5648,7 @@ GameObject:
   - component: {fileID: 555773518}
   - component: {fileID: 555773517}
   - component: {fileID: 555773516}
+  - component: {fileID: 555773519}
   m_Layer: 0
   m_Name: post it (7)
   m_TagString: Untagged
@@ -5684,6 +5749,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 555773514}
   m_Mesh: {fileID: 4579454407841743219, guid: b56c8a18d615fab44bc6285a4fb9e8d0, type: 3}
+--- !u!114 &555773519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 555773514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6558044a0e6d82949831c6b835376602, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LocalizedMaterial
+  englishMaterial: {fileID: 2100000, guid: a29214bd1f1aa954db0a6c5fd1c62a53, type: 2}
+  frenchMaterial: {fileID: 2100000, guid: d0657790e0071024baf5957834d8cfb5, type: 2}
+  materialIndex: 0
 --- !u!114 &560888443
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6587,6 +6667,7 @@ GameObject:
   - component: {fileID: 602901143}
   - component: {fileID: 602901142}
   - component: {fileID: 602901141}
+  - component: {fileID: 602901145}
   m_Layer: 0
   m_Name: PosterR_Image (6)
   m_TagString: Untagged
@@ -6720,6 +6801,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 602901139}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &602901145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 602901139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6558044a0e6d82949831c6b835376602, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LocalizedMaterial
+  englishMaterial: {fileID: 2100000, guid: d737fd43d45c5334e916e08cd6ff309f, type: 2}
+  frenchMaterial: {fileID: 2100000, guid: 72a27e587c6bed34db41e10b8f82c8df, type: 2}
+  materialIndex: 0
 --- !u!1 &604867979 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2834452149904478141, guid: 3631046d7cbf7f54fb7e2f936f627c0a, type: 3}
@@ -7061,6 +7157,7 @@ GameObject:
   - component: {fileID: 639726526}
   - component: {fileID: 639726525}
   - component: {fileID: 639726524}
+  - component: {fileID: 639726527}
   m_Layer: 0
   m_Name: post it (1)
   m_TagString: Untagged
@@ -7161,6 +7258,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 639726522}
   m_Mesh: {fileID: 4579454407841743219, guid: b56c8a18d615fab44bc6285a4fb9e8d0, type: 3}
+--- !u!114 &639726527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 639726522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6558044a0e6d82949831c6b835376602, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LocalizedMaterial
+  englishMaterial: {fileID: 2100000, guid: 5bb732cc52c8eb44ba012efdc1af89cb, type: 2}
+  frenchMaterial: {fileID: 2100000, guid: 9256dd5ac5a21e04c8ed631d34bfb8ee, type: 2}
+  materialIndex: 0
 --- !u!1 &639943072
 GameObject:
   m_ObjectHideFlags: 0
@@ -7222,6 +7334,7 @@ GameObject:
   - component: {fileID: 640709810}
   - component: {fileID: 640709809}
   - component: {fileID: 640709808}
+  - component: {fileID: 640709811}
   m_Layer: 0
   m_Name: Texture
   m_TagString: Untagged
@@ -7323,6 +7436,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 640709806}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &640709811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 640709806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6558044a0e6d82949831c6b835376602, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LocalizedMaterial
+  englishMaterial: {fileID: 2100000, guid: 895a0692e9340fa40812e2b4800389af, type: 2}
+  frenchMaterial: {fileID: 2100000, guid: 3bcedc6211590ba468306f738f274867, type: 2}
+  materialIndex: 0
 --- !u!1001 &651897298
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9082,6 +9210,7 @@ GameObject:
   - component: {fileID: 877713536}
   - component: {fileID: 877713540}
   - component: {fileID: 877713541}
+  - component: {fileID: 877713542}
   m_Layer: 0
   m_Name: Receipt
   m_TagString: Untagged
@@ -9224,6 +9353,21 @@ MonoBehaviour:
   pulseSpeed: 1.5
   onlyPulseDuringPuzzle: 0
   puzzleLogic: {fileID: 0}
+--- !u!114 &877713542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 877713535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6558044a0e6d82949831c6b835376602, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LocalizedMaterial
+  englishMaterial: {fileID: 2100000, guid: 0b74ec0987dc8374f938a6ee893afd95, type: 2}
+  frenchMaterial: {fileID: 2100000, guid: 07f2757222f530a4e84091a2394b45f5, type: 2}
+  materialIndex: 0
 --- !u!1 &888095701
 GameObject:
   m_ObjectHideFlags: 0
@@ -10500,6 +10644,7 @@ GameObject:
   - component: {fileID: 1058223748}
   - component: {fileID: 1058223747}
   - component: {fileID: 1058223750}
+  - component: {fileID: 1058223751}
   m_Layer: 0
   m_Name: PosterL_Image
   m_TagString: Untagged
@@ -10633,6 +10778,21 @@ MonoBehaviour:
   cardScale: 1
   duckedVolumeMultiplier: 0.15
   audioFadeDuration: 0.5
+--- !u!114 &1058223751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1058223745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6558044a0e6d82949831c6b835376602, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LocalizedMaterial
+  englishMaterial: {fileID: 2100000, guid: 510340c2b6410674db63a683471da33c, type: 2}
+  frenchMaterial: {fileID: 2100000, guid: b6a772af88b17e74580fe3b0a899bec6, type: 2}
+  materialIndex: 0
 --- !u!1 &1111080820
 GameObject:
   m_ObjectHideFlags: 0
@@ -18245,6 +18405,7 @@ GameObject:
   - component: {fileID: 1334178756}
   - component: {fileID: 1334178755}
   - component: {fileID: 1334178758}
+  - component: {fileID: 1334178759}
   m_Layer: 0
   m_Name: PosterR_Image
   m_TagString: Untagged
@@ -18378,6 +18539,21 @@ MonoBehaviour:
   cardScale: 1
   duckedVolumeMultiplier: 0.15
   audioFadeDuration: 0.5
+--- !u!114 &1334178759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1334178753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6558044a0e6d82949831c6b835376602, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LocalizedMaterial
+  englishMaterial: {fileID: 2100000, guid: 510340c2b6410674db63a683471da33c, type: 2}
+  frenchMaterial: {fileID: 2100000, guid: b6a772af88b17e74580fe3b0a899bec6, type: 2}
+  materialIndex: 0
 --- !u!1 &1350580495
 GameObject:
   m_ObjectHideFlags: 0
@@ -19831,6 +20007,7 @@ GameObject:
   - component: {fileID: 1577913249}
   - component: {fileID: 1577913248}
   - component: {fileID: 1577913247}
+  - component: {fileID: 1577913250}
   m_Layer: 0
   m_Name: post it (4)
   m_TagString: Untagged
@@ -19931,6 +20108,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1577913245}
   m_Mesh: {fileID: 4579454407841743219, guid: b56c8a18d615fab44bc6285a4fb9e8d0, type: 3}
+--- !u!114 &1577913250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1577913245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6558044a0e6d82949831c6b835376602, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LocalizedMaterial
+  englishMaterial: {fileID: 2100000, guid: a38d2db3e07cf9f4e833b3e6825ce4df, type: 2}
+  frenchMaterial: {fileID: 2100000, guid: cb180c991a4399e4a8008fac30f6a7e8, type: 2}
+  materialIndex: 0
 --- !u!1001 &1581220570
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20789,6 +20981,7 @@ GameObject:
   - component: {fileID: 1680323510}
   - component: {fileID: 1680323509}
   - component: {fileID: 1680323508}
+  - component: {fileID: 1680323512}
   m_Layer: 0
   m_Name: PosterL_Image (4)
   m_TagString: Untagged
@@ -20922,6 +21115,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1680323506}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1680323512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1680323506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6558044a0e6d82949831c6b835376602, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LocalizedMaterial
+  englishMaterial: {fileID: 2100000, guid: 66d2f0a9b32a05f438404a9f35ee4841, type: 2}
+  frenchMaterial: {fileID: 2100000, guid: 944b5791854a29044bc19dbd5093c01f, type: 2}
+  materialIndex: 0
 --- !u!1 &1714731359
 GameObject:
   m_ObjectHideFlags: 0
@@ -21799,6 +22007,7 @@ GameObject:
   - component: {fileID: 1783617578}
   - component: {fileID: 1783617577}
   - component: {fileID: 1783617576}
+  - component: {fileID: 1783617580}
   m_Layer: 0
   m_Name: PosterL_Image (6)
   m_TagString: Untagged
@@ -21932,6 +22141,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1783617574}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1783617580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1783617574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6558044a0e6d82949831c6b835376602, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LocalizedMaterial
+  englishMaterial: {fileID: 2100000, guid: d737fd43d45c5334e916e08cd6ff309f, type: 2}
+  frenchMaterial: {fileID: 2100000, guid: 72a27e587c6bed34db41e10b8f82c8df, type: 2}
+  materialIndex: 0
 --- !u!1 &1785373048
 GameObject:
   m_ObjectHideFlags: 0
@@ -23438,6 +23662,7 @@ GameObject:
   - component: {fileID: 1875274109}
   - component: {fileID: 1875274108}
   - component: {fileID: 1875274107}
+  - component: {fileID: 1875274110}
   m_Layer: 0
   m_Name: post it (5)
   m_TagString: Untagged
@@ -23538,6 +23763,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1875274105}
   m_Mesh: {fileID: 4579454407841743219, guid: b56c8a18d615fab44bc6285a4fb9e8d0, type: 3}
+--- !u!114 &1875274110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1875274105}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6558044a0e6d82949831c6b835376602, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LocalizedMaterial
+  englishMaterial: {fileID: 2100000, guid: ba08d91399b10ff48b1be6f9944605e7, type: 2}
+  frenchMaterial: {fileID: 2100000, guid: 9fea3d0034f91a644b3d2d09229f19d7, type: 2}
+  materialIndex: 0
 --- !u!1 &1904016140 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 4f8ed96ee08ec254694a1cbbd2ab1eb7, type: 3}
@@ -23879,6 +24119,7 @@ GameObject:
   - component: {fileID: 1930338487}
   - component: {fileID: 1930338486}
   - component: {fileID: 1930338485}
+  - component: {fileID: 1930338488}
   m_Layer: 0
   m_Name: post it (6)
   m_TagString: Untagged
@@ -23979,6 +24220,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1930338483}
   m_Mesh: {fileID: 4579454407841743219, guid: b56c8a18d615fab44bc6285a4fb9e8d0, type: 3}
+--- !u!114 &1930338488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1930338483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6558044a0e6d82949831c6b835376602, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LocalizedMaterial
+  englishMaterial: {fileID: 2100000, guid: c1cdbd778cbcc4341952ebc68a9ba2e5, type: 2}
+  frenchMaterial: {fileID: 2100000, guid: 1da9f00d646553b4b89843265c3c87b9, type: 2}
+  materialIndex: 0
 --- !u!4 &1950025497 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d96e900d8bdc4c34082af506b8608de2, type: 3}
@@ -25073,7 +25329,7 @@ MonoBehaviour:
     - text: "On se voit vendredi ? On fait une toute derni\xE8re f\xEAte !"
       startTime: 2
       duration: 5.5
-  initialLanguage: 1
+  initialLanguage: 0
 --- !u!1 &1982638315 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 3712e5ec0b4806c44b93390f477aeedd, type: 3}
@@ -25252,6 +25508,7 @@ GameObject:
   - component: {fileID: 2008866605}
   - component: {fileID: 2008866604}
   - component: {fileID: 2008866603}
+  - component: {fileID: 2008866607}
   m_Layer: 0
   m_Name: PosterF_Image (4)
   m_TagString: Untagged
@@ -25385,6 +25642,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2008866601}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2008866607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2008866601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6558044a0e6d82949831c6b835376602, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LocalizedMaterial
+  englishMaterial: {fileID: 2100000, guid: 169cbbc05937cef4fa7be9bb0602cfbd, type: 2}
+  frenchMaterial: {fileID: 2100000, guid: 1c906f63911ceef46b87f70fc9bf6a1e, type: 2}
+  materialIndex: 0
 --- !u!1 &2032622046
 GameObject:
   m_ObjectHideFlags: 0
@@ -26029,6 +26301,7 @@ GameObject:
   - component: {fileID: 2054180912}
   - component: {fileID: 2054180911}
   - component: {fileID: 2054180910}
+  - component: {fileID: 2054180913}
   m_Layer: 0
   m_Name: post it (2)
   m_TagString: Untagged
@@ -26129,6 +26402,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2054180908}
   m_Mesh: {fileID: 4579454407841743219, guid: b56c8a18d615fab44bc6285a4fb9e8d0, type: 3}
+--- !u!114 &2054180913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2054180908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6558044a0e6d82949831c6b835376602, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LocalizedMaterial
+  englishMaterial: {fileID: 2100000, guid: 5836bafbf42674c478e97b1337ffee60, type: 2}
+  frenchMaterial: {fileID: 2100000, guid: 1417874629e12ad4584d617504ceaa38, type: 2}
+  materialIndex: 0
 --- !u!1001 &2087416653
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26232,6 +26520,7 @@ GameObject:
   - component: {fileID: 2088594476}
   - component: {fileID: 2088594475}
   - component: {fileID: 2088594474}
+  - component: {fileID: 2088594477}
   m_Layer: 0
   m_Name: post it (3)
   m_TagString: Untagged
@@ -26332,6 +26621,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2088594472}
   m_Mesh: {fileID: 4579454407841743219, guid: b56c8a18d615fab44bc6285a4fb9e8d0, type: 3}
+--- !u!114 &2088594477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2088594472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6558044a0e6d82949831c6b835376602, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LocalizedMaterial
+  englishMaterial: {fileID: 2100000, guid: 6e720bcfb391fa8469a7a39014d25367, type: 2}
+  frenchMaterial: {fileID: 2100000, guid: c871c793794935940b3ef3ff0075581d, type: 2}
+  materialIndex: 0
 --- !u!1 &2099965723
 GameObject:
   m_ObjectHideFlags: 0
@@ -29851,6 +30155,7 @@ GameObject:
   - component: {fileID: 6280016128179320740}
   - component: {fileID: 6280016128179320739}
   - component: {fileID: 6280016128179320742}
+  - component: {fileID: 6280016128179320743}
   m_Layer: 0
   m_Name: post it
   m_TagString: Untagged
@@ -62346,6 +62651,21 @@ MonoBehaviour:
   pulseSpeed: 1.5
   onlyPulseDuringPuzzle: 1
   puzzleLogic: {fileID: 493759547}
+--- !u!114 &6280016128179320743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 599606052553636331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6558044a0e6d82949831c6b835376602, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LocalizedMaterial
+  englishMaterial: {fileID: 2100000, guid: 9fc915be54bd9644b8c9cbcb642f360c, type: 2}
+  frenchMaterial: {fileID: 2100000, guid: c5eaa429c75b6d445b92ca2ee0a55a6e, type: 2}
+  materialIndex: 0
 --- !u!1 &6282396693258896385
 GameObject:
   m_ObjectHideFlags: 0
