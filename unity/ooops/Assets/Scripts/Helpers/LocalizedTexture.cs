@@ -85,6 +85,8 @@ public class LocalizedTexture : MonoBehaviour
                         meshRenderer.sharedMaterials = sharedMats;
                     }
                 }
+
+                NotifyPulse();
             }
             else if (uiImage != null)
             {
@@ -131,6 +133,8 @@ public class LocalizedTexture : MonoBehaviour
                         meshRenderer.sharedMaterials = sharedMats;
                     }
                 }
+
+                NotifyPulse();
             }
             else if (rawImage != null)
             {
@@ -140,6 +144,18 @@ public class LocalizedTexture : MonoBehaviour
             {
                 uiImage.sprite = Sprite.Create(tex2D, new Rect(0, 0, tex2D.width, tex2D.height), new Vector2(0.5f, 0.5f));
             }
+        }
+    }
+
+    private void NotifyPulse()
+    {
+        InteractablePulse pulse = GetComponent<InteractablePulse>();
+        if (pulse == null) pulse = GetComponentInParent<InteractablePulse>();
+        if (pulse == null) pulse = GetComponentInChildren<InteractablePulse>();
+
+        if (pulse != null)
+        {
+            pulse.RefreshMaterials();
         }
     }
 

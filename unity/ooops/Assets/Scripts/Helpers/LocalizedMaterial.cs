@@ -72,10 +72,25 @@ public class LocalizedMaterial : MonoBehaviour
                     targetRenderer.sharedMaterials = sharedMats;
                 }
             }
+
+            // Notify InteractablePulse if present so it can pulse the new material
+            NotifyPulse();
         }
         else if (targetGraphic != null)
         {
             targetGraphic.material = activeMaterial;
+        }
+    }
+
+    private void NotifyPulse()
+    {
+        InteractablePulse pulse = GetComponent<InteractablePulse>();
+        if (pulse == null) pulse = GetComponentInParent<InteractablePulse>();
+        if (pulse == null) pulse = GetComponentInChildren<InteractablePulse>();
+
+        if (pulse != null)
+        {
+            pulse.RefreshMaterials();
         }
     }
 

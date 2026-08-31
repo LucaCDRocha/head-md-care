@@ -25,13 +25,55 @@ public class InteractablePulse : MonoBehaviour, IPointerClickHandler
             puzzleLogic = FindAnyObjectByType<PuzzleLogic>();
         }
 
+        RefreshMaterials();
+    }
+
+    private void OnEnable()
+    {
+        SubtitleManager.OnLanguageChanged += RefreshMaterials;
+    }
+
+    private void OnDisable()
+    {
+        SubtitleManager.OnLanguageChanged -= RefreshMaterials;
+    }
+
+    /// <summary>
+    /// Re-fetches current materials from child renderers and re-enables emission keywords.
+    /// Call this whenever materials on renderers are swapped dynamically (e.g. localization).
+    /// </summary>
+    public void RefreshMaterials()
+    {
         childRenderers = GetComponentsInChildren<Renderer>();
+        if (childRenderers == null || childRenderers.Length == 0)
+        {
+            instancedMaterials = new Material[0];
+            return;
+        }
+
         instancedMaterials = new Material[childRenderers.Length];
 
         for (int i = 0; i < childRenderers.Length; i++)
         {
-            instancedMaterials[i] = childRenderers[i].material;
-            instancedMaterials[i].EnableKeyword("_EMISSION");
+            if (childRenderers[i] != null)
+            {
+                if (Application.isPlaying)
+                {
+                    instancedMaterials[i] = childRenderers[i].material;
+                    if (instancedMaterials[i] != null)
+                    {
+                        instancedMaterials[i].EnableKeyword("_EMISSION");
+                        if (stopPulsing)
+                        {
+                            instancedMaterials[i].SetColor("_EmissionColor", Color.black);
+                        }
+                    }
+                }
+                else
+                {
+                    instancedMaterials[i] = childRenderers[i].sharedMaterial;
+                }
+            }
         }
     }
 
@@ -94,7 +136,7 @@ public class InteractablePulse : MonoBehaviour, IPointerClickHandler
         {
             foreach (Material mat in instancedMaterials)
             {
-                if (mat != null) Destroy(mat);
+                if (mat != null && Application.isPlaying) Destroy(mat);
             }
         }
     }
