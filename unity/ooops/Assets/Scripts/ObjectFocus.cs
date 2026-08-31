@@ -14,8 +14,14 @@ public class ObjectFocus : MonoBehaviour, IPointerClickHandler
     [Header("Framing Settings")]
     public Vector3 cameraLocalOffset = new Vector3(0f, 0.5f, -1.5f);
 
-    [Header("Inspection Audio")]
+    [Header("Inspection & Camera Audio")]
     public AudioSource inspectionAudio;
+
+    [Tooltip("Optional: AudioSource played immediately when zooming into this object.")]
+    public AudioSource zoomInAudio;
+
+    [Tooltip("Optional: AudioSource played immediately when zooming out back to puzzle camera.")]
+    public AudioSource zoomOutAudio;
 
     [Header("ID Card Lore (Script)")]
     [Tooltip("The main header, like a title or person's name.")]
@@ -140,6 +146,7 @@ public class ObjectFocus : MonoBehaviour, IPointerClickHandler
         {
             isAnyObjectFocused = true;
             currentlyFocusedObject = this;
+            PlaySoundEffect(zoomInAudio);
 
             if (inspectionAudio != null)
             {
@@ -186,6 +193,7 @@ public class ObjectFocus : MonoBehaviour, IPointerClickHandler
         }
         else
         {
+            PlaySoundEffect(zoomOutAudio);
             if (idCardPanel != null) idCardPanel.SetActive(false);
 
             if (didDuckAmbience && puzzleLogic != null && puzzleLogic.cafeAmbience != null)
@@ -355,6 +363,29 @@ public class ObjectFocus : MonoBehaviour, IPointerClickHandler
             {
                 Unfocus();
             }
+        }
+    }
+
+    private void PlaySoundEffect(AudioSource customSource)
+    {
+        if (customSource == null) return;
+
+        AudioSource[] sources = customSource.GetComponentsInChildren<AudioSource>(true);
+        if (sources == null || sources.Length == 0)
+        {
+            if (customSource.gameObject.activeInHierarchy)
+            {
+                if (customSource.clip != null) customSource.PlayOneShot(customSource.clip);
+                else customSource.Play();
+            }
+            return;
+        }
+
+        foreach (AudioSource src in sources)
+        {
+            if (src == null || !src.gameObject.activeInHierarchy) continue;
+            if (src.clip != null) src.PlayOneShot(src.clip);
+            else src.Play();
         }
     }
 

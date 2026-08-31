@@ -13,6 +13,8 @@ public partial class PuzzleLogic : MonoBehaviour
     public AudioSource ohNoDialogue;
     public AudioSource rewindAudio; 
     public AudioSource snapAudio; 
+    [Tooltip("Optional: Step-by-step AudioSources played alongside snapAudio for each piece snap (Step 1, Step 2, etc.)")]
+    public AudioSource[] snapStepsAudios; 
     public AudioSource tapAudio; 
 
     [Tooltip("The Cafe Ambience sound. It will fade out during the crash, and slowly fade back in as pieces snap!")]
@@ -245,8 +247,8 @@ public partial class PuzzleLogic : MonoBehaviour
         puzzleChaosStartTime = Time.time; 
         puzzleChaosActive = true; 
 
-        if (shatterAudio != null) shatterAudio.Play();
-        if (ohNoDialogue != null) ohNoDialogue.Play();
+        PlayAllAudioSources(shatterAudio);
+        PlayAllAudioSources(ohNoDialogue);
 
         PuzzleExploded?.Invoke();
         StartCoroutine(CinematicShatterSequence());
@@ -271,7 +273,7 @@ public partial class PuzzleLogic : MonoBehaviour
 
             if (elapsed >= rewindAudioDelay && !rewindStarted)
             {
-                if (rewindAudio != null) rewindAudio.Play();
+                PlayAllAudioSources(rewindAudio);
                 rewindStarted = true;
             }
 
@@ -279,7 +281,7 @@ public partial class PuzzleLogic : MonoBehaviour
         }
 
         if (cafeAmbience != null) cafeAmbience.volume = 0f;
-        if (rewindAudio != null) rewindAudio.Stop();
+        StopAllAudioSources(rewindAudio);
 
         for (int i = 0; i < puzzlePieces.Length; i++)
         {
@@ -402,11 +404,7 @@ public partial class PuzzleLogic : MonoBehaviour
 
     public void PlayPieceTapSound()
     {
-        if (tapAudio != null)
-        {
-            if (tapAudio.clip != null) tapAudio.PlayOneShot(tapAudio.clip);
-            else tapAudio.Play();
-        }
+        PlayAllAudioSources(tapAudio, oneShot: true);
     }
 
     public void RegisterPieceSnap()
@@ -438,14 +436,10 @@ public partial class PuzzleLogic : MonoBehaviour
 
         pieceVelocities[pieceIndex] = Vector3.zero;
 
-        if (snapAudio != null)
-        {
-            if (snapAudio.clip != null) snapAudio.PlayOneShot(snapAudio.clip);
-            else snapAudio.Play();
-        }
-
         int snappedCount = GetSnappedPieceCount();
         int totalPieceCount = puzzlePieces.Length;
+
+        PlayPieceSnapSound(snappedCount - 1);
         
         if (cafeAmbience != null && totalPieceCount > 0)
         {
@@ -464,4 +458,58 @@ public partial class PuzzleLogic : MonoBehaviour
             ObjectRestored?.Invoke();
         }
     }
+
+    #region Audio Helpers
+    private void PlayAllAudioSources(AudioSource source, bool oneShot = false)
+    {
+        if (source == null) return;
+        AudioSource[] sources = source.GetComponentsInChildren<AudioSource>(true);
+        if (sources == null || sources.Length == 0)
+        {
+            PlaySingleAudioSource(source, oneShot);
+            return;
+        }
+
+        foreach (AudioSource src in sources)
+        {
+            PlaySingleAudioSource(src, oneShot);
+        }
+    }
+
+    private void PlaySingleAudioSource(AudioSource src, bool oneShot)
+    {
+        if (src == null || !src.gameObject.activeInHierarchy) return;
+        if (oneShot && src.clip != null)
+        {
+            src.PlayOneShot(src.clip);
+        }
+        else
+        {
+            src.Play();
+        }
+    }
+
+    private void StopAllAudioSources(AudioSource source)
+    {
+        if (source == null) return;
+        AudioSource[] sources = source.GetComponentsInChildren<AudioSource>(true);
+        foreach (AudioSource src in sources)
+        {
+            if (src != null) src.Stop();
+        }
+    }
+
+    private void PlayPieceSnapSound(int snapStepIndex)
+    {
+        // 1. Always play base snapAudio (if assigned)
+        PlayAllAudioSources(snapAudio, oneShot: true);
+
+        // 2. Also play step-specific AudioSource from snapStepsAudios array
+        if (snapStepsAudios != null && snapStepsAudios.Length > 0)
+        {
+            int index = Mathf.Clamp(snapStepIndex, 0, snapStepsAudios.Length - 1);
+            PlayAllAudioSources(snapStepsAudios[index], oneShot: true);
+        }
+    }
+    #endregion
 }

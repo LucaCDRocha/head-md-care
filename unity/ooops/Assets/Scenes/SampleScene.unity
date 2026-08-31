@@ -170,6 +170,8 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: 0, y: 0.7, z: 0}
   inspectionAudio: {fileID: 0}
+  zoomInAudio: {fileID: 247433635}
+  zoomOutAudio: {fileID: 788253616}
   cardName: 
   cardFromWhom: 
   cardMainDescription: 
@@ -512,6 +514,8 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: 0.5, y: -0.4, z: 0}
   inspectionAudio: {fileID: 1209675119}
+  zoomInAudio: {fileID: 0}
+  zoomOutAudio: {fileID: 0}
   cardName: 
   cardFromWhom: 
   cardMainDescription: 
@@ -567,6 +571,135 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 79c035242d7afca439145ad7e72a6b1f, type: 3}
   m_PrefabInstance: {fileID: 1664871640}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &53125902
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 53125903}
+  - component: {fileID: 53125904}
+  m_Layer: 0
+  m_Name: SFX_Puzzle (4)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &53125903
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 53125902}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 538507928}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &53125904
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 53125902}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: cffb1d418d3a2e34db8f9e57b0bce703, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &70958707
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -875,6 +1008,8 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: 0, y: 0.31, z: 0.01}
   inspectionAudio: {fileID: 0}
+  zoomInAudio: {fileID: 247433635}
+  zoomOutAudio: {fileID: 788253616}
   cardName: 
   cardFromWhom: 
   cardMainDescription: 
@@ -1105,6 +1240,8 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: 0, y: 0.7, z: 0}
   inspectionAudio: {fileID: 0}
+  zoomInAudio: {fileID: 247433635}
+  zoomOutAudio: {fileID: 788253616}
   cardName: 
   cardFromWhom: 
   cardMainDescription: 
@@ -1572,6 +1709,8 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: 0, y: -0.6, z: 0.2}
   inspectionAudio: {fileID: 0}
+  zoomInAudio: {fileID: 0}
+  zoomOutAudio: {fileID: 0}
   cardName: 
   cardFromWhom: 
   cardMainDescription: 
@@ -2032,6 +2171,8 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: 0, y: 0.7, z: 0}
   inspectionAudio: {fileID: 0}
+  zoomInAudio: {fileID: 247433635}
+  zoomOutAudio: {fileID: 788253616}
   cardName: 
   cardFromWhom: 
   cardMainDescription: 
@@ -2421,6 +2562,135 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 245628436}
   m_Mesh: {fileID: -4008330602789056331, guid: b78522574c9d5b549b970a6cffe8263d, type: 3}
+--- !u!1 &247433633
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 247433634}
+  - component: {fileID: 247433635}
+  m_Layer: 0
+  m_Name: SFX_ZoomIn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &247433634
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 247433633}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 493759550}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &247433635
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 247433633}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: e974a1f4027c73d41b3aab254ec6740d, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.5
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &255821704
 GameObject:
   m_ObjectHideFlags: 0
@@ -2637,6 +2907,8 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: 0, y: 0.7, z: 0}
   inspectionAudio: {fileID: 0}
+  zoomInAudio: {fileID: 247433635}
+  zoomOutAudio: {fileID: 788253616}
   cardName: 
   cardFromWhom: 
   cardMainDescription: 
@@ -2929,6 +3201,135 @@ Transform:
   m_Children: []
   m_Father: {fileID: 150107341}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &329476582
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 329476583}
+  - component: {fileID: 329476584}
+  m_Layer: 0
+  m_Name: SFX_Puzzle (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &329476583
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 329476582}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 538507928}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &329476584
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 329476582}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: 86e658fc05ddef34a8a79a0f9cbbf999, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -3391,6 +3792,135 @@ Transform:
   m_Children: []
   m_Father: {fileID: 150107341}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!1 &368113103
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 368113104}
+  - component: {fileID: 368113105}
+  m_Layer: 0
+  m_Name: SFX_Puzzle (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &368113104
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 368113103}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 538507928}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &368113105
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 368113103}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: 096c42cddc9bf66468bc4c5a84d7565c, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &376259288
 GameObject:
   m_ObjectHideFlags: 0
@@ -3728,6 +4258,8 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: 0, y: 0.7, z: 0}
   inspectionAudio: {fileID: 0}
+  zoomInAudio: {fileID: 247433635}
+  zoomOutAudio: {fileID: 788253616}
   cardName: 
   cardFromWhom: 
   cardMainDescription: 
@@ -4626,6 +5158,7 @@ MonoBehaviour:
   ohNoDialogue: {fileID: 0}
   rewindAudio: {fileID: 0}
   snapAudio: {fileID: 0}
+  snapStepsAudios: []
   tapAudio: {fileID: 0}
   cafeAmbience: {fileID: 0}
   rewindAudioDelay: 0.4
@@ -4768,7 +5301,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InteractablePulse
   enableGlow: 1
-  glowColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  glowColor: {r: 0.9372549, g: 0.84705883, b: 0.73333335, a: 1}
   pulseSpeed: 1.5
   onlyPulseDuringPuzzle: 1
   puzzleLogic: {fileID: 493759547}
@@ -4788,6 +5321,8 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: -0.1, y: 0.5, z: 0}
   inspectionAudio: {fileID: 1158748526}
+  zoomInAudio: {fileID: 247433635}
+  zoomOutAudio: {fileID: 788253616}
   cardName: 
   cardFromWhom: 
   cardMainDescription: 
@@ -4997,6 +5532,13 @@ MonoBehaviour:
   ohNoDialogue: {fileID: 2125179461}
   rewindAudio: {fileID: 725387708}
   snapAudio: {fileID: 1470134418}
+  snapStepsAudios:
+  - {fileID: 1987843463}
+  - {fileID: 368113105}
+  - {fileID: 329476584}
+  - {fileID: 53125904}
+  - {fileID: 1170527595}
+  - {fileID: 1225386888}
   tapAudio: {fileID: 1785373050}
   cafeAmbience: {fileID: 1645135197}
   rewindAudioDelay: 0.4
@@ -5482,6 +6024,8 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: 0, y: 0.7, z: 0}
   inspectionAudio: {fileID: 0}
+  zoomInAudio: {fileID: 247433635}
+  zoomOutAudio: {fileID: 788253616}
   cardName: 
   cardFromWhom: 
   cardMainDescription: 
@@ -5636,6 +6180,43 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 536578782}
   m_Mesh: {fileID: -3567805574324167704, guid: b78522574c9d5b549b970a6cffe8263d, type: 3}
+--- !u!1 &538507927
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 538507928}
+  m_Layer: 0
+  m_Name: SFX_Puzzle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &538507928
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 538507927}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1987843462}
+  - {fileID: 368113104}
+  - {fileID: 329476583}
+  - {fileID: 53125903}
+  - {fileID: 1170527594}
+  - {fileID: 1225386887}
+  m_Father: {fileID: 493759550}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &555773514
 GameObject:
   m_ObjectHideFlags: 0
@@ -6430,6 +7011,8 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: 0, y: 0.7, z: 0}
   inspectionAudio: {fileID: 0}
+  zoomInAudio: {fileID: 247433635}
+  zoomOutAudio: {fileID: 788253616}
   cardName: 
   cardFromWhom: 
   cardMainDescription: 
@@ -6706,6 +7289,8 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: 0, y: 0.7, z: 0}
   inspectionAudio: {fileID: 0}
+  zoomInAudio: {fileID: 247433635}
+  zoomOutAudio: {fileID: 788253616}
   cardName: 
   cardFromWhom: 
   cardMainDescription: 
@@ -6990,7 +7575,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: 87a8ffb2817444129b9eca8860f43567, type: 3}
+  m_Resource: {fileID: 8300000, guid: 3828d8b12b61af546bcf19a091ae31a2, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -8007,7 +8592,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 7f31b7a4085ac6548b34052f92a64218, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.9
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -8119,7 +8704,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: b12175593201d7a40adb6f6f5025636a, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.9
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -8216,7 +8801,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: eb9c1a8fbfcdfea44ba76d50cd6d12fc, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.9
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -8759,6 +9344,8 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: 0, y: 0.7, z: 0}
   inspectionAudio: {fileID: 0}
+  zoomInAudio: {fileID: 247433635}
+  zoomOutAudio: {fileID: 788253616}
   cardName: 
   cardFromWhom: 
   cardMainDescription: 
@@ -8854,6 +9441,135 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 780880789}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &788253614
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 788253615}
+  - component: {fileID: 788253616}
+  m_Layer: 0
+  m_Name: SFX_ZoomOut
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &788253615
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 788253614}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 493759550}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &788253616
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 788253614}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: 31987c15dc3309d4a873e6c26531c4fd, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.5
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &793206400
 GameObject:
   m_ObjectHideFlags: 0
@@ -9220,6 +9936,8 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: 0, y: 0.7, z: 0}
   inspectionAudio: {fileID: 0}
+  zoomInAudio: {fileID: 247433635}
+  zoomOutAudio: {fileID: 788253616}
   cardName: 
   cardFromWhom: 
   cardMainDescription: 
@@ -9545,7 +10263,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InteractablePulse
   enableGlow: 1
-  glowColor: {r: 0.5769481, g: 0.5214259, b: 0.45141962, a: 1}
+  glowColor: {r: 0.9372549, g: 0.84705883, b: 0.73333335, a: 1}
   pulseSpeed: 1.5
   onlyPulseDuringPuzzle: 0
   puzzleLogic: {fileID: 0}
@@ -9946,6 +10664,8 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: 0, y: 0.7, z: 0}
   inspectionAudio: {fileID: 0}
+  zoomInAudio: {fileID: 247433635}
+  zoomOutAudio: {fileID: 788253616}
   cardName: 
   cardFromWhom: 
   cardMainDescription: 
@@ -10772,6 +11492,8 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: 0, y: -0.6, z: 0.2}
   inspectionAudio: {fileID: 376259290}
+  zoomInAudio: {fileID: 0}
+  zoomOutAudio: {fileID: 0}
   cardName: 
   cardFromWhom: 
   cardMainDescription: 
@@ -10958,6 +11680,8 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: 0, y: 0.7, z: 0}
   inspectionAudio: {fileID: 0}
+  zoomInAudio: {fileID: 247433635}
+  zoomOutAudio: {fileID: 788253616}
   cardName: 
   cardFromWhom: 
   cardMainDescription: 
@@ -11554,6 +12278,135 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &1170527593
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1170527594}
+  - component: {fileID: 1170527595}
+  m_Layer: 0
+  m_Name: SFX_Puzzle (5)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1170527594
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1170527593}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 538507928}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &1170527595
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1170527593}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: 8ac1303efb9aa184f8cc0d024e131f25, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1177125819
 GameObject:
   m_ObjectHideFlags: 0
@@ -11770,6 +12623,8 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: 0, y: 0.7, z: 0}
   inspectionAudio: {fileID: 0}
+  zoomInAudio: {fileID: 247433635}
+  zoomOutAudio: {fileID: 788253616}
   cardName: 
   cardFromWhom: 
   cardMainDescription: 
@@ -12350,6 +13205,135 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.001311459, y: 0.0013821531, z: 0.0010614045}
   m_Center: {x: 0.00022913795, y: -0.00019767621, z: 0.00009600531}
+--- !u!1 &1225386886
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1225386887}
+  - component: {fileID: 1225386888}
+  m_Layer: 0
+  m_Name: SFX_Puzzle (6)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1225386887
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1225386886}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 538507928}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &1225386888
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1225386886}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: 3e5e56341b0469445be9ea1bfad8ad15, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1234237940
 GameObject:
   m_ObjectHideFlags: 0
@@ -18168,6 +19152,8 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: 0, y: 0.7, z: 0}
   inspectionAudio: {fileID: 0}
+  zoomInAudio: {fileID: 247433635}
+  zoomOutAudio: {fileID: 788253616}
   cardName: 
   cardFromWhom: 
   cardMainDescription: 
@@ -18719,6 +19705,8 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: 0, y: 0.7, z: 0}
   inspectionAudio: {fileID: 0}
+  zoomInAudio: {fileID: 247433635}
+  zoomOutAudio: {fileID: 788253616}
   cardName: 
   cardFromWhom: 
   cardMainDescription: 
@@ -18974,7 +19962,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: 6dcd680665d6c4bfaa1976d8e1a6b200, type: 3}
+  m_Resource: {fileID: 8300000, guid: fc786623b7a39504d924690136f99a70, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -19389,7 +20377,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: c6bb202540fee1f4cb3967b9d85e6408, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.8
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -20105,7 +21093,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: 0e87b7ded2a175143b26cf91e4194334, type: 3}
+  m_Resource: {fileID: 8300000, guid: ad660593dc1d8ab4f87cfafffa180b15, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -21216,6 +22204,8 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: 0, y: 0.7, z: 0}
   inspectionAudio: {fileID: 0}
+  zoomInAudio: {fileID: 247433635}
+  zoomOutAudio: {fileID: 788253616}
   cardName: 
   cardFromWhom: 
   cardMainDescription: 
@@ -21616,10 +22606,19 @@ PrefabInstance:
       addedObject: {fileID: 965749317}
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 244b481f490471c4f8ce0a762da97c97, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 247433634}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 244b481f490471c4f8ce0a762da97c97, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 788253615}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 244b481f490471c4f8ce0a762da97c97, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 725387709}
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 244b481f490471c4f8ce0a762da97c97, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1470134419}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 244b481f490471c4f8ce0a762da97c97, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 538507928}
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 244b481f490471c4f8ce0a762da97c97, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1785373049}
@@ -22242,6 +23241,8 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: 0, y: 0.7, z: 0}
   inspectionAudio: {fileID: 0}
+  zoomInAudio: {fileID: 247433635}
+  zoomOutAudio: {fileID: 788253616}
   cardName: 
   cardFromWhom: 
   cardMainDescription: 
@@ -23167,6 +24168,8 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: 0, y: 0.7, z: 0}
   inspectionAudio: {fileID: 0}
+  zoomInAudio: {fileID: 247433635}
+  zoomOutAudio: {fileID: 788253616}
   cardName: 
   cardFromWhom: 
   cardMainDescription: 
@@ -24000,6 +25003,8 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: 0, y: -0.3, z: -1}
   inspectionAudio: {fileID: 0}
+  zoomInAudio: {fileID: 0}
+  zoomOutAudio: {fileID: 0}
   cardName: 
   cardFromWhom: 
   cardMainDescription: 
@@ -24804,6 +25809,8 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: -0.6, y: 0.8, z: 0.3}
   inspectionAudio: {fileID: 1626761000}
+  zoomInAudio: {fileID: 247433635}
+  zoomOutAudio: {fileID: 788253616}
   cardName: 
   cardFromWhom: 
   cardMainDescription: 
@@ -24926,6 +25933,8 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: 0, y: 0.7, z: 0}
   inspectionAudio: {fileID: 0}
+  zoomInAudio: {fileID: 247433635}
+  zoomOutAudio: {fileID: 788253616}
   cardName: 
   cardFromWhom: 
   cardMainDescription: 
@@ -25547,6 +26556,8 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: -1, y: 0.5, z: 0}
   inspectionAudio: {fileID: 0}
+  zoomInAudio: {fileID: 0}
+  zoomOutAudio: {fileID: 0}
   cardName: 
   cardFromWhom: 
   cardMainDescription: 
@@ -25602,6 +26613,135 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MandatoryClick
   puzzleLogic: {fileID: 493759547}
+--- !u!1 &1987843461
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1987843462}
+  - component: {fileID: 1987843463}
+  m_Layer: 0
+  m_Name: SFX_Puzzle (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1987843462
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1987843461}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 538507928}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &1987843463
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1987843461}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: e437cffdeb1364f43ac4ea30157a1c64, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &1991497768
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25743,6 +26883,8 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: 0, y: 0.7, z: 0}
   inspectionAudio: {fileID: 0}
+  zoomInAudio: {fileID: 247433635}
+  zoomOutAudio: {fileID: 788253616}
   cardName: 
   cardFromWhom: 
   cardMainDescription: 
@@ -26017,6 +27159,8 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: 0, y: 0.7, z: 0}
   inspectionAudio: {fileID: 0}
+  zoomInAudio: {fileID: 247433635}
+  zoomOutAudio: {fileID: 788253616}
   cardName: 
   cardFromWhom: 
   cardMainDescription: 
@@ -26469,6 +27613,8 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: 0, y: -0.3, z: -1}
   inspectionAudio: {fileID: 591700504}
+  zoomInAudio: {fileID: 0}
+  zoomOutAudio: {fileID: 0}
   cardName: 
   cardFromWhom: 
   cardMainDescription: 
@@ -30350,8 +31496,8 @@ GameObject:
   - component: {fileID: 6280016128179320741}
   - component: {fileID: 6280016128179320740}
   - component: {fileID: 6280016128179320739}
-  - component: {fileID: 6280016128179320742}
   - component: {fileID: 6280016128179320743}
+  - component: {fileID: 6280016128179320742}
   m_Layer: 0
   m_Name: post it
   m_TagString: Untagged
@@ -45791,6 +46937,8 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: -0.5, y: 0, z: 0.8}
   inspectionAudio: {fileID: 0}
+  zoomInAudio: {fileID: 247433635}
+  zoomOutAudio: {fileID: 788253616}
   cardName: The Little Pilot
   cardFromWhom: Oliver (5)
   cardMainDescription: "Oliver would \u201Cfly\u201D this plane across tables while
@@ -48897,6 +50045,8 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: 0, y: -0.2, z: -0.7}
   inspectionAudio: {fileID: 0}
+  zoomInAudio: {fileID: 247433635}
+  zoomOutAudio: {fileID: 788253616}
   cardName: Robo the Robot
   cardFromWhom: Mark (42)
   cardMainDescription: Built from spare toaster and bicycle parts. Mark claims Robo
@@ -49665,6 +50815,8 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: 0.8, y: -0.9, z: 0.3}
   inspectionAudio: {fileID: 748251846}
+  zoomInAudio: {fileID: 247433635}
+  zoomOutAudio: {fileID: 788253616}
   cardName: 
   cardFromWhom: 
   cardMainDescription: 
@@ -49728,7 +50880,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InteractablePulse
   enableGlow: 1
-  glowColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  glowColor: {r: 0.9372549, g: 0.84705883, b: 0.73333335, a: 1}
   pulseSpeed: 1.5
   onlyPulseDuringPuzzle: 1
   puzzleLogic: {fileID: 493759547}
@@ -50734,6 +51886,8 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: 0, y: 0.7, z: 0.2}
   inspectionAudio: {fileID: 0}
+  zoomInAudio: {fileID: 247433635}
+  zoomOutAudio: {fileID: 788253616}
   cardName: "Sonia\u2019s Library"
   cardFromWhom: Various
   cardMainDescription: Take one, leave one! People keep forgetting to remove their
@@ -51328,15 +52482,17 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: -0.5, y: -0.2, z: -0.8}
   inspectionAudio: {fileID: 0}
+  zoomInAudio: {fileID: 247433635}
+  zoomOutAudio: {fileID: 788253616}
   cardName: The Endless Knot
   cardFromWhom: Unknown
   cardMainDescription: No beginning. No end. Several brave souls have attempted to
     solve it over the years. Some gave up. Others are still trying. The mystery remains.
   cardNameFrench: "Le N\u0153ud sans fin"
   cardFromWhomFrench: Inconnue
-  cardMainDescriptionFrench: "Ni d\xE9but, ni fin. Au fil des ans, plusieurs \xE2mes
-    courageuses ont tent\xE9 de le d\xE9nouer. Certaines ont abandonn\xE9. D\u2019autres
-    continuent d\u2019essayer. Le myst\xE8re demeure."
+  cardMainDescriptionFrench: "Ni d\xE9but, ni fin. Au fil des ann\xE9es, plusieurs
+    \xE2mes courageuses ont tent\xE9 de le d\xE9nouer. Certaines ont abandonn\xE9.
+    D\u2019autres continuent d\u2019essayer. Le myst\xE8re demeure."
   idCardPanel: {fileID: 1759364545}
   nameTextUI: {fileID: 1853782753}
   fromWhomTextUI: {fileID: 124690322}
@@ -55813,6 +56969,8 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: 0, y: 0.7, z: 0.2}
   inspectionAudio: {fileID: 0}
+  zoomInAudio: {fileID: 247433635}
+  zoomOutAudio: {fileID: 788253616}
   cardName: "Sonia\u2019s Library"
   cardFromWhom: Various
   cardMainDescription: Take one, leave one! People keep forgetting to remove their
@@ -59606,9 +60764,11 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: 0, y: -0.7, z: 0.2}
   inspectionAudio: {fileID: 0}
+  zoomInAudio: {fileID: 247433635}
+  zoomOutAudio: {fileID: 788253616}
   cardName: Candle of Truth
-  cardFromWhom: Sonia
-  cardMainDescription: Sonia added the candle herself to ensure no birthday goes
+  cardFromWhom: Maria
+  cardMainDescription: Maria added the candle herself to ensure no birthday goes
     uncelebrated, though she swears the wick sparks on its own whenever someone tries
     to lie about their age for a free pastry.
   cardNameFrench: "La bougie de v\xE9rit\xE9"
@@ -62780,6 +63940,8 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: 0, y: 0, z: 0.5}
   inspectionAudio: {fileID: 1037208196}
+  zoomInAudio: {fileID: 247433635}
+  zoomOutAudio: {fileID: 788253616}
   cardName: 
   cardFromWhom: 
   cardMainDescription: 
@@ -62843,7 +64005,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InteractablePulse
   enableGlow: 1
-  glowColor: {r: 0.9372549, g: 0.84705883, b: 0.73333335, a: 1}
+  glowColor: {r: 1, g: 0, b: 0.9468713, a: 1}
   pulseSpeed: 1.5
   onlyPulseDuringPuzzle: 1
   puzzleLogic: {fileID: 493759547}
@@ -65535,6 +66697,8 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: 0, y: 1, z: 0}
   inspectionAudio: {fileID: 0}
+  zoomInAudio: {fileID: 247433635}
+  zoomOutAudio: {fileID: 788253616}
   cardName: Ducky on Duty
   cardFromWhom: Sam (31)
   cardMainDescription: Ducky sits on the shelf as an early warning system. If he
@@ -65661,15 +66825,17 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: -0.5, y: -0.5, z: 0.5}
   inspectionAudio: {fileID: 0}
+  zoomInAudio: {fileID: 247433635}
+  zoomOutAudio: {fileID: 788253616}
   cardName: Mimi the Monstera
-  cardFromWhom: Sonia
-  cardMainDescription: "Sonia started bringing plants into the caf\xE9 from the very
+  cardFromWhom: Maria
+  cardMainDescription: "Maria started bringing plants into the caf\xE9 from the very
     beginning. One became two, two became 22, and soon there was something green
     in every corner."
   cardNameFrench: Mimi la Monstera
   cardFromWhomFrench: Sonia
-  cardMainDescriptionFrench: "Sonia a commenc\xE9 \xE0 apporter des plantes au caf\xE9
-    d\xE8s le d\xE9but. Une est devenue deux, deux sont devenues 22, et bient\xF4t,
+  cardMainDescriptionFrench: "D\xE8s le d\xE9but, Sonia apportait r\xE9guli\xE8rement
+    des plantes au caf\xE9. Une est devenue deux, deux sont devenues 22, et bient\xF4t,
     il y avait une touche de verdure dans chaque recoin."
   idCardPanel: {fileID: 1759364545}
   nameTextUI: {fileID: 1853782753}
@@ -69227,6 +70393,8 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: 0, y: 0.2, z: 0.65}
   inspectionAudio: {fileID: 0}
+  zoomInAudio: {fileID: 247433635}
+  zoomOutAudio: {fileID: 788253616}
   cardName: MR. GNOME
   cardFromWhom: Walter (61)
   cardMainDescription: "He ran away from Walter\u2019s front yard to stake out the
@@ -69236,8 +70404,8 @@ MonoBehaviour:
   cardFromWhomFrench: Walter (61)
   cardMainDescriptionFrench: "Il s\u2019est \xE9chapp\xE9 du jardin de Walter. Depuis,
     il passe chaque matin \xE0 scruter la file d\u2019attente pour l\u2019espresso,
-    esp\xE9rant d\xE9sesp\xE9r\xE9ment que la femme de ses r\xEAves vienne commander
-    un latte \xE0 la vanille."
+    dans l\u2019espoir de voir enfin la femme de ses r\xEAves commander un latte
+    \xE0 la vanille."
   idCardPanel: {fileID: 1759364545}
   nameTextUI: {fileID: 1853782753}
   fromWhomTextUI: {fileID: 124690322}
@@ -69870,12 +71038,14 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: 0, y: 0, z: -0.7}
   inspectionAudio: {fileID: 0}
+  zoomInAudio: {fileID: 247433635}
+  zoomOutAudio: {fileID: 788253616}
   cardName: Dumbo the Elephant
   cardFromWhom: Sara (9)
   cardMainDescription: "Sara gave him as a gift. His enormous ears have picked up
     countless conversations over the years \u2014 from first dates to break-ups and
     even questionable business ideas. He might know more neighbourhood secrets than
-    Sonia does."
+    Maria does."
   cardNameFrench: "Dumbo l\u2019\xE9l\xE9phant"
   cardFromWhomFrench: Sara (9)
   cardMainDescriptionFrench: "Sara l\u2019a offert en cadeau. Avec ses \xE9normes
@@ -71250,10 +72420,12 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: 0.5, y: 1, z: 0.8}
   inspectionAudio: {fileID: 0}
+  zoomInAudio: {fileID: 247433635}
+  zoomOutAudio: {fileID: 788253616}
   cardName: Wooden Bird
   cardFromWhom: Werner (68)
-  cardMainDescription: "\LWerner carved this right outside on the bench while defending
-    his strawberry-glazed donut from two very determined sparrows."
+  cardMainDescription: Werner carved this right outside on the bench while defending
+    his strawberry-glazed donut from two very determined sparrows.
   cardNameFrench: "L\u2019oiseau en bois"
   cardFromWhomFrench: Werner (68)
   cardMainDescriptionFrench: "Werner a sculpt\xE9 cet oiseau juste devant le caf\xE9,
@@ -72137,9 +73309,11 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: 1, y: -0.5, z: 0}
   inspectionAudio: {fileID: 0}
+  zoomInAudio: {fileID: 247433635}
+  zoomOutAudio: {fileID: 788253616}
   cardName: The Guardians
   cardFromWhom: Mirella (27)
-  cardMainDescription: "Mirella brought these two along to keep Sonia\u2019s indoor
+  cardMainDescription: "Mirella brought these two along to keep Maria\u2019s indoor
     garden company. They\u2019ve been quietly keeping watch ever since, making sure
     everything stays green, peaceful, and slightly mysterious."
   cardNameFrench: Les gardiens
@@ -72808,6 +73982,8 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: -0.1, y: -0.7, z: 0}
   inspectionAudio: {fileID: 0}
+  zoomInAudio: {fileID: 247433635}
+  zoomOutAudio: {fileID: 788253616}
   cardName: MS. GNOME
   cardFromWhom: Walter (57)
   cardMainDescription: Walter brought her here after claiming she was banned from
@@ -73285,16 +74461,19 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: 0.3, y: -1, z: 0.2}
   inspectionAudio: {fileID: 0}
+  zoomInAudio: {fileID: 247433635}
+  zoomOutAudio: {fileID: 788253616}
   cardName: Chubby the Pomeranian
   cardFromWhom: Liam (11)
-  cardMainDescription: Liam traded his fluffy pomeranian to Sonia in exchange for
+  cardMainDescription: Liam traded his fluffy pomeranian to Maria in exchange for
     a giant chocolate chip cookie, declaring it a "fair and legally binding business
     transaction".
   cardNameFrench: Chubby le spitz nain
   cardFromWhomFrench: Liam (11)
-  cardMainDescriptionFrench: "Liam a \xE9chang\xE9 son spitz nain tout doux avec
-    Sonia contre un cookie g\xE9ant aux p\xE9pites de chocolat, qualifiant cela de
-    \xAB transaction commerciale \xE9quitable et juridiquement contraignante \xBB."
+  cardMainDescriptionFrench: "Liam a donn\xE9 son petit spitz tout doux \xE0 Sonia
+    en \xE9change d\u2019un cookie g\xE9ant aux p\xE9pites de chocolat, d\xE9clarant
+    qu\u2019il s\u2019agissait d\u2019un \xAB \xE9change parfaitement \xE9quitable
+    et juridiquement valable \xBB."
   idCardPanel: {fileID: 1759364545}
   nameTextUI: {fileID: 1853782753}
   fromWhomTextUI: {fileID: 124690322}
@@ -73514,6 +74693,8 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: 1, y: -0.2, z: 1}
   inspectionAudio: {fileID: 1238971889}
+  zoomInAudio: {fileID: 247433635}
+  zoomOutAudio: {fileID: 788253616}
   cardName: 
   cardFromWhom: 
   cardMainDescription: 
@@ -73643,6 +74824,8 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: 0, y: 0.3, z: 0.7}
   inspectionAudio: {fileID: 0}
+  zoomInAudio: {fileID: 247433635}
+  zoomOutAudio: {fileID: 788253616}
   cardName: ECHO CHAMBER
   cardFromWhom: Charlotte (55)
   cardMainDescription: Charlotte swears this is one of the few vases that traps the
@@ -74220,6 +75403,8 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: 0.7, y: -0.4, z: -0.1}
   inspectionAudio: {fileID: 0}
+  zoomInAudio: {fileID: 247433635}
+  zoomOutAudio: {fileID: 788253616}
   cardName: MIDNIGHT EXPRESS
   cardFromWhom: Bert (42)
   cardMainDescription: "When the sun goes down and no one looks, it makes its rounds
@@ -74315,9 +75500,11 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: 0, y: -0.5, z: -1}
   inspectionAudio: {fileID: 0}
+  zoomInAudio: {fileID: 247433635}
+  zoomOutAudio: {fileID: 788253616}
   cardName: The Guardians
   cardFromWhom: Mirella (27)
-  cardMainDescription: "Mirella brought these two along to keep Sonia\u2019s indoor
+  cardMainDescription: "Mirella brought these two along to keep Maria\u2019s indoor
     garden company. They\u2019ve been quietly keeping watch ever since, making sure
     everything stays green, peaceful, and slightly mysterious."
   cardNameFrench: Les gardiens
@@ -74502,6 +75689,8 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: -0.1, y: -0.3, z: 0.5}
   inspectionAudio: {fileID: 0}
+  zoomInAudio: {fileID: 247433635}
+  zoomOutAudio: {fileID: 788253616}
   cardName: The Eternal Match
   cardFromWhom: Mystery
   cardMainDescription: "The game began years ago. Nobody remembers the first move
@@ -74845,6 +76034,8 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: 0.7, y: -0.2, z: -0.3}
   inspectionAudio: {fileID: 0}
+  zoomInAudio: {fileID: 247433635}
+  zoomOutAudio: {fileID: 788253616}
   cardName: GARRY THE SNAIL
   cardFromWhom: Lea (22)
   cardMainDescription: Slow and steady! Still hasn't moved an inch. Maria suspects
@@ -75017,15 +76208,17 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: -0.5, y: -0.5, z: 0.3}
   inspectionAudio: {fileID: 0}
+  zoomInAudio: {fileID: 247433635}
+  zoomOutAudio: {fileID: 788253616}
   cardName: Mona the Monstera
-  cardFromWhom: Sonia
-  cardMainDescription: "Sonia started bringing plants into the caf\xE9 from the very
+  cardFromWhom: Maria
+  cardMainDescription: "Maria started bringing plants into the caf\xE9 from the very
     beginning. One became two, two became 22, and soon there was something green
     in every corner."
   cardNameFrench: Mona la Monstera
   cardFromWhomFrench: Sonia
-  cardMainDescriptionFrench: "Sonia a commenc\xE9 \xE0 apporter des plantes au caf\xE9
-    d\xE8s le d\xE9but. Une est devenue deux, deux sont devenues 22, et bient\xF4t,
+  cardMainDescriptionFrench: "D\xE8s le d\xE9but, Sonia apportait r\xE9guli\xE8rement
+    des plantes au caf\xE9. Une est devenue deux, deux sont devenues 22, et bient\xF4t,
     il y avait une touche de verdure dans chaque recoin."
   idCardPanel: {fileID: 1759364545}
   nameTextUI: {fileID: 1853782753}
@@ -75057,7 +76250,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 0.49, y: 1, z: 0.73}
-  m_Center: {x: 0.17, y: 0, z: 0.42}
+  m_Center: {x: 0.07, y: 0, z: 0.42}
 --- !u!23 &8292962212982086972
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -75213,6 +76406,8 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: -0.8, y: -0.2, z: -0.5}
   inspectionAudio: {fileID: 949465678}
+  zoomInAudio: {fileID: 247433635}
+  zoomOutAudio: {fileID: 788253616}
   cardName: 
   cardFromWhom: 
   cardMainDescription: 
@@ -75276,7 +76471,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InteractablePulse
   enableGlow: 1
-  glowColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  glowColor: {r: 0.9372549, g: 0.84705883, b: 0.73333335, a: 1}
   pulseSpeed: 1.5
   onlyPulseDuringPuzzle: 1
   puzzleLogic: {fileID: 493759547}
@@ -75437,6 +76632,8 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: 0, y: 0.7, z: 0.2}
   inspectionAudio: {fileID: 0}
+  zoomInAudio: {fileID: 247433635}
+  zoomOutAudio: {fileID: 788253616}
   cardName: "Sonia\u2019s Library"
   cardFromWhom: Various
   cardMainDescription: Take one, leave one! People keep forgetting to remove their
@@ -76023,9 +77220,11 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: 0.1, y: 0, z: 0.8}
   inspectionAudio: {fileID: 0}
+  zoomInAudio: {fileID: 247433635}
+  zoomOutAudio: {fileID: 788253616}
   cardName: Perot in a Shoe
   cardFromWhom: Thomas
-  cardMainDescription: Thomas, who gifted Perot to Sonia, is a firm believer that
+  cardMainDescription: Thomas, who gifted Perot to Maria, is a firm believer that
     Crocs are the ultimate form of comfort. So when he found a spare Croc, he decided
     Perot deserved to experience the same luxury. Perot has been sitting there ever
     since, looking weirdly pleased with his new home.
@@ -78314,6 +79513,8 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: -0.7, y: 0.3, z: 0.2}
   inspectionAudio: {fileID: 0}
+  zoomInAudio: {fileID: 247433635}
+  zoomOutAudio: {fileID: 788253616}
   cardName: ECHO CHAMBER
   cardFromWhom: Charlotte (55)
   cardMainDescription: Charlotte swears this is one of the few vases that traps the
@@ -80608,15 +81809,17 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: -0.5, y: -0.5, z: 0}
   inspectionAudio: {fileID: 0}
+  zoomInAudio: {fileID: 247433635}
+  zoomOutAudio: {fileID: 788253616}
   cardName: Mara the Monstera
-  cardFromWhom: Sonia
-  cardMainDescription: "Sonia started bringing plants into the caf\xE9 from the very
+  cardFromWhom: Maria
+  cardMainDescription: "Maria started bringing plants into the caf\xE9 from the very
     beginning. One became two, two became 22, and soon there was something green
     in every corner."
   cardNameFrench: Mara la Monstera
   cardFromWhomFrench: Sonia
-  cardMainDescriptionFrench: "Sonia a commenc\xE9 \xE0 apporter des plantes au caf\xE9
-    d\xE8s le d\xE9but. Une est devenue deux, deux sont devenues 22, et bient\xF4t,
+  cardMainDescriptionFrench: "D\xE8s le d\xE9but, Sonia apportait r\xE9guli\xE8rement
+    des plantes au caf\xE9. Une est devenue deux, deux sont devenues 22, et bient\xF4t,
     il y avait une touche de verdure dans chaque recoin."
   idCardPanel: {fileID: 1759364545}
   nameTextUI: {fileID: 1853782753}
@@ -80659,6 +81862,8 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: -0.3, y: -0.5, z: -0.8}
   inspectionAudio: {fileID: 0}
+  zoomInAudio: {fileID: 247433635}
+  zoomOutAudio: {fileID: 788253616}
   cardName: The Eternal Match
   cardFromWhom: Mystery
   cardMainDescription: "The game began years ago. Nobody remembers the first move
