@@ -620,7 +620,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: cffb1d418d3a2e34db8f9e57b0bce703, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -3260,7 +3260,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 86e658fc05ddef34a8a79a0f9cbbf999, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -3851,7 +3851,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 096c42cddc9bf66468bc4c5a84d7565c, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -5466,7 +5466,7 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: -0.1, y: 0.5, z: 0}
   inspectionAudio: {fileID: 1158748526}
-  backgroundMusic: {fileID: 0}
+  backgroundMusic: {fileID: 378635493}
   musicFadeDuration: 0.5
   zoomInAudio: {fileID: 247433635}
   zoomOutAudio: {fileID: 788253616}
@@ -12486,7 +12486,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 8ac1303efb9aa184f8cc0d024e131f25, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -13415,7 +13415,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 3e5e56341b0469445be9ea1bfad8ad15, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -26213,7 +26213,7 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: -0.6, y: 0.8, z: 0.3}
   inspectionAudio: {fileID: 1626761000}
-  backgroundMusic: {fileID: 0}
+  backgroundMusic: {fileID: 378635493}
   musicFadeDuration: 0.5
   zoomInAudio: {fileID: 247433635}
   zoomOutAudio: {fileID: 788253616}
@@ -27070,7 +27070,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: e437cffdeb1364f43ac4ea30157a1c64, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -51237,7 +51237,7 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: 0.8, y: -0.9, z: 0.3}
   inspectionAudio: {fileID: 748251846}
-  backgroundMusic: {fileID: 0}
+  backgroundMusic: {fileID: 378635493}
   musicFadeDuration: 0.5
   zoomInAudio: {fileID: 247433635}
   zoomOutAudio: {fileID: 788253616}
@@ -64372,7 +64372,7 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: 0, y: 0, z: 0.5}
   inspectionAudio: {fileID: 1037208196}
-  backgroundMusic: {fileID: 0}
+  backgroundMusic: {fileID: 378635493}
   musicFadeDuration: 0.5
   zoomInAudio: {fileID: 247433635}
   zoomOutAudio: {fileID: 788253616}
@@ -75143,7 +75143,7 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: 1, y: -0.2, z: 1}
   inspectionAudio: {fileID: 1238971889}
-  backgroundMusic: {fileID: 0}
+  backgroundMusic: {fileID: 378635493}
   musicFadeDuration: 0.5
   zoomInAudio: {fileID: 247433635}
   zoomOutAudio: {fileID: 788253616}

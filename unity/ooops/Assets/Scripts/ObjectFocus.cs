@@ -87,7 +87,7 @@ public class ObjectFocus : MonoBehaviour, IPointerClickHandler
     private PuzzleLogic puzzleLogic;
     private Coroutine audioMonitorCoroutine;
     private Coroutine ambienceFadeCoroutine;
-    private float preDuckedVolume = 1f;
+    private float[] preDuckedVolumes;
     private bool didDuckAmbience = false;
 
     private Coroutine musicFadeCoroutine;
@@ -161,11 +161,9 @@ public class ObjectFocus : MonoBehaviour, IPointerClickHandler
                 if (puzzleLogic != null && puzzleLogic.cafeAmbience != null)
                 {
                     didDuckAmbience = true;
-                    preDuckedVolume = puzzleLogic.cafeAmbience.volume;
-                    float targetDuckedVolume = preDuckedVolume * duckedVolumeMultiplier;
 
                     if (ambienceFadeCoroutine != null) StopCoroutine(ambienceFadeCoroutine);
-                    ambienceFadeCoroutine = StartCoroutine(FadeAmbienceRoutine(puzzleLogic.cafeAmbience, targetDuckedVolume, audioFadeDuration));
+                    ambienceFadeCoroutine = StartCoroutine(FadeAmbienceRoutine(puzzleLogic.cafeAmbience, true, audioFadeDuration));
                 }
             }
             else
@@ -207,7 +205,7 @@ public class ObjectFocus : MonoBehaviour, IPointerClickHandler
             if (didDuckAmbience && puzzleLogic != null && puzzleLogic.cafeAmbience != null)
             {
                 if (ambienceFadeCoroutine != null) StopCoroutine(ambienceFadeCoroutine);
-                ambienceFadeCoroutine = StartCoroutine(FadeAmbienceRoutine(puzzleLogic.cafeAmbience, preDuckedVolume, audioFadeDuration));
+                ambienceFadeCoroutine = StartCoroutine(FadeAmbienceRoutine(puzzleLogic.cafeAmbience, false, audioFadeDuration));
             }
 
             didDuckAmbience = false;
@@ -312,17 +310,30 @@ public class ObjectFocus : MonoBehaviour, IPointerClickHandler
         }
     }
 
-    private IEnumerator FadeAmbienceRoutine(AudioSource source, float targetVolume, float duration)
+    private IEnumerator FadeAmbienceRoutine(AudioSource source, bool isDucking, float duration)
     {
         if (source == null) yield break;
 
         AudioSource[] sources = source.GetComponentsInChildren<AudioSource>(true);
         if (sources == null || sources.Length == 0) sources = new AudioSource[] { source };
 
-        float[] startVolumes = new float[sources.Length];
+        if (isDucking || preDuckedVolumes == null || preDuckedVolumes.Length != sources.Length)
+        {
+            preDuckedVolumes = new float[sources.Length];
+            for (int i = 0; i < sources.Length; i++)
+            {
+                preDuckedVolumes[i] = sources[i] != null ? sources[i].volume : 1f;
+            }
+        }
+
+        float[] currentStartVolumes = new float[sources.Length];
+        float[] targetVolumes = new float[sources.Length];
+
         for (int i = 0; i < sources.Length; i++)
         {
-            startVolumes[i] = sources[i] != null ? sources[i].volume : 1f;
+            currentStartVolumes[i] = sources[i] != null ? sources[i].volume : 0f;
+            float baseVol = preDuckedVolumes[i];
+            targetVolumes[i] = isDucking ? (baseVol * duckedVolumeMultiplier) : baseVol;
         }
 
         float elapsed = 0f;
@@ -335,7 +346,7 @@ public class ObjectFocus : MonoBehaviour, IPointerClickHandler
             {
                 if (sources[i] != null)
                 {
-                    sources[i].volume = Mathf.Lerp(startVolumes[i], targetVolume, t);
+                    sources[i].volume = Mathf.Lerp(currentStartVolumes[i], targetVolumes[i], t);
                 }
             }
             yield return null;
@@ -343,7 +354,7 @@ public class ObjectFocus : MonoBehaviour, IPointerClickHandler
 
         for (int i = 0; i < sources.Length; i++)
         {
-            if (sources[i] != null) sources[i].volume = targetVolume;
+            if (sources[i] != null) sources[i].volume = targetVolumes[i];
         }
     }
 
