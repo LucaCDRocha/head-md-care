@@ -35,6 +35,7 @@ public class StartGame : MonoBehaviour, IPointerClickHandler
 
     private bool isStarting = false;
     private Collider doorCollider; // 💡 NEW: We need to reference the collider!
+    private float[] maxAmbienceVolumes;
 
     private void Start()
     {
@@ -47,10 +48,8 @@ public class StartGame : MonoBehaviour, IPointerClickHandler
             doorCollider.enabled = true;
         }
 
-        if (cafeAmbience != null)
-        {
-            cafeAmbience.volume = 0f;
-        }
+        CacheAmbienceMaxVolumes();
+        SetAudioVolume(cafeAmbience, 0f);
 
         if (openSign != null) openSign.SetActive(true);
         if (closedSign != null) closedSign.SetActive(false);
@@ -82,13 +81,10 @@ public class StartGame : MonoBehaviour, IPointerClickHandler
     private IEnumerator StartGameSequence()
     {
         // 1. PLAY INITIAL SOUNDS
-        if (doorOpenAudio != null) doorOpenAudio.Play();
+        PlayAllAudioSources(doorOpenAudio);
 
-        if (cafeAmbience != null)
-        {
-            cafeAmbience.volume = 0f;
-            cafeAmbience.Play();
-        }
+        SetAudioVolume(cafeAmbience, 0f);
+        PlayAllAudioSources(cafeAmbience);
 
         // 2. OPEN THE DOOR AND FADE VOLUME
         Transform doorParent = transform.parent != null ? transform.parent : transform;
@@ -105,17 +101,14 @@ public class StartGame : MonoBehaviour, IPointerClickHandler
 
             doorParent.rotation = Quaternion.Lerp(startRotation, endRotation, smoothT);
             
-            if (cafeAmbience != null)
-            {
-                cafeAmbience.volume = Mathf.Lerp(0f, 1f, smoothT);
-            }
+            SetAudioVolume(cafeAmbience, Mathf.Lerp(0f, 1f, smoothT));
 
             yield return null;
         }
 
         doorParent.rotation = endRotation;
         
-        if (cafeAmbience != null) cafeAmbience.volume = 1f;
+        SetAudioVolume(cafeAmbience, 1f);
 
         // 3. DRAMATIC PAUSE
         yield return new WaitForSeconds(0.2f);
@@ -148,5 +141,55 @@ public class StartGame : MonoBehaviour, IPointerClickHandler
         // 5. CLEANUP
         if (hideOnStart) gameObject.SetActive(false);
         else isStarting = false; 
+    }
+
+    private void CacheAmbienceMaxVolumes()
+    {
+        if (cafeAmbience == null) return;
+        AudioSource[] sources = cafeAmbience.GetComponentsInChildren<AudioSource>(true);
+        if (sources == null || sources.Length == 0) sources = new AudioSource[] { cafeAmbience };
+
+        maxAmbienceVolumes = new float[sources.Length];
+        for (int i = 0; i < sources.Length; i++)
+        {
+            maxAmbienceVolumes[i] = sources[i] != null ? sources[i].volume : 1f;
+        }
+    }
+
+    private void SetAudioVolume(AudioSource source, float volumeFactor)
+    {
+        if (source == null) return;
+        AudioSource[] sources = source.GetComponentsInChildren<AudioSource>(true);
+        if (sources == null || sources.Length == 0) sources = new AudioSource[] { source };
+
+        if (source == cafeAmbience && maxAmbienceVolumes != null && maxAmbienceVolumes.Length == sources.Length)
+        {
+            for (int i = 0; i < sources.Length; i++)
+            {
+                if (sources[i] != null) sources[i].volume = maxAmbienceVolumes[i] * volumeFactor;
+            }
+        }
+        else
+        {
+            foreach (AudioSource src in sources)
+            {
+                if (src != null) src.volume = volumeFactor;
+            }
+        }
+    }
+
+    private void PlayAllAudioSources(AudioSource source)
+    {
+        if (source == null) return;
+        AudioSource[] sources = source.GetComponentsInChildren<AudioSource>(true);
+        if (sources == null || sources.Length == 0)
+        {
+            if (source.gameObject.activeInHierarchy) source.Play();
+            return;
+        }
+        foreach (AudioSource src in sources)
+        {
+            if (src != null && src.gameObject.activeInHierarchy) src.Play();
+        }
     }
 }

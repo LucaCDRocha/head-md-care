@@ -70,11 +70,14 @@ public partial class PuzzleLogic : MonoBehaviour
     private float puzzleChaosStartTime;
     private Coroutine parkCoroutine;
 
+    private float[] maxAmbienceVolumes;
+
     private void Start()
     {
         mainCamera = Camera.main;
         CacheBodyRenderers();
         CachePuzzlePieces(); 
+        CacheAmbienceMaxVolumes();
     }
 
     private void Update()
@@ -268,7 +271,7 @@ public partial class PuzzleLogic : MonoBehaviour
             if (cafeAmbience != null)
             {
                 float t = Mathf.Clamp01(elapsed / fallDuration);
-                cafeAmbience.volume = Mathf.Lerp(startVolume, 0f, t);
+                SetAudioVolume(cafeAmbience, 1f - t);
             }
 
             if (elapsed >= rewindAudioDelay && !rewindStarted)
@@ -280,7 +283,7 @@ public partial class PuzzleLogic : MonoBehaviour
             yield return null; 
         }
 
-        if (cafeAmbience != null) cafeAmbience.volume = 0f;
+        SetAudioVolume(cafeAmbience, 0f);
         StopAllAudioSources(rewindAudio);
 
         for (int i = 0; i < puzzlePieces.Length; i++)
@@ -444,7 +447,7 @@ public partial class PuzzleLogic : MonoBehaviour
         if (cafeAmbience != null && totalPieceCount > 0)
         {
             float completionPercentage = (float)snappedCount / (float)totalPieceCount;
-            cafeAmbience.volume = completionPercentage;
+            SetAudioVolume(cafeAmbience, completionPercentage);
         }
 
         PieceSnapped?.Invoke(piece, snappedCount, totalPieceCount);
@@ -496,6 +499,41 @@ public partial class PuzzleLogic : MonoBehaviour
         foreach (AudioSource src in sources)
         {
             if (src != null) src.Stop();
+        }
+    }
+
+    private void CacheAmbienceMaxVolumes()
+    {
+        if (cafeAmbience == null) return;
+        AudioSource[] sources = cafeAmbience.GetComponentsInChildren<AudioSource>(true);
+        if (sources == null || sources.Length == 0) sources = new AudioSource[] { cafeAmbience };
+
+        maxAmbienceVolumes = new float[sources.Length];
+        for (int i = 0; i < sources.Length; i++)
+        {
+            maxAmbienceVolumes[i] = sources[i] != null ? sources[i].volume : 1f;
+        }
+    }
+
+    private void SetAudioVolume(AudioSource source, float volumeFactor)
+    {
+        if (source == null) return;
+        AudioSource[] sources = source.GetComponentsInChildren<AudioSource>(true);
+        if (sources == null || sources.Length == 0) sources = new AudioSource[] { source };
+
+        if (source == cafeAmbience && maxAmbienceVolumes != null && maxAmbienceVolumes.Length == sources.Length)
+        {
+            for (int i = 0; i < sources.Length; i++)
+            {
+                if (sources[i] != null) sources[i].volume = maxAmbienceVolumes[i] * volumeFactor;
+            }
+        }
+        else
+        {
+            foreach (AudioSource src in sources)
+            {
+                if (src != null) src.volume = volumeFactor;
+            }
         }
     }
 

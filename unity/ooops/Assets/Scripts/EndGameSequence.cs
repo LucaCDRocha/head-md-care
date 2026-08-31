@@ -57,7 +57,11 @@ public class EndGameSequence : MonoBehaviour, IPointerClickHandler
     {
         if (puzzleLogic != null && puzzleLogic.cafeAmbience != null)
         {
-            puzzleLogic.cafeAmbience.Stop();
+            AudioSource[] sources = puzzleLogic.cafeAmbience.GetComponentsInChildren<AudioSource>(true);
+            foreach (AudioSource src in sources)
+            {
+                if (src != null) src.Stop();
+            }
         }
 
         // 1. Audio begins

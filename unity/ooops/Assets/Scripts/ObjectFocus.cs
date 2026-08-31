@@ -17,6 +17,10 @@ public class ObjectFocus : MonoBehaviour, IPointerClickHandler
     [Header("Inspection & Camera Audio")]
     public AudioSource inspectionAudio;
 
+    [Tooltip("Optional: Background music entity that fades in when inspection audio starts and fades out when it stops.")]
+    public AudioSource backgroundMusic;
+    public float musicFadeDuration = 0.5f;
+
     [Tooltip("Optional: AudioSource played immediately when zooming into this object.")]
     public AudioSource zoomInAudio;
 
@@ -86,10 +90,14 @@ public class ObjectFocus : MonoBehaviour, IPointerClickHandler
     private float preDuckedVolume = 1f;
     private bool didDuckAmbience = false;
 
+    private Coroutine musicFadeCoroutine;
+    private float[] maxMusicVolumes;
+
     private void Start()
     {
         puzzleLogic = FindAnyObjectByType<PuzzleLogic>();
         if (idCardPanel != null) idCardPanel.SetActive(false);
+        CacheMusicMaxVolumes();
     }
 
     public void Unfocus()
@@ -262,6 +270,11 @@ public class ObjectFocus : MonoBehaviour, IPointerClickHandler
                 if (audioMonitorCoroutine != null) StopCoroutine(audioMonitorCoroutine);
                 audioMonitorCoroutine = StartCoroutine(MonitorAudioRoutine());
             }
+
+            if (backgroundMusic != null)
+            {
+                StartMusicFade(true);
+            }
         }
 
         isTransitioning = false;
@@ -275,6 +288,11 @@ public class ObjectFocus : MonoBehaviour, IPointerClickHandler
             {
                 inspectionAudio.Stop();
                 if (audioMonitorCoroutine != null) StopCoroutine(audioMonitorCoroutine);
+            }
+
+            if (backgroundMusic != null)
+            {
+                StartMusicFade(false);
             }
         }
     }
@@ -298,17 +316,35 @@ public class ObjectFocus : MonoBehaviour, IPointerClickHandler
     {
         if (source == null) yield break;
 
-        float startVolume = source.volume;
+        AudioSource[] sources = source.GetComponentsInChildren<AudioSource>(true);
+        if (sources == null || sources.Length == 0) sources = new AudioSource[] { source };
+
+        float[] startVolumes = new float[sources.Length];
+        for (int i = 0; i < sources.Length; i++)
+        {
+            startVolumes[i] = sources[i] != null ? sources[i].volume : 1f;
+        }
+
         float elapsed = 0f;
 
         while (elapsed < duration)
         {
             elapsed += Time.deltaTime;
-            source.volume = Mathf.Lerp(startVolume, targetVolume, elapsed / duration);
+            float t = elapsed / duration;
+            for (int i = 0; i < sources.Length; i++)
+            {
+                if (sources[i] != null)
+                {
+                    sources[i].volume = Mathf.Lerp(startVolumes[i], targetVolume, t);
+                }
+            }
             yield return null;
         }
 
-        source.volume = targetVolume;
+        for (int i = 0; i < sources.Length; i++)
+        {
+            if (sources[i] != null) sources[i].volume = targetVolume;
+        }
     }
 
     private void UpdateIDCardPlacement()
@@ -387,6 +423,91 @@ public class ObjectFocus : MonoBehaviour, IPointerClickHandler
             if (src.clip != null) src.PlayOneShot(src.clip);
             else src.Play();
         }
+    }
+
+    private void CacheMusicMaxVolumes()
+    {
+        if (backgroundMusic == null) return;
+        AudioSource[] sources = backgroundMusic.GetComponentsInChildren<AudioSource>(true);
+        if (sources == null || sources.Length == 0) sources = new AudioSource[] { backgroundMusic };
+
+        maxMusicVolumes = new float[sources.Length];
+        for (int i = 0; i < sources.Length; i++)
+        {
+            maxMusicVolumes[i] = sources[i] != null ? sources[i].volume : 1f;
+        }
+    }
+
+    private void StartMusicFade(bool fadeIn)
+    {
+        if (backgroundMusic == null) return;
+        if (musicFadeCoroutine != null) StopCoroutine(musicFadeCoroutine);
+        musicFadeCoroutine = StartCoroutine(FadeMusicRoutine(fadeIn, musicFadeDuration));
+    }
+
+    private IEnumerator FadeMusicRoutine(bool fadeIn, float duration)
+    {
+        if (backgroundMusic == null) yield break;
+
+        AudioSource[] sources = backgroundMusic.GetComponentsInChildren<AudioSource>(true);
+        if (sources == null || sources.Length == 0) sources = new AudioSource[] { backgroundMusic };
+
+        if (maxMusicVolumes == null || maxMusicVolumes.Length != sources.Length)
+        {
+            CacheMusicMaxVolumes();
+        }
+
+        if (fadeIn)
+        {
+            foreach (AudioSource src in sources)
+            {
+                if (src == null) continue;
+                if (!src.isPlaying)
+                {
+                    src.volume = 0f;
+                    src.Play();
+                }
+            }
+        }
+
+        float[] currentStartVolumes = new float[sources.Length];
+        float[] targetVolumes = new float[sources.Length];
+
+        for (int i = 0; i < sources.Length; i++)
+        {
+            currentStartVolumes[i] = sources[i] != null ? sources[i].volume : 0f;
+            float maxVol = (maxMusicVolumes != null && i < maxMusicVolumes.Length) ? maxMusicVolumes[i] : 1f;
+            targetVolumes[i] = fadeIn ? maxVol : 0f;
+        }
+
+        float elapsed = 0f;
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            float t = elapsed / duration;
+            for (int i = 0; i < sources.Length; i++)
+            {
+                if (sources[i] != null)
+                {
+                    sources[i].volume = Mathf.Lerp(currentStartVolumes[i], targetVolumes[i], t);
+                }
+            }
+            yield return null;
+        }
+
+        for (int i = 0; i < sources.Length; i++)
+        {
+            if (sources[i] != null)
+            {
+                sources[i].volume = targetVolumes[i];
+                if (!fadeIn && targetVolumes[i] == 0f)
+                {
+                    sources[i].Stop();
+                }
+            }
+        }
+
+        musicFadeCoroutine = null;
     }
 
     private void OnDestroy()

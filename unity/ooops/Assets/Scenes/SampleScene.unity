@@ -170,6 +170,8 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: 0, y: 0.7, z: 0}
   inspectionAudio: {fileID: 0}
+  backgroundMusic: {fileID: 0}
+  musicFadeDuration: 0.5
   zoomInAudio: {fileID: 247433635}
   zoomOutAudio: {fileID: 788253616}
   cardName: 
@@ -514,6 +516,8 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: 0.5, y: -0.4, z: 0}
   inspectionAudio: {fileID: 1209675119}
+  backgroundMusic: {fileID: 0}
+  musicFadeDuration: 0.5
   zoomInAudio: {fileID: 0}
   zoomOutAudio: {fileID: 0}
   cardName: 
@@ -1008,6 +1012,8 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: 0, y: 0.31, z: 0.01}
   inspectionAudio: {fileID: 0}
+  backgroundMusic: {fileID: 0}
+  musicFadeDuration: 0.5
   zoomInAudio: {fileID: 247433635}
   zoomOutAudio: {fileID: 788253616}
   cardName: 
@@ -1240,6 +1246,8 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: 0, y: 0.7, z: 0}
   inspectionAudio: {fileID: 0}
+  backgroundMusic: {fileID: 0}
+  musicFadeDuration: 0.5
   zoomInAudio: {fileID: 247433635}
   zoomOutAudio: {fileID: 788253616}
   cardName: 
@@ -1550,7 +1558,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 83495b7e4f7830240b71824a86685d36, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.7
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1709,6 +1717,8 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: 0, y: -0.6, z: 0.2}
   inspectionAudio: {fileID: 0}
+  backgroundMusic: {fileID: 0}
+  musicFadeDuration: 0.5
   zoomInAudio: {fileID: 0}
   zoomOutAudio: {fileID: 0}
   cardName: 
@@ -2171,6 +2181,8 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: 0, y: 0.7, z: 0}
   inspectionAudio: {fileID: 0}
+  backgroundMusic: {fileID: 0}
+  musicFadeDuration: 0.5
   zoomInAudio: {fileID: 247433635}
   zoomOutAudio: {fileID: 788253616}
   cardName: 
@@ -2907,6 +2919,8 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: 0, y: 0.7, z: 0}
   inspectionAudio: {fileID: 0}
+  backgroundMusic: {fileID: 0}
+  musicFadeDuration: 0.5
   zoomInAudio: {fileID: 247433635}
   zoomOutAudio: {fileID: 788253616}
   cardName: 
@@ -4096,6 +4110,135 @@ Transform:
   - {fileID: 854294332}
   m_Father: {fileID: 1111080821}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &378635491
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 378635492}
+  - component: {fileID: 378635493}
+  m_Layer: 0
+  m_Name: BG_People
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &378635492
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 378635491}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1979995014}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &378635493
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 378635491}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: 01020d5e46e5b8d4db4d9a0dd17a7641, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.02
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!4 &381302161 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 79c035242d7afca439145ad7e72a6b1f, type: 3}
@@ -4258,6 +4401,8 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: 0, y: 0.7, z: 0}
   inspectionAudio: {fileID: 0}
+  backgroundMusic: {fileID: 0}
+  musicFadeDuration: 0.5
   zoomInAudio: {fileID: 247433635}
   zoomOutAudio: {fileID: 788253616}
   cardName: 
@@ -5321,6 +5466,8 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: -0.1, y: 0.5, z: 0}
   inspectionAudio: {fileID: 1158748526}
+  backgroundMusic: {fileID: 0}
+  musicFadeDuration: 0.5
   zoomInAudio: {fileID: 247433635}
   zoomOutAudio: {fileID: 788253616}
   cardName: 
@@ -6024,6 +6171,8 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: 0, y: 0.7, z: 0}
   inspectionAudio: {fileID: 0}
+  backgroundMusic: {fileID: 0}
+  musicFadeDuration: 0.5
   zoomInAudio: {fileID: 247433635}
   zoomOutAudio: {fileID: 788253616}
   cardName: 
@@ -7011,6 +7160,8 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: 0, y: 0.7, z: 0}
   inspectionAudio: {fileID: 0}
+  backgroundMusic: {fileID: 0}
+  musicFadeDuration: 0.5
   zoomInAudio: {fileID: 247433635}
   zoomOutAudio: {fileID: 788253616}
   cardName: 
@@ -7289,6 +7440,8 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: 0, y: 0.7, z: 0}
   inspectionAudio: {fileID: 0}
+  backgroundMusic: {fileID: 0}
+  musicFadeDuration: 0.5
   zoomInAudio: {fileID: 247433635}
   zoomOutAudio: {fileID: 788253616}
   cardName: 
@@ -9344,6 +9497,8 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: 0, y: 0.7, z: 0}
   inspectionAudio: {fileID: 0}
+  backgroundMusic: {fileID: 0}
+  musicFadeDuration: 0.5
   zoomInAudio: {fileID: 247433635}
   zoomOutAudio: {fileID: 788253616}
   cardName: 
@@ -9936,6 +10091,8 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: 0, y: 0.7, z: 0}
   inspectionAudio: {fileID: 0}
+  backgroundMusic: {fileID: 0}
+  musicFadeDuration: 0.5
   zoomInAudio: {fileID: 247433635}
   zoomOutAudio: {fileID: 788253616}
   cardName: 
@@ -10664,6 +10821,8 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: 0, y: 0.7, z: 0}
   inspectionAudio: {fileID: 0}
+  backgroundMusic: {fileID: 0}
+  musicFadeDuration: 0.5
   zoomInAudio: {fileID: 247433635}
   zoomOutAudio: {fileID: 788253616}
   cardName: 
@@ -11492,6 +11651,8 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: 0, y: -0.6, z: 0.2}
   inspectionAudio: {fileID: 376259290}
+  backgroundMusic: {fileID: 0}
+  musicFadeDuration: 0.5
   zoomInAudio: {fileID: 0}
   zoomOutAudio: {fileID: 0}
   cardName: 
@@ -11680,6 +11841,8 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: 0, y: 0.7, z: 0}
   inspectionAudio: {fileID: 0}
+  backgroundMusic: {fileID: 0}
+  musicFadeDuration: 0.5
   zoomInAudio: {fileID: 247433635}
   zoomOutAudio: {fileID: 788253616}
   cardName: 
@@ -12623,6 +12786,8 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: 0, y: 0.7, z: 0}
   inspectionAudio: {fileID: 0}
+  backgroundMusic: {fileID: 0}
+  musicFadeDuration: 0.5
   zoomInAudio: {fileID: 247433635}
   zoomOutAudio: {fileID: 788253616}
   cardName: 
@@ -19152,6 +19317,8 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: 0, y: 0.7, z: 0}
   inspectionAudio: {fileID: 0}
+  backgroundMusic: {fileID: 0}
+  musicFadeDuration: 0.5
   zoomInAudio: {fileID: 247433635}
   zoomOutAudio: {fileID: 788253616}
   cardName: 
@@ -19705,6 +19872,8 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: 0, y: 0.7, z: 0}
   inspectionAudio: {fileID: 0}
+  backgroundMusic: {fileID: 0}
+  musicFadeDuration: 0.5
   zoomInAudio: {fileID: 247433635}
   zoomOutAudio: {fileID: 788253616}
   cardName: 
@@ -19738,6 +19907,135 @@ MonoBehaviour:
   englishMaterial: {fileID: 2100000, guid: 510340c2b6410674db63a683471da33c, type: 2}
   frenchMaterial: {fileID: 2100000, guid: b6a772af88b17e74580fe3b0a899bec6, type: 2}
   materialIndex: 0
+--- !u!1 &1342718724
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1342718725}
+  - component: {fileID: 1342718726}
+  m_Layer: 0
+  m_Name: BG_Main
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1342718725
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1342718724}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1979995014}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &1342718726
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1342718724}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: b940c1d117796e040834d962594f669c, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1350580495
 GameObject:
   m_ObjectHideFlags: 0
@@ -21875,6 +22173,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1645135198}
   - component: {fileID: 1645135197}
+  - component: {fileID: 1645135199}
   m_Layer: 0
   m_Name: SFX_CafeAmbiance
   m_TagString: Untagged
@@ -21893,9 +22192,9 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: 7eeffe5e28d43c3418026544474eb47d, type: 3}
+  m_Resource: {fileID: 8300000, guid: 6db231857d9bf5c409fc6917635d527a, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -21994,6 +22293,103 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1979995014}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &1645135199
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1645135196}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: 6007534379480f8408a07f472b756f56, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.05
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &1650392933
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22204,6 +22600,8 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: 0, y: 0.7, z: 0}
   inspectionAudio: {fileID: 0}
+  backgroundMusic: {fileID: 0}
+  musicFadeDuration: 0.5
   zoomInAudio: {fileID: 247433635}
   zoomOutAudio: {fileID: 788253616}
   cardName: 
@@ -23241,6 +23639,8 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: 0, y: 0.7, z: 0}
   inspectionAudio: {fileID: 0}
+  backgroundMusic: {fileID: 0}
+  musicFadeDuration: 0.5
   zoomInAudio: {fileID: 247433635}
   zoomOutAudio: {fileID: 788253616}
   cardName: 
@@ -24168,6 +24568,8 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: 0, y: 0.7, z: 0}
   inspectionAudio: {fileID: 0}
+  backgroundMusic: {fileID: 0}
+  musicFadeDuration: 0.5
   zoomInAudio: {fileID: 247433635}
   zoomOutAudio: {fileID: 788253616}
   cardName: 
@@ -25003,6 +25405,8 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: 0, y: -0.3, z: -1}
   inspectionAudio: {fileID: 0}
+  backgroundMusic: {fileID: 0}
+  musicFadeDuration: 0.5
   zoomInAudio: {fileID: 0}
   zoomOutAudio: {fileID: 0}
   cardName: 
@@ -25809,6 +26213,8 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: -0.6, y: 0.8, z: 0.3}
   inspectionAudio: {fileID: 1626761000}
+  backgroundMusic: {fileID: 0}
+  musicFadeDuration: 0.5
   zoomInAudio: {fileID: 247433635}
   zoomOutAudio: {fileID: 788253616}
   cardName: 
@@ -25933,6 +26339,8 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: 0, y: 0.7, z: 0}
   inspectionAudio: {fileID: 0}
+  backgroundMusic: {fileID: 0}
+  musicFadeDuration: 0.5
   zoomInAudio: {fileID: 247433635}
   zoomOutAudio: {fileID: 788253616}
   cardName: 
@@ -26098,6 +26506,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1645135198}
+  - {fileID: 1342718725}
+  - {fileID: 378635492}
   - {fileID: 345315388}
   - {fileID: 2125179460}
   - {fileID: 575842564}
@@ -26534,7 +26944,7 @@ MonoBehaviour:
     - text: "On se voit vendredi ? On fait une toute derni\xE8re f\xEAte !"
       startTime: 2
       duration: 5.5
-  initialLanguage: 0
+  initialLanguage: 1
 --- !u!1 &1982638315 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 3712e5ec0b4806c44b93390f477aeedd, type: 3}
@@ -26556,6 +26966,8 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: -1, y: 0.5, z: 0}
   inspectionAudio: {fileID: 0}
+  backgroundMusic: {fileID: 0}
+  musicFadeDuration: 0.5
   zoomInAudio: {fileID: 0}
   zoomOutAudio: {fileID: 0}
   cardName: 
@@ -26883,6 +27295,8 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: 0, y: 0.7, z: 0}
   inspectionAudio: {fileID: 0}
+  backgroundMusic: {fileID: 0}
+  musicFadeDuration: 0.5
   zoomInAudio: {fileID: 247433635}
   zoomOutAudio: {fileID: 788253616}
   cardName: 
@@ -27159,6 +27573,8 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: 0, y: 0.7, z: 0}
   inspectionAudio: {fileID: 0}
+  backgroundMusic: {fileID: 0}
+  musicFadeDuration: 0.5
   zoomInAudio: {fileID: 247433635}
   zoomOutAudio: {fileID: 788253616}
   cardName: 
@@ -27613,6 +28029,8 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: 0, y: -0.3, z: -1}
   inspectionAudio: {fileID: 591700504}
+  backgroundMusic: {fileID: 0}
+  musicFadeDuration: 0.5
   zoomInAudio: {fileID: 0}
   zoomOutAudio: {fileID: 0}
   cardName: 
@@ -46937,6 +47355,8 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: -0.5, y: 0, z: 0.8}
   inspectionAudio: {fileID: 0}
+  backgroundMusic: {fileID: 0}
+  musicFadeDuration: 0.5
   zoomInAudio: {fileID: 247433635}
   zoomOutAudio: {fileID: 788253616}
   cardName: The Little Pilot
@@ -50045,6 +50465,8 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: 0, y: -0.2, z: -0.7}
   inspectionAudio: {fileID: 0}
+  backgroundMusic: {fileID: 0}
+  musicFadeDuration: 0.5
   zoomInAudio: {fileID: 247433635}
   zoomOutAudio: {fileID: 788253616}
   cardName: Robo the Robot
@@ -50815,6 +51237,8 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: 0.8, y: -0.9, z: 0.3}
   inspectionAudio: {fileID: 748251846}
+  backgroundMusic: {fileID: 0}
+  musicFadeDuration: 0.5
   zoomInAudio: {fileID: 247433635}
   zoomOutAudio: {fileID: 788253616}
   cardName: 
@@ -51886,6 +52310,8 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: 0, y: 0.7, z: 0.2}
   inspectionAudio: {fileID: 0}
+  backgroundMusic: {fileID: 0}
+  musicFadeDuration: 0.5
   zoomInAudio: {fileID: 247433635}
   zoomOutAudio: {fileID: 788253616}
   cardName: "Sonia\u2019s Library"
@@ -52482,6 +52908,8 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: -0.5, y: -0.2, z: -0.8}
   inspectionAudio: {fileID: 0}
+  backgroundMusic: {fileID: 0}
+  musicFadeDuration: 0.5
   zoomInAudio: {fileID: 247433635}
   zoomOutAudio: {fileID: 788253616}
   cardName: The Endless Knot
@@ -56969,6 +57397,8 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: 0, y: 0.7, z: 0.2}
   inspectionAudio: {fileID: 0}
+  backgroundMusic: {fileID: 0}
+  musicFadeDuration: 0.5
   zoomInAudio: {fileID: 247433635}
   zoomOutAudio: {fileID: 788253616}
   cardName: "Sonia\u2019s Library"
@@ -60764,6 +61194,8 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: 0, y: -0.7, z: 0.2}
   inspectionAudio: {fileID: 0}
+  backgroundMusic: {fileID: 0}
+  musicFadeDuration: 0.5
   zoomInAudio: {fileID: 247433635}
   zoomOutAudio: {fileID: 788253616}
   cardName: Candle of Truth
@@ -63940,6 +64372,8 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: 0, y: 0, z: 0.5}
   inspectionAudio: {fileID: 1037208196}
+  backgroundMusic: {fileID: 0}
+  musicFadeDuration: 0.5
   zoomInAudio: {fileID: 247433635}
   zoomOutAudio: {fileID: 788253616}
   cardName: 
@@ -66697,6 +67131,8 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: 0, y: 1, z: 0}
   inspectionAudio: {fileID: 0}
+  backgroundMusic: {fileID: 0}
+  musicFadeDuration: 0.5
   zoomInAudio: {fileID: 247433635}
   zoomOutAudio: {fileID: 788253616}
   cardName: Ducky on Duty
@@ -66825,6 +67261,8 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: -0.5, y: -0.5, z: 0.5}
   inspectionAudio: {fileID: 0}
+  backgroundMusic: {fileID: 0}
+  musicFadeDuration: 0.5
   zoomInAudio: {fileID: 247433635}
   zoomOutAudio: {fileID: 788253616}
   cardName: Mimi the Monstera
@@ -70393,6 +70831,8 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: 0, y: 0.2, z: 0.65}
   inspectionAudio: {fileID: 0}
+  backgroundMusic: {fileID: 0}
+  musicFadeDuration: 0.5
   zoomInAudio: {fileID: 247433635}
   zoomOutAudio: {fileID: 788253616}
   cardName: MR. GNOME
@@ -71038,6 +71478,8 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: 0, y: 0, z: -0.7}
   inspectionAudio: {fileID: 0}
+  backgroundMusic: {fileID: 0}
+  musicFadeDuration: 0.5
   zoomInAudio: {fileID: 247433635}
   zoomOutAudio: {fileID: 788253616}
   cardName: Dumbo the Elephant
@@ -72420,6 +72862,8 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: 0.5, y: 1, z: 0.8}
   inspectionAudio: {fileID: 0}
+  backgroundMusic: {fileID: 0}
+  musicFadeDuration: 0.5
   zoomInAudio: {fileID: 247433635}
   zoomOutAudio: {fileID: 788253616}
   cardName: Wooden Bird
@@ -73309,6 +73753,8 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: 1, y: -0.5, z: 0}
   inspectionAudio: {fileID: 0}
+  backgroundMusic: {fileID: 0}
+  musicFadeDuration: 0.5
   zoomInAudio: {fileID: 247433635}
   zoomOutAudio: {fileID: 788253616}
   cardName: The Guardians
@@ -73982,6 +74428,8 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: -0.1, y: -0.7, z: 0}
   inspectionAudio: {fileID: 0}
+  backgroundMusic: {fileID: 0}
+  musicFadeDuration: 0.5
   zoomInAudio: {fileID: 247433635}
   zoomOutAudio: {fileID: 788253616}
   cardName: MS. GNOME
@@ -74461,6 +74909,8 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: 0.3, y: -1, z: 0.2}
   inspectionAudio: {fileID: 0}
+  backgroundMusic: {fileID: 0}
+  musicFadeDuration: 0.5
   zoomInAudio: {fileID: 247433635}
   zoomOutAudio: {fileID: 788253616}
   cardName: Chubby the Pomeranian
@@ -74693,6 +75143,8 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: 1, y: -0.2, z: 1}
   inspectionAudio: {fileID: 1238971889}
+  backgroundMusic: {fileID: 0}
+  musicFadeDuration: 0.5
   zoomInAudio: {fileID: 247433635}
   zoomOutAudio: {fileID: 788253616}
   cardName: 
@@ -74824,6 +75276,8 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: 0, y: 0.3, z: 0.7}
   inspectionAudio: {fileID: 0}
+  backgroundMusic: {fileID: 0}
+  musicFadeDuration: 0.5
   zoomInAudio: {fileID: 247433635}
   zoomOutAudio: {fileID: 788253616}
   cardName: ECHO CHAMBER
@@ -75403,6 +75857,8 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: 0.7, y: -0.4, z: -0.1}
   inspectionAudio: {fileID: 0}
+  backgroundMusic: {fileID: 0}
+  musicFadeDuration: 0.5
   zoomInAudio: {fileID: 247433635}
   zoomOutAudio: {fileID: 788253616}
   cardName: MIDNIGHT EXPRESS
@@ -75500,6 +75956,8 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: 0, y: -0.5, z: -1}
   inspectionAudio: {fileID: 0}
+  backgroundMusic: {fileID: 0}
+  musicFadeDuration: 0.5
   zoomInAudio: {fileID: 247433635}
   zoomOutAudio: {fileID: 788253616}
   cardName: The Guardians
@@ -75689,6 +76147,8 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: -0.1, y: -0.3, z: 0.5}
   inspectionAudio: {fileID: 0}
+  backgroundMusic: {fileID: 0}
+  musicFadeDuration: 0.5
   zoomInAudio: {fileID: 247433635}
   zoomOutAudio: {fileID: 788253616}
   cardName: The Eternal Match
@@ -76034,6 +76494,8 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: 0.7, y: -0.2, z: -0.3}
   inspectionAudio: {fileID: 0}
+  backgroundMusic: {fileID: 0}
+  musicFadeDuration: 0.5
   zoomInAudio: {fileID: 247433635}
   zoomOutAudio: {fileID: 788253616}
   cardName: GARRY THE SNAIL
@@ -76208,6 +76670,8 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: -0.5, y: -0.5, z: 0.3}
   inspectionAudio: {fileID: 0}
+  backgroundMusic: {fileID: 0}
+  musicFadeDuration: 0.5
   zoomInAudio: {fileID: 247433635}
   zoomOutAudio: {fileID: 788253616}
   cardName: Mona the Monstera
@@ -76406,6 +76870,8 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: -0.8, y: -0.2, z: -0.5}
   inspectionAudio: {fileID: 949465678}
+  backgroundMusic: {fileID: 378635493}
+  musicFadeDuration: 0.5
   zoomInAudio: {fileID: 247433635}
   zoomOutAudio: {fileID: 788253616}
   cardName: 
@@ -76632,6 +77098,8 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: 0, y: 0.7, z: 0.2}
   inspectionAudio: {fileID: 0}
+  backgroundMusic: {fileID: 0}
+  musicFadeDuration: 0.5
   zoomInAudio: {fileID: 247433635}
   zoomOutAudio: {fileID: 788253616}
   cardName: "Sonia\u2019s Library"
@@ -77220,6 +77688,8 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: 0.1, y: 0, z: 0.8}
   inspectionAudio: {fileID: 0}
+  backgroundMusic: {fileID: 0}
+  musicFadeDuration: 0.5
   zoomInAudio: {fileID: 247433635}
   zoomOutAudio: {fileID: 788253616}
   cardName: Perot in a Shoe
@@ -79513,6 +79983,8 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: -0.7, y: 0.3, z: 0.2}
   inspectionAudio: {fileID: 0}
+  backgroundMusic: {fileID: 0}
+  musicFadeDuration: 0.5
   zoomInAudio: {fileID: 247433635}
   zoomOutAudio: {fileID: 788253616}
   cardName: ECHO CHAMBER
@@ -80421,6 +80893,7 @@ MonoBehaviour:
   - {fileID: 1386340918}
   - {fileID: 630827423}
   - {fileID: 1958875684}
+  - {fileID: 1342718726}
   openDuration: 1.5
   openAngle: 90
   openSign: {fileID: 225740898}
@@ -81809,6 +82282,8 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: -0.5, y: -0.5, z: 0}
   inspectionAudio: {fileID: 0}
+  backgroundMusic: {fileID: 0}
+  musicFadeDuration: 0.5
   zoomInAudio: {fileID: 247433635}
   zoomOutAudio: {fileID: 788253616}
   cardName: Mara the Monstera
@@ -81862,6 +82337,8 @@ MonoBehaviour:
   sharedFocusCamera: {fileID: 390290580}
   cameraLocalOffset: {x: -0.3, y: -0.5, z: -0.8}
   inspectionAudio: {fileID: 0}
+  backgroundMusic: {fileID: 0}
+  musicFadeDuration: 0.5
   zoomInAudio: {fileID: 247433635}
   zoomOutAudio: {fileID: 788253616}
   cardName: The Eternal Match
