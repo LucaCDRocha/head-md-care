@@ -4,7 +4,7 @@
 
 ### Fonts
 
-The font can not be commit on Github so here the link for them and where to put them.
+The fonts can not be committed on GitHub, so here the links for them and where to put them.
 
 Comico font link: https://fontshare.com/fonts/comico
 Nunito font link: https://fontshare.com/fonts/nunito
