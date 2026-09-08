@@ -1,6 +1,6 @@
 # Instructions for Rafael
 
-## OOOPS! project (Kostas, Luca and Clara)
+## OOOPS! project (Kostas, Luca and Carla)
 
 ### Fonts
 
