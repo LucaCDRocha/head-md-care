@@ -84,6 +84,30 @@ public class ObjectFocus : MonoBehaviour, IPointerClickHandler
     public static bool IsAnyObjectFocused => isAnyObjectFocused;
     public static ObjectFocus CurrentlyFocusedObject => currentlyFocusedObject;
 
+    public bool IsInspectionAudioPlaying()
+    {
+        if (inspectionAudio == null) return false;
+        AudioSource[] sources = inspectionAudio.GetComponentsInChildren<AudioSource>(true);
+        if (sources == null || sources.Length == 0)
+        {
+            return inspectionAudio.isPlaying;
+        }
+        foreach (AudioSource src in sources)
+        {
+            if (src != null && src.isPlaying) return true;
+        }
+        return false;
+    }
+
+    public static bool IsAnyObjectFocusAudioPlaying
+    {
+        get
+        {
+            if (!isAnyObjectFocused || currentlyFocusedObject == null) return false;
+            return currentlyFocusedObject.IsInspectionAudioPlaying();
+        }
+    }
+
     private PuzzleLogic puzzleLogic;
     private Coroutine audioMonitorCoroutine;
     private Coroutine ambienceFadeCoroutine;
@@ -527,6 +551,7 @@ public class ObjectFocus : MonoBehaviour, IPointerClickHandler
         {
             isTransitioning = false;
             isAnyObjectFocused = false;
+            currentlyFocusedObject = null;
         }
     }
 }

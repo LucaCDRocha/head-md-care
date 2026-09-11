@@ -46,15 +46,5 @@ when an object is clicked.
 
 ### Things to consider
 
-- When someone leaves the experience and there is no interaction at all for 7
-  or more seconds, the whole experience should automatically reset to the
-  very beginning (the entrance of the café).
-- The standby mode of the experience should be either the beginning of the
-  experience or a title page with the name of the project.
-- Create a hidden manual reset button/gesture so exhibition staff can quickly
-  restart the experience if something gets stuck.
 - Lock the iPad in kiosk mode so visitors cannot exit the experience or
   access the Home Screen, Control Center, notifications, or other apps.
-- Make the experience automatically launch in full-screen mode when the
-  iPad/project is restarted, without showing browser bars or other system UI
-  elements.

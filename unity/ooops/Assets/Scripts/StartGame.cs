@@ -34,11 +34,24 @@ public class StartGame : MonoBehaviour, IPointerClickHandler
     public bool hideOnStart = true;
 
     private bool isStarting = false;
+    public static bool HasGameStarted { get; private set; } = false;
+
+    public static bool IsGameStarted
+    {
+        get
+        {
+            StartGame startScript = FindAnyObjectByType<StartGame>(FindObjectsInactive.Include);
+            if (startScript == null) return true;
+            return HasGameStarted;
+        }
+    }
+
     private Collider doorCollider; // 💡 NEW: We need to reference the collider!
     private float[] maxAmbienceVolumes;
 
     private void Start()
     {
+        HasGameStarted = false;
         Application.targetFrameRate = 30;
         
         // 💡 NEW: Automatically find the collider on this object and make sure it is ON!
@@ -57,9 +70,15 @@ public class StartGame : MonoBehaviour, IPointerClickHandler
         if (coffeeMug != null) coffeeMug.SetActive(false);
     }
 
+    private void OnDestroy()
+    {
+        HasGameStarted = false;
+    }
+
     public void OnPointerClick(PointerEventData eventData)
     {
         if (isStarting) return;
+        HasGameStarted = true;
 
         // 💡 THE FIX: Instantly disable the collider the exact millisecond the player clicks!
         if (doorCollider != null)

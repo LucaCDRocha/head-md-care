@@ -26449,6 +26449,7 @@ GameObject:
   - component: {fileID: 1979995014}
   - component: {fileID: 1979995013}
   - component: {fileID: 1979995015}
+  - component: {fileID: 1979995016}
   m_Layer: 0
   m_Name: _Managers
   m_TagString: Untagged
@@ -26945,6 +26946,27 @@ MonoBehaviour:
       startTime: 2
       duration: 5.5
   initialLanguage: 1
+--- !u!114 &1979995016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1979995012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2559f3e10957914a86121dc34c29812, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ExhibitionManager
+  idleTimeoutSeconds: 60
+  enableInactivityTimer: 1
+  enableFourCornerReset: 1
+  cornerSizeRatio: 0.15
+  cornerMultiTapWindow: 1.5
+  enableDebugKeyboardReset: 1
+  timeSinceLastInteraction: 0
+  isObjectFocusAudioPlaying: 0
+  isTimerPausedForAudio: 0
 --- !u!1 &1982638315 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 3712e5ec0b4806c44b93390f477aeedd, type: 3}

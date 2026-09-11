@@ -31,10 +31,13 @@ public class EndGameSequence : MonoBehaviour, IPointerClickHandler
     public AudioSource goodbyeSound; // 💡 NEW: The final voiceover sound!
 
     private bool isEnding = false;
+    public static bool IsEnding { get; private set; } = false;
+
     private Quaternion initialDoorRotation;
 
     private void Start()
     {
+        IsEnding = false;
         if (puzzleLogic == null) puzzleLogic = FindAnyObjectByType<PuzzleLogic>();
 
         if (doorTransform != null)
@@ -43,12 +46,18 @@ public class EndGameSequence : MonoBehaviour, IPointerClickHandler
         }
     }
 
+    private void OnDestroy()
+    {
+        IsEnding = false;
+    }
+
     public void OnPointerClick(PointerEventData eventData)
     {
         if (puzzleLogic == null || !puzzleLogic.isRestored) return;
         
         if (isEnding) return;
         isEnding = true;
+        IsEnding = true;
 
         StartCoroutine(FinaleRoutine());
     }
